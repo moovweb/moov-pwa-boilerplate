@@ -10,10 +10,12 @@ import { MuiThemeProvider } from 'material-ui/styles'
 import theme from './theme'
 import createBrowserHistory from 'history/createBrowserHistory'
 
-const history = createBrowserHistory()
 const Product = asyncComponent(() => import('./product/Product'))
 const Category = asyncComponent(() => import('./category/Category'))
+const Cart = asyncComponent(() => import('./cart/Cart'))
+
 const title = "BBQ Guys"
+const history = createBrowserHistory()
 
 class App extends Component {
 
@@ -36,6 +38,7 @@ class App extends Component {
             <Route exact path="/" component={Home}/>
             <Route path="/categories/:id" component={Category}/>
             <Route path="/products/:id" component={Product}/>
+            <Route path="/cart" component={Cart}/>
           </div>
         </MuiThemeProvider>
       </Router>
