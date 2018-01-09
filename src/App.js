@@ -1,31 +1,57 @@
 import React, { Component } from 'react'
 import logo from './logo.svg'
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import { Router, Route, Link } from 'react-router-dom'
 import './App.css'
 import asyncComponent from './AsyncComponent'
 import Home from './home/Home'
+import Header from './header/Header'
+import Menu from './menu/Menu'
+import { MuiThemeProvider } from 'material-ui/styles'
+import theme from './theme'
+import createBrowserHistory from 'history/createBrowserHistory'
 
-const Product = asyncComponent(() => import('./product/Product'));
-const Category = asyncComponent(() => import('./category/Category'));
+const history = createBrowserHistory()
+const Product = asyncComponent(() => import('./product/Product'))
+const Category = asyncComponent(() => import('./category/Category'))
+const title = "BBQ Guys"
 
 class App extends Component {
+
+  state = {
+    menu: false
+  }
+
+  constructor(props) {
+    super()
+    history.listen(this.onRouteChange)
+  }
+
   render() {
     return (
-      <Router>
-        <div className="App">
-          <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <h1 className="App-title">Welcome to React</h1>
-            <Link to="/">Home</Link>
-            <Link to="/categories/1">Category</Link>
-            <Link to="/products/1">Product</Link>
-          </header>
-          <Route exact path="/" component={Home}/>
-          <Route path="/categories/:id" component={Category}/>
-          <Route path="/products/:id" component={Product}/>
-        </div>
+      <Router history={history} onUpdate={this.onRouteChange}>
+        <MuiThemeProvider theme={theme}>
+          <div className="App">
+            <Header onMenuClick={this.toggleMenu} title={title}/>
+            <Menu open={this.state.menu} onClose={this.onMenuClose} title={title}/>
+            <Route exact path="/" component={Home}/>
+            <Route path="/categories/:id" component={Category}/>
+            <Route path="/products/:id" component={Product}/>
+          </div>
+        </MuiThemeProvider>
       </Router>
     )
+  }
+
+  onRouteChange = (location, action) => {
+    this.setState({ menu: false })
+  }
+
+  onMenuClose = () => {
+    this.setState({ menu: false })
+  }
+
+  toggleMenu = () => {
+    this.setState({ menu: !this.state.menu })
   }
 }
 
