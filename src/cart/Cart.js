@@ -4,12 +4,14 @@ import React, { Component } from 'react'
 @inject('shop')
 @observer
 export default class Cart extends Component {
-  render({ shop: { cart } }) {
+  render() {
+    const { shop: { cart } } = this.props
+
     return (
       <section className="Page-cart">
         <h2>Your cart</h2>
         <section className="Page-cart-items">
-          {cart.entries.map(entry => <CartEntry key={entry.book.id} entry={entry} />)}
+          {cart.entries.map(entry => <CartEntry key={entry.product.id} entry={entry} />)}
         </section>
         <p>Subtotal: {cart.subTotal} €</p>
         {cart.hasDiscount && (
@@ -31,15 +33,17 @@ export default class Cart extends Component {
 @inject("shop")
 @observer
 class CartEntry extends Component {
-  render({ shop, entry }) {
+  render() {
+    const { shop, entry } = this.props
+
     return (
       <div className="Page-cart-item">
         <p>
-          <a href={`/book/${entry.book.id}`} onClick={onEntryClick.bind(entry, shop)}>
-            {entry.book.name}
+          <a href={`/product/${entry.product.id}`} onClick={onEntryClick.bind(entry, shop)}>
+            {entry.product.name}
           </a>
         </p>
-        {!entry.book.isAvailable && (
+        {!entry.product.isAvailable && (
           <p>
             <b>Not available anymore</b>
           </p>
@@ -60,7 +64,7 @@ class CartEntry extends Component {
 }
 
 function onEntryClick(shop, e) {
-  shop.view.openBookPage(this.book)
+  shop.view.openproductPage(this.product)
   e.preventDefault()
   return false
 }

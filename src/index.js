@@ -4,12 +4,7 @@ import { Provider } from "mobx-react"
 import './index.css'
 import App from './App'
 import registerServiceWorker from './registerServiceWorker'
-import ShopStore from "./ShopStore"
-
-const shop = ShopStore.create(
-  {},
-  {}
-)
+import shop from "./ShopStore"
 
 ReactDOM.render(
   <Provider shop={shop}>

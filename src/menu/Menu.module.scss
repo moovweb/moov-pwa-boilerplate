@@ -1,0 +1,15 @@
+.menuWrap {
+  width: 250px;
+  overflow: hidden;
+  margin-top: 66px;
+
+  & > [level="2"] {
+    transform: translateX(-250px);
+  }
+}
+
+.hbox {
+  display: flex;
+  flex-direction: row;
+  transition: all ease-out 0.2s;
+}

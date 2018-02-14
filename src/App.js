@@ -15,7 +15,7 @@ const Category = asyncComponent(() => import('./category/Category'))
 const Cart = asyncComponent(() => import('./cart/Cart'))
 
 const title = "BBQ Guys"
-const history = createBrowserHistory()
+const history = window.routerHistory = createBrowserHistory()
 
 class App extends Component {
 
@@ -36,7 +36,9 @@ class App extends Component {
             <Header onMenuClick={this.toggleMenu} title={title}/>
             <Menu open={this.state.menu} onClose={this.onMenuClose} title={title}/>
             <Route exact path="/" component={Home}/>
-            <Route path="/categories/:id" component={Category}/>
+            <Route path="/categories/:id" render={props => {
+              return <Category key={props.match.params.id} {...props}/>
+            }}/>
             <Route path="/products/:id" component={Product}/>
             <Route path="/cart" component={Cart}/>
           </div>
