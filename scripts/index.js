@@ -37,7 +37,25 @@ module.exports = function() {
 };
 
 router.get('/data/test', params => {
-  return Promise.resolve({ success: true })
+  return Promise.resolve({ success: true });
+});
+
+router.get('/data/menu', params => {
+  return Promise.resolve({
+    items: [{
+      id: '1',
+      text: 'Home',
+      url: '/'
+    }, {
+      id: '5',
+      text: 'Products',
+      items: [
+        { id: '6', text: 'Accessories', items: [
+          { id: '7', text: 'Shop all Accessories', url: '/c/all-accessories' }
+        ] }
+      ]
+    }]
+  });
 });
 
 // router.get('/products/:id', params => {

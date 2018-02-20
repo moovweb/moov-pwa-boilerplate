@@ -11,7 +11,9 @@ import CloseIcon from 'material-ui-icons/Close'
 import IconButton from 'material-ui/IconButton'
 import styles from './Menu.module.scss'
 import ListItemIcon from 'material-ui/List/ListItemIcon';
+import { withRouter } from 'react-router-dom';
 
+@withRouter
 @inject('shop')
 @observer
 export default class Menu extends Component {
@@ -19,12 +21,13 @@ export default class Menu extends Component {
   render() {
     const { shop: { menu }, title, open, onClose } = this.props
     const { levels, level } = menu
+    const width = 250;
 
     return (
       <Drawer open={open} onClose={onClose} style={styles.drawer}>
         <AppBar style={{ backgroundColor: 'white' }}>
           <Toolbar>
-            <IconButton aria-label="Close Menu" onClick={onClose} color="danger">
+            <IconButton aria-label="Close Menu" onClick={onClose}>
               <CloseIcon />
             </IconButton>
             <Typography type="title" color="inherit">
@@ -33,10 +36,10 @@ export default class Menu extends Component {
           </Toolbar>
         </AppBar>
         <div className={styles.menuWrap}>
-          <div className={styles.hbox} level={level}>
-            {levels.map((item, i) => (
-              <div data-depth={i}>
-                <List style={{ minWidth: '250px' }}>
+          <div className={styles.hbox} style={{ transform: `translateX(${-width * level}px)` }}>
+            {levels.map((item, i) => {
+              return (
+                <List style={{ width: `${width}px`, flex: 'none' }} key={i}>
                   {!item.root && (
                     <ListItem button onClick={() => menu.goBack()} classes={{ root: styles.header }}>
                       <ListItemIcon style={{ marginRight: 0 }}>
@@ -45,14 +48,14 @@ export default class Menu extends Component {
                       <ListItemText classes={{ root: styles.headerText }} primary={<div className={styles.headerText}>{item.text} </div>} />
                     </ListItem>
                   )}
-                  {item.items.map((item, i) => (
+                  {item.items && item.items.map((item, i) => (
                     <ListItem key={i} button onClick={this.onItemClick.bind(this, item, menu)}>
                       <ListItemText primary={item.text} />
                     </ListItem>
                   ))}
                 </List>
-              </div>
-            ))}
+              )
+            })}
           </div>
         </div>
       </Drawer>
@@ -60,8 +63,10 @@ export default class Menu extends Component {
   }
 
   onItemClick = (item, menu) => {
+    const { history } = this.props;
+
     if (item.url) {
-      window.location.href = item.url
+      history.push(item.url)
     } else {
       menu.setSelected(item)
     }
