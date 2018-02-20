@@ -58,6 +58,7 @@ Go to http://mlocal.www.pepboys.com/
 
 /categories/accessories:
 
+```
 {
   subcategories: [{
     text: (string),
@@ -71,9 +72,10 @@ Go to http://mlocal.www.pepboys.com/
     url: (string:path)
   }]
 }
+```
 
 /categories/interior-accessories:
-
+```
 {
   subcategories: [{
     text: (string),
@@ -87,9 +89,10 @@ Go to http://mlocal.www.pepboys.com/
     url: (string:path)
   }]
 }
+```
 
 /subcategories/ash-trays:
-
+```
 {
   products: [{
     text: (string),
@@ -104,9 +107,10 @@ Go to http://mlocal.www.pepboys.com/
     url: (string:path)
   }]
 }
+```
 
 /products/:id
-
+```
 {
   partNo:
   sku:
@@ -116,4 +120,4 @@ Go to http://mlocal.www.pepboys.com/
   ...
 }
 
-
+```
