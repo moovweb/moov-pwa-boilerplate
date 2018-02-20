@@ -11,10 +11,6 @@
   width: 250px;
   overflow: hidden;
   margin-top: 50px;
-
-  & > [level="2"] {
-    transform: translateX(-250px);
-  }
 }
 
 .hbox {
