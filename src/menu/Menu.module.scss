@@ -1,7 +1,16 @@
+.header {
+  background-color: #F0F0F0 !important;
+}
+
+.headerText {
+  padding-left: 5px !important;
+  font-weight: bold;
+}
+
 .menuWrap {
   width: 250px;
   overflow: hidden;
-  margin-top: 66px;
+  margin-top: 50px;
 
   & > [level="2"] {
     transform: translateX(-250px);
