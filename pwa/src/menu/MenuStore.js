@@ -3,39 +3,40 @@ import { types } from "mobx-state-tree"
 export const MenuItem = types
   .model("MenuItem", {
     id: types.identifier(),
-    text: types.string,
-    items: types.maybe(types.array(types.late(() => MenuItem)))
+    text: types.optional(types.string, ''),
+    items: types.maybe(types.array(types.late(() => MenuItem))),
+    root: types.optional(types.boolean, false)
   })
 
 export const Menu = types
   .model("MenuStore", {
-    items: types.array(MenuItem),
-    level: types.number,
-    selected: types.maybe(types.reference(MenuItem))
+    levels: types.array(types.reference(MenuItem)),
+    level: types.number
   })
   .views(self => ({
 
   }))
   .actions(self => ({
     setSelected(item) {
-      self.selected = item
-      self.level = 2
+      self.level++
+      if (self.levels.length <= self.level) {
+        self.levels.push(item)
+      } else {
+        self.levels[self.level] = item
+      }
     },
     goBack() {
-      self.level = 1
+      self.level = Math.max(0, self.level - 1)
     }
-  }));
+  }))
 
-export const menuStore = Menu.create({
-  level: 1,
+const root = MenuItem.create({
+  id: '0',
+  root: true,
   items: [{
     id: '1',
-    text: 'Rugs',
-    items: [
-      { id: '2', text: 'Featured Rugs' },
-      { id: '3', text: 'Shop Rugs by Material' },
-      { id: '4', text: 'Shop Rugs by Size' }
-    ]
+    text: 'Home',
+    url: '/'
   }, {
     id: '5',
     text: 'Bedding',
@@ -45,4 +46,9 @@ export const menuStore = Menu.create({
       { id: '8', text: 'Featured Bedding' }
     ]
   }]
+})
+
+export const menuStore = Menu.create({
+  level: 1,
+  levels: [root]
 })

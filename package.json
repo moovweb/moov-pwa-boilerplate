@@ -1,5 +1,5 @@
 {
-  "name": "1800flowerspwa",
+  "name": "moov-pwa",
   "version": "0.0.0",
   "main": "scripts/moov_main.js",
   "dependencies": {

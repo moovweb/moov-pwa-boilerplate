@@ -52,3 +52,68 @@ npm start
 This starts moov_server and webpack dev server.  
 
 Go to http://mlocal.www.pepboys.com/
+
+
+# API
+
+/categories/accessories:
+
+{
+  subcategories: [{
+    text: (string),
+    image: (string:url),
+    url: (string:path)
+  }],
+  text: (string), // seo text at the bottom
+  youMayAlsoLike: [{
+    text: (string)
+    image: (string:url),
+    url: (string:path)
+  }]
+}
+
+/categories/interior-accessories:
+
+{
+  subcategories: [{
+    text: (string),
+    image: (string:url),
+    url: (string:path)
+  }],
+  text: (string), // seo text at the bottom
+  youMayAlsoLike: [{
+    text: (string)
+    image: (string:url),
+    url: (string:path)
+  }]
+}
+
+/subcategories/ash-trays:
+
+{
+  products: [{
+    text: (string),
+    image: (string:url),
+    url: (string:path),
+    ... // reviews, sku, etc..
+  }],
+  text: (string), // seo text at the bottom
+  alsoViewed: [{
+    text: (string)
+    image: (string:url),
+    url: (string:path)
+  }]
+}
+
+/products/:id
+
+{
+  partNo:
+  sku:
+  image:
+  price:
+  description:,
+  ...
+}
+
+

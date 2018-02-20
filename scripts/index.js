@@ -39,3 +39,7 @@ module.exports = function() {
 router.get('/data/test', params => {
   return Promise.resolve({ success: true })
 });
+
+// router.get('/products/:id', params => {
+//   params.id
+// })
