@@ -1,6 +1,6 @@
 const Router = require('/router.js');
 
-/* global sendResponse */
+/* global sendResponse, useMoovAsyncTransformer */
 function shouldCacheApiRequest() {
   // return (
   //  env.path.startsWith('/data/...')
@@ -36,8 +36,8 @@ module.exports = function() {
 
 };
 
-router.get('/data/test', params => {
-  return Promise.resolve({ success: true })
+router.get('/data/test', () => {
+  return Promise.resolve({ success: true }); 
 });
 
 // router.get('/products/:id', params => {

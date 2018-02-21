@@ -28,7 +28,7 @@ module.exports = class Router {
   }
 
   fallback(callback) {
-    this.fallbackHandler = callback
+    this.fallbackHandler = callback;
   }
 
   run() {
@@ -43,5 +43,5 @@ module.exports = class Router {
     }
   }
 
-}
+};
 
