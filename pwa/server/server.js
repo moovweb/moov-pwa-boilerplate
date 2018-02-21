@@ -1,8 +1,19 @@
-var ReactDOMServer = require('react-dom/server');
-var App = require('../src/App');
+var render = require('../dist/assets/SSR').default;
 
-function render() {
-  ReactDOMServer.renderToString(React.createElement(App))
-}
+const menu = {
+  items: [{
+    id: '1',
+    text: 'Home',
+    url: '/'
+  }, {
+    id: '5',
+    text: 'Products',
+    items: [
+      { id: '6', text: 'Accessories', items: [
+        { id: '7', text: 'Shop all Accessories', url: '/c/all-accessories' }
+      ] }
+    ]
+  }]
+};
 
-render();
+console.log(render({ menu }));

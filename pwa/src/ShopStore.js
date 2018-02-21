@@ -2,7 +2,7 @@ import { types } from "mobx-state-tree"
 import { CartEntry, CartStore } from "./cart/CartStore"
 import { Product } from './product/ProductStore'
 import { Category, loadCategory } from './category/CategoryStore'
-import { Menu, menuStore } from './menu/MenuStore'
+import { Menu } from './menu/MenuStore'
 
 const Shop = types
   .model("Shop", {
@@ -31,9 +31,4 @@ const Shop = types
     }
   }))
 
-export default Shop.create(
-  {
-    menu: menuStore
-  },
-  {}
-)
+export default Shop

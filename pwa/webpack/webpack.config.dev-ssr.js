@@ -1,6 +1,12 @@
 const { publicPath, assetsPath, commonLoaders } = require('./common.config');
 const path = require('path');
 const nodeExternals = require('webpack-node-externals');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+
+const extractSass = new ExtractTextPlugin({
+  filename: "[name].[contenthash].css",
+  disable: process.env.NODE_ENV === "development"
+});
 
 module.exports = {
   name: 'SSR',
@@ -18,14 +24,18 @@ module.exports = {
     loaders: commonLoaders.concat([
       {
         test: /\.scss$/,
-        use: [{
-          loader: "style-loader"
-        }, {
-          loader: "css-loader"
-        }, {
-          loader: "sass-loader"
-        }]
+        use: extractSass.extract({
+          fallback: 'style-loader', 
+          use: [{
+            loader: "css-loader"
+          }, {
+            loader: "sass-loader"
+          }]
+        })
       }
     ]),
   },
+  plugins: [
+    extractSass
+  ]
 };

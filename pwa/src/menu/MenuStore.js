@@ -10,7 +10,7 @@ export const MenuItem = types
   })
 
 export const Menu = types
-  .model("MenuStore", {
+  .model("Menu", {
     levels: types.optional(types.array(types.reference(MenuItem)), []),
     level: types.optional(types.number, 0)
   })
@@ -23,9 +23,11 @@ export const Menu = types
      * Fetches the menu from the server
      */
     load() {
-      fetch('/data/menu')
-        .then(response => response.json())
-        .then(root => self.setRoot(root))
+      if (self.levels.length === 0) {
+        fetch('/data/menu')
+          .then(response => response.json())
+          .then(root => self.setRoot(root))
+      }
     },
 
     /**
@@ -62,4 +64,3 @@ export const Menu = types
 
   }))
 
-export const menuStore = Menu.create()
