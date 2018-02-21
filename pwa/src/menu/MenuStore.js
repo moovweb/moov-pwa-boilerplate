@@ -1,6 +1,5 @@
 import { types } from "mobx-state-tree"
 
-
 export const MenuItem = types
   .model("MenuItem", {
     id: types.identifier(),

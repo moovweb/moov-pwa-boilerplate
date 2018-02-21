@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from "mobx-react"
-import './index.css'
+import './index.scss'
 import App from './App'
 import registerServiceWorker from './registerServiceWorker'
 import shop from "./ShopStore"
