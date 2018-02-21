@@ -25,7 +25,7 @@ module.exports = {
             { 
               loader: "css-loader" ,
               query: {
-                localIdentName: '[hash:base64:5]',
+                localIdentName: '[local]___[hash:base64:5]',
                 modules: true
               }
             }, 

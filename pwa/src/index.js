@@ -8,7 +8,6 @@ import App from './App'
 import registerServiceWorker from './registerServiceWorker'
 import { Menu } from "./menu/MenuStore"
 import Shop from "./ShopStore"
-import './index.scss'
 
 const history = createBrowserHistory()
 
