@@ -1,4 +1,5 @@
 const Router = require('/router.js');
+// const render = require('/build/SSR.js').default;
 
 /* global sendResponse */
 function shouldCacheApiRequest() {
@@ -28,13 +29,34 @@ module.exports = function() {
 
   router.run()
     .then(result => {
-      sendResponse({ body: JSON.stringify(result), htmlparsed: true });
+      const body = typeof result === 'string' ? result : JSON.stringify(result)
+      sendResponse({ body, htmlparsed: true });
     })
     .catch(error => {
       sendResponse({ body: JSON.stringify({ error }), htmlparsed: true });
     });
 
 };
+
+router.fallback(() => {
+  return render({ 
+    menu: {
+      items: [{
+        id: '1',
+        text: 'Home',
+        url: '/'
+      }, {
+        id: '5',
+        text: 'Products',
+        items: [
+          { id: '6', text: 'Accessories', items: [
+            { id: '7', text: 'Shop all Accessories', url: '/c/all-accessories' }
+          ] }
+        ]
+      }]
+    }
+  })
+});
 
 router.get('/data/test', params => {
   return Promise.resolve({ success: true });

@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
   publicPath: '/assets/',
-  assetsPath: path.join(__dirname, '..', 'dist', 'assets'),
+  assetsPath: path.join(__dirname, '..', '..', 'build', 'assets', 'pwa'),
   commonLoaders: [
     {
       test: /\.js$/,
@@ -12,3 +12,4 @@ module.exports = {
     },
   ],
 };
+
