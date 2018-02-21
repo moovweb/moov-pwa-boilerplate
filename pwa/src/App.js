@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Router, Route, Link } from 'react-router-dom'
+import { Router, Route, Link, Switch } from 'react-router-dom'
 import Home from './home/Home'
 import Header from './header/Header'
 import Menu from './menu/Menu'
@@ -12,6 +12,7 @@ import { observer, inject } from "mobx-react"
 import asyncComponent from './AsyncComponent'
 
 const Product = asyncComponent(() => import('./product/Product'))
+const Subcategory = asyncComponent(() => import('./subcategory/Subcategory'))
 const Category = asyncComponent(() => import('./category/Category'))
 const Cart = asyncComponent(() => import('./cart/Cart'))
 
@@ -39,13 +40,19 @@ class App extends Component {
           <Menu open={this.state.menu} onClose={this.onMenuClose}/>
           <Search/>
           <Promo/>
-          <Route exact path="/" component={Home}/>
-          <Route path="/c/:c/:s?" render={props => {
-            const { c, s } = props.match.params
-            return <Category key={s||c} categoryId={s||c} {...props}/>
-          }}/>
-          <Route path="/p/:id" component={Product}/>
-          <Route path="/cart" component={Cart}/>
+          <Switch>
+            <Route exact path="/" component={Home}/>
+            <Route path="/c/:c1/:c2/:s" render={props => {
+              const { s } = props.match.params
+              return <Subcategory key={s} subcategoryId={s} {...props}/>
+            }}/>
+            <Route path="/c/:c1/:c2?" render={props => {
+              const { c1, c2 } = props.match.params
+              return <Category key={c2||c1} categoryId={c2||c1} {...props}/>
+            }}/>
+            <Route path="/p/:id" component={Product}/>
+            <Route path="/cart" component={Cart}/>
+          </Switch>
         </div>
       </MuiThemeProvider>
     )

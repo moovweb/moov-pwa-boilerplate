@@ -15,22 +15,7 @@ export const Category = types
 
   }))
   .actions(self => ({
-    load() {
-      fetch(`/data/categories/${self.id}`)
-        .then(result => result.json())
-        .then(data => {
-          self.update({
-            loading: false,
-            ...data
-          })
-        })
 
-      return self
-    },
-
-    update(json) {
-      Object.assign(self, json)
-    }
   }))
 
 export function loadCategory(id, data)  {

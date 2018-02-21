@@ -9,7 +9,7 @@ export const CartEntry = types
 
 export const CartStore = types
   .model("CartStore", {
-    entries: types.array(CartEntry)
+    entries: types.optional(types.array(CartEntry), [])
   })
   .views(self => ({
 

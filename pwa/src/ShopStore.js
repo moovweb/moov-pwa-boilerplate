@@ -2,25 +2,15 @@ import { types } from "mobx-state-tree"
 import { CartEntry, CartStore } from "./cart/CartStore"
 import { Product } from './product/ProductStore'
 import { Category, loadCategory } from './category/CategoryStore'
+import { Subcategory, loadSubcategory } from './subcategory/SubcategoryStore'
 import { Menu } from './menu/MenuStore'
 
 const Shop = types
   .model("Shop", {
-    cart: types.optional(CartStore, {
-      entries: [
-        CartEntry.create({
-          quantity: 1,
-          product: Product.create({
-            id: '1', 
-            name: 'Test Product',
-            price: 19.99,
-            isAvailable: true
-          })
-        })
-      ]
-    }),
+    cart: types.optional(CartStore, {}),
     menu: types.maybe(Menu),
-    category: types.maybe(Category)
+    category: types.maybe(Category),
+    subcategory: types.maybe(Subcategory)
   })
   .views(self => ({
 
@@ -28,14 +18,19 @@ const Shop = types
   .actions(self => ({
     
     loadCategory(id, data) {
-      self.loading = true
-      loadCategory(id, data)
-        .then(category => self.setCategory(category))
+      loadCategory(id, data).then(category => self.setCategory(category))
     },
 
     setCategory(category) {
-      self.category = category;
-      self.loading = category == null
+      self.category = category
+    },
+
+    loadSubcategory(id, data) {
+      loadSubcategory(id, data).then(category => self.setSubcategory(category))
+    },
+
+    setSubcategory(subcategory) {
+      self.subcategory = subcategory
     }
 
   }))

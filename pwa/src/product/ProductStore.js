@@ -1,8 +1,16 @@
 import { types } from "mobx-state-tree"
 
 export const Product = types.model("Product", {
-  id: types.identifier(),
+  id: types.identifier(types.number),
   name: types.string,
-  price: types.number,
-  isAvailable: true
+  originalPrice: types.number,
+  salePrice: types.number,
+  image: types.string,
+  reviewCount: types.number,
+  rating: types.number,
+  partNumber: types.string,
+  sku: types.string,
+  shortDescription: types.string,
+  pickupAvailable: types.boolean,
+  shippingAvailable: types.boolean
 })
