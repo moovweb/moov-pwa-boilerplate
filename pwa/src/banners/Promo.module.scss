@@ -1,0 +1,11 @@
+@import "../colors.scss";
+
+.promo {
+  background-color: $shade;
+  padding: 5px 0;
+
+  img {
+    width: 100vw;
+    display: block;
+  }
+}

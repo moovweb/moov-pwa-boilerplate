@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { observer, inject } from "mobx-react"
 import SubcategoryItem from './SubcategoryItem'
 import CategoryMask from './CategoryMask'
+import styles from './Category.module.scss'
 
 @inject('shop')
 @observer
@@ -14,8 +15,8 @@ export default class Category extends Component {
     } else {
       return (
         <div>
-          <div>Category {category.name}</div>
-          <ul>
+          <h1>{category.name}</h1>
+          <ul className={styles.subcategories}>
             { category.subcategories.map((subcategory, i) => <SubcategoryItem key={i} subcategory={subcategory}/>)}
           </ul>
           <input type="text"/>
@@ -33,8 +34,8 @@ export default class Category extends Component {
   }
 
   loadCategory(props) {
-    const { shop } = props
-    shop.loadCategory(props.match.params.id);
+    const { shop, match: { params: { id } } } = props
+    shop.loadCategory(id)
   }
 }
 
