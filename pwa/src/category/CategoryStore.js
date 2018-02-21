@@ -31,6 +31,6 @@ export const Category = types
     }
   }))
 
-export function loadCategory(id)  {
-  return Category.create({ id }).load()
+export function loadCategory(id, data)  {
+  return Category.create({ id, ...data }).load()
 }

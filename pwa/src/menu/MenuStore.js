@@ -63,5 +63,3 @@ export const Menu = types
   }))
 
 export const menuStore = Menu.create()
-
-menuStore.load();

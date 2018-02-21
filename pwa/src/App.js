@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import logo from './logo.svg'
 import { Router, Route, Link } from 'react-router-dom'
 import asyncComponent from './AsyncComponent'
 import Home from './home/Home'
@@ -16,7 +15,6 @@ const Product = asyncComponent(() => import('./product/Product'))
 const Category = asyncComponent(() => import('./category/Category'))
 const Cart = asyncComponent(() => import('./cart/Cart'))
 
-const title = "BBQ Guys"
 const history = window.routerHistory = createBrowserHistory()
 
 class App extends Component {
@@ -35,8 +33,8 @@ class App extends Component {
       <Router history={history} onUpdate={this.onRouteChange}>
         <MuiThemeProvider theme={theme}>
           <div className="App" className={styles.app}>
-            <Header onMenuClick={this.toggleMenu} title={title}/>
-            <Menu open={this.state.menu} onClose={this.onMenuClose} title={title}/>
+            <Header onMenuClick={this.toggleMenu}/>
+            <Menu open={this.state.menu} onClose={this.onMenuClose}/>
             <Search/>
             <Promo/>
             <Route exact path="/" component={Home}/>

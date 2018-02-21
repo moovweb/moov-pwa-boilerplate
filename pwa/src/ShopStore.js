@@ -26,8 +26,8 @@ const Shop = types
 
   }))
   .actions(self => ({
-    loadCategory(id) {
-      self.category = loadCategory(id)
+    loadCategory(id, data) {
+      self.category = loadCategory(id, data)
     }
   }))
 

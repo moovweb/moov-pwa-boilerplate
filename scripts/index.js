@@ -86,8 +86,11 @@ router.get('/data/categories/:id', ({ id }) => {
     }
   } else if (id === 'interior-accessories') {
     data = {
+      id: 'interior-accessories',
+      name: 'Interior Accessories',
       subcategories: [
-
+        { id: 'ashtrays', name: 'Ash Trays', url: '/s/ash-trays', image: '//opt2.moovweb.net/img?img=https%3A%2F%2Fstatic.pepboys.com%2Fimages%2Fecom%2Fcategories%2Fthumbnails%2F20215_accessories_interior-accessories_ash-trays_thumbnail.jpg&linkEncoded=0&quality=70' },
+        { id: 'cup-holders', name: 'Cup Holders & Mugs', url: '/c/cup-holders', image: '//opt2.moovweb.net/img?img=https%3A%2F%2Fstatic.pepboys.com%2Fimages%2Fecom%2Fcategories%2Fthumbnails%2F20215_accessories_interior-accessories_cup-holders-mugs_thumbnail.jpg&linkEncoded=0&quality=70' }
       ]
     }
   }
