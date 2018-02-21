@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import styles from './SubcategoryItem.module.css'
+import styles from './SubcategoryItem.module.scss'
 
 export default function SubcategoryItem({ subcategory }) {
   return (

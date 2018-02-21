@@ -11,7 +11,7 @@
         "useBuiltIns": true
       }
     ],
-    "react",
+    "react"
   ],
   "plugins": [
     "transform-decorators-legacy",
