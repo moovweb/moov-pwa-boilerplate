@@ -2,7 +2,7 @@ import { types } from "mobx-state-tree"
 
 export const MenuItem = types
   .model("MenuItem", {
-    id: types.identifier(),
+    id: types.identifier(types.number),
     text: types.optional(types.string, ''),
     url: types.maybe(types.string),
     items: types.maybe(types.array(types.late(() => MenuItem))),
@@ -23,7 +23,7 @@ export const Menu = types
      * Fetches the menu from the server
      */
     load() {
-      fetch('/data/menu')
+      fetch('/data/nav')
         .then(response => response.json())
         .then(root => self.setRoot(root))
     },
@@ -34,7 +34,7 @@ export const Menu = types
      */
     setRoot(root) {
       self.levels[0] = MenuItem.create({
-        id: '0',
+        id: 0,
         root: true,
         ...root
       })

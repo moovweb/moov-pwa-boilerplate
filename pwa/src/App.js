@@ -10,6 +10,7 @@ import createBrowserHistory from 'history/createBrowserHistory'
 import styles from './App.module.scss'
 import Promo from './banners/Promo'
 import Search from './search/Search'
+import { observer, inject } from "mobx-react"
 
 const Product = asyncComponent(() => import('./product/Product'))
 const Category = asyncComponent(() => import('./category/Category'))
@@ -17,6 +18,8 @@ const Cart = asyncComponent(() => import('./cart/Cart'))
 
 const history = window.routerHistory = createBrowserHistory()
 
+@inject('shop')
+@observer
 class App extends Component {
 
   state = {
@@ -38,8 +41,10 @@ class App extends Component {
             <Search/>
             <Promo/>
             <Route exact path="/" component={Home}/>
-            <Route path="/c/:id" render={props => {
-              return <Category key={props.match.params.id} {...props}/>
+            <Route path="/c/:c/:s?" render={props => {
+              this.props.shop.setCategory(null)
+              const { c, s } = props.match.params
+              return <Category key={s||c} categoryId={s||c} {...props}/>
             }}/>
             <Route path="/p/:id" component={Product}/>
             <Route path="/cart" component={Cart}/>

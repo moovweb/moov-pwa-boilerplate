@@ -41,16 +41,6 @@ router.get('/data/nav', () => {
   return Promise.resolve(json); 
 });
 
-router.get('/data/categories/accessories', () => {
-  let json = require("/api/accessories.json");
-  return Promise.resolve(json); 
-});
-
-router.get('/data/categories/interior-accessories', () => {
-  let json = require("/api/interior-accessories.json");
-  return Promise.resolve(json); 
-})
-
 router.get('/data/menu', params => {
   return Promise.resolve({
     items: [{
@@ -72,27 +62,29 @@ router.get('/data/menu', params => {
 router.get('/data/categories/:id', ({ id }) => {
   let data;
 
-  if (id === 'all-accessories') {
-    data = {
-      id: 'all-accessories',
-      name: 'All Accessories',
-      url: '/c/all-accessories',
-      subcategories: [
-        { id: 'interior-accessories', name: 'Interior Accessories', url: '/c/interior-accessories', image: 'https://static.pepboys.com/images/ecom/categories/thumbnails/accessories_interior-accessories_thumbnail.jpg' },
-        { id: 'exterior-accessories', name: 'Exterior Accessories', url: '/c/exterior-accessories', image: 'https://static.pepboys.com/images/ecom/categories/thumbnails/accessories_exterior-accessories_thumbnail.jpg' },
-        { id: 'truck-accessories', name: 'Truck & SUV Accessories', url: '/c/truck-accessories', image: 'https://static.pepboys.com/images/ecom/categories/thumbnails/accessories_exterior-accessories_thumbnail.jpg' },
-        { id: 'headlights', name: 'Headlights', url: '/c/headlights', image: 'https://static.pepboys.com/images/ecom/categories/thumbnails/accessories_exterior-accessories_thumbnail.jpg' },
-      ]
-    }
-  } else if (id === 'interior-accessories') {
-    data = {
-      id: 'interior-accessories',
-      name: 'Interior Accessories',
-      subcategories: [
-        { id: 'ashtrays', name: 'Ash Trays', url: '/s/ash-trays', image: '//opt2.moovweb.net/img?img=https%3A%2F%2Fstatic.pepboys.com%2Fimages%2Fecom%2Fcategories%2Fthumbnails%2F20215_accessories_interior-accessories_ash-trays_thumbnail.jpg&linkEncoded=0&quality=70' },
-        { id: 'cup-holders', name: 'Cup Holders & Mugs', url: '/c/cup-holders', image: '//opt2.moovweb.net/img?img=https%3A%2F%2Fstatic.pepboys.com%2Fimages%2Fecom%2Fcategories%2Fthumbnails%2F20215_accessories_interior-accessories_cup-holders-mugs_thumbnail.jpg&linkEncoded=0&quality=70' }
-      ]
-    }
+  if (id === 'accessories') {
+    data = require("/api/accessories.json");
+    // data = {
+    //   id: 'all-accessories',
+    //   name: 'All Accessories',
+    //   url: '/c/all-accessories',
+    //   subcategories: [
+    //     { id: 'interior-accessories', name: 'Interior Accessories', url: '/c/interior-accessories', image: 'https://static.pepboys.com/images/ecom/categories/thumbnails/accessories_interior-accessories_thumbnail.jpg' },
+    //     { id: 'exterior-accessories', name: 'Exterior Accessories', url: '/c/exterior-accessories', image: 'https://static.pepboys.com/images/ecom/categories/thumbnails/accessories_exterior-accessories_thumbnail.jpg' },
+    //     { id: 'truck-accessories', name: 'Truck & SUV Accessories', url: '/c/truck-accessories', image: 'https://static.pepboys.com/images/ecom/categories/thumbnails/accessories_exterior-accessories_thumbnail.jpg' },
+    //     { id: 'headlights', name: 'Headlights', url: '/c/headlights', image: 'https://static.pepboys.com/images/ecom/categories/thumbnails/accessories_exterior-accessories_thumbnail.jpg' },
+    //   ]
+    // }
+  } else if (id === 'interior_accessories') {
+    data = require("/api/interior-accessories.json");
+    // data = {
+    //   id: 'interior-accessories',
+    //   name: 'Interior Accessories',
+    //   subcategories: [
+    //     { id: 'ashtrays', name: 'Ash Trays', url: '/s/ash-trays', image: '//opt2.moovweb.net/img?img=https%3A%2F%2Fstatic.pepboys.com%2Fimages%2Fecom%2Fcategories%2Fthumbnails%2F20215_accessories_interior-accessories_ash-trays_thumbnail.jpg&linkEncoded=0&quality=70' },
+    //     { id: 'cup-holders', name: 'Cup Holders & Mugs', url: '/c/cup-holders', image: '//opt2.moovweb.net/img?img=https%3A%2F%2Fstatic.pepboys.com%2Fimages%2Fecom%2Fcategories%2Fthumbnails%2F20215_accessories_interior-accessories_cup-holders-mugs_thumbnail.jpg&linkEncoded=0&quality=70' }
+    //   ]
+    // }
   }
 
   return Promise.resolve(Object.assign({ id }, data))

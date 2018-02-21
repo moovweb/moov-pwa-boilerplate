@@ -4,6 +4,7 @@ import SubcategoryItem from './SubcategoryItem'
 import CategoryMask from './CategoryMask'
 import styles from './Category.module.scss'
 import { parseQueryString } from '../utils'
+import Container from '../layout/Container'
 
 @inject('shop')
 @observer
@@ -13,29 +14,35 @@ export default class Category extends Component {
 
     return (
       <div className={styles.category}>
-        { category.loading && <CategoryMask/> }
-        <h1>{category.name}</h1>
-        <ul className={styles.subcategories}>
-          { category.subcategories.map((subcategory, i) => <SubcategoryItem key={i} subcategory={subcategory}/>) }
-        </ul>
-        <input type="text"/>
+        <h1>{category && category.name}</h1>
+        { category ? (
+          <div>
+            <ul className={styles.subcategories}>
+              { category.subcategories.map((subcategory, i) => <SubcategoryItem key={i} subcategory={subcategory}/>) }
+            </ul>
+            <Container>
+              <div className="seoText">{category.text}</div>
+            </Container>
+          </div>
+        ) : (
+          <CategoryMask/>
+        )}
       </div>
     )
-
   }
 
   componentWillMount() {
-    this.loadCategory(this.props)    
+    this.loadCategory()    
   }
 
   componentWillUpdate(nextProps) {
     // this.loadCategory(nextProps)
   }
 
-  loadCategory(props) {
-    const { shop, match: { params: { id } } } = props
-    const queryParams = parseQueryString(props.location.search)
-    shop.loadCategory(id, queryParams)
+  loadCategory() {
+    const { shop, categoryId, location } = this.props
+    const queryParams = parseQueryString(location.search)
+    shop.loadCategory(categoryId, queryParams)
   }
 }
 

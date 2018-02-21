@@ -26,9 +26,18 @@ const Shop = types
 
   }))
   .actions(self => ({
+    
     loadCategory(id, data) {
-      self.category = loadCategory(id, data)
+      self.loading = true
+      loadCategory(id, data)
+        .then(category => self.setCategory(category))
+    },
+
+    setCategory(category) {
+      self.category = category;
+      self.loading = category == null
     }
+
   }))
 
 export default Shop.create(
