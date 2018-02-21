@@ -40,6 +40,21 @@ router.get('/data/test', () => {
   return Promise.resolve({ success: true }); 
 });
 
+router.get('/data/nav', () => {
+  let json = require("/api/nav.json");
+  return Promise.resolve(json); 
+});
+
+router.get('/data/categories/accessories', () => {
+  let json = require("/api/accessories.json");
+  return Promise.resolve(json); 
+});
+
+router.get('/data/categories/interior-accessories', () => {
+  let json = require("/api/interior-accessories.json");
+  return Promise.resolve(json); 
+});
+
 // router.get('/products/:id', params => {
 //   params.id
 // })
