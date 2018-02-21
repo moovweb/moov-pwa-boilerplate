@@ -1,0 +1,50 @@
+@import "../colors.scss";
+
+.wrap {
+  display: flex;
+  position: fixed;
+  top: 209px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: $shade;
+}
+
+.rightMargin {
+  width: 20px;
+  background-color: white;
+}
+
+.mask {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex: 1;
+}
+
+.top, .bottom {
+  background-color: white;
+  height: 20px;
+}
+
+.tile {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+}
+
+.left, .right  {
+  background-color: white;
+  width: 20px;
+}
+
+.center {
+  flex: 1;
+  max-width: 175px;
+  min-width: 150px;
+  padding-top: calc(100% - 20px);
+}
+
+.category {
+  flex: 1;
+}
