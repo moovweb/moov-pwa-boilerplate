@@ -103,6 +103,9 @@ router.get('/data/subcategories/:id', ({ id }) => {
       start: 0,
       end: 6,
       total: 7,
+      breadcrumbs: [
+        { text: 'Interior Accessories', url: '/c/accessories/interior_accessories' }
+      ],
       products: [{
         id: 1,
         name: 'Bell Automotive Products Ashtray/Sport',

@@ -1,6 +1,12 @@
 import { types } from "mobx-state-tree"
 import { Product } from '../product/ProductStore'
 
+export const Breadcrumb = types
+  .model('Breadcrumb', {
+    url: types.string,
+    text: types.string
+  })
+
 export const Subcategory = types
   .model("Subcategory", {
     id: types.identifier(types.number),
@@ -9,6 +15,7 @@ export const Subcategory = types
     end: 0,
     total: 0,
     products: types.optional(types.array(Product), []),
+    breadcrumbs: types.array(Breadcrumb),
     alsoViewed: types.optional(types.array(Product), [])
   })
   .views(self => ({
