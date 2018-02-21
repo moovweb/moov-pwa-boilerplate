@@ -17,22 +17,14 @@ module.exports = {
   module: {
     loaders: commonLoaders.concat([
       {
-        test: /\.css$/,
-        options: {
-          modules: true, 
-          localIdentName: '[local]___[hash:base64:5]'
-        },
-        exclude: /\.module\.css$/
-        loader: 'css/locals?module&localIdentName=[name]__[local]___[hash:base64:5]'
-      },   
-      {
-        test: /\.s[ac]ss$/,
-        loader: 'sass-loader',
-        exclude: /\.module\.s[ac]ss$/
-      },
-      {
-        test: /\.module\.s[ac]ss$/,
-        loader: 'sass-loader',
+        test: /\.scss$/,
+        use: [{
+          loader: "style-loader"
+        }, {
+          loader: "css-loader"
+        }, {
+          loader: "sass-loader"
+        }]
       }
     ]),
   },
