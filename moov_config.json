@@ -16,7 +16,9 @@
     "$.www.pepboys-uat.net => www.pepboys-uat.com"
   ],
   "static_paths": {
+    "/service-worker.js": "/pwa/service-worker.js",
+    "/index.html": "/pwa/index.html",
     "/manifest.json": "/pwa/manifest.json",
-    "/service-worker.js": "/pwa/service-worker.js"
+    "/static/*": "/pwa/static/*"
   }
 }

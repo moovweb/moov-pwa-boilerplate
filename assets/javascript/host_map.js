@@ -9,8 +9,8 @@
 if (typeof(mw) == "undefined") {
 	window.mw = {};
 }
-var mapProxyToOriginPrime = {"http://mlocal.akamai.pepboys-uat.net:3030":"http://akamai.pepboys-uat.net","http://mlocal.www.pepboys-uat.net:3030":"http://www.pepboys-uat.net","http://mlocal.www.pepboys.com:3030":"http://www.pepboys.com","https://mlocal.akamai.pepboys-uat.net":"https://akamai.pepboys-uat.net","https://mlocal.www.pepboys-uat.net":"https://www.pepboys-uat.net","https://mlocal.www.pepboys.com":"https://www.pepboys.com"},
-    mapOriginToProxyPrime = {"http://akamai.pepboys-uat.net":"http://mlocal.akamai.pepboys-uat.net:3030","http://www.pepboys-uat.com":"http://mlocal.www.pepboys-uat.net:3030","http://www.pepboys-uat.net":"http://mlocal.www.pepboys-uat.net:3030","http://www.pepboys.com":"http://mlocal.www.pepboys.com:3030","https://akamai.pepboys-uat.net":"https://mlocal.akamai.pepboys-uat.net","https://www.pepboys-uat.com":"https://mlocal.www.pepboys-uat.net","https://www.pepboys-uat.net":"https://mlocal.www.pepboys-uat.net","https://www.pepboys.com":"https://mlocal.www.pepboys.com"};
+var mapProxyToOriginPrime = {"http://mlocal.akamai.pepboys-uat.net":"http://akamai.pepboys-uat.net","http://mlocal.www.pepboys-uat.net":"http://www.pepboys-uat.net","http://mlocal.www.pepboys.com":"http://www.pepboys.com","https://mlocal.akamai.pepboys-uat.net":"https://akamai.pepboys-uat.net","https://mlocal.www.pepboys-uat.net":"https://www.pepboys-uat.net","https://mlocal.www.pepboys.com":"https://www.pepboys.com"},
+    mapOriginToProxyPrime = {"http://akamai.pepboys-uat.net":"http://mlocal.akamai.pepboys-uat.net","http://www.pepboys-uat.com":"http://mlocal.www.pepboys-uat.net","http://www.pepboys-uat.net":"http://mlocal.www.pepboys-uat.net","http://www.pepboys.com":"http://mlocal.www.pepboys.com","https://akamai.pepboys-uat.net":"https://mlocal.akamai.pepboys-uat.net","https://www.pepboys-uat.com":"https://mlocal.www.pepboys-uat.net","https://www.pepboys-uat.net":"https://mlocal.www.pepboys-uat.net","https://www.pepboys.com":"https://mlocal.www.pepboys.com"};
 
 if (typeof(mw.mapProxyToOrigin) !== "undefined") {
   for (key in mapProxyToOriginPrime) {

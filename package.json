@@ -22,8 +22,9 @@
     "postinstall": "/bin/bash -c \"pushd pwa; yarn install; popd;\"",
     "moov": "sudo moov server -p 3030",
     "start": "concurrently \"npm run moov\" \"npm run watch\"",
+    "prod": "sudo moov server -p 80",
     "watch": "pushd pwa && BROWSER=none yarn start",
-    "build": "yarn run clean && pushd pwa && yarn run build:dev && popd && mv build/assets/pwa/SSR.js scripts/build",
+    "build": "yarn run clean && pushd pwa && yarn run build && mv build/* ../build/assets/pwa",
     "clean": "rm -rf pwa/build pwa/dist",
     "deploy:stage": "npm run build && moov deploy pepboys-pwa/stage -ignore-live",
     "deploy:nginx": "ln -sf $(pwd)/nginx.development.conf /usr/local/etc/nginx/servers/pepboys-pwa.conf && ln -sf $(pwd)/build/assets/pwa /usr/local/var/www/pepboys-pwa && sudo brew services restart nginx"

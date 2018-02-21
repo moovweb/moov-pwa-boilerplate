@@ -1,5 +1,5 @@
 const Router = require('/router.js');
-// const render = require('/build/SSR.js').default;
+const index = require('/build/index.html.js');
 
 /* global sendResponse, useMoovAsyncTransformer */
 function shouldCacheApiRequest() {
@@ -27,36 +27,22 @@ module.exports = function() {
     breakpoint("Parameter 'moov_debug=true' detected in the URL.");
   }
 
-  router.run()
-    .then(result => {
-      const body = typeof result === 'string' ? result : JSON.stringify(result)
-      sendResponse({ body, htmlparsed: true });
-    })
-    .catch(error => {
-      sendResponse({ body: JSON.stringify({ error }), htmlparsed: true });
-    });
-
+  if (env.__static_origin_path__) {
+    sendResponse({ htmlparsed: false });
+  } else {
+    router.run()
+      .then(result => {
+        const body = typeof result === 'string' ? result : JSON.stringify(result)
+        sendResponse({ body, htmlparsed: true });
+      })
+      .catch(error => {
+        sendResponse({ body: JSON.stringify({ error }), htmlparsed: true });
+      });
+  }
+  
 };
 
-// router.fallback(() => {
-//   return render({ 
-//     menu: {
-//       items: [{
-//         id: '1',
-//         text: 'Home',
-//         url: '/'
-//       }, {
-//         id: '5',
-//         text: 'Products',
-//         items: [
-//           { id: '6', text: 'Accessories', items: [
-//             { id: '7', text: 'Shop all Accessories', url: '/c/all-accessories' }
-//           ] }
-//         ]
-//       }]
-//     }
-//   })
-// });
+router.fallback(() => Promise.resolve(index));
 
 router.get('/data/nav', () => {
   let json = require("/api/nav.json");
