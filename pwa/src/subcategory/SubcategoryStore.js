@@ -26,7 +26,7 @@ export const Subcategory = types
   }))
 
 export function loadSubcategory(id, data)  {
-  return fetch(`/data/subcategories/${encodeURIComponent(id)}`)
+  return fetch(`/data/subcategories/${encodeURIComponent(id)}`, { credentials: 'same-origin' })
     .then(result => result.json())
     .then(data => Subcategory.create(data))
 }

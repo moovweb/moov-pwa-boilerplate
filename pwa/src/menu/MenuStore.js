@@ -23,7 +23,7 @@ export const Menu = types
      * Fetches the menu from the server
      */
     load() {
-      fetch('/data/nav')
+      fetch('/data/nav', { credentials: 'same-origin' })
         .then(response => response.json())
         .then(root => self.setRoot(root))
     },
