@@ -3,6 +3,8 @@
 
 .drawer {
   background-color: $primary !important;
+  display: flex;
+  flex-direction: column;
 }
 
 .back {
@@ -18,8 +20,8 @@
 
 .menuWrap {
   width: 250px;
-  overflow: hidden;
-  margin-top: 50px;
+  overflow-y: auto;
+  flex: 1;
 }
 
 .hbox {

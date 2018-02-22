@@ -10,8 +10,9 @@ import Toolbar from 'material-ui/Toolbar'
 import CloseIcon from 'material-ui-icons/Close'
 import IconButton from 'material-ui/IconButton'
 import styles from './Menu.module.scss'
-import ListItemIcon from 'material-ui/List/ListItemIcon';
-import { withRouter } from 'react-router-dom';
+import ListItemIcon from 'material-ui/List/ListItemIcon'
+import { withRouter } from 'react-router-dom'
+import Hbox from '../layout/Hbox'
 
 @withRouter
 @inject('shop')
@@ -25,14 +26,12 @@ export default class Menu extends Component {
 
     return (
       <Drawer open={open} onClose={onClose} classes={{ paper: styles.drawer }}>
-        <AppBar className={styles.header}>
-          <Toolbar>
-            <div style={{ flex: 1 }}/>
-            <IconButton aria-label="Close Menu" onClick={onClose} className={styles.button}>
-              <CloseIcon />
-            </IconButton>
-          </Toolbar>
-        </AppBar>
+        <Hbox>
+          <div style={{ flex: 1 }}/>
+          <IconButton aria-label="Close Menu" onClick={onClose} className={styles.button}>
+            <CloseIcon />
+          </IconButton>
+        </Hbox>
         <div className={styles.menuWrap}>
           <div className={styles.hbox} style={{ transform: `translateX(${-width * level}px)` }}>
             {levels.map((item, i) => {
