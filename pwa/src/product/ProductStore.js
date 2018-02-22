@@ -31,3 +31,9 @@ export const Product = types
     self.delivery = d
   }
 }))
+
+export function loadProduct(id, data)  {
+  return fetch(`/data/products/${encodeURIComponent(id)}`, { credentials: 'same-origin' })
+    .then(result => result.json())
+    .then(data => Product.create(data))
+}

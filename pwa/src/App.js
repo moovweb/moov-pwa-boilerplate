@@ -50,7 +50,10 @@ class App extends Component {
               const { c1, c2 } = props.match.params
               return <Category key={c2||c1} categoryId={c2||c1} {...props}/>
             }}/>
-            <Route path="/p/:id" component={Product}/>
+            <Route path="/p/:id" render={props => {
+              const { id } = props.match.params
+              return <Product key={id} categoryId={id} {...props}/>
+            }}/>
             <Route path="/cart" component={Cart}/>
           </Switch>
         </div>
