@@ -1,4 +1,3 @@
-const index = require('/build/index.html.js');
 const routes = require('/routes.js');
 
 /* global sendResponse, useMoovAsyncTransformer */

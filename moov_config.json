@@ -10,10 +10,7 @@
   },
   "layers": ["minify-js", "minify-css", "live-reload"],
   "host_map": [
-    "$.www.pepboys.com => www.pepboys.com",
-    "$.www.pepboys-uat.net => www.pepboys-uat.net",
-    "$.akamai.pepboys-uat.net => akamai.pepboys-uat.net",
-    "$.www.pepboys-uat.net => www.pepboys-uat.com"
+    "$.www.pepboys.com => www.pepboys.com"
   ],
   "static_paths": {
     "/service-worker.js": "/pwa/service-worker.js",

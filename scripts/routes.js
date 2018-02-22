@@ -1,3 +1,4 @@
+const index = require('/build/index.html.js');
 const Router = require('/router.js');
 const router = new Router();
 
@@ -6,24 +7,6 @@ router.fallback(() => Promise.resolve(index));
 router.get('/data/nav', () => {
   let json = require("/api/nav.json");
   return Promise.resolve(json); 
-});
-
-router.get('/data/menu', params => {
-  return Promise.resolve({
-    items: [{
-      id: '1',
-      text: 'Home',
-      url: '/'
-    }, {
-      id: '5',
-      text: 'Products',
-      items: [
-        { id: '6', text: 'Accessories', items: [
-          { id: '7', text: 'Shop all Accessories', url: '/c/all-accessories' }
-        ] }
-      ]
-    }]
-  });
 });
 
 router.get('/data/categories/:id', ({ id }) => {
