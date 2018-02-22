@@ -83,33 +83,40 @@ router.get('/data/subcategories/:id', ({ id }) => {
   let data;
 
   if (id === 'ash_trays') {
-    data = {
-      id: 0,
-      name: 'Ash Trays',
-      start: 0,
-      end: 6,
-      total: 7,
-      breadcrumbs: [
-        { text: 'Interior Accessories', url: '/c/accessories/interior_accessories' }
-      ],
-      products: [{
-        id: 1,
-        name: 'Bell Automotive Products Ashtray/Sport',
-        url: '/p/9367780/00074',
-        partNumber: '30153-8',
-        sku: '9367780',
-        originalPrice: 7.99,
-        salePrice: 7.99,
-        image: '//opt2.moovweb.net/img?img=https%3A%2F%2Fstatic.pepboys.com%2Fimages%2FproductImages%2F4085100%2Fm%2F30153-8.jpg&linkEncoded=0&quality=70',
-        reviewCount: 2,
-        rating: 3.5,
-        shortDescription: 'Converts extra cup holder into an ashtray. Turn an extra cup holder in your vehicle into an ashtray',
-        pickupAvailable: true,
-        shippingAvailable: false
-      }]
-    }
+    data = require("/api/ashtray-subcategory.json");
+    // data = {
+    //   id: 0,
+    //   name: 'Ash Trays',
+    //   start: 0,
+    //   end: 6,
+    //   total: 7,
+    //   breadcrumbs: [
+    //     { text: 'Interior Accessories', url: '/c/accessories/interior_accessories' }
+    //   ],
+    //   products: [{
+    //     id: 1,
+    //     name: 'Bell Automotive Products Ashtray/Sport',
+    //     url: '/p/9367780/00074',
+    //     partNumber: '30153-8',
+    //     sku: '9367780',
+    //     originalPrice: 7.99,
+    //     salePrice: 7.99,
+    //     image: '//opt2.moovweb.net/img?img=https%3A%2F%2Fstatic.pepboys.com%2Fimages%2FproductImages%2F4085100%2Fm%2F30153-8.jpg&linkEncoded=0&quality=70',
+    //     reviewCount: 2,
+    //     rating: 3.5,
+    //     shortDescription: 'Converts extra cup holder into an ashtray. Turn an extra cup holder in your vehicle into an ashtray',
+    //     pickupAvailable: true,
+    //     shippingAvailable: false
+    //   }]
+    // }
   }
 
+  return Promise.resolve(data);
+});
+
+router.get('/data/products/:id', ({ id }) => {
+  let data;
+  data = require("/api/ashtray-pdp.json");
   return Promise.resolve(data);
 });
 
