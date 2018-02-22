@@ -4,6 +4,10 @@
   background-color: $primary !important;
 }
 
+.menu {
+  margin-right: 20px;
+}
+
 .logo {
   position: absolute;
   left: 50%;
@@ -22,7 +26,7 @@
 
 .buttonLabel {
   position: relative;
-  top: -5px;
+  top: -7px;
 }
 
 .buttonText {
@@ -31,4 +35,12 @@
   color: $primaryText;
   position: absolute;
   top: 24px;
+}
+
+.large {
+  font-size: 32px;
+}
+
+.cart {
+  margin-left: 20px;
 }

@@ -1,4 +1,5 @@
 import { types } from "mobx-state-tree"
+import Breadcrumb from '../components/BreadcrumbsModel'
 
 export const Product = types
   .model("Product", {
@@ -13,10 +14,13 @@ export const Product = types
     partNumber: types.string,
     sku: types.string,
     shortDescription: types.string,
+    description: types.maybe(types.string),
     pickupAvailable: types.boolean,
     shippingAvailable: types.boolean,
     quantity: 1,
-    delivery: 'store'
+    delivery: 'store',
+    breadcrumbs: types.optional(types.array(Breadcrumb), []),
+    availability: types.maybe(types.string)
   })
 .views(self => ({
   get total() {
@@ -25,6 +29,7 @@ export const Product = types
 }))
 .actions(self => ({
   setQuantity(q) {
+    debugger;
     self.quantity = Math.max(1, q)
   },
   setDelivery(d) {

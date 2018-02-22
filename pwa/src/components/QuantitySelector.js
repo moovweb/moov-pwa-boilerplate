@@ -4,17 +4,20 @@ import RemoveCircle from 'material-ui-icons/RemoveCircle'
 import IconButton from 'material-ui/IconButton';
 import Input from 'material-ui/Input'
 import styles from './QuantitySelector.module.scss'
+import { observer, inject } from "mobx-react"
 
-export default function QuantitySelector({ value, onChange }) {
+function QuantitySelector({ product }) {
   return (
     <div className={styles.quantitySelector}>
-      <IconButton onClick={() => onChange(value - 1, value)}>
+      <IconButton onClick={() => product.setQuantity(product.quantity - 1)}>
         <RemoveCircle/>
       </IconButton>
-      <Input value={value} onChange={e => onChange(e.target.value, value)} className={styles.input}/>
-      <IconButton onClick={() => onChange(value + 1, value)}>
+      <Input value={product.quantity} onChange={e => product.setQuantity(e.target.value)} className={styles.input}/>
+      <IconButton onClick={() => product.setQuantity(product.quantity + 1)}>
         <AddCircle/>
       </IconButton>
     </div>
   )
 }
+
+export default observer(QuantitySelector)

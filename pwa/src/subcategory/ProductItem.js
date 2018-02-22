@@ -5,19 +5,10 @@ import QuantitySelector from '../components/QuantitySelector'
 import styles from './ProductItem.module.scss'
 import Hbox from '../layout/Hbox'
 import Divider from '../layout/Divider'
-
-import ExpansionPanel, {
-  ExpansionPanelDetails,
-  ExpansionPanelSummary,
-  ExpansionPanelActions,
-} from 'material-ui/ExpansionPanel'
-
-import ExpandMoreIcon from 'material-ui-icons/ExpandMore'
-import Typography from 'material-ui/Typography'
-import Radio, { RadioGroup } from 'material-ui/Radio'
-import { FormLabel, FormControl, FormControlLabel, FormHelperText } from 'material-ui/Form'
+import DeliveryOptions from '../product/DeliveryOptions'
 import Button from 'material-ui/Button'
 import { Link } from 'react-router-dom'
+import AddToCartButton from '../product/AddToCartButton'
 
 @inject('shop')
 @observer
@@ -49,12 +40,12 @@ export default class ProductItem extends Component {
               <div className={styles.availabilityOption}>Pay in Store Available</div>
             )}
             <div className={styles.shortDescription}>{product.shortDescription}</div>
-          </div>
+          </div>z
         </Hbox>
         <Divider horizontal/>
         <Hbox style={{ alignItems: 'center' }}>
           <div style={{ flex: 1, margin: '0 10px', whiteSpace: 'nowrap' }}>
-            Qty: <QuantitySelector value={product.quantity} onChange={q => product.setQuantity(q)}/>
+            Qty: <QuantitySelector product={product}/>
           </div>
           <Divider vertical/>
           <div style={{ flex: 1, margin: '10px' }}>
@@ -63,24 +54,12 @@ export default class ProductItem extends Component {
           </div>
         </Hbox>
         <Divider horizontal/>
-        <ExpansionPanel classes={{ root: styles.deliveryOptions }}>
-          <ExpansionPanelSummary expandIcon={<ExpandMoreIcon/>}>
-            <Typography>Installation &amp; Delivery Options</Typography>
-          </ExpansionPanelSummary>
-          <ExpansionPanelDetails>
-            <RadioGroup value={product.delivery} onChange={(e, value) => product.setDelivery(value)}>
-              <FormControlLabel value="store" control={<Radio/>} label="Pick Up in Store (No Install)"  />
-              <FormControlLabel value="ship" control={<Radio/>} label="Ship to Home" />
-            </RadioGroup>
-          </ExpansionPanelDetails>
-        </ExpansionPanel>
+        <DeliveryOptions product={product}/>
         <div className={styles.total}>
           Total: ${product.total}
         </div>
         <div style={{ textAlign: 'center', padding: '10px' }}>
-          <Button raised color="primary" classes={{ root: styles.addToCartButton }}>
-            Add to Cart
-          </Button>
+          <AddToCartButton/>
         </div>
       </li>
     )

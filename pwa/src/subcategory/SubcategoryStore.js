@@ -1,11 +1,6 @@
 import { types } from "mobx-state-tree"
 import { Product } from '../product/ProductStore'
-
-export const Breadcrumb = types
-  .model('Breadcrumb', {
-    url: types.string,
-    text: types.string
-  })
+import Breadcrumb from '../components/BreadcrumbsModel'
 
 export const Subcategory = types
   .model("Subcategory", {

@@ -23,23 +23,10 @@
   color: #006738;
   font-weight: bold;
 }
-.deliveryOptions {
-  &::before {
-    display: none;
-  }
-  box-shadow: none !important;
-  border: none !important;
-}
 .total {
   background-color: $shade;
   font-size: 18px;
   font-weight: bold;
   padding: 10px;
   text-align: right;
-}
-.addToCartButton {
-  background-color: #4CAF50 !important;
-  min-width: 190px;
-  font-size: 16px; 
-  font-weight: normal;
 }

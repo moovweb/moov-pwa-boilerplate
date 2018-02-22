@@ -1,0 +1,131 @@
+@import "../colors.scss";
+
+.store {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  padding: 10px 0;
+
+  svg {
+    color: $link;
+  }
+
+  & > * {
+    margin: 0 2px;
+  }
+
+  a {
+    margin-left: 10px;
+    font-weight: normal;
+    font-size: 12px;
+  }
+}
+
+.pindrop {
+  font-size: 16px;
+}
+
+.fullWidth {
+  width: 100vw;
+  display: block;
+}
+
+.button {
+  flex: 1;
+  margin: 5px;
+  background-color: $primary !important;
+  color: white !important;
+  font-weight: normal !important;
+}
+
+.buttons {
+  margin: 5px;
+}
+
+.tiles {
+  flex-wrap: wrap;
+}
+
+.tile {
+  width: calc(50vw - 15px);
+  background-color: #EDEDED;
+  margin: 5px;
+  padding: 10px;
+  box-sizing: border-box;
+  text-align: center;
+  text-decoration: uppercase;
+
+  img { 
+    width: 100%; 
+  }
+
+  color: $primary;
+
+  svg {
+    color: $primary;
+    position: relative;
+  }
+
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+}
+
+.expander {
+  background-color: $primary;
+  padding: 7px;
+  font-size: 16px;
+  font-weight: bold;
+  display: flex;
+  color: white;
+  align-items: center;
+  margin-bottom: 1px;
+  svg {
+    margin-right: 10px;
+  }
+}
+
+.signUp {
+  padding: 5px;
+
+  & > * {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    color: $primary;
+    font-weight: bold;
+  }
+
+  & > *:first-child {
+    border-right: 1px solid $shade;
+  }
+
+  svg {
+    margin-bottom: 10px;
+  }
+}
+
+.call {
+  background-color: #3963b2;
+  color: white;
+  font-size: 16px;
+  padding: 20px;
+  text-align: center;
+  line-height: 40px;
+}
+
+.tel {
+  font-weight: bold;
+}
+
+.social {
+  background: $primary;
+}

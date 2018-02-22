@@ -19,8 +19,14 @@
   min-height: 14px;
 }
 
+:global(h2) {
+  font-size: 14px;
+  font-weight: bold;
+  color: $link;
+}
+
 :global(a) {
-  text-decoration: none;
+  text-decoration: underline;
   color: $link;
 }
 
