@@ -1,9 +1,8 @@
 @import "../colors.scss";
 
 .wrap {
-  display: flex;
   position: fixed;
-  top: 209px;
+  top: 170px;
   left: 0;
   right: 0;
   bottom: 0;
@@ -47,4 +46,15 @@
 
 .category {
   flex: 1;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  flex: 1;
+}
+
+.space {
+  background-color: white;
 }

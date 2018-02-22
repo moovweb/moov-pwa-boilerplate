@@ -1,16 +1,14 @@
-const Router = require('/router.js');
 const index = require('/build/index.html.js');
+const routes = require('/routes.js');
 
 /* global sendResponse, useMoovAsyncTransformer */
 function shouldCacheApiRequest() {
-  // return (
-  //  env.path.startsWith('/data/...')
-  // );
+  return (
+    env.path.startsWith('/data/')
+  );
 }
 
 useMoovAsyncTransformer();
-
-const router = new Router();
 
 module.exports = function() {
 
@@ -30,7 +28,7 @@ module.exports = function() {
   if (env.__static_origin_path__) {
     sendResponse({ htmlparsed: false });
   } else {
-    router.run()
+    routes.run()
       .then(result => {
         const body = typeof result === 'string' ? result : JSON.stringify(result)
         sendResponse({ body, htmlparsed: true });
@@ -42,84 +40,3 @@ module.exports = function() {
   
 };
 
-router.fallback(() => Promise.resolve(index));
-
-router.get('/data/nav', () => {
-  let json = require("/api/nav.json");
-  return Promise.resolve(json); 
-});
-
-router.get('/data/menu', params => {
-  return Promise.resolve({
-    items: [{
-      id: '1',
-      text: 'Home',
-      url: '/'
-    }, {
-      id: '5',
-      text: 'Products',
-      items: [
-        { id: '6', text: 'Accessories', items: [
-          { id: '7', text: 'Shop all Accessories', url: '/c/all-accessories' }
-        ] }
-      ]
-    }]
-  });
-});
-
-router.get('/data/categories/:id', ({ id }) => {
-  let data;
-
-  if (id === 'accessories') {
-    data = require("/api/accessories.json");
-  } else if (id === 'interior_accessories') {
-    data = require("/api/interior-accessories.json");
-  }
-
-  return Promise.resolve(Object.assign({ id }, data))
-})
-
-router.get('/data/subcategories/:id', ({ id }) => {
-  let data;
-
-  if (id === 'ash_trays') {
-    data = require("/api/ashtray-subcategory.json");
-    // data = {
-    //   id: 0,
-    //   name: 'Ash Trays',
-    //   start: 0,
-    //   end: 6,
-    //   total: 7,
-    //   breadcrumbs: [
-    //     { text: 'Interior Accessories', url: '/c/accessories/interior_accessories' }
-    //   ],
-    //   products: [{
-    //     id: 1,
-    //     name: 'Bell Automotive Products Ashtray/Sport',
-    //     url: '/p/9367780/00074',
-    //     partNumber: '30153-8',
-    //     sku: '9367780',
-    //     originalPrice: 7.99,
-    //     salePrice: 7.99,
-    //     image: '//opt2.moovweb.net/img?img=https%3A%2F%2Fstatic.pepboys.com%2Fimages%2FproductImages%2F4085100%2Fm%2F30153-8.jpg&linkEncoded=0&quality=70',
-    //     reviewCount: 2,
-    //     rating: 3.5,
-    //     shortDescription: 'Converts extra cup holder into an ashtray. Turn an extra cup holder in your vehicle into an ashtray',
-    //     pickupAvailable: true,
-    //     shippingAvailable: false
-    //   }]
-    // }
-  }
-
-  return Promise.resolve(data);
-});
-
-router.get('/data/products/:id', ({ id }) => {
-  let data;
-  data = require("/api/ashtray-pdp.json");
-  return Promise.resolve(data);
-});
-
-// router.get('/products/:id', params => {
-//   params.id
-// })
