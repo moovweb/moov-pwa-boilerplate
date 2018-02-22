@@ -1,6 +1,9 @@
 @import "../colors.scss";
 
-.star {
-  color: $link;
-  font-size: 12px !important;
+.root {
+  svg {
+    color: $link;
+    height: 16px;
+    width: 16px;
+  }
 }

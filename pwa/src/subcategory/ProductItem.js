@@ -40,7 +40,7 @@ export default class ProductItem extends Component {
               <div className={styles.availabilityOption}>Pay in Store Available</div>
             )}
             <div className={styles.shortDescription}>{product.shortDescription}</div>
-          </div>z
+          </div>
         </Hbox>
         <Divider horizontal/>
         <Hbox style={{ alignItems: 'center' }}>
@@ -54,7 +54,9 @@ export default class ProductItem extends Component {
           </div>
         </Hbox>
         <Divider horizontal/>
-        <DeliveryOptions product={product}/>
+        <div style={{ marginLeft: '10px' }}>
+          <DeliveryOptions product={product}/>
+        </div>
         <div className={styles.total}>
           Total: ${product.total}
         </div>

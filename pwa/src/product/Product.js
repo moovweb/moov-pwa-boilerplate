@@ -75,7 +75,7 @@ export default class Product extends Component {
         </BottomDrawer>
       </Container>
     ) : (
-      <div>Loading...</div>
+      <div></div>
     )
   }
 

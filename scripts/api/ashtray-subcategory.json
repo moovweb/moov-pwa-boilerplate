@@ -7,7 +7,7 @@
      {  
         "id":1,
         "name":"Bell Automotive Products Ashtray/Sport",
-        "url":"https://mlocal.www.pepboys.com/product/details/9367780/00827?quantity=1",
+        "url":"/p/details/9367780/00827?quantity=1",
         "partNumber":"30153-8",
         "sku":"9367780",
         "originalPrice":7.99,
@@ -22,7 +22,7 @@
      {  
         "id":2,
         "name":"GoGear Grab and Go Lighter",
-        "url":"https://mlocal.www.pepboys.com/product/details/1346819/00827?quantity=1",
+        "url":"/p/details/1346819/00827?quantity=1",
         "partNumber":"AUTOLIGHTER",
         "sku":"1346819",
         "originalPrice":9.99,
@@ -37,7 +37,7 @@
      {  
         "id":3,
         "name":"Bell Pink Diamond Ash Tray",
-        "url":"https://mlocal.www.pepboys.com/product/details/1869392/00827?quantity=1",
+        "url":"/p/details/1869392/00827?quantity=1",
         "partNumber":"39268-8",
         "sku":"1869392",
         "originalPrice":11.99,
@@ -52,7 +52,7 @@
      {  
         "id":4,
         "name":"Bell Automotive Products Ple Lighted Ash Tray",
-        "url":"https://mlocal.www.pepboys.com/product/details/9582820/00827?quantity=1",
+        "url":"/p/details/9582820/00827?quantity=1",
         "partNumber":"22059-1",
         "sku":"9582820",
         "originalPrice":11.99,
@@ -67,7 +67,7 @@
      {  
         "id":5,
         "name":"Bell Automotive Products Ash Tray/Lighted/Solar Powered",
-        "url":"https://mlocal.www.pepboys.com/product/details/242251/00827?quantity=1",
+        "url":"/p/details/242251/00827?quantity=1",
         "partNumber":"39263-8",
         "sku":"242251",
         "originalPrice":12.99,
@@ -82,7 +82,7 @@
      {  
         "id":6,
         "name":"Type S Black Ash Tray",
-        "url":"https://mlocal.www.pepboys.com/product/details/838083/00827?quantity=1",
+        "url":"/p/details/838083/00827?quantity=1",
         "partNumber":"AT53434-60/6",
         "sku":"838083",
         "originalPrice":16.99,

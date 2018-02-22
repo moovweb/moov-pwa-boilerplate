@@ -9,13 +9,13 @@ export default function Rating({value}) {
   
   for (let i=1; i<=5; i++) {
     if (value >= i) {
-      stars.push(<Star className={styles.star} key={i}/>)
+      stars.push(<Star key={i}/>)
     } else if (value >= i - 0.5) {
-      stars.push(<StarHalf className={styles.star} key={i}/>)
+      stars.push(<StarHalf key={i}/>)
     } else {
-      stars.push(<StarBorder className={styles.star} key={i}/>)
+      stars.push(<StarBorder key={i}/>)
     }
   }
 
-  return <div>{stars}</div>
+  return <div className={styles.root}>{stars}</div>
 }
