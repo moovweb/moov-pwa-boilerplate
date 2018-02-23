@@ -46,7 +46,7 @@ sudo brew services restart nginx
 # Running
 
 ```
-npm start
+yarn start
 ```
 
 This starts moov_server and webpack dev server.  
