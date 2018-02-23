@@ -17,10 +17,10 @@ export default class Home extends Component {
           <PinDrop className={styles.pindrop}/>
           Pep Boys Randallstown
           <Rating value={3}/>
-          <a href="javascript: void(0)">Change Store</a>
+          <a>Change Store</a>
         </div>
-        <img className={styles.fullWidth} src="//opt2.moovweb.net/img?img=https%3A%2F%2Fstatic.pepboys.com%2Fimages%2Fpromotions%2Fnovember_2015%2F23233_New_Mobile_HP_Assets_640x400_Store_Pickup.jpg&linkEncoded=0&quality=70"/>
-        <img className={styles.fullWidth} src="//opt2.moovweb.net/img?img=https%3A%2F%2Fstatic.pepboys.com%2Fimages%2Fpromotions%2Ffebruary_2018%2F26887_2C_MMJ25_Instant_MC_REF.jpg&linkEncoded=0&quality=70"/>
+        <img alt="ad" className={styles.fullWidth} src="//opt2.moovweb.net/img?img=https%3A%2F%2Fstatic.pepboys.com%2Fimages%2Fpromotions%2Fnovember_2015%2F23233_New_Mobile_HP_Assets_640x400_Store_Pickup.jpg&linkEncoded=0&quality=70"/>
+        <img alt="ad" className={styles.fullWidth} src="//opt2.moovweb.net/img?img=https%3A%2F%2Fstatic.pepboys.com%2Fimages%2Fpromotions%2Ffebruary_2018%2F26887_2C_MMJ25_Instant_MC_REF.jpg&linkEncoded=0&quality=70"/>
 
         <div className={styles.buttons}>
           <Hbox>
@@ -33,27 +33,27 @@ export default class Home extends Component {
           </Hbox>
           <Hbox className={styles.tiles}>
             <div className={styles.tile}>
-              <img src="//opt2.moovweb.net/img?img=https%3A%2F%2Fstatic.pepboys.com%2Fimages%2Fpromotions%2Fnovember_2015%2F23231_Catgoryboxes_318X320_FINAL-1.jpg&linkEncoded=0&quality=70"/>
+              <img alt="tires" src="//opt2.moovweb.net/img?img=https%3A%2F%2Fstatic.pepboys.com%2Fimages%2Fpromotions%2Fnovember_2015%2F23231_Catgoryboxes_318X320_FINAL-1.jpg&linkEncoded=0&quality=70"/>
               <div>Tires <KeyboardArrowRight/></div>
             </div>
             <div className={styles.tile}>
-              <img src="//opt2.moovweb.net/img?img=https%3A%2F%2Fstatic.pepboys.com%2Fimages%2Fpromotions%2Fnovember_2015%2F23231_Catgoryboxes_318X320_FINAL-2.jpg&linkEncoded=0&quality=70"/>
+              <img alt="accessories" src="//opt2.moovweb.net/img?img=https%3A%2F%2Fstatic.pepboys.com%2Fimages%2Fpromotions%2Fnovember_2015%2F23231_Catgoryboxes_318X320_FINAL-2.jpg&linkEncoded=0&quality=70"/>
               <div>Accessories <KeyboardArrowRight/></div>
             </div>
             <div className={styles.tile}>
-              <img src="//opt2.moovweb.net/img?img=https%3A%2F%2Fstatic.pepboys.com%2Fimages%2Fpromotions%2Fmarch_2017%2FChampion-Automotive-Battery-mobile.png&linkEncoded=0&quality=70"/>
+              <img alt="batteries" src="//opt2.moovweb.net/img?img=https%3A%2F%2Fstatic.pepboys.com%2Fimages%2Fpromotions%2Fmarch_2017%2FChampion-Automotive-Battery-mobile.png&linkEncoded=0&quality=70"/>
               <div>Batteries <KeyboardArrowRight/></div>
             </div>
             <div className={styles.tile}>
-              <img src="//opt2.moovweb.net/img?img=https%3A%2F%2Fstatic.pepboys.com%2Fimages%2Fpromotions%2Fmarch_2017%2Fwagner_oex_brakes_mobile.png&linkEncoded=0&quality=70"/>
+              <img alt="brakes" src="//opt2.moovweb.net/img?img=https%3A%2F%2Fstatic.pepboys.com%2Fimages%2Fpromotions%2Fmarch_2017%2Fwagner_oex_brakes_mobile.png&linkEncoded=0&quality=70"/>
               <div>Brakes <KeyboardArrowRight/></div>
             </div>
             <div className={styles.tile}>
-              <img src="//opt2.moovweb.net/img?img=https%3A%2F%2Fstatic.pepboys.com%2Fimages%2Fpromotions%2Fnovember_2015%2F23231_Catgoryboxes_318X320_FINAL-5.jpg&linkEncoded=0&quality=70"/>
+              <img alt="oils and fluids" src="//opt2.moovweb.net/img?img=https%3A%2F%2Fstatic.pepboys.com%2Fimages%2Fpromotions%2Fnovember_2015%2F23231_Catgoryboxes_318X320_FINAL-5.jpg&linkEncoded=0&quality=70"/>
               <div>Oils &amp; Fluids <KeyboardArrowRight/></div>
             </div>
             <div className={styles.tile}>
-              <img src="//opt2.moovweb.net/img?img=https%3A%2F%2Fstatic.pepboys.com%2Fimages%2Fpromotions%2Fmarch_2017%2FweeklyAd.jpg&linkEncoded=0&quality=70"/>
+              <img alt="weekly add" src="//opt2.moovweb.net/img?img=https%3A%2F%2Fstatic.pepboys.com%2Fimages%2Fpromotions%2Fmarch_2017%2FweeklyAd.jpg&linkEncoded=0&quality=70"/>
               <div>Weekly Add <KeyboardArrowRight/></div>
             </div>
           </Hbox>
@@ -74,7 +74,7 @@ export default class Home extends Component {
           </div>
         </div>
 
-        <img className={styles.fullWidth} src="//opt2.moovweb.net/img?img=https%3A%2F%2Fstatic.pepboys.com%2Fimages%2Fpromotions%2Fnovember_2015%2F23231_Mobile-Site_REWARDS_640X200_FINAL.png&linkEncoded=0&quality=70"/>
+        <img alt="ad" className={styles.fullWidth} src="//opt2.moovweb.net/img?img=https%3A%2F%2Fstatic.pepboys.com%2Fimages%2Fpromotions%2Fnovember_2015%2F23231_Mobile-Site_REWARDS_640X200_FINAL.png&linkEncoded=0&quality=70"/>
 
         <Hbox className={styles.signUp}>
           <div>

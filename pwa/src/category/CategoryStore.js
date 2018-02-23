@@ -1,5 +1,4 @@
 import { types } from "mobx-state-tree"
-import { Subcategory } from '../subcategory/SubcategoryStore'
 
 export const Category = types
   .model("Category", {

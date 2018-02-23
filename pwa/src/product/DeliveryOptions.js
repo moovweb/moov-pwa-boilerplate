@@ -1,8 +1,7 @@
 import React from 'react'
 import ExpandableSection from '../components/ExpandableSection'
 import Radio, { RadioGroup } from 'material-ui/Radio'
-import { FormLabel, FormControl, FormControlLabel, FormHelperText } from 'material-ui/Form'
-import styles from './DeliveryOptions.module.scss'
+import { FormControlLabel } from 'material-ui/Form'
 import { observer } from 'mobx-react'
 
 function DeliveryOptions({ product }) {

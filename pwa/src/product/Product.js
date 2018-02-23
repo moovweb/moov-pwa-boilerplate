@@ -27,7 +27,7 @@ export default class Product extends Component {
           <Rating value={product.rating}/>
         </Hbox>
         <div className={styles.carousel}>
-          <img src={product.image}/>
+          <img alt="product" src={product.image}/>
         </div>
         <div className="field">
           <label>Part #: </label>

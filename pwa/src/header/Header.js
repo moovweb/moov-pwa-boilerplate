@@ -1,7 +1,6 @@
 import React from 'react'
 import AppBar from 'material-ui/AppBar'
 import Toolbar from 'material-ui/Toolbar'
-import Typography from 'material-ui/Typography'
 import IconButton from 'material-ui/IconButton'
 import MenuIcon from 'material-ui-icons/Menu'
 import PinDrop from 'material-ui-icons/PinDrop'
@@ -22,7 +21,7 @@ export default function Header({ title, onMenuClick }) {
           <PinDrop/>
         </IconButton>
         <Link to="/" className={styles.logo}>
-          <img src="https://static.pepboys.com/images/promotions/january_2018/PB_Mobile_150.jpg"/>
+          <img alt="logo" src="https://static.pepboys.com/images/promotions/january_2018/PB_Mobile_150.jpg"/>
         </Link>
         <div style={{ flex: 1 }}/>
         <IconButton aria-label="Your Account" className={styles.button} classes={{label: styles.large }}>

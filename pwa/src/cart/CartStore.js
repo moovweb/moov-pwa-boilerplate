@@ -1,4 +1,4 @@
-import { types, getEnv } from "mobx-state-tree"
+import { types } from "mobx-state-tree"
 import { Product } from '../product/ProductStore'
 
 export const CartEntry = types

@@ -4,7 +4,7 @@ import RemoveCircle from 'material-ui-icons/RemoveCircle'
 import IconButton from 'material-ui/IconButton';
 import Input from 'material-ui/Input'
 import styles from './QuantitySelector.module.scss'
-import { observer, inject } from "mobx-react"
+import { observer } from "mobx-react"
 
 function QuantitySelector({ product }) {
   return (

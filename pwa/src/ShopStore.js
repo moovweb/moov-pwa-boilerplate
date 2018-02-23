@@ -1,5 +1,5 @@
 import { types } from "mobx-state-tree"
-import { CartEntry, CartStore } from "./cart/CartStore"
+import { CartStore } from "./cart/CartStore"
 import { Product, loadProduct } from './product/ProductStore'
 import { Category, loadCategory } from './category/CategoryStore'
 import { Subcategory, loadSubcategory } from './subcategory/SubcategoryStore'

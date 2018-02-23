@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Router, Route, Link, Switch } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import Home from './home/Home'
 import Header from './header/Header'
 import Menu from './menu/Menu'
@@ -35,7 +35,7 @@ class App extends Component {
   render() {
     return (
       <MuiThemeProvider theme={theme}>
-        <div className="App" className={styles.app}>
+        <div className={styles.app}>
           <Header onMenuClick={this.toggleMenu}/>
           <Menu open={this.state.menu} onClose={this.onMenuClose}/>
           <Search/>
@@ -62,6 +62,7 @@ class App extends Component {
   }
 
   onRouteChange = (location, action) => {
+    window.scrollTo(0, 0)
     this.setState({ menu: false })
   }
 

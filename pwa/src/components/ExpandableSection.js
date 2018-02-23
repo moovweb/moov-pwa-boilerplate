@@ -2,8 +2,7 @@ import React from 'react'
 import styles from './ExpandableSection.module.scss'
 import ExpansionPanel, {
   ExpansionPanelDetails,
-  ExpansionPanelSummary,
-  ExpansionPanelActions,
+  ExpansionPanelSummary
 } from 'material-ui/ExpansionPanel'
 import ExpandMoreIcon from 'material-ui-icons/ExpandMore'
 

@@ -1,8 +1,6 @@
 import React from 'react'
 import styles from './CategoryMask.module.scss'
 
-const Row = () => <div className={styles.row}/>
-
 const Category = () => (
   <div className={styles.category}>
     <div className={styles.top}/>

@@ -6,7 +6,6 @@ import styles from './ProductItem.module.scss'
 import Hbox from '../layout/Hbox'
 import Divider from '../layout/Divider'
 import DeliveryOptions from '../product/DeliveryOptions'
-import Button from 'material-ui/Button'
 import { Link } from 'react-router-dom'
 import AddToCartButton from '../product/AddToCartButton'
 
@@ -15,18 +14,18 @@ import AddToCartButton from '../product/AddToCartButton'
 export default class ProductItem extends Component {
 
   render() {
-    const { product, classes } = this.props
+    const { product } = this.props
 
     return (
       <li className={styles.product}>
         <Hbox>
           <Link to={product.url}>
-            <img src={product.image}/>
+            <img alt="product" src={product.image}/>
           </Link>
           <div className={styles.info}>
             <Link className={styles.name} to={product.url}>{product.name}</Link>
             <Rating value={product.rating}/>
-            <a href="javascript:void(0)">See all {product.reviewCount} reviews</a>
+            <a>See all {product.reviewCount} reviews</a>
             <div className="field">
               <label>Part #: </label>
               <span className="value">{product.partNumber}</span>

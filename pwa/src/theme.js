@@ -1,5 +1,4 @@
 import { createMuiTheme } from 'material-ui/styles';
-import green from 'material-ui/colors/green';
 
 export default createMuiTheme({
   palette: {

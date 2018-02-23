@@ -3,10 +3,6 @@ import { observer, inject } from "mobx-react"
 import Drawer from 'material-ui/Drawer'
 import List, { ListItem, ListItemText } from 'material-ui/List'
 import BackIcon from 'material-ui-icons/ArrowBack'
-import { Link } from 'react-router-dom'
-import AppBar from 'material-ui/AppBar'
-import Typography from 'material-ui/Typography'
-import Toolbar from 'material-ui/Toolbar'
 import CloseIcon from 'material-ui-icons/Close'
 import IconButton from 'material-ui/IconButton'
 import styles from './Menu.module.scss'
@@ -20,7 +16,7 @@ import Hbox from '../layout/Hbox'
 export default class Menu extends Component {
 
   render() {
-    const { shop: { menu }, title, open, onClose } = this.props
+    const { shop: { menu }, open, onClose } = this.props
     const { levels, level } = menu
     const width = 250;
 
