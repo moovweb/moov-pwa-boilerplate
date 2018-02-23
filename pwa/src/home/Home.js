@@ -8,16 +8,21 @@ import KeyboardArrowRight from 'material-ui-icons/KeyboardArrowRight'
 import Plus from 'material-ui-icons/Add'
 import Message from 'material-ui-icons/Comment'
 import Email from 'material-ui-icons/Email'
+import { inject, observer } from 'mobx-react'
 
+@inject('shop')
+@observer
 export default class Home extends Component {
   render() {
+    const { shop } = this.props
+
     return (
       <div>
         <div className={styles.store}>
           <PinDrop className={styles.pindrop}/>
-          Pep Boys Randallstown
-          <Rating value={3}/>
-          <a>Change Store</a>
+          Pep Boys { shop.store.name }
+          <Rating value={shop.store.rating}/>
+          <a onClick={() => shop.openChangeStoreDialog()}>Change Store</a>
         </div>
         <img alt="ad" className={styles.fullWidth} src="//opt2.moovweb.net/img?img=https%3A%2F%2Fstatic.pepboys.com%2Fimages%2Fpromotions%2Fnovember_2015%2F23233_New_Mobile_HP_Assets_640x400_Store_Pickup.jpg&linkEncoded=0&quality=70"/>
         <img alt="ad" className={styles.fullWidth} src="//opt2.moovweb.net/img?img=https%3A%2F%2Fstatic.pepboys.com%2Fimages%2Fpromotions%2Ffebruary_2018%2F26887_2C_MMJ25_Instant_MC_REF.jpg&linkEncoded=0&quality=70"/>

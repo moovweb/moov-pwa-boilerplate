@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom'
 import Home from './home/Home'
 import Header from './header/Header'
 import Menu from './menu/Menu'
+import StoreSelectionDialog from './store/StoreSelectionDialog'
 import { MuiThemeProvider } from 'material-ui/styles'
 import theme from './theme'
 import styles from './App.module.scss'
@@ -56,6 +57,8 @@ class App extends Component {
             }}/>
             <Route path="/cart" component={Cart}/>
           </Switch>
+
+          <StoreSelectionDialog/>
         </div>
       </MuiThemeProvider>
     )
