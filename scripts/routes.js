@@ -1,40 +1,26 @@
-const index = require('/build/index.html.js');
-const Router = require('/router.js');
-const router = new Router();
+const Router = require('/Router.js');
 
-router.fallback(() => Promise.resolve(index));
+module.exports = new Router()
+  .fallback(() => {
+    return Promise.resolve(require('/build/index.html.js'))
+  })
+  .get('/data/nav', () => {
+    return Promise.resolve(require("/api/nav.json")); 
+  })
+  .get('/data/categories/:id', ({ id }) => {
+    let data;
 
-router.get('/data/nav', () => {
-  let json = require("/api/nav.json");
-  return Promise.resolve(json); 
-});
+    if (id === 'accessories') {
+      data = require("/api/accessories.json");
+    } else {
+      data = require("/api/interior-accessories.json");
+    }
 
-router.get('/data/categories/:id', ({ id }) => {
-  let data;
-
-  if (id === 'accessories') {
-    data = require("/api/accessories.json");
-  } else if (id === 'interior_accessories') {
-    data = require("/api/interior-accessories.json");
-  }
-
-  return Promise.resolve(Object.assign({ id }, data))
-})
-
-router.get('/data/subcategories/:id', ({ id }) => {
-  let data;
-
-  if (id === 'ash_trays') {
-    data = require("/api/ashtray-subcategory.json");
-  }
-
-  return Promise.resolve(data);
-});
-
-router.get('/data/products/:id', ({ id }) => {
-  let data;
-  data = require("/api/ashtray-pdp.json");
-  return Promise.resolve(data);
-});
-
-module.exports = router;
+    return Promise.resolve(Object.assign({ id }, data))
+  })
+  .get('/data/subcategories/:id', ({ id }) => {
+    return Promise.resolve(require("/api/ashtray-subcategory.json"));
+  })
+  .get('/data/products/:id', ({ id }) => {
+    return Promise.resolve(require("/api/ashtray-pdp.json"));
+  });

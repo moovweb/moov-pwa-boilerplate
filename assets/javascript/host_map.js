@@ -9,8 +9,8 @@
 if (typeof(mw) == "undefined") {
 	window.mw = {};
 }
-var mapProxyToOriginPrime = {"http://.www.pepboys.com":"http://www.pepboys.com","https://.www.pepboys.com":"https://www.pepboys.com"},
-    mapOriginToProxyPrime = {"http://www.pepboys.com":"http://.www.pepboys.com","https://www.pepboys.com":"https://.www.pepboys.com"};
+var mapProxyToOriginPrime = {"http://mlocal.www.pepboys.com:3030":"http://www.pepboys.com","https://mlocal.www.pepboys.com:3031":"https://www.pepboys.com"},
+    mapOriginToProxyPrime = {"http://www.pepboys.com":"http://mlocal.www.pepboys.com:3030","https://www.pepboys.com":"https://mlocal.www.pepboys.com:3031"};
 
 if (typeof(mw.mapProxyToOrigin) !== "undefined") {
   for (key in mapProxyToOriginPrime) {
