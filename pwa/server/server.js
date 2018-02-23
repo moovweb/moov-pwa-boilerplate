@@ -1,4 +1,4 @@
-var render = require('../dist/assets/SSR').default;
+var render = require('../../build/assets/pwa/SSR.js').default;
 
 const menu = {
   items: [{
