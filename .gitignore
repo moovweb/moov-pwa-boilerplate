@@ -3,3 +3,5 @@
 /tmp
 /moovworkerd.pid
 .DS_Store
+moov_main.js
+host_map.js
