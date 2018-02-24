@@ -1,16 +1,16 @@
-var render = require('../../build/assets/pwa/SSR.js').default;
+var render = require('../../scripts/build/SSR');
 
 const menu = {
   items: [{
-    id: '1',
+    id: 1,
     text: 'Home',
     url: '/'
   }, {
-    id: '5',
+    id: 5,
     text: 'Products',
     items: [
-      { id: '6', text: 'Accessories', items: [
-        { id: '7', text: 'Shop all Accessories', url: '/c/all-accessories' }
+      { id: 6, text: 'Accessories', items: [
+        { id: 7, text: 'Shop all Accessories', url: '/c/all-accessories' }
       ] }
     ]
   }]

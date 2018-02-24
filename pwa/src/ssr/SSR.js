@@ -6,7 +6,10 @@ import App from '../App'
 import Shop from '../ShopStore'
 import { Menu, MenuItem } from '../menu/MenuStore'
 
-export default function render(data) {
+import { extras } from 'mobx'
+extras.isolateGlobalState();
+
+module.exports = function render(data) {
 
   const menu = Menu.create();
   menu.setRoot(data.menu)
