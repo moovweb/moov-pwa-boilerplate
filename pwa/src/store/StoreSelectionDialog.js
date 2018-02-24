@@ -42,7 +42,7 @@ export default class StoreSelectionDialog extends Component {
             }
           />
 
-          <div style={{ height: '400px', width: '300px', overflowY: 'auto' }}>
+          <div className={styles.scroll}>
             { shop.zip.length === 0 && (
               <DialogContentText className={styles.empty}>
                 Enter you zip code to see the stores in your area.

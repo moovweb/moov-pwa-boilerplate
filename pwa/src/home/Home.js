@@ -9,6 +9,7 @@ import Plus from 'material-ui-icons/Add'
 import Message from 'material-ui-icons/Comment'
 import Email from 'material-ui-icons/Email'
 import { inject, observer } from 'mobx-react'
+import { Link } from 'react-router-dom'
 
 @inject('shop')
 @observer
@@ -33,34 +34,38 @@ export default class Home extends Component {
             <Button className={styles.button} raised>Make Appointment</Button>
           </Hbox>
           <Hbox>
-            <Button className={styles.button} raised>Shop Tires</Button>
-            <Button className={styles.button} raised>Shop Parts</Button>
+            <Link to="/c/1" style={{ display: 'flex', flex: 1}}>
+              <Button className={styles.button} raised>Shop Tires</Button>
+            </Link>
+            <Link to="/c/1" style={{ display: 'flex', flex: 1}}>
+              <Button className={styles.button} raised>Shop Parts</Button>
+            </Link>
           </Hbox>
           <Hbox className={styles.tiles}>
-            <div className={styles.tile}>
+            <Link to="/c/1" className={styles.tile}>
               <img alt="tires" src="//opt2.moovweb.net/img?img=https%3A%2F%2Fstatic.pepboys.com%2Fimages%2Fpromotions%2Fnovember_2015%2F23231_Catgoryboxes_318X320_FINAL-1.jpg&linkEncoded=0&quality=70"/>
               <div>Tires <KeyboardArrowRight/></div>
-            </div>
-            <div className={styles.tile}>
+            </Link>
+            <Link to="/c/1" className={styles.tile}>
               <img alt="accessories" src="//opt2.moovweb.net/img?img=https%3A%2F%2Fstatic.pepboys.com%2Fimages%2Fpromotions%2Fnovember_2015%2F23231_Catgoryboxes_318X320_FINAL-2.jpg&linkEncoded=0&quality=70"/>
               <div>Accessories <KeyboardArrowRight/></div>
-            </div>
-            <div className={styles.tile}>
+            </Link>
+            <Link to="/c/1" className={styles.tile}>
               <img alt="batteries" src="//opt2.moovweb.net/img?img=https%3A%2F%2Fstatic.pepboys.com%2Fimages%2Fpromotions%2Fmarch_2017%2FChampion-Automotive-Battery-mobile.png&linkEncoded=0&quality=70"/>
               <div>Batteries <KeyboardArrowRight/></div>
-            </div>
-            <div className={styles.tile}>
+            </Link>
+            <Link to="/c/1" className={styles.tile}>
               <img alt="brakes" src="//opt2.moovweb.net/img?img=https%3A%2F%2Fstatic.pepboys.com%2Fimages%2Fpromotions%2Fmarch_2017%2Fwagner_oex_brakes_mobile.png&linkEncoded=0&quality=70"/>
               <div>Brakes <KeyboardArrowRight/></div>
-            </div>
-            <div className={styles.tile}>
+            </Link>
+            <Link to="/c/1" className={styles.tile}>
               <img alt="oils and fluids" src="//opt2.moovweb.net/img?img=https%3A%2F%2Fstatic.pepboys.com%2Fimages%2Fpromotions%2Fnovember_2015%2F23231_Catgoryboxes_318X320_FINAL-5.jpg&linkEncoded=0&quality=70"/>
               <div>Oils &amp; Fluids <KeyboardArrowRight/></div>
-            </div>
-            <div className={styles.tile}>
+            </Link>
+            <Link to="/c/1" className={styles.tile}>
               <img alt="weekly add" src="//opt2.moovweb.net/img?img=https%3A%2F%2Fstatic.pepboys.com%2Fimages%2Fpromotions%2Fmarch_2017%2FweeklyAd.jpg&linkEncoded=0&quality=70"/>
               <div>Weekly Add <KeyboardArrowRight/></div>
-            </div>
+            </Link>
           </Hbox>
         </div>
 
