@@ -2,6 +2,7 @@ const { publicPath, assetsPath, commonLoaders } = require('./common.config');
 const path = require('path');
 const nodeExternals = require('webpack-node-externals');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const autoprefixer = require('autoprefixer');
 
 module.exports = {
   name: 'SSR',
@@ -22,19 +23,14 @@ module.exports = {
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader', 
           use: [
-            { 
-              loader: "css-loader" ,
-              query: {
-                localIdentName: '[local]___[hash:base64:5]',
-                modules: true
-              }
-            }, 
             {
               loader: require.resolve('css-loader'),
               options: {
                 importLoaders: 1,
+                localIdentName: '[local]___[hash:base64:5]',
+                modules: true,
                 minimize: true,
-                sourceMap: true,
+                sourceMap: false,
               },
             },
             {
@@ -57,7 +53,9 @@ module.exports = {
                 ],
               },
             },
-            { loader: "sass-loader" }
+            { 
+              loader: "sass-loader" 
+            }
           ]
         })
       }
