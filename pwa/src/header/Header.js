@@ -7,30 +7,35 @@ import PinDrop from 'material-ui-icons/PinDrop'
 import Person from 'material-ui-icons/Person'
 import Cart from 'material-ui-icons/ShoppingCart'
 import { Link } from 'react-router-dom'
-import styles from './Header.module.scss'
+import { withStyles } from 'material-ui/styles'
+import styles from './Header.styles.js'
 
-export default function Header({ title, onMenuClick }) {
-  return (
-    <AppBar position="fixed" className={styles.header}>
-      <Toolbar>
-        <IconButton aria-label="Menu" onClick={onMenuClick} className={styles.button} classes={{ label: `${styles.buttonLabel} ${styles.menu}` }}>
-          <MenuIcon />
-          <div className={styles.buttonText}>menu</div>
-        </IconButton>
-        <IconButton aria-label="Store Locator" className={styles.button} classes={{label: styles.large }}>
-          <PinDrop/>
-        </IconButton>
-        <Link to="/" className={styles.logo}>
-          <img alt="logo" src="https://static.pepboys.com/images/promotions/january_2018/PB_Mobile_150.jpg"/>
-        </Link>
-        <div style={{ flex: 1 }}/>
-        <IconButton aria-label="Your Account" className={styles.button} classes={{label: styles.large }}>
-          <Person />
-        </IconButton>
-        <IconButton aria-label="Cart" className={styles.button} classes={{label: `${styles.large} ${styles.cart}` }}>
-          <Cart/>
-        </IconButton>
-      </Toolbar>
-    </AppBar>
-  )
-}
+export default withStyles(styles)(
+
+  function Header({ classes, title, onMenuClick }) {
+    return (
+      <AppBar position="fixed">
+        <Toolbar disableGutters classes={{ root: classes.toolBar }}>
+          <IconButton aria-label="Menu" color="inherit" onClick={onMenuClick} classes={{ label: classes.buttonLabel }}>
+            <MenuIcon />
+            <div className={classes.buttonText}>menu</div>
+          </IconButton>
+          <IconButton aria-label="Store Locator"color="inherit" classes={{label: classes.large }}>
+            <PinDrop/>
+          </IconButton>
+          <Link to="/" className={classes.logoWrap}>
+            <img alt="logo" src="https://static.pepboys.com/images/promotions/january_2018/PB_Mobile_150.jpg"/>
+          </Link>
+          <div style={{ flex: 1 }}/>
+          <IconButton aria-label="Your Account"color="inherit"  classes={{label: classes.large }}>
+            <Person />
+          </IconButton>
+          <IconButton aria-label="Cart" color="inherit" classes={{label: `${classes.large} ${classes.cart}` }}>
+            <Cart/>
+          </IconButton>
+        </Toolbar>
+      </AppBar>
+    )
+  }
+
+)

@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
 import { Route, Switch } from 'react-router-dom'
+import withStyles from 'material-ui/styles/withStyles';
 import Home from './home/Home'
 import Header from './header/Header'
 import Menu from './menu/Menu'
 import StoreSelectionDialog from './store/StoreSelectionDialog'
-import { MuiThemeProvider } from 'material-ui/styles'
-import theme from './theme'
-import styles from './App.module.scss'
+import styles from './App.styles'
 import Promo from './banners/Promo'
 import Search from './search/Search'
 import { observer, inject } from "mobx-react"
@@ -21,9 +20,11 @@ import Product from './product/Product'
 import Subcategory from './subcategory/Subcategory'
 import Category from './category/Category'
 import Cart from './cart/Cart'
+import Reboot from 'material-ui/Reboot'
 
 @inject('shop')
 @observer
+@withStyles(styles)
 class App extends Component {
 
   state = {
@@ -39,9 +40,11 @@ class App extends Component {
   }
 
   render() {
+    const { classes } = this.props
+
     return (
-      <MuiThemeProvider theme={theme}>
-        <div className={styles.app}>
+      <Reboot>
+        <div className={classes.app}>
           <Header onMenuClick={this.toggleMenu}/>
           <Menu open={this.state.menu} onClose={this.onMenuClose}/>
           <Search/>
@@ -65,7 +68,7 @@ class App extends Component {
 
           <StoreSelectionDialog/>
         </div>
-      </MuiThemeProvider>
+      </Reboot>
     )
   }
 

@@ -23,10 +23,10 @@ export const Menu = types
      * Fetches the menu from the server
      */
     load() {
-      if (false && !root) {
+      if (!self.levels.length) {
         fetch('/data/nav', { credentials: 'same-origin' })
-        .then(response => response.json())
-        .then(root => self.setRoot(root))
+          .then(response => response.json())
+          .then(root => self.setRoot(root))
       }
     },
 

@@ -1,13 +1,22 @@
+import { extras } from 'mobx'
+extras.isolateGlobalState();
+
 import React from 'react'
 import { renderToString } from 'react-dom/server'
 import { Provider } from "mobx-react"
 import StaticRouter from 'react-router-dom/StaticRouter'
+
 import App from '../App'
 import Shop from '../ShopStore'
 import { Menu, MenuItem } from '../menu/MenuStore'
 
-import { extras } from 'mobx'
-extras.isolateGlobalState();
+import { SheetsRegistry } from 'react-jss/lib/jss';
+import JssProvider from 'react-jss/lib/JssProvider';
+import { MuiThemeProvider, createGenerateClassName } from 'material-ui/styles';
+import theme from '../theme'
+
+const sheetsRegistry = new SheetsRegistry()
+const generateClassName = createGenerateClassName()
 
 module.exports = function render(data) {
 
@@ -23,12 +32,19 @@ module.exports = function render(data) {
 
   const context = {}
 
-  return renderToString(
-    <Provider shop={shop}>
-      <StaticRouter location="/" context={context}>
-        <App/>
-      </StaticRouter>
-    </Provider>
-  )
+  return {
+    html: renderToString(
+      <Provider shop={shop}>
+        <StaticRouter location="/" context={context}>
+          <JssProvider registry={sheetsRegistry} generateClassName={generateClassName}>
+            <MuiThemeProvider theme={theme} sheetsManager={new Map()}>
+              <App/>
+            </MuiThemeProvider>
+          </JssProvider>
+        </StaticRouter>
+      </Provider>
+    ),
+    css: sheetsRegistry.toString()
+  }
 
 }

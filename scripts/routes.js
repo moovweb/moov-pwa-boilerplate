@@ -1,14 +1,21 @@
 const Router = require('/Router.js');
-const index = require('/build/index.html.js')
-const render = require('/build/SSR.js')
 
-console.error = console.warn = console.log
+let render;
 
 module.exports = new Router()
   .fallback(() => {
-    const html = render({});
-    console.log('html', html);
-    return Promise.resolve(index.replace('{{ssr}}', html));
+    console.warn = console.log
+    console.warn('test')
+
+    const index = require('/build/index.html.js')
+    render = render || require('/build/SSR.js')
+    const { html, css } = render({}); 
+
+    return Promise.resolve(
+      index
+        .replace('{{html}}', html)
+        .replace('{{css}}', `<style>${css}</style>`)
+    ); 
   })
   .get('/data/nav', () => {
     return Promise.resolve(require("/api/nav.json")); 

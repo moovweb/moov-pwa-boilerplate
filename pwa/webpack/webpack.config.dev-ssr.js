@@ -12,10 +12,9 @@ module.exports = {
     path: assetsPath,
     filename: 'SSR.js',
     libraryTarget: 'commonjs2',
-    // publicPath,
   },
   target: 'web',
-  // externals: nodeExternals(),  
+  externals: nodeExternals(),  
   module: {
     loaders: commonLoaders.concat([
       {

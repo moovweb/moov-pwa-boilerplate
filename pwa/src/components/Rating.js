@@ -2,9 +2,10 @@ import React from 'react'
 import Star from 'material-ui-icons/Star'
 import StarBorder from 'material-ui-icons/StarBorder'
 import StarHalf from 'material-ui-icons/StarHalf'
-import styles from './Rating.module.scss'
+import styles from './Rating.styles'
+import withStyles from 'material-ui/styles/withStyles';
 
-export default function Rating({value}) {
+export default withStyles(styles)(function Rating({classes, value}) {
   let stars = []
   
   for (let i=1; i<=5; i++) {
@@ -17,5 +18,5 @@ export default function Rating({value}) {
     }
   }
 
-  return <div className={styles.root}>{stars}</div>
-}
+  return <div className={classes.root}>{stars}</div>
+})
