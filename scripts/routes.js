@@ -1,15 +1,11 @@
 const Router = require('/Router.js');
 
-let render;
-
 module.exports = new Router()
   .fallback(() => {
-    console.warn = console.log
-    console.warn('test')
-
-    const index = require('/build/index.html.js')
-    render = render || require('/build/SSR.js')
-    const { html, css } = render({}); 
+    console.error = console.warn = console.log
+    const index = require('/build/index.html.js');
+    const render = require('/build/SSR.js');
+    const { html, css } = render({ url: env.path, data: {} }); 
 
     return Promise.resolve(
       index

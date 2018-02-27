@@ -18,7 +18,7 @@ import theme from '../theme'
 const sheetsRegistry = new SheetsRegistry()
 const generateClassName = createGenerateClassName()
 
-module.exports = function render(data) {
+module.exports = function render({ url='/', data }) {
 
   const menu = Menu.create();
   menu.setRoot(data.menu)
@@ -35,7 +35,7 @@ module.exports = function render(data) {
   return {
     html: renderToString(
       <Provider shop={shop}>
-        <StaticRouter location="/" context={context}>
+        <StaticRouter location={url} context={context}>
           <JssProvider registry={sheetsRegistry} generateClassName={generateClassName}>
             <MuiThemeProvider theme={theme} sheetsManager={new Map()}>
               <App/>

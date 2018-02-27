@@ -1,6 +1,6 @@
 {
   "name": "moov-pwa",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "main": "scripts/moov_main.js",
   "dependencies": {
     "async": "^2.1.4",
@@ -43,11 +43,9 @@
     "gulp": "^3.9.1",
     "mocha": "^5.0.1",
     "moov_builder": "https://npm.moovweb.net/moov_builder/-/moov_builder-2.4.11.tgz",
-    "react-app-rewire-css-modules": "codebandits/react-app-rewire-css-modules",
     "react-app-rewire-mobx": "^1.0.7",
     "react-app-rewired": "^1.4.0",
     "react-scripts": "1.0.17",
-    "sass-loader": "^6.0.6",
     "style-loader": "^0.20.2",
     "webpack": "^3.11.0",
     "webpack-node-externals": "^1.6.0"
@@ -58,13 +56,16 @@
     "moov": "sudo moov server -p 3030 --ssl-port 3031",
     "start": "concurrently \"npm run moov\" \"npm run watch\"",
     "prod": "sudo moov server -p 80 --ssl-port 443",
-    "watch": "pushd pwa && BROWSER=none yarn start",
+    "watch": "pushd pwa && BROWSER=none react-app-rewired start",
     "build:index": "node tasks/buildIndex.js",
-    "build:ssr": "pushd pwa && yarn run build:ssr && popd && mv build/assets/pwa/SSR.js scripts/build && yarn run build:index",
-    "build": "yarn run clean && pushd pwa && yarn run build && mv build/* ../build/assets/pwa && popd && yarn run build:index && yarn run build:ssr",
+    "build:ssr": "pushd pwa && NODE_ENV=production webpack --config ./webpack/webpack.config.dev-ssr.js && popd && mv build/assets/pwa/SSR.js scripts/build && yarn run build:index",
+    "build": "yarn run clean && pushd pwa && react-app-rewired build && mv build/* ../build/assets/pwa && popd && yarn run build:index && yarn run build:ssr",
     "clean": "rm -rf pwa/build pwa/dist build/assets/pwa scripts/build/* && mkdir -p build/assets/pwa",
     "deploy": "npm run build && moov deploy pepboys-pwa-demo/pepboys-pwa-demo -ignore-live",
-    "deploy:nginx": "ln -sf $(pwd)/nginx.development.conf /usr/local/etc/nginx/servers/pepboys-pwa.conf && ln -sf $(pwd)/build/assets/pwa /usr/local/var/www/pepboys-pwa && sudo brew services restart nginx"
+    "deploy:nginx": "ln -sf $(pwd)/nginx.development.conf /usr/local/etc/nginx/servers/pepboys-pwa.conf && ln -sf $(pwd)/build/assets/pwa /usr/local/var/www/pepboys-pwa && sudo brew services restart nginx",
+    "test:pwa": "pushd pwa && react-app-rewired test --env=jsdom",
+    "eject": "react-app-rewired eject",
+    "server": "node pwa/server/server.js"
   },
   "pre-commit": {
     "run": [
