@@ -1,6 +1,18 @@
 import React, { Component } from 'react'
-import styles from './Promo.styles.js'
 import withStyles from 'material-ui/styles/withStyles'
+import theme from '../theme'
+
+const styles = {
+  promo: {
+    backgroundColor: theme.palette.background.shade,
+    padding: '5px 0',
+
+    '& img': {
+      width: '100vw',
+      display: 'block'
+    }
+  }
+}
 
 @withStyles(styles)
 export default class Promo extends Component {

@@ -1,14 +1,24 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import styles from './SubcategoryItem.module.scss'
+import withStyles from 'material-ui/styles/withStyles';
 
-export default function SubcategoryItem({ subcategory }) {
+const styles = {
+  subcategory: {
+    listStyleType: 'none',
+    fontSize: '13px'
+  },
+  name: {
+    marginTop: '5px'
+  }
+}
+
+export default withStyles(styles)(function SubcategoryItem({ subcategory, classes }) {
   return (
-    <li className={styles.subcategory}>
+    <li className={classes.subcategory}>
       <Link to={subcategory.url}>
         <img alt="category" src={subcategory.image}/>
-        <div className={styles.name}>{subcategory.name}</div>
+        <div className={classes.name}>{subcategory.name}</div>
       </Link>
     </li>
   )
-}
+})

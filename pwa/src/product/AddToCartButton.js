@@ -1,11 +1,20 @@
 import React from 'react'
 import Button from 'material-ui/Button'
-import styles from './Product.module.scss'
+import withStyles from 'material-ui/styles/withStyles';
 
-export default function AddToCartButton({ onClick }) {
+const styles = {
+  root: {
+    backgroundColor: '#4CAF50',
+    minWidth: '190px',
+    fontSize: '16px', 
+    fontWeight: 'normal',
+  }
+}
+
+export default withStyles(styles)(function AddToCartButton({ classes, onClick }) {
   return (
-    <Button raised color="primary" classes={{ root: styles.addToCartButton }}>
+    <Button variant="raised" color="primary" classes={classes}>
       Add to Cart
     </Button>
   )
-}
+})

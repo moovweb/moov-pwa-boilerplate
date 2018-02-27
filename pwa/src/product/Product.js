@@ -3,30 +3,32 @@ import { parseQueryString } from '../utils'
 import { observer, inject } from "mobx-react"
 import Container from '../layout/Container'
 import Breadcrumbs from '../components/Breadcrumbs'
-import Hbox from '../layout/Hbox'
+import { Hbox } from '../layout/Box'
 import Rating from '../components/Rating'
-import styles from './Product.module.scss'
+import styles from './Product.styles'
 import QuantitySelector from '../components/QuantitySelector'
 import Divider from '../layout/Divider';
 import DeliveryOptions from './DeliveryOptions'
 import AddToCartButton from './AddToCartButton'
 import BottomDrawer from '../layout/BottomDrawer'
 import ExpandableSection from '../components/ExpandableSection'
+import withStyles from 'material-ui/styles/withStyles'
 
+@withStyles(styles)
 @inject('shop')
 @observer
 export default class Product extends Component {
   render() {
-    const { product } = this.props.shop
+    const { classes, shop: { product } } = this.props
 
     return product ? (
-      <Container className={styles.product}>
+      <Container className={classes.product}>
         <Breadcrumbs items={product.breadcrumbs} current={product.name}/>
         <Hbox split>
           <h2>{product.name}</h2>
           <Rating value={product.rating}/>
         </Hbox>
-        <div className={styles.carousel}>
+        <div className={classes.carousel}>
           <img alt="product" src={product.image}/>
         </div>
         <div className="field">
@@ -37,26 +39,26 @@ export default class Product extends Component {
           <label>SKU: </label>
           <span className="value">{product.sku}</span>
         </div>
-        <div className={styles.availability}>{product.availability}</div>     
+        <div className={classes.availability}>{product.availability}</div>     
         { product.pickupAvailable && (
-          <div className={styles.availabilityOption}>Pay in Store Available</div>
+          <div className={classes.availabilityOption}>Pay in Store Available</div>
         )}
-        <div className={styles.shortDescription}>{product.shortDescription}</div>
-        <div className={styles.quantity}>
+        <div className={classes.shortDescription}>{product.shortDescription}</div>
+        <div className={classes.quantity}>
           Qty: <QuantitySelector product={product}/>
         </div>
         <Divider/>
         <div>
-          <Hbox split className={styles.inset}>
+          <Hbox split className={classes.inset}>
             <div>Retail</div>
             <div>{product.salePrice}</div>
           </Hbox>
         </div>
         <Divider/>
-        <div className={styles.deliveryOptions}>
+        <div className={classes.deliveryOptions}>
           <DeliveryOptions product={product}/>
         </div>
-        <div className={styles.total}>
+        <div className={classes.total}>
           Total: ${product.total}
         </div>
         <Divider style={{ margin: '10px 0 0 0' }}/>

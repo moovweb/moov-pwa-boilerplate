@@ -22,7 +22,7 @@ export default {
       marginLeft: '10px',
       fontWeight: 'normal',
       fontSize: '12px',
-      textDecoration: 'none !important'
+      textDecoration: '!important'
     },
   },
 

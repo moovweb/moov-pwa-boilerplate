@@ -1,134 +1,121 @@
 import React from 'react'
-import styles from './SubcategoryMask.module.scss'
-import Hbox from '../layout/Hbox'
-import Vbox from '../layout/Vbox'
-
-const Row = ({ height, children, style }) => <div className={styles.row} style={{ height: height && `${height}px`, ...style }}>{children}</div>
-const Space = ({ width, flex }) => <div className={styles.space} style={{ width: width && `${width}px`, flex: flex }}/>
-const Content = ({ width, flex }) => <div className={styles.content} style={{ width: width && `${width}px`, flex: flex }}/>
-const BlankRow = ({ height }) => (
-  <Row height={height}>
-    <Space flex={1} />
-  </Row>
-)
+import { Hbox, Vbox } from '../layout/Box'
+import { Shimmer, Row, Space, Content, BlankRow } from '../components/Shimmer'
 
 export default function CategoryMask() {
   return (
-    <div className={styles.wrap + ' animated-background'}>
-      <div>
-        <BlankRow height={10}/>
-        <Row height={12}>
-          <Space width={10}/>
-          <Content width={200}/>
-          <Space flex={1}/>
-        </Row>
-        <BlankRow height={20}/>
-        <Row height={15}>
-          <Space flex={1}/>
-          <Content width={220}/>
-          <Space width={10}/>
-        </Row>
-        <BlankRow height={10}/>
-        <Row height={36}>
-        </Row>
-        <BlankRow height={10}/>
-        <Row height={40}>
-          <Space width={10}/>
-          <Content width={150}/>
-          <Space width={10}/>
-          <Content width={250}/>
-          <Space width={10}/>
-        </Row>
-        <BlankRow height={10}/>
-        <Row height={15}>
-          <Space width={10}/>
-          <Content width={150}/>
-          <Space flex={1}/>
-        </Row>
-        <BlankRow height={20}/>
-        <Row height={15}>
-          <Space width={10}/>
-          <Content width={150}/>
-          <Space flex={1}/>
-        </Row>
-        <BlankRow height={5}/>
-        <Row height={15}>
-          <Space width={10}/>
-          <Content width={300}/>
-          <Space flex={1}/>
-        </Row>
-        <BlankRow height={20}/>
-        <Product/>
-        <BlankRow height={10}/>
-        <Product/>
-      </div>
-    </div>
+    <Shimmer>
+      <BlankRow height="10px"/>
+      <Row height="12px">
+        <Space width="10px"/>
+        <Content width="200px"/>
+        <Space flex={1}/>
+      </Row>
+      <BlankRow height="20px"/>
+      <Row height="15px">
+        <Space flex={1}/>
+        <Content width="220px"/>
+        <Space width="10px"/>
+      </Row>
+      <BlankRow height="10px"/>
+      <Row height="36px"/>
+      <BlankRow height="10px"/>
+      <Row height="40px">
+        <Space width="10px"/>
+        <Content width="150px"/>
+        <Space width="10px"/>
+        <Content width="250px"/>
+        <Space width="10px"/>
+      </Row>
+      <BlankRow height="10px"/>
+      <Row height="15px">
+        <Space width="10px"/>
+        <Content width="150px"/>
+        <Space flex={1}/>
+      </Row>
+      <BlankRow height="20px"/>
+      <Row height="15px">
+        <Space width="10px"/>
+        <Content width="150px"/>
+        <Space flex={1}/>
+      </Row>
+      <BlankRow height="5px"/>
+      <Row height="15px">
+        <Space width="10px"/>
+        <Content width="300px"/>
+        <Space flex={1}/>
+      </Row>
+      <BlankRow height="20px"/>
+      <Product/>
+      <BlankRow height="10px"/>
+      <Product/>
+    </Shimmer>
   )
 }
 
 function Product() {
   return (
     <Hbox style={{ height: '400px', alignItems: 'stretch' }}>
-      <Vbox style={{ width: '136px' }}>
-        <Row height={116} style={{ flex: 'none' }}>
-          <Space width={10}/>
+      <Vbox width="136px">
+        <Row height="116px" style={{ flex: 'none' }}>
+          <Space width="10px"/>
           <Content flex={1}/>
-          <Space width={10}/>
+          <Space width="10px"/>
         </Row>
-        <Row style={{ flex: 1 }} >
+        <Row flex="1">
           <Space flex={1}/>
         </Row>
       </Vbox>
-      <div style={{ flex: 1 }}>
-        <Row height={15}>
+      <Vbox flex="1">
+        <Row height="15px">
           <Content flex={1}/>
-          <Space width={10}/>
+          <Space width="10px"/>
         </Row>
-        <BlankRow height={5}/>
-        <Row height={15}>
-          <Content width={100}/>
+        <BlankRow height="5px"/>
+        <Row height="15px">
+          <Content width="100px"/>
           <Space flex={1}/>
         </Row>
-        <BlankRow height={10}/>
-        <Row height={15}>
-          <Content width={150}/>
+        <BlankRow height="10px"/>
+        <Row height="15px">
+          <Content width="150px"/>
           <Space flex={1}/>
         </Row>
-        <BlankRow height={10}/>
-        <Row height={15}>
-          <Content width={150}/>
+        <BlankRow height="10px"/>
+        <Row height="15px">
+          <Content width="150px"/>
           <Space flex={1}/>
         </Row>
-        <BlankRow height={10}/>
-        <Row height={15}>
-          <Content width={150}/>
+        <BlankRow height="10px"/>
+        <Row height="15px">
+          <Content width="150px"/>
           <Space flex={1}/>
         </Row>
-        <BlankRow height={10}/>
-        <Row height={15}>
-          <Content width={150}/>
+        <BlankRow height="10px"/>
+        <Row height="15px">
+          <Content width="150px"/>
           <Space flex={1}/>
         </Row>
-        <BlankRow height={10}/>
-        <Row height={15}>
-          <Content width={150}/>
+        <BlankRow height="10px"/>
+        <Row height="15px">
+          <Content width="150px"/>
           <Space flex={1}/>
         </Row>
-        <BlankRow height={10}/>
-        <Row height={15}>
+        <BlankRow height="10px"/>
+        <Row height="15px">
           <Content flex={1}/>
-          <Space width={10}/>
+          <Space width="10px"/>
         </Row>
-        <BlankRow height={10}/>
-        <Row height={15}>
+        <BlankRow height="10px"/>
+        <Row height="15px">
           <Content flex={1}/>
-          <Space width={10}/>
+          <Space width="10px"/>
         </Row>
-        <BlankRow height={10}/>
-        <Row height={100}>
+        <BlankRow height="10px"/>
+        <Row height="100px">
           <Space flex={1}/>
         </Row>
-      </div>
+      </Vbox>
     </Hbox>
   )
 }

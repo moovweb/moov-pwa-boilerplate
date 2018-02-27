@@ -2,22 +2,40 @@ import React, { Component } from 'react'
 import { observer, inject } from "mobx-react"
 import SubcategoryItem from './SubcategoryItem'
 import CategoryMask from './CategoryMask'
-import styles from './Category.module.scss'
 import { parseQueryString } from '../utils'
 import Container from '../layout/Container'
+import withStyles from 'material-ui/styles/withStyles'
 
+const styles = {
+  subcategories: {
+    display: 'flex',
+    flexDirection: 'row',
+    margin: '20px',
+    padding: '0',
+    flexWrap: 'wrap',
+  
+    '& > *': {
+      flex: 1,
+      textAlign: 'center',
+      minWidth: '100px',
+      margin: '20px'
+    }
+  }
+}
+
+@withStyles(styles)
 @inject('shop')
 @observer
 export default class Category extends Component {
   render() {
-    const { category } = this.props.shop
+    const { classes, shop: { category } } = this.props
 
     return (
-      <div className={styles.category}>
+      <div className={classes.category}>
         <h1>{category && category.name}</h1>
         { category ? (
           <div>
-            <ul className={styles.subcategories}>
+            <ul className={classes.subcategories}>
               { category.subcategories.map((subcategory, i) => <SubcategoryItem key={i} subcategory={subcategory}/>) }
             </ul>
             <Container>
@@ -37,10 +55,6 @@ export default class Category extends Component {
 
   componentWillUnmount() {
     this.props.shop.setCategory(null)
-  }
-
-  componentWillUpdate(nextProps) {
-    // this.loadCategory(nextProps)
   }
 
   loadCategory() {

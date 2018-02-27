@@ -29,7 +29,6 @@ export const Product = types
 }))
 .actions(self => ({
   setQuantity(q) {
-    debugger;
     self.quantity = Math.max(1, q)
   },
   setDelivery(d) {

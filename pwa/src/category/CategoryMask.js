@@ -1,39 +1,22 @@
 import React from 'react'
-import styles from './CategoryMask.module.scss'
-
-const Category = () => (
-  <div className={styles.category}>
-    <div className={styles.top}/>
-    <div className={styles.tile}>
-      <div className={styles.left}/>
-      <div className={styles.center}/>
-    </div>
-  </div>
-)
+import { Shimmer, Tiles, Tile, Row, Content, BlankRow } from '../components/Shimmer'
 
 export default function CategoryMask() {
+  const tiles = []
+
+  for (let i=0; i<20; i++) {
+    tiles.push(<Tile minWidth={120} maxWidth={200} hMargin="20px" vMargin="15px" textMargin="5px"/>)
+  }
+
   return (
-    <div className={styles.wrap + ' animated-background'}>
-      <div className={styles.mask}>
-        <Category/>  
-        <Category/>  
-        <Category/>  
-        <Category/>  
-        <Category/>  
-        <Category/>  
-        <Category/>  
-        <Category/>  
-        <Category/>  
-        <Category/>  
-        <Category/>  
-        <Category/>  
-        <Category/>  
-        <Category/>  
-        <Category/>  
-        <Category/>  
-      </div>
-      <div className={styles.rightMargin}>
-      </div>
-    </div>
+    <Shimmer>
+      <Row>
+        <Content height="37px"/>
+      </Row>
+      <BlankRow height="10px"/>
+      <Tiles margin="20px" >
+        { tiles }
+      </Tiles>
+    </Shimmer>
   )
 }

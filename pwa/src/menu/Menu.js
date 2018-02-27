@@ -8,7 +8,7 @@ import IconButton from 'material-ui/IconButton'
 import styles from './Menu.styles.js'
 import ListItemIcon from 'material-ui/List/ListItemIcon'
 import { withRouter } from 'react-router-dom'
-import Hbox from '../layout/Hbox'
+import { Hbox } from '../layout/Box'
 import withStyles from 'material-ui/styles/withStyles';
 
 @withStyles(styles)

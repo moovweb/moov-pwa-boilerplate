@@ -9,10 +9,13 @@ export default createMuiTheme({
     },
     text: {
       icon: '#2494b4',
-      link: '#1e355e'
+      link: '#1e355e',
+      primary: '#1F375D'
     },
     background: {
-      shade: '#E6E7E9'
-    }
+      shade: '#E6E7E9',
+      default: 'white'
+    },
+    red: '#e31837'
   }
 });

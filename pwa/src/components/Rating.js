@@ -2,8 +2,18 @@ import React from 'react'
 import Star from 'material-ui-icons/Star'
 import StarBorder from 'material-ui-icons/StarBorder'
 import StarHalf from 'material-ui-icons/StarHalf'
-import styles from './Rating.styles'
-import withStyles from 'material-ui/styles/withStyles';
+import withStyles from 'material-ui/styles/withStyles'
+import theme from '../theme'
+
+const styles = {
+  root: {
+    '& svg': {
+      color: theme.palette.text.link,
+      height: '16px',
+      width: '16px'
+    }
+  }
+}
 
 export default withStyles(styles)(function Rating({classes, value}) {
   let stars = []

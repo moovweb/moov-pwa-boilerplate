@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import styles from './Home.styles'
 import PinDrop from 'material-ui-icons/PinDrop'
 import Rating from '../components/Rating'
-import Hbox from '../layout/Hbox'
+import { Hbox } from '../layout/Box'
 import Button from 'material-ui/Button'
 import KeyboardArrowRight from 'material-ui-icons/KeyboardArrowRight'
 import Plus from 'material-ui-icons/Add'
@@ -25,7 +25,7 @@ export default class Home extends Component {
           <PinDrop className={classes.pindrop}/>
           Pep Boys { shop.store.name }
           <Rating value={shop.store.rating}/>
-          <a onClick={() => shop.openChangeStoreDialog()}>Change Store</a>
+          <a style={{textDecoration: 'underline'}} onClick={() => shop.openChangeStoreDialog()}>Change Store</a>
         </div>
         <img alt="ad" className={classes.fullWidth} src="//opt2.moovweb.net/img?img=https%3A%2F%2Fstatic.pepboys.com%2Fimages%2Fpromotions%2Fnovember_2015%2F23233_New_Mobile_HP_Assets_640x400_Store_Pickup.jpg&linkEncoded=0&quality=70"/>
         <img alt="ad" className={classes.fullWidth} src="//opt2.moovweb.net/img?img=https%3A%2F%2Fstatic.pepboys.com%2Fimages%2Fpromotions%2Ffebruary_2018%2F26887_2C_MMJ25_Instant_MC_REF.jpg&linkEncoded=0&quality=70"/>
