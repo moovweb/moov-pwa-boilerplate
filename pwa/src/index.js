@@ -34,7 +34,7 @@ const styleNode = document.createComment("jss-insertion-point");
 document.head.insertBefore(styleNode, document.head.firstChild);
 jss.options.insertionPoint = 'jss-insertion-point'
 
-ReactDOM.render(
+ReactDOM.hydrate(
   <Provider shop={shop}>
     <Router history={history}>
       <JssProvider jss={jss} generateClassName={generateClassName}>

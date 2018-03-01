@@ -6,14 +6,14 @@ import { renderToString } from 'react-dom/server'
 import { Provider } from "mobx-react"
 import StaticRouter from 'react-router-dom/StaticRouter'
 
-import App from '../App'
-import Shop from '../ShopStore'
-import { Menu, MenuItem } from '../menu/MenuStore'
+import App from './App'
+import Shop from './ShopStore'
+import { Menu, MenuItem } from './menu/MenuStore'
 
 import { SheetsRegistry } from 'react-jss/lib/jss';
 import JssProvider from 'react-jss/lib/JssProvider';
 import { MuiThemeProvider, createGenerateClassName } from 'material-ui/styles';
-import theme from '../theme'
+import theme from './theme'
 
 const sheetsRegistry = new SheetsRegistry()
 const generateClassName = createGenerateClassName()

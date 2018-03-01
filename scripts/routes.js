@@ -1,17 +1,22 @@
 const Router = require('/Router.js');
+const webpack = require('webpack');
 
 module.exports = new Router()
   .fallback(() => {
-    console.error = console.warn = console.log
-    const index = require('/build/index.html.js');
-    const render = require('/build/SSR.js');
-    const { html, css } = render({ url: env.path, data: {} }); 
-
-    return Promise.resolve(
-      index
-        .replace('{{html}}', html)
-        .replace('{{css}}', `<style>${css}</style>`)
-    ); 
+    return new Promise((resolve, reject) => {
+      webpack([serverConfig]).run((err, stats) => {
+        console.error = console.warn = console.log;
+        const index = require('/build/index.html.js');
+        const render = require('/build/index.js'); 
+        const { html, css } = render({ url: env.path, data: {} }); 
+    
+        resolve(
+          index
+            .replace('{{html}}', html)
+            .replace('{{css}}', `<style>${css}</style>`)
+        ); 
+      })
+    });
   })
   .get('/data/nav', () => {
     return Promise.resolve(require("/api/nav.json")); 

@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Route, Switch } from 'react-router-dom'
 import withStyles from 'material-ui/styles/withStyles';
-import Home from './home/Home'
 import Header from './header/Header'
 import Menu from './menu/Menu'
 import StoreSelectionDialog from './store/StoreSelectionDialog'
@@ -9,18 +8,20 @@ import styles from './App.styles'
 import Promo from './banners/Promo'
 import Search from './search/Search'
 import { observer, inject } from "mobx-react"
-import asyncComponent from './AsyncComponent'
-
-// const Product = asyncComponent(() => import('./product/Product'))
-// const Subcategory = asyncComponent(() => import('./subcategory/Subcategory'))
-// const Category = asyncComponent(() => import('./category/Category'))
-// const Cart = asyncComponent(() => import('./cart/Cart'))
-
-import Product from './product/Product'
-import Subcategory from './subcategory/Subcategory'
-import Category from './category/Category'
-import Cart from './cart/Cart'
+import universal from 'react-universal-component'
 import Reboot from 'material-ui/Reboot'
+
+// import Home from './home/Home'
+// import Product from './product/Product'
+// import Subcategory from './subcategory/Subcategory'
+// import Category from './category/Category'
+// import Cart from './cart/Cart'
+
+const Home = universal(() => import('./home/Home'))
+const Product = universal(() => import('./product/Product'))
+const Subcategory = universal(() => import('./subcategory/Subcategory'))
+const Category = universal(() => import('./category/Category'))
+const Cart = universal(() => import('./cart/Cart'))
 
 @inject('shop')
 @observer
