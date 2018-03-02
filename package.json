@@ -69,7 +69,7 @@
     "deploy": "npm run build && moov deploy pepboys-pwa-demo/pepboys-pwa-demo -ignore-live",
     "deploy:nginx": "ln -sf $(pwd)/nginx.development.conf /usr/local/etc/nginx/servers/pepboys-pwa.conf && ln -sf $(pwd)/build/assets/pwa /usr/local/var/www/pepboys-pwa && sudo brew services restart nginx",
     "test:pwa": "pushd pwa && react-app-rewired test --env=jsdom",
-    "eject": "react-app-rewired eject",
+    "eject": "react-scripts eject",
     "server": "node pwa/server/server.js"
   },
   "pre-commit": {
