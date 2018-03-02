@@ -7,7 +7,7 @@ import { Provider } from "mobx-react"
 import StaticRouter from 'react-router-dom/StaticRouter'
 
 import App from '../App'
-import Shop from '../ShopStore'
+import ShopStore from '../ShopStore'
 import { Menu, MenuItem } from '../menu/MenuStore'
 
 import { SheetsRegistry } from 'react-jss/lib/jss';
@@ -18,18 +18,8 @@ import theme from '../theme'
 const sheetsRegistry = new SheetsRegistry()
 const generateClassName = createGenerateClassName()
 
-module.exports = function render({ url='/', data }) {
-
-  const menu = Menu.create();
-  menu.setRoot(data.menu)
-       
-  const shop = Shop.create(
-    {
-      menu
-    },
-    {}
-  )
-
+module.exports = function render({ url='/', state }) {
+  const shop = ShopStore.create(state)
   const context = {}
 
   return {

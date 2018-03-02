@@ -33,7 +33,7 @@ export default {
   hbox: {
     display: 'flex',
     flexDirection: 'row',
-    transition: 'all ease-out 02s'
+    transition: 'all ease-out .2s'
   },
   
   listItem: {

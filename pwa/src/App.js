@@ -39,6 +39,15 @@ class App extends Component {
     }
   }
 
+  componentDidMount() {
+    // remove SSR rendered styles
+    const jssStyles = document.getElementById('ssr-css')
+
+    if (jssStyles && jssStyles.parentNode) {
+      jssStyles.parentNode.removeChild(jssStyles)
+    }
+  }
+
   render() {
     const { classes } = this.props
 

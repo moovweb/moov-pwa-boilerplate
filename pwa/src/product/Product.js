@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { parseQueryString } from '../utils'
 import { observer, inject } from "mobx-react"
 import Container from '../layout/Container'
 import Breadcrumbs from '../components/Breadcrumbs'
@@ -14,6 +13,7 @@ import BottomDrawer from '../layout/BottomDrawer'
 import ExpandableSection from '../components/ExpandableSection'
 import withStyles from 'material-ui/styles/withStyles'
 import ImageSwitcher from '../components/ImageSwitcher'
+import queryString from 'query-string'
 
 @withStyles(styles)
 @inject('shop')
@@ -93,9 +93,9 @@ export default class Product extends Component {
     )
   }
 
-  componentWillMount() {
+  componentDidMount() {
     const { shop, categoryId, location } = this.props
-    const queryParams = parseQueryString(location.search)
+    const queryParams = queryString.parse(location.search)
     shop.loadProduct(categoryId, queryParams)
   }
 

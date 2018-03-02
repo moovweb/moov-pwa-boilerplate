@@ -11,7 +11,7 @@ export const MenuItem = types
 
 export const Menu = types
   .model("MenuStore", {
-    levels: types.optional(types.array(types.reference(MenuItem)), []),
+    levels: types.optional(types.array(MenuItem), []),
     level: types.optional(types.number, 0)
   })
   .views(self => ({
@@ -35,11 +35,7 @@ export const Menu = types
      * @param {Object} root 
      */
     setRoot(root) {
-      self.levels[0] = MenuItem.create({
-        id: 0,
-        root: true,
-        ...root
-      })
+      self.levels[0] = MenuItem.create(root)
     },
 
     /**
@@ -47,6 +43,8 @@ export const Menu = types
      * @param {MenuItem} item 
      */
     setSelected(item) {
+      item = MenuItem.create(item.toJSON())
+      
       self.level++
       if (self.levels.length <= self.level) {
         self.levels.push(item)

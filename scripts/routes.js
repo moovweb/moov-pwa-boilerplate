@@ -5,12 +5,14 @@ module.exports = new Router()
     console.error = console.warn = console.log
     const index = require('/build/index.html.js');
     const render = require('/build/SSR.js');
-    const { html, css } = render({ url: env.path, data: {} }); 
+    const state = { menu: { levels: [ require("/api/nav.json") ] }};
+    const { html, css } = render({ url: env.path, state }); 
 
     return Promise.resolve(
       index
-        .replace('{{html}}', html)
-        .replace('{{css}}', `<style>${css}</style>`)
+        .replace('<template id="ssr-html"></template>', html)
+        .replace('<template id="ssr-initialState"></template>', `<script>window.initialState=${JSON.stringify(state)}</script>`)
+        .replace('<template id="ssr-css"></template>', `<style id="ssr-css">${css}</style>`)
     ); 
   })
   .get('/data/nav', () => {

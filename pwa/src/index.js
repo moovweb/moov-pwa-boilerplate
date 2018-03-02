@@ -19,13 +19,7 @@ import theme from './theme'
 
 // Mobx initial state
 const history = createBrowserHistory()
-
-const shop = Shop.create(
-  {
-    menu: Menu.create()
-  },
-  {}
-)
+const shop = Shop.create(window.initialState || { })
 
 // JSS configuration
 const generateClassName = createGenerateClassName()
