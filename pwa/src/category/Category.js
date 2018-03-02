@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import { observer, inject } from "mobx-react"
 import SubcategoryItem from './SubcategoryItem'
 import CategoryMask from './CategoryMask'
-import { parseQueryString } from '../utils'
 import Container from '../layout/Container'
 import withStyles from 'material-ui/styles/withStyles'
+import queryString from 'query-string'
 
 const styles = {
   subcategories: {
@@ -49,7 +49,7 @@ export default class Category extends Component {
     )
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.loadCategory()    
   }
 
@@ -59,7 +59,7 @@ export default class Category extends Component {
 
   loadCategory() {
     const { shop, categoryId, location } = this.props
-    const queryParams = parseQueryString(location.search)
+    const queryParams = queryString.parse(location.search)
     shop.loadCategory(categoryId, queryParams)
   }
 }

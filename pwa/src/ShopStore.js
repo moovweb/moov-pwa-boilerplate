@@ -9,7 +9,7 @@ import Store from './store/StoreModel'
 const Shop = types
   .model("Shop", {
     cart: types.optional(CartStore, {}),
-    menu: types.maybe(Menu),
+    menu: types.optional(Menu, {}),
     category: types.maybe(Category),
     subcategory: types.maybe(Subcategory),
     product: types.maybe(Product),

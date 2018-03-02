@@ -6,7 +6,6 @@ import createBrowserHistory from 'history/createBrowserHistory'
 
 import App from './App'
 import registerServiceWorker from './registerServiceWorker'
-import { Menu } from "./menu/MenuStore"
 import Shop from "./ShopStore"
 
 import JssProvider from 'react-jss/lib/JssProvider'
@@ -19,13 +18,7 @@ import theme from './theme'
 
 // Mobx initial state
 const history = createBrowserHistory()
-
-const shop = Shop.create(
-  {
-    menu: Menu.create()
-  },
-  {}
-)
+const shop = Shop.create(window.initialState || { })
 
 // JSS configuration
 const generateClassName = createGenerateClassName()

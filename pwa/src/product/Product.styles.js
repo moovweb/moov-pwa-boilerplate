@@ -6,15 +6,6 @@ export default {
     lineHeight: '24px',
   },
   
-  carousel: {
-    textAlign: 'center',
-    margin: '20px 0',
-  
-    '& img': {
-      maxHeight: '206px',
-    },
-  },
-  
   quantity: {
     margin: '5px 15px',
   },
@@ -38,6 +29,10 @@ export default {
   availability: {
     color: '#006738',
     fontWeight: 'bold',
+  },
+
+  imageSwitcher: {
+    height: 'calc(100vh - 325px)'
   }
 }
 

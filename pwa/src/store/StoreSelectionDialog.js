@@ -2,8 +2,7 @@ import React, { Component } from 'react'
 import Dialog, { DialogTitle, DialogContent, DialogContentText } from 'material-ui/Dialog'
 import { inject, observer } from 'mobx-react'
 import Search from 'material-ui-icons/Search'
-import Input, { InputLabel, InputAdornment } from 'material-ui/Input'
-import { FormControl } from 'material-ui/Form'
+import Input, { InputAdornment } from 'material-ui/Input'
 import DialogClose from '../components/DialogClose'
 import List, { ListItem, ListItemSecondaryAction, ListItemText } from 'material-ui/List';
 import Info from 'material-ui-icons/Info'
@@ -52,14 +51,14 @@ const styles = {
 export default class StoreSelectionDialog extends Component {
 
   render() {
-    const { shop, children, classes } = this.props
+    const { shop, children, classes, ...rest } = this.props
 
     return (
       <Dialog 
         open={shop.changeStoreDialogOpen} 
         onClose={shop.closeChangeStoreDialog}
         aria-labelledby="simple-dialog-title" 
-        {...this.props}
+        {...rest}
       >
         <DialogClose onClick={shop.closeChangeStoreDialog}/>
         <DialogTitle>
@@ -89,7 +88,7 @@ export default class StoreSelectionDialog extends Component {
               { shop.stores.map((store, i) => (
                 <ListItem key={i} className={classes.listItem} button divider onClick={() => shop.setStore(store)}>
                   <div>
-                    <ListItemText classes={{text: classes.name}} primary={`${store.name} (${store.distance})`}/>
+                    <ListItemText className={classes.text} primary={`${store.name} (${store.distance})`}/>
                     <div>{store.street}</div>
                     <div>{store.city}</div>
                   </div>

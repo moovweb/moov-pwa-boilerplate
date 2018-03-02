@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { parseQueryString } from '../utils'
 import { observer, inject } from "mobx-react"
 import Container from '../layout/Container'
 import Breadcrumbs from '../components/Breadcrumbs'
@@ -13,6 +12,8 @@ import AddToCartButton from './AddToCartButton'
 import BottomDrawer from '../layout/BottomDrawer'
 import ExpandableSection from '../components/ExpandableSection'
 import withStyles from 'material-ui/styles/withStyles'
+import ImageSwitcher from '../components/ImageSwitcher'
+import queryString from 'query-string'
 
 @withStyles(styles)
 @inject('shop')
@@ -28,9 +29,11 @@ export default class Product extends Component {
           <h2>{product.name}</h2>
           <Rating value={product.rating}/>
         </Hbox>
-        <div className={classes.carousel}>
-          <img alt="product" src={product.image}/>
-        </div>
+        <ImageSwitcher
+          arrows
+          classes={{ root: classes.imageSwitcher }}
+          images={[ product.image ]}
+        />
         <div className="field">
           <label>Part #: </label>
           <span className="value">{product.partNumber}</span>
@@ -81,9 +84,9 @@ export default class Product extends Component {
     )
   }
 
-  componentWillMount() {
+  componentDidMount() {
     const { shop, categoryId, location } = this.props
-    const queryParams = parseQueryString(location.search)
+    const queryParams = queryString.parse(location.search)
     shop.loadProduct(categoryId, queryParams)
   }
 

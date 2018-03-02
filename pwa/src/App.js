@@ -10,7 +10,7 @@ import Search from './search/Search'
 import { observer, inject } from "mobx-react"
 import universal from 'react-universal-component'
 import Reboot from 'material-ui/Reboot'
-
+  
 // import Home from './home/Home'
 // import Product from './product/Product'
 // import Subcategory from './subcategory/Subcategory'
@@ -37,6 +37,15 @@ class App extends Component {
 
     if (history) {
       history.listen(this.onRouteChange)
+    }
+  }
+
+  componentDidMount() {
+    // remove SSR rendered styles
+    const jssStyles = document.getElementById('ssr-css')
+
+    if (jssStyles && jssStyles.parentNode) {
+      jssStyles.parentNode.removeChild(jssStyles)
     }
   }
 

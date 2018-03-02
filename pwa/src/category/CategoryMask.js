@@ -5,7 +5,7 @@ export default function CategoryMask() {
   const tiles = []
 
   for (let i=0; i<20; i++) {
-    tiles.push(<Tile minWidth={120} maxWidth={200} hMargin="20px" vMargin="15px" textMargin="5px"/>)
+    tiles.push(<Tile key={i} minWidth={120} maxWidth={200} hMargin="20px" vMargin="15px" textMargin="5px"/>)
   }
 
   return (

@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { observer, inject } from "mobx-react"
 import SubcategoryMask from './SubcategoryMask'
-import { parseQueryString } from '../utils'
 import Container from '../layout/Container'
 import ProductItem from './ProductItem'
 import Button from 'material-ui/Button'
@@ -10,6 +9,7 @@ import ArrowDropDown from 'material-ui-icons/ArrowDropDown'
 import Breadcrumbs from '../components/Breadcrumbs'
 import withStyles from 'material-ui/styles/withStyles'
 import theme from '../theme'
+import queryString from 'query-string'
 
 const styles = {
   subcategory: {
@@ -83,9 +83,9 @@ export default class Subcategory extends Component {
     )
   }
 
-  componentWillMount() {
+  componentDidMount() {
     const { shop, subcategoryId, location } = this.props
-    const queryParams = parseQueryString(location.search)
+    const queryParams = queryString.parse(location.search)
     shop.loadSubcategory(subcategoryId, queryParams)
   }
 
