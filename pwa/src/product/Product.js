@@ -13,6 +13,7 @@ import AddToCartButton from './AddToCartButton'
 import BottomDrawer from '../layout/BottomDrawer'
 import ExpandableSection from '../components/ExpandableSection'
 import withStyles from 'material-ui/styles/withStyles'
+import ImageSwitcher from '../components/ImageSwitcher'
 
 @withStyles(styles)
 @inject('shop')
@@ -28,9 +29,20 @@ export default class Product extends Component {
           <h2>{product.name}</h2>
           <Rating value={product.rating}/>
         </Hbox>
-        <div className={classes.carousel}>
-          <img alt="product" src={product.image}/>
-        </div>
+        <ImageSwitcher
+          arrows
+          classes={{ root: classes.imageSwitcher }}
+          images={[
+            "https://s7d2.scene7.com/is/image/SpecialtyRetailers/DR-407831-CF-296865-B?$zm$",
+            "https://s7d2.scene7.com/is/image/SpecialtyRetailers/DR-407831-CF-296865-C?resmode=sharp2&op_usm=1,0.7&qlt=80,1&id=ESMo73&wid=929&hei=1210&fmt=jpg",
+            "https://s7d2.scene7.com/is/image/SpecialtyRetailers/DR-407831-CF-296865-R?resmode=sharp2&op_usm=1,0.7&qlt=80,1&id=ZYdqd1&wid=929&hei=1210&fmt=jpg"
+          ]}
+          thumbnails={[
+            "https://s7d2.scene7.com/is/image/SpecialtyRetailers/DR-407831-CF-296865-B?fit=constrain,1&wid=35&hei=50&fmt=jpg&resmode=sharp2&op_usm=1,0.4&qlt=80,1",
+            "https://s7d2.scene7.com/is/image/SpecialtyRetailers/DR-407831-CF-296865-C?fit=constrain,1&wid=35&hei=50&fmt=jpg&resmode=sharp2&op_usm=1,0.4&qlt=80,1",
+            "https://s7d2.scene7.com/is/image/SpecialtyRetailers/DR-407831-CF-296865-R?fit=constrain,1&wid=35&hei=50&fmt=jpg&resmode=sharp2&op_usm=1,0.4&qlt=80,1"
+          ]}
+        />
         <div className="field">
           <label>Part #: </label>
           <span className="value">{product.partNumber}</span>
