@@ -6,7 +6,6 @@ import createBrowserHistory from 'history/createBrowserHistory'
 
 import App from './App'
 import registerServiceWorker from './registerServiceWorker'
-import { Menu } from "./menu/MenuStore"
 import Shop from "./ShopStore"
 
 import JssProvider from 'react-jss/lib/JssProvider'
