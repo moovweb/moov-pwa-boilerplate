@@ -2,9 +2,6 @@ import React from 'react'
 import withStyles from "material-ui/styles/withStyles"
 import theme from '../theme'
 import { Hbox, Vbox } from '../layout/Box'
-import color from 'color'
-
-const shimmer = color('#eee')
 
 const styles = {
   row: {
@@ -33,7 +30,7 @@ const styles = {
     animationIterationCount: 'infinite',
     animationName: 'shimmer',
     animationTimingFunction: 'linear',
-    // background: `linear-gradient(to right, ${shimmer.hex()} 8%, ${shimmer.darken(0.03).hex()} 18%, ${shimmer.hex()} 33%)`,
+    background: `linear-gradient(to right, #eee 8%, #e6e6e6 18%, #eee 33%)`,
     backgroundSize: '800px 104px'
   }
 }

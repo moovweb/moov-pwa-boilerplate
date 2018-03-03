@@ -1,9 +1,15 @@
-module.exports = function renderAppShell() {
+module.exports = function renderAppShell({ title, state }) {
   console.error = console.warn = console.log
+  
+  Object.assign(state, { 
+    menu: { 
+      levels: [ require("/api/nav.json") ] 
+    }
+  })
+  
   const stats = require('/build/stats.json');
   const index = require('/build/index.html.js');
   const render = require('/build/index.js');
-  const state = { menu: { levels: [ require("/api/nav.json") ] }};
   const { html, css, chunks } = render({ url: env.path, state, stats }); 
 
   const scripts = chunks.reduce((scripts, chunk) => {
@@ -14,6 +20,7 @@ module.exports = function renderAppShell() {
   }, []);
 
   const $ = fns.init$(index);
+  $.head.find('title').html(title);
   $.body.find('#root').html(html);
   $.body.prepend(`
     <script type="text/javascript">window.initialState=${JSON.stringify(state)}</script>

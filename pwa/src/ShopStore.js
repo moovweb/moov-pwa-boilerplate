@@ -50,7 +50,9 @@ const Shop = types
     },
     
     loadCategory(id, data) {
-      loadCategory(id, data).then(c => self.setCategory(c))
+      if (!self.category || self.category.id !== id) {
+        loadCategory(id, data).then(c => self.setCategory(c))
+      }
     },
     setCategory(category) {
       self.category = category
