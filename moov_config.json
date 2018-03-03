@@ -14,8 +14,7 @@
   ],
   "static_paths": {
     "/service-worker.js": "/pwa/service-worker.js",
-    "/index.html": "/pwa/index.html",
     "/manifest.json": "/pwa/manifest.json",
-    "/static/*": "/pwa/static/*"
+    "/pwa/*": "/pwa/*"
   }
 }

@@ -33,7 +33,7 @@ const styles = {
     animationIterationCount: 'infinite',
     animationName: 'shimmer',
     animationTimingFunction: 'linear',
-    background: `linear-gradient(to right, ${shimmer.hex()} 8%, ${shimmer.darken(0.03).hex()} 18%, ${shimmer.hex()} 33%)`,
+    // background: `linear-gradient(to right, ${shimmer.hex()} 8%, ${shimmer.darken(0.03).hex()} 18%, ${shimmer.hex()} 33%)`,
     backgroundSize: '800px 104px'
   }
 }

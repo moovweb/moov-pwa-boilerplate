@@ -1,26 +1,8 @@
 const Router = require('/Router.js');
-// const webpack = require('webpack');
+const renderAppShell = require('/renderAppShell.js')
 
 module.exports = new Router()
-  .fallback(() => {
-    // return new Promise((resolve, reject) => {
-    //   webpack([serverConfig]).run((err, stats) => {
-
-    //   })
-    // });
-    console.error = console.warn = console.log
-    const index = require('/build/index.html.js');
-    const render = require('/build/index.js');
-    const state = { menu: { levels: [ require("/api/nav.json") ] }};
-    const { html, css } = render({ url: env.path, state }); 
-
-    return Promise.resolve(
-      index
-        .replace('<template id="ssr-html"></template>', html)
-        .replace('<template id="ssr-initialState"></template>', `<script>window.initialState=${JSON.stringify(state)}</script>`)
-        .replace('<template id="ssr-css"></template>', `<style id="ssr-css">${css}</style>`)
-    ); 
-  })
+  .fallback(renderAppShell)
   .get('/data/nav', () => {
     return Promise.resolve(require("/api/nav.json")); 
   })

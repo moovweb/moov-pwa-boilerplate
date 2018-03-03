@@ -10,7 +10,7 @@
     "test": "react-app-rewired test --env=jsdom",
     "eject": "react-app-rewired eject",
     "server": "node server/server.js",
-    "build:ssr": "NODE_ENV=production webpack --config ./webpack/webpack.config.dev-ssr.js"
+    "build:ssr": "webpack --config ./webpack/webpack.config.dev-ssr.js && "
   },
   "devDependencies": {
   },

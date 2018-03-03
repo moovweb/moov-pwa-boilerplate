@@ -27,10 +27,11 @@
     "react-dom": "^16.2.0",
     "react-jss": "^8.3.3",
     "react-router-dom": "^4.2.2",
-    "react-universal-component": "^2.8.4",
     "react-swipeable-views": "^0.12.13",
+    "react-universal-component": "^2.8.4",
     "request": "^2.81.0",
-    "route-parser": "^0.0.5"
+    "route-parser": "^0.0.5",
+    "webpack-flush-chunks": "^1.2.3"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -53,7 +54,9 @@
     "react-scripts": "1.0.17",
     "style-loader": "^0.20.2",
     "webpack": "^3.11.0",
-    "webpack-node-externals": "^1.6.0"
+    "webpack-html-plugin": "^0.1.1",
+    "webpack-node-externals": "^1.6.0",
+    "webpack-stats-plugin": "^0.2.1"
   },
   "scripts": {
     "postinstall": "/bin/bash -c \"pushd pwa; yarn install; popd;\"",
@@ -63,8 +66,9 @@
     "prod": "sudo moov server -p 80 --ssl-port 443",
     "watch": "pushd pwa && BROWSER=none react-app-rewired start",
     "build:index": "node tasks/buildIndex.js",
-    "build:ssr": "pushd pwa && NODE_ENV=production webpack --config ./webpack/webpack.config.prod.server.js && popd && yarn run build:index",
-    "build": "yarn run clean && pushd pwa && react-app-rewired build && mv build/* ../build/assets/pwa && popd && yarn run build:index && yarn run build:ssr",
+    "build:server": "pushd pwa && webpack --config webpack/webpack.config.prod.server.js && popd",
+    "build:client": "pushd pwa && webpack --config webpack/webpack.config.prod.client.js && popd",
+    "build": "yarn run clean && yarn run build:client && yarn run build:server && yarn run build:index",
     "clean": "rm -rf pwa/build pwa/dist build/assets/pwa scripts/build/* && mkdir -p build/assets/pwa",
     "deploy": "npm run build && moov deploy pepboys-pwa-demo/pepboys-pwa-demo -ignore-live",
     "deploy:nginx": "ln -sf $(pwd)/nginx.development.conf /usr/local/etc/nginx/servers/pepboys-pwa.conf && ln -sf $(pwd)/build/assets/pwa /usr/local/var/www/pepboys-pwa && sudo brew services restart nginx",

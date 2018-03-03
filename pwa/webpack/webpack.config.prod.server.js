@@ -1,7 +1,5 @@
 const { publicPath, assetsPath, commonLoaders } = require('./common.config');
 const path = require('path');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const autoprefixer = require('autoprefixer');
 const webpack = require('webpack');
 
 module.exports = {
