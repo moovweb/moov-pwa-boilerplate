@@ -3,7 +3,7 @@ const routes = require('/routes.js');
 /* global sendResponse, useMoovAsyncTransformer */
 function shouldCacheApiRequest() {
   return (
-    env.path.startsWith('/data/')
+    env.path.startsWith('/api/')
   );
 }
 

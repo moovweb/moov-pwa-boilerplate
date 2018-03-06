@@ -18,7 +18,7 @@ function proxyMDot() {
 module.exports = function() {
   if (proxyMDot()) {
     fns.export('PERFECT_PROXY', 'true');
-  } else if (env.path.startsWith('/data/')) {
+  } else if (env.path.startsWith('/api/')) {
     moovSkipUpstream();
   } else {
     // can't skip upstream here because the static asset server is the upstream

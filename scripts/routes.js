@@ -5,13 +5,13 @@ module.exports = new Router()
   .fallback(() => {
     return renderAppShell({ state: {}, title: 'Pepboys' });
   })
-  .get('/data/nav', () => {
+  .get('/api/nav', () => {
     return Promise.resolve(require("/api/nav.json")); 
   })
   .use('', require('/api/categories.js'))
-  .get('/data/subcategories/:id', ({ id }) => {
+  .get('/api/subcategories/:id', ({ id }) => {
     return Promise.resolve(require("/api/ashtray-subcategory.json"));
   })
-  .get('/data/products/:id', ({ id }) => {
+  .get('/api/products/:id', ({ id }) => {
     return Promise.resolve(require("/api/ashtray-pdp.json"));
   });

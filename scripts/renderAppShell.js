@@ -1,4 +1,5 @@
 module.exports = function renderAppShell({ title, state }) {
+  console.log('rendering app shell for ' + env.path)
   console.error = console.warn = console.log
   
   Object.assign(state, { 
@@ -22,11 +23,14 @@ module.exports = function renderAppShell({ title, state }) {
   const $ = fns.init$(index);
   $.head.find('title').html(title);
   $.body.find('#root').html(html);
+
+  const bootstrap = $.body.find('script[src*="bootstrap."]')
+  bootstrap.after(scripts)
+
   $.body.prepend(`
     <script type="text/javascript">window.initialState=${JSON.stringify(state)}</script>
     <style id="ssr-css">${css}</style>
   `);
-  $.body.append(scripts.join(''));
 
   return Promise.resolve($.root.html());
 }

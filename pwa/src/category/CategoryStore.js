@@ -18,7 +18,7 @@ export const Category = types
   }))
 
 export function loadCategory(id, data)  {
-  return fetch(`/data/categories/${encodeURIComponent(id)}`, { credentials: 'same-origin' })
+  return fetch(`/api/categories/${encodeURIComponent(id)}`, { credentials: 'same-origin' })
     .then(result => result.json())
     .then(data => Category.create(data))
 }

@@ -21,4 +21,4 @@ module.exports = new Router()
         state: { category }
       }));
   })
-  .get('/data/categories/:id', ({ id }) => fetchCategory(id));
+  .get('/api/categories/:id', ({ id }) => fetchCategory(id));

@@ -46,7 +46,7 @@ module.exports = function() {
     removeCacheHeadersForVarnish();
   } else if (env.__static_origin_path__) {
     removeCacheHeadersForVarnish();
-  } else if (env.path.startsWith("/data/")) {
+  } else if (env.path.startsWith("/api/")) {
     // remove the set-cookie headers that come from MPS response on MUR responses
     headers.removeAllHeaders("set-cookie");
     headers.statusCode = "200";

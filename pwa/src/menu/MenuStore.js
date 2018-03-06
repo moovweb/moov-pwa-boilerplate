@@ -24,7 +24,7 @@ export const Menu = types
      */
     load() {
       if (!self.levels.length) {
-        fetch('/data/nav', { credentials: 'same-origin' })
+        fetch('/api/nav', { credentials: 'same-origin' })
           .then(response => response.json())
           .then(root => self.setRoot(root))
       }

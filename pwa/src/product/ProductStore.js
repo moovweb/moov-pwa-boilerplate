@@ -37,7 +37,7 @@ export const Product = types
 }))
 
 export function loadProduct(id, data)  {
-  return fetch(`/data/products/${encodeURIComponent(id)}`, { credentials: 'same-origin' })
+  return fetch(`/api/products/${encodeURIComponent(id)}`, { credentials: 'same-origin' })
     .then(result => result.json())
     .then(data => Product.create(data))
 }

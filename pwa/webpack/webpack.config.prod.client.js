@@ -3,6 +3,10 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const StatsWriterPlugin = require("webpack-stats-plugin").StatsWriterPlugin;
+const WorkboxPlugin = require('workbox-webpack-plugin');
+const workboxConfig = require('./workbox.config.js');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const dest = path.join(__dirname, '..', '..', 'build', 'assets', 'pwa')
 
 module.exports = {
   name: 'server',
@@ -13,7 +17,7 @@ module.exports = {
   output: {
     filename: '[name].[chunkhash].js',
     chunkFilename: '[name].[chunkhash].js',
-    path: path.join(__dirname, '..', '..', 'build', 'assets', 'pwa'),
+    path: dest,
     publicPath: '/pwa/'
   },
   module: {
@@ -26,7 +30,8 @@ module.exports = {
       minChunks: Infinity
     }),
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('production')
+      'process.env.NODE_ENV': JSON.stringify('production'),
+      'process.env.PUBLIC_URL': JSON.stringify('') // needed for registerServiceWorker.js
     }),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
@@ -47,6 +52,16 @@ module.exports = {
     }),
     new StatsWriterPlugin({
       filename: '../../../scripts/build/stats.json'
-    })
+    }),
+    new CopyWebpackPlugin([
+      { from: '../public', to: '.', ignore: 'index.html' }
+    ]),
+    new WorkboxPlugin(
+      Object.assign({
+        swDest: path.join(dest, 'service-worker.js'),
+        clientsClaim: true,
+        skipWaiting: true,
+      }, workboxConfig)
+    )
   ]
 };
