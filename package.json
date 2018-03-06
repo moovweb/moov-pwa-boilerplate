@@ -72,7 +72,7 @@
     "build:server": "pushd pwa && webpack --config webpack/webpack.config.prod.server.js && popd",
     "build:client": "pushd pwa && webpack --config webpack/webpack.config.prod.client.js && popd",
     "build": "yarn run clean && yarn run build:client && yarn run build:server && yarn run build:index",
-    "clean": "rm -rf pwa/build pwa/dist build/assets/pwa scripts/build/* && mkdir -p build/assets/pwa",
+    "clean": "rm -rf pwa/build pwa/dist build/assets/* scripts/build/* && mkdir -p build/assets/pwa",
     "deploy": "npm run build && moov deploy pepboys-pwa-demo/pepboys-pwa-demo -ignore-live",
     "deploy:nginx": "ln -sf \"$(pwd)/nginx.development.conf\" /usr/local/etc/nginx/servers/pepboys-pwa.conf && ln -sf \"$(pwd)/build/assets/pwa\" /usr/local/var/www/pepboys-pwa && sudo brew services restart nginx",
     "test:pwa": "pushd pwa && react-app-rewired test --env=jsdom",

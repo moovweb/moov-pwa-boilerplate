@@ -13,8 +13,10 @@
     "$.www.pepboys.com => www.pepboys.com"
   ],
   "static_paths": {
-    "/service-worker.js": "/pwa/service-worker.js",
-    "/manifest.json": "/pwa/manifest.json",
-    "/pwa/*": "/pwa/*"
+    "/manifest.json": "/manifest.json",
+    "/pwa/*": "/pwa/*",
+    "/service-worker.js": "/service-worker.js",
+    "/workbox-*": "/workbox-*",
+    "/favicon.ico": "/favicon.ico"
   }
 }

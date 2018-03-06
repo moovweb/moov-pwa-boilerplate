@@ -54,11 +54,11 @@ module.exports = {
       filename: '../../../scripts/build/stats.json'
     }),
     new CopyWebpackPlugin([
-      { from: '../public', to: '.', ignore: 'index.html' }
+      { from: '../public', to: '..', ignore: 'index.html' }
     ]),
     new WorkboxPlugin(
       Object.assign({
-        swDest: path.join(dest, 'service-worker.js'),
+        swDest: path.join(dest, '..', 'service-worker.js'),
         clientsClaim: true,
         skipWaiting: true,
       }, workboxConfig)
