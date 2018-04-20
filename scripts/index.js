@@ -1,4 +1,5 @@
-const routes = require('/routes.js');
+require('/custom_functions.js')
+const server = require('/build/index.js');
 
 /* global sendResponse, useMoovAsyncTransformer */
 function shouldCacheApiRequest() {
@@ -24,18 +25,7 @@ module.exports = function() {
     breakpoint("Parameter 'moov_debug=true' detected in the URL.");
   }
 
-  if (env.__static_origin_path__) {
-    sendResponse({ htmlparsed: false });
-  } else {
-    routes.run()
-      .then(result => {
-        const body = typeof result === 'string' ? result : JSON.stringify(result)
-        sendResponse({ body, htmlparsed: true });
-      })
-      .catch(error => {
-        sendResponse({ body: JSON.stringify({ error }), htmlparsed: true });
-      });
-  }
-  
+  server.serve(require('/build/stats.json'));
+
 };
 
