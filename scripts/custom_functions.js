@@ -58,3 +58,7 @@ fns.request = function (options, data) {
     req.end();    
   });
 };
+
+global.fetch = () => {
+ console.log('\n\n\n\n\nhere!!!\n\n\n\n\n') 
+}

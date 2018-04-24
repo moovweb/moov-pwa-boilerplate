@@ -1,3 +1,5 @@
+console.error = console.warn = console.log
+
 /* global moovSkipUpstream */
 // List of paths that require perfect proxy.
 // MUST DO: Add to nginx.conf to work with normal dev workflow.

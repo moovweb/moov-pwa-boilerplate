@@ -5,4 +5,4 @@ export default function homeHandler() {
     ...globalState,
     title: "Moov PWA"
   })
-}
+} 

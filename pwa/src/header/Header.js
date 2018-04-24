@@ -5,23 +5,30 @@ import IconButton from 'material-ui/IconButton'
 import FindStore from 'material-ui-icons/LocationOn'
 import Search from 'material-ui-icons/Search'
 import Cart from 'material-ui-icons/ShoppingCart'
-import { Link } from 'react-router-dom'
+import Link from 'moov-pwa-components/Link'
 import { withStyles } from 'material-ui/styles'
 import PropTypes from 'prop-types'
-// import Logo from '../assets/logo.svg'
+import Logo from '../assets/moovweb-logo.svg'
 
 @withStyles(theme => ({
   root: {
-    height: '64px'
+    height: '64px',
+    position: 'relative'
   },
 
   logoWrap: {
     position: 'absolute',
     left: '50%',
+    width: '115px',
     marginLeft: 'calc(-115px/2)',
     height: '100%',
     display: 'flex',
-    alignItems: 'center'
+    alignItems: 'center',
+  },
+
+  logo: {
+    width: '100%',
+    height: '100%'
   },
 
   buttonLabel: {
@@ -43,10 +50,6 @@ import PropTypes from 'prop-types'
 
   large: {
     fontSize: '28px'
-  },
-
-  logo: {
-    height: "100%"
   },
 
   cartQuantity: {
@@ -78,7 +81,7 @@ export default class Header extends Component {
           </IconButton>
         </Link>
         <Link to="/" className={classes.logoWrap}>
-          {/* <Logo/> */}
+          <Logo className={classes.logo}/>
         </Link>
         <div style={{ flex: 1 }}/>
         <IconButton aria-label="Search" color="inherit"  classes={{label: classes.large }}>
@@ -98,5 +101,5 @@ export default class Header extends Component {
       </AppBar>
     )
   }
-
+ 
 }

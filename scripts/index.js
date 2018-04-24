@@ -1,3 +1,5 @@
+console.error = console.warn = console.log
+
 require('/custom_functions.js')
 const server = require('/build/index.js');
 
@@ -28,4 +30,3 @@ module.exports = function() {
   server.serve(require('/build/stats.json'));
 
 };
-

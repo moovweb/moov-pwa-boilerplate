@@ -26,7 +26,7 @@ module.exports = {
     context,
     entry: './index.js',
     resolve,
-    devtool: 'cheap-module-source-map',
+    devtool: 'inline-cheap-module-source-map',
     output: {
       filename: '[name].[chunkhash].js',
       chunkFilename: '[name].[chunkhash].js',
@@ -41,7 +41,7 @@ module.exports = {
     entry: './server.js',  
     resolve,
     output: {
-      path: path.join(__dirname, '..', '..', 'scripts', 'build'),
+      path: path.join(__dirname, '..', '..', 'build', 'server'),
       filename: 'index.js',
       libraryTarget: 'commonjs2',
     }
@@ -110,7 +110,7 @@ module.exports = {
       minChunks: Infinity
     }),
     new StatsWriterPlugin({
-      filename: path.join(__dirname, '..', '..', 'scripts', 'build', 'stats.json')
+      filename: path.join(__dirname, '..', '..', 'build', 'server', 'stats.json')
     }),
     new WriteFilePlugin()
   ]
