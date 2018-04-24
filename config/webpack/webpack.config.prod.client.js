@@ -41,6 +41,9 @@ module.exports = Object.assign(commonClient, {
         clientsClaim: true,
         skipWaiting: true,
       }, workboxConfig)
-    )
+    ),
+    new StatsWriterPlugin({
+      filename: path.join(__dirname, '..', '..', 'scripts', 'build', 'stats.json')
+    })
   ].concat(commonPlugins)
 });

@@ -27,6 +27,5 @@ module.exports = function() {
     breakpoint("Parameter 'moov_debug=true' detected in the URL.");
   }
 
-  server.serve(require('/build/stats.json'));
-
+  server.serve(env.node_env !== 'development' && require('/build/stats.json'));
 };

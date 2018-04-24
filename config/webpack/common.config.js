@@ -41,7 +41,7 @@ module.exports = {
     entry: './server.js',  
     resolve,
     output: {
-      path: path.join(__dirname, '..', '..', 'build', 'server'),
+      path: path.join(__dirname, '..', '..', 'scripts', 'build'),
       filename: 'index.js',
       libraryTarget: 'commonjs2',
     }
@@ -108,9 +108,6 @@ module.exports = {
       names: ['bootstrap'], // needed to put webpack bootstrap code before chunks
       filename: '[name].[chunkhash].js',
       minChunks: Infinity
-    }),
-    new StatsWriterPlugin({
-      filename: path.join(__dirname, '..', '..', 'build', 'server', 'stats.json')
     }),
     new WriteFilePlugin()
   ]
