@@ -8311,7 +8311,7 @@ moment@^2.11.2, moment@^2.21.0:
   version "2.22.1"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.22.1.tgz#529a2e9bf973f259c9643d237fda84de3a26e8ad"
 
-moov_builder@^2.4.15:
+moov_builder@^2.4.16:
   version "2.4.16"
   resolved "https://npm-proxy.fury.io/moovweb/~/d/moov_builder/moov_builder-2.4.16#383a855829a9ab5cd4709599f0e463d04a1836e2"
   dependencies:
