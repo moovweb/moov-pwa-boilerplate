@@ -37,7 +37,7 @@ import Logo from '../assets/moovweb-logo.svg'
   },
 
   icon: {
-    color: theme.palette.icon
+    color: theme.palette.action.active
   },
 
   buttonText: {
@@ -45,7 +45,7 @@ import Logo from '../assets/moovweb-logo.svg'
     textTransform: 'uppercase',
     fontSize: '8px',
     top: '24px',
-    color: theme.palette.icon
+    color: theme.palette.action.active
   },
 
   large: {

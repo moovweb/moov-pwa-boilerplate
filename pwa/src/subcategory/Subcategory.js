@@ -16,7 +16,7 @@ export default class Subcategory extends Component {
 
     return (
       <Container>
-        <Typography variant="title">{subcategory.name}</Typography>
+        <Typography variant="title" component="h1">{subcategory.name}</Typography>
         <p>{subcategory.description}</p>
         { subcategory.products.map((product, i) => (
           <li key={i}>

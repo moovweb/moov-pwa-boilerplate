@@ -24,6 +24,8 @@ const views = {
       body: {
         margin: '0',
         padding: '0',
+        fontFamily: theme.typography.fontFamily,
+        fontSize: theme.typography.fontSize
       },
       a: {
         textDecoration: 'underline'

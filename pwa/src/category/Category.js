@@ -15,8 +15,8 @@ export default class App extends Component {
 
     return (
       <Container>
-        <Typography variant="title">{category.name}</Typography>
-        <Typography variant="subheading">{category.tagline}</Typography>
+        <Typography variant="title" component="h1">{category.name}</Typography>
+        <Typography variant="subheading" component="h2">{category.tagline}</Typography>
         <ul>
           { category && category.subcategories && category.subcategories.map((subcategory, i) => (
             <li key={i}>

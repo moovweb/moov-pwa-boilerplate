@@ -15,7 +15,7 @@ export default class Product extends Component {
 
     return (
       <Container>
-        <Typography variant="title">{product.name}</Typography>
+        <Typography variant="title" component="h1">{product.name}</Typography>
       </Container>
     )
   }
