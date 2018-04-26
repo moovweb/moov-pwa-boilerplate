@@ -19,13 +19,13 @@ jobs:
     steps:
       - checkout
       - run:
-        - command: |
-          git submodule update --init --recursive --remote
-          cd packages/moov_router
-          git checkout isomorphic
-          cd ../moov-pwa-components
-          git checkout PRPL-132
-          cd ../..
+          command: |
+            git submodule update --init --recursive --remote
+            cd packages/moov_router
+            git checkout isomorphic
+            cd ../moov-pwa-components
+            git checkout PRPL-132
+            cd ../..
 
       # Download and cache dependencies
       - restore_cache:
@@ -52,4 +52,7 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
         
       # deploy to production
-      - run: yarn deploy prod
+      - run: 
+          command: |
+            yarn run link -- prod
+            moov deploy moovweb/moov-pwa-prod -user-email=${MOOV_EMAIL} -user-password=${MOOV_PASSWORD} -ignore-live -deploy-id $(git rev-parse HEAD) -notes "$(git rev-parse --abbrev-ref HEAD) - $(git log -1 --pretty=%B)"
