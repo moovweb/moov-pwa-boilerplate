@@ -5,9 +5,10 @@ const WorkboxPlugin = require('workbox-webpack-plugin')
 const workboxConfig = require('./workbox.config')
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 const MinifyPlugin = require("babel-minify-webpack-plugin")
+const StatsWriterPlugin = require("webpack-stats-plugin").StatsWriterPlugin
 
 module.exports = Object.assign(commonClient, {
-  devtool: 'source-map',
+  devtool: 'none',
   module: {
     loaders: commonLoaders()
   },
@@ -43,7 +44,7 @@ module.exports = Object.assign(commonClient, {
       }, workboxConfig)
     ),
     new StatsWriterPlugin({
-      filename: path.join(__dirname, '..', '..', 'scripts', 'build', 'stats.json')
+      filename: '../../../scripts/build/stats.json'
     })
   ].concat(commonPlugins)
 });

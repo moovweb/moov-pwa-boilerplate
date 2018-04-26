@@ -2,11 +2,9 @@ const { publicPath, assetsPath, commonLoaders, commonServer } = require('./commo
 const path = require('path');
 const webpack = require('webpack');
 
-commonLoaders[0].use.find(loader => loader.loader === 'babel-loader').options.presets[0].modules = 'commonjs'
-
 module.exports = Object.assign(commonServer, {
   module: {
-    rules: commonLoaders()
+    rules: commonLoaders('commonjs', [ 'moov' ])
   },
   plugins: [
     new webpack.optimize.LimitChunkCountPlugin({

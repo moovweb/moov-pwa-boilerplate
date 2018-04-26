@@ -4,31 +4,17 @@ import AppBar from 'moov-pwa-components/AppBar'
 import IconButton from 'material-ui/IconButton'
 import FindStore from 'material-ui-icons/LocationOn'
 import Search from 'material-ui-icons/Search'
-import Cart from 'material-ui-icons/ShoppingCart'
 import Link from 'moov-pwa-components/Link'
 import { withStyles } from 'material-ui/styles'
 import PropTypes from 'prop-types'
 import Logo from '../assets/moovweb-logo.svg'
+import CartButton from 'moov-pwa-components/CartButton'
+import HeaderLogo from 'moov-pwa-components/HeaderLogo'
 
 @withStyles(theme => ({
   root: {
     height: '64px',
     position: 'relative'
-  },
-
-  logoWrap: {
-    position: 'absolute',
-    left: '50%',
-    width: '115px',
-    marginLeft: 'calc(-115px/2)',
-    height: '100%',
-    display: 'flex',
-    alignItems: 'center',
-  },
-
-  logo: {
-    width: '100%',
-    height: '100%'
   },
 
   buttonLabel: {
@@ -50,22 +36,8 @@ import Logo from '../assets/moovweb-logo.svg'
 
   large: {
     fontSize: '28px'
-  },
-
-  cartQuantity: {
-    color: '#fff',
-    backgroundColor: theme.palette.primary.main,
-    height: '20px',
-    width: '20px',
-    lineHeight: '20px',
-    fontSize: '14px',
-    borderRadius: '50%',
-    position: 'absolute',
-    top: '3px',
-    right: '5px'
   }
 }))
-
 @inject('app')
 @observer
 export default class Header extends Component {
@@ -80,24 +52,14 @@ export default class Header extends Component {
             <FindStore className={classes.icon}/>
           </IconButton>
         </Link>
-        <Link to="/" className={classes.logoWrap}>
-          <Logo className={classes.logo}/>
-        </Link>
+        <HeaderLogo>
+          <Logo/>
+        </HeaderLogo>
         <div style={{ flex: 1 }}/>
         <IconButton aria-label="Search" color="inherit"  classes={{label: classes.large }}>
           <Search className={classes.icon}/>
         </IconButton>
-        <Link to="/cart">
-          <IconButton 
-            aria-label="Cart" 
-            color="inherit" 
-            classes={{label: `${classes.large} ${classes.cart}` }}
-            onClick={this.onCartClick}
-          >
-            <Cart className={classes.icon}/>
-            {cart.quantity > 0 && <div className={classes.cartQuantity}>{cart.quantity}</div>}
-          </IconButton>
-        </Link>
+        <CartButton classes={{ icon: classes.icon }}/>
       </AppBar>
     )
   }

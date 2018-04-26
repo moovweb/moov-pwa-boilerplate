@@ -1,0 +1,55 @@
+# Javascript Node CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+#
+version: 2
+jobs:
+  build:
+    docker:
+      # specify the version you desire here
+      - image: circleci/node:7.10
+      
+      # Specify service dependencies here if necessary
+      # CircleCI maintains a library of pre-built images
+      # documented at https://circleci.com/docs/2.0/circleci-images/
+      # - image: circleci/mongo:3.4.4
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+      - run:
+        - command: |
+          git submodule update --init --recursive --remote
+          cd packages/moov_router
+          git checkout isomorphic
+          cd ../moov-pwa-components
+          git checkout PRPL-132
+          cd ../..
+
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          # fallback to using the latest cache if no exact match is found
+          - v1-dependencies-
+
+      - run:
+          name: install moov
+          command: |
+            sudo apt-get -y install openssl wget curl lsof gawk
+            wget -O moov.deb http://downloads.moovweb.com/dist/deb/moovweb-6.3.63_amd64.deb
+            sudo dpkg -i moov.deb || true
+            sudo apt-get -f install
+
+      - run:
+          command: |
+            yarn install
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+        
+      # deploy to production
+      - run: yarn deploy prod

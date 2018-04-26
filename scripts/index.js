@@ -13,7 +13,6 @@ function shouldCacheApiRequest() {
 useMoovAsyncTransformer();
 
 module.exports = function() {
-
   if (env.__static_origin_path__) {
     fns.export('Cache', 'true');
     fns.export('Cache-Time', '290304000'); // static paths use hash-based cache-busting, so we far-future cache them in varnish and the browser
@@ -27,5 +26,13 @@ module.exports = function() {
     breakpoint("Parameter 'moov_debug=true' detected in the URL.");
   }
 
-  server.serve(env.node_env !== 'development' && require('/build/stats.json'));
+  let stats
+
+  try {
+    stats = require('/build/stats.json')
+  } catch (e) {
+    stats = null // will get here in development
+  }
+
+  server.serve(stats);
 };

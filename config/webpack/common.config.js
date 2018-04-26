@@ -109,7 +109,7 @@ module.exports = {
       filename: '[name].[chunkhash].js',
       minChunks: Infinity
     }),
-    new WriteFilePlugin()
+    // new WriteFilePlugin()
   ]
 };
 
