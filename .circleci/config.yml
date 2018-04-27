@@ -45,6 +45,7 @@ jobs:
       - run:
           command: |
             yarn install
+            yarn rebuild node-sass
 
       # deploy to production
       - run: 
