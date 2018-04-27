@@ -1,66 +1,30 @@
 import React, { Component } from 'react'
-import { observer, inject } from "mobx-react"
-import SubcategoryItem from './SubcategoryItem'
-import CategoryMask from './CategoryMask'
-import Container from '../layout/Container'
-import withStyles from 'material-ui/styles/withStyles'
-import queryString from 'query-string'
+import { inject, observer } from 'mobx-react'
+import Link from 'moov-pwa-components/Link'
+import Typography from 'material-ui/Typography'
+import Container from 'moov-pwa-components/Container'
+import CategoryShimmer from './CategoryShimmer' 
 
-const styles = {
-  subcategories: {
-    display: 'flex',
-    flexDirection: 'row',
-    margin: '20px',
-    padding: '0',
-    flexWrap: 'wrap',
-  
-    '& > *': {
-      flex: 1,
-      textAlign: 'center',
-      minWidth: '100px',
-      margin: '20px'
-    }
-  }
-}
-
-@withStyles(styles)
-@inject('shop')
+@inject(({ app }) => ({ app, category: app.category, loading: app.loading }))
 @observer
-export default class Category extends Component {
+export default class App extends Component {
   render() {
-    const { classes, shop: { category } } = this.props
+    const { category, loading } = this.props
+
+    if (loading) return <CategoryShimmer/>
 
     return (
-      <div className={classes.category}>
-        <h1>{category && category.name}</h1>
-        { category ? (
-          <div>
-            <ul className={classes.subcategories}>
-              { category.subcategories.map((subcategory, i) => <SubcategoryItem key={i} subcategory={subcategory}/>) }
-            </ul>
-            <Container>
-              <div className="seoText">{category.text}</div>
-            </Container>
-          </div>
-        ) : (
-          <CategoryMask/>
-        )}
-      </div>
+      <Container>
+        <Typography variant="title" component="h1">{category.name}</Typography>
+        <Typography variant="subheading" component="h2">{category.tagline}</Typography>
+        <ul>
+          { category && category.subcategories && category.subcategories.map((subcategory, i) => (
+            <li key={i}>
+              <Link to={`/s/${subcategory.id}`}>{subcategory.name}</Link>
+            </li>
+          ))} 
+        </ul>
+      </Container>
     )
   }
-
-  componentDidMount() {
-    this.loadCategory()    
-  }
-
-  componentWillUnmount() {
-    this.props.shop.setCategory(null)
-  }
-
-  loadCategory() {
-    const { shop, categoryId, location } = this.props
-    const queryParams = queryString.parse(location.search)
-    shop.loadCategory(categoryId, queryParams)
-  }
 }
-

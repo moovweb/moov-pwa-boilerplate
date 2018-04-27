@@ -1,24 +1,20 @@
-import React from 'react'
-import AppBar from 'material-ui/AppBar'
-import Toolbar from 'material-ui/Toolbar'
+import React, { Component } from 'react'
+import { observer, inject } from 'mobx-react'
+import AppBar from 'moov-pwa-components/AppBar'
 import IconButton from 'material-ui/IconButton'
-import MenuIcon from 'material-ui-icons/Menu'
-import PinDrop from 'material-ui-icons/PinDrop'
-import Person from 'material-ui-icons/Person'
-import Cart from 'material-ui-icons/ShoppingCart'
-import { Link } from 'react-router-dom'
+import FindStore from 'material-ui-icons/LocationOn'
+import Search from 'material-ui-icons/Search'
+import Link from 'moov-pwa-components/Link'
 import { withStyles } from 'material-ui/styles'
+import PropTypes from 'prop-types'
+import Logo from '../assets/moovweb-logo.svg'
+import CartButton from 'moov-pwa-components/CartButton'
+import HeaderLogo from 'moov-pwa-components/HeaderLogo'
 
-const styles = {
-  logoWrap: {
-    position: 'absolute',
-    left: '50%',
-    marginLeft: 'calc(-115px/2)',
-    backgroundColor: '#E21D3B',
-    height: '100%',
-    "& img": {
-      height: '56px'
-    }
+@withStyles(theme => ({
+  root: {
+    height: '64px',
+    position: 'relative'
   },
 
   buttonLabel: {
@@ -26,42 +22,46 @@ const styles = {
     top: '-6px'
   },
 
+  icon: {
+    color: theme.palette.action.active
+  },
+
   buttonText: {
     position: 'absolute',
     textTransform: 'uppercase',
     fontSize: '8px',
-    top: '24px'
+    top: '24px',
+    color: theme.palette.action.active
   },
 
   large: {
-    fontSize: '32px'
+    fontSize: '28px'
   }
-}
+}))
+@inject('app')
+@observer
+export default class Header extends Component {
 
-export default withStyles(styles)(
-  function Header({ classes, title, onMenuClick }) {
+  render() {
+    const { classes, app: { cart } } = this.props
+
     return (
-      <AppBar position="fixed">
-        <Toolbar disableGutters classes={{ root: classes.toolBar }}>
-          <IconButton aria-label="Menu" color="inherit" onClick={onMenuClick} classes={{ label: classes.buttonLabel }}>
-            <MenuIcon />
-            <div className={classes.buttonText}>menu</div>
-          </IconButton>
+      <AppBar classes={{ root: classes.root }}>
+        <Link to="/store-finder">
           <IconButton aria-label="Store Locator"color="inherit" classes={{label: classes.large }}>
-            <PinDrop/>
+            <FindStore className={classes.icon}/>
           </IconButton>
-          <Link to="/" className={classes.logoWrap}>
-            <img alt="logo" src="https://static.pepboys.com/images/promotions/january_2018/PB_Mobile_150.jpg"/>
-          </Link>
-          <div style={{ flex: 1 }}/>
-          <IconButton aria-label="Your Account"color="inherit"  classes={{label: classes.large }}>
-            <Person />
-          </IconButton>
-          <IconButton aria-label="Cart" color="inherit" classes={{label: `${classes.large} ${classes.cart}` }}>
-            <Cart/>
-          </IconButton>
-        </Toolbar>
+        </Link>
+        <HeaderLogo>
+          <Logo/>
+        </HeaderLogo>
+        <div style={{ flex: 1 }}/>
+        <IconButton aria-label="Search" color="inherit"  classes={{label: classes.large }}>
+          <Search className={classes.icon}/>
+        </IconButton>
+        <CartButton classes={{ icon: classes.icon }}/>
       </AppBar>
     )
   }
-)
+ 
+}
