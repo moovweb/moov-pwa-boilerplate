@@ -7,3 +7,6 @@
 [submodule "packages/moov_router"]
 	path = packages/moov_router
 	url = git@github.com:moovweb/moov_router.git
+[submodule "packages/babel-plugin-moov"]
+	path = packages/babel-plugin-moov
+	url = git@github.com:moovweb/babel-plugin-moov.git
