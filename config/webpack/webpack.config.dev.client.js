@@ -2,6 +2,7 @@ const { url, publicPath, assetsPath, commonLoaders, commonClient, commonPlugins 
 const webpack = require('webpack')
 const path = require('path')
 const OpenBrowserPlugin = require('open-browser-webpack-plugin')
+const WriteFilePlugin = require('write-file-webpack-plugin');
 
 module.exports = Object.assign(commonClient, {
   module: {
@@ -9,6 +10,7 @@ module.exports = Object.assign(commonClient, {
   },
   plugins: [
     ...commonPlugins,
-    new OpenBrowserPlugin({ url })
+    new OpenBrowserPlugin({ url }),
+    new WriteFilePlugin()
   ]
 })

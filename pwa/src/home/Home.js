@@ -13,7 +13,7 @@ export default class Home extends Component {
       <div>
         <PromoBanner href="/promo" src="https://pwa.www.1800flowers.com/images/bday.jpg" name="my_promo"/>
 
-        <Container>
+        <Container> 
           Home
           <button type="button" onClick={this.signIn}>Sign In</button>
         </Container> 

@@ -5,7 +5,6 @@ const webpack = require('webpack');
 const context = path.join(__dirname, '..', '..', 'pwa', 'src');
 const workboxConfig = require('./workbox.config.js');
 const WorkboxPlugin = require('workbox-webpack-plugin');
-const WriteFilePlugin = require('write-file-webpack-plugin');
 const dest = path.join(__dirname, '..', '..', 'build', 'assets', 'pwa');
 const packages = path.join(__dirname, '..', '..', 'packages')
 const { readFileSync } = require('fs')
@@ -115,8 +114,7 @@ module.exports = {
       names: ['bootstrap'], // needed to put webpack bootstrap code before chunks
       filename: '[name].[chunkhash].js',
       minChunks: Infinity
-    }),
-    // new WriteFilePlugin()
+    })
   ]
 };
 
