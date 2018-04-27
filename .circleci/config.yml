@@ -37,7 +37,7 @@ jobs:
       - run:
           name: install moov
           command: |
-            sudo apt-get -y install openssl wget curl lsof gawk
+            sudo apt-get -y install openssl wget curl lsof gawk libsass-dev
             wget -O moov.deb http://downloads.moovweb.com/dist/deb/moovweb-6.3.63_amd64.deb
             sudo dpkg -i moov.deb || true
             sudo apt-get -f install
