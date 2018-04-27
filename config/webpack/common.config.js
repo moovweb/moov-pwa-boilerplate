@@ -8,6 +8,7 @@ const WorkboxPlugin = require('workbox-webpack-plugin');
 const WriteFilePlugin = require('write-file-webpack-plugin');
 const dest = path.join(__dirname, '..', '..', 'build', 'assets', 'pwa');
 const packages = path.join(__dirname, '..', '..', 'packages')
+const { readFileSync } = require('fs')
 
 const resolve = {
   alias: {
@@ -16,8 +17,14 @@ const resolve = {
   }
 }
 
+const moovConfig = JSON.parse(readFileSync(path.join(__dirname, '..', '..', 'moov_config-local.json'), 'utf8'))
+
+const url = 'http://' + moovConfig.host_map[0]
+  .split(' => ')[0]
+  .replace(/\$/, 'mlocal')
+
 module.exports = {
-  url: 'http://mlocal.www.mockaroo.com',
+  url,
   dest,
   publicPath: '/assets/',
   commonClient: {

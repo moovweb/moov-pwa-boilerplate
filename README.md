@@ -1,46 +1,15 @@
 # Setup
 
-To work around a bug in MoovJS
- ([PLATSRE-146](https://moovweb.atlassian.net/browse/PLATSRE-146)) that
- causes static assets to be served slowly in development, we
- use nginx to serve the app code.
-
-First install nginx:
+First, checkout this repo with submodules:
 
 ```
-brew install nginx
+git clone --recurse-submodules -j8 git@github.com:moovweb/moov-pwa.git
 ```
 
-Then, open /usr/local/etc/nginx/nginx.conf and comment out or delete
-the server block of configuration that looks like this:
+Then install dependencies using yarn 1.6 or later:
 
 ```
-server {
-  listen       8080;
-  server_name  localhost;
-
-  # Many more lines follow...
-}  
-```
-
-so it becomes
-
-```
-# server {
-#   listen       8080;
-#  server_name  localhost;
-#  
-#  # Many more lines follow...
-# }  
-```
-
-Then, run the following in terminal:
-
-```
-npm i -g yarn
 yarn install
-npm run deploy:nginx
-sudo brew services restart nginx
 ```
 
 # Running
@@ -49,75 +18,26 @@ sudo brew services restart nginx
 yarn start
 ```
 
-This starts moov_server and webpack dev server.  
-
-Go to http://mlocal.www.pepboys.com/
-
-
-# API
-
-/categories/accessories:
+This starts moov_server and webpack dev server.  Doing so requires `sudo`, so you'll be asked for your password.
+Once the initial build is done, your browser will open automatically, but the moovjs build might not be done yet,
+so you may see an error.  Wait a few seconds to see this message in console and then reload your browser:
 
 ```
-{
-  subcategories: [{
-    text: (string),
-    image: (string:url),
-    url: (string:path)
-  }],
-  text: (string), // seo text at the bottom
-  youMayAlsoLike: [{
-    text: (string)
-    image: (string:url),
-    url: (string:path)
-  }]
-}
+Browserified ...
 ```
 
-/categories/interior-accessories:
+Go to http://mlocal.www.moovweb.com/
+
+# Updating
+
+Since this project uses submodules, we recommend creating an alias "get" that fetches all submodules
+
 ```
-{
-  subcategories: [{
-    text: (string),
-    image: (string:url),
-    url: (string:path)
-  }],
-  text: (string), // seo text at the bottom
-  youMayAlsoLike: [{
-    text: (string)
-    image: (string:url),
-    url: (string:path)
-  }]
-}
+git config --global alias.get '!f(){ git pull --rebase "$@" && git submodule update --init --recursive; }; f'
 ```
 
-/subcategories/ash-trays:
-```
-{
-  products: [{
-    text: (string),
-    image: (string:url),
-    url: (string:path),
-    ... // reviews, sku, etc..
-  }],
-  text: (string), // seo text at the bottom
-  alsoViewed: [{
-    text: (string)
-    image: (string:url),
-    url: (string:path)
-  }]
-}
-```
+This, instead of running `git pull` to fetch the latest, run `git get`.  Any additional arguments you provide will be passed to git pull.
 
-/products/:id
 ```
-{
-  partNo:
-  sku:
-  image:
-  price:
-  description:,
-  ...
-}
-
+git get
 ```
