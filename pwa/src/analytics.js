@@ -9,7 +9,7 @@ class TestAnalyticsTarget extends CommerceAnalyticsTarget {
 
 const globalData = {
   site: 'moov_pwa',
-  host: location.hostname
+  host: window.location.hostname
 }
 
 const target = new TestAnalyticsTarget()

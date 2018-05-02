@@ -21,11 +21,6 @@ jobs:
       - run:
           command: |
             git submodule update --init --recursive --remote
-            cd packages/moov_router
-            git checkout isomorphic
-            cd ../moov-pwa-components
-            git checkout PRPL-132
-            cd ../..
 
       # Download and cache dependencies
       - restore_cache:

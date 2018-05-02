@@ -4,9 +4,10 @@ import model from './AppModel'
 import router from './routes/router'
 import Server from 'moov-pwa-components/Server'
 
-module.exports = new Server({ 
+module.exports = globals => new Server({ 
   theme, 
   model, 
   App, 
-  router 
+  router,
+  globals
 })

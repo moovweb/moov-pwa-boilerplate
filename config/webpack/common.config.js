@@ -24,6 +24,7 @@ const url = 'http://' + moovConfig.host_map[0]
 
 module.exports = {
   url,
+  context,
   dest,
   publicPath: '/assets/',
   commonClient: {
@@ -31,7 +32,11 @@ module.exports = {
     target: 'web',
     context,
     entry: './index.js',
-    resolve,
+    resolve: {
+      alias: Object.assign({}, resolve.alias, {
+        fetch: 'isomorphic-unfetch'
+      })
+    },
     devtool: 'inline-cheap-module-source-map',
     output: {
       filename: '[name].[chunkhash].js',
@@ -45,7 +50,11 @@ module.exports = {
     target: 'web',
     context,
     entry: './server.js',  
-    resolve,
+    resolve: {
+      alias: Object.assign({}, resolve.alias, {
+        fetch: path.join(packages, 'moov-pwa-components','src', 'fetch')
+      })
+    },
     output: {
       path: path.join(__dirname, '..', '..', 'scripts', 'build'),
       filename: 'index.js',
@@ -60,24 +69,23 @@ module.exports = {
         {
           loader: 'babel-loader',
           options: {
-            "presets": [
+            presets: [
               ["env", {
-                "targets": {
-                  "browsers": "> 1%",
-                  "uglify": true
+                targets: {
+                  browsers: "> 1%",
+                  uglify: true
                 },
-                "useBuiltIns": true,
+                useBuiltIns: true,
                 modules
               }],
               "react"
             ],
-            "plugins": [
+            plugins: [
               ...plugins,
               ["transform-runtime", {
                 "polyfill": false,
                 "regenerator": true
               }],
-              "transform-async-generator-functions",
               "transform-async-to-generator",
               "transform-decorators-legacy",
               "syntax-dynamic-import",

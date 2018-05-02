@@ -1,7 +1,14 @@
 console.error = console.warn = console.log
 
 require('/custom_functions.js')
-const server = require('/build/index.js');
+
+const server = require('/build/index.js')({ 
+  https: http, 
+  fns, 
+  get $() {
+    return global.$
+  }
+}); 
 
 /* global sendResponse, useMoovAsyncTransformer */
 function shouldCacheApiRequest() {
