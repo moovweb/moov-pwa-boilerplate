@@ -7,10 +7,10 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 const MinifyPlugin = require("babel-minify-webpack-plugin")
 const StatsWriterPlugin = require("webpack-stats-plugin").StatsWriterPlugin
 
-module.exports = Object.assign(commonClient, {
+module.exports = Object.assign(commonClient(), {
   devtool: 'none',
   module: {
-    loaders: commonLoaders()
+    rules: commonLoaders()
   },
   plugins: [
     new MinifyPlugin(),

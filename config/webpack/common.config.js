@@ -2,20 +2,12 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const StatsWriterPlugin = require("webpack-stats-plugin").StatsWriterPlugin;
 const webpack = require('webpack');
-const context = path.join(__dirname, '..', '..', 'pwa', 'src');
+const context = path.join(__dirname, '..', '..', 'src');
 const workboxConfig = require('./workbox.config.js');
 const WorkboxPlugin = require('workbox-webpack-plugin');
 const dest = path.join(__dirname, '..', '..', 'build', 'assets', 'pwa');
 const packages = path.join(__dirname, '..', '..', 'packages')
 const { readFileSync } = require('fs')
-
-const resolve = {
-  alias: {
-    'moov-pwa-components': path.join(packages, 'moov-pwa-components', 'src'),
-    'moov_router': path.join(packages, 'moov_router')
-  }
-}
-
 const moovConfig = JSON.parse(readFileSync(path.join(__dirname, '..', '..', 'moov_config-local.json'), 'utf8'))
 
 const url = 'http://' + moovConfig.host_map[0]
@@ -27,33 +19,40 @@ module.exports = {
   context,
   dest,
   publicPath: '/assets/',
-  commonClient: {
+  commonClient: (entries = []) => ({
     name: 'client',
     target: 'web',
     context,
-    entry: './index.js',
+    entry: [
+      './client.js',
+      ...entries
+    ],
     resolve: {
-      alias: Object.assign({}, resolve.alias, {
-        fetch: 'isomorphic-unfetch'
-      })
+      alias: {
+        mobx: path.join(__dirname, '..', '..', 'node_modules', 'mobx'),
+        fetch: 'isomorphic-unfetch',
+        "moov-pwa": path.join(__dirname, '..', '..', 'node_modules', 'moov-pwa', 'src')
+      }
     },
     devtool: 'inline-cheap-module-source-map',
     output: {
-      filename: '[name].[chunkhash].js',
-      chunkFilename: '[name].[chunkhash].js',
+      filename: '[name].[hash].js',
+      chunkFilename: '[name].[hash].js',
       path: dest,
       publicPath: '/pwa/'
     },
-  },
+  }),
   commonServer: {
     name: 'server',
     target: 'web',
     context,
     entry: './server.js',  
     resolve: {
-      alias: Object.assign({}, resolve.alias, {
-        fetch: path.join(packages, 'moov-pwa-components','src', 'fetch')
-      })
+      alias: {
+        mobx: path.join(__dirname, '..', '..', 'node_modules', 'mobx'),
+        fetch: path.join(__dirname, '..', '..', 'node_modules', 'moov-pwa', 'src', 'fetch'),
+        "moov-pwa": path.join(__dirname, '..', '..', 'node_modules', 'moov-pwa', 'src')
+      }
     },
     output: {
       path: path.join(__dirname, '..', '..', 'scripts', 'build'),
@@ -64,11 +63,12 @@ module.exports = {
   commonLoaders: (modules=false, plugins=[]) => [
     {
       test: /\.js$/,
-      exclude: /node_modules/,
+      include: /(src|node_modules\/moov-pwa\/src)/,
       use: [
         {
           loader: 'babel-loader',
           options: {
+            cacheDirectory: true,
             presets: [
               ["env", {
                 targets: {
@@ -82,6 +82,7 @@ module.exports = {
             ],
             plugins: [
               ...plugins,
+              "react-hot-loader/babel",
               ["transform-runtime", {
                 "polyfill": false,
                 "regenerator": true
@@ -115,12 +116,16 @@ module.exports = {
           loader: "react-svg-loader"
         }
       ]
+    },
+    {
+      test: /\.md$/,
+      use: 'raw-loader'
     }
   ],
   commonPlugins: [
     new webpack.optimize.CommonsChunkPlugin({
       names: ['bootstrap'], // needed to put webpack bootstrap code before chunks
-      filename: '[name].[chunkhash].js',
+      filename: '[name].[hash].js',
       minChunks: Infinity
     })
   ]

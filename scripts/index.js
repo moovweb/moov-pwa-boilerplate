@@ -1,31 +1,15 @@
+/* global sendResponse, useMoovAsyncTransformer */
 console.error = console.warn = console.log
 
-require('/custom_functions.js')
-
-const server = require('/build/index.js')({ 
-  https: http, 
-  fns, 
-  get $() {
-    return global.$
-  }
-}); 
-
-/* global sendResponse, useMoovAsyncTransformer */
-function shouldCacheApiRequest() {
-  return (
-    env.path.startsWith('/api/')
-  );
-}
-
 useMoovAsyncTransformer();
+
+let server
 
 module.exports = function() {
   if (env.__static_origin_path__) {
     fns.export('Cache', 'true');
     fns.export('Cache-Time', '290304000'); // static paths use hash-based cache-busting, so we far-future cache them in varnish and the browser
-  } else if (shouldCacheApiRequest()) {
-    fns.export('Cache', 'true');
-    fns.export('Cache-Time', '300');
+    return sendResponse({ htmlparsed: false });
   }
 
   // If running locally and the url includes ?moov_debug=true, break here.
@@ -41,5 +25,20 @@ module.exports = function() {
     stats = null // will get here in development
   }
 
-  server.serve(stats);
+  try {
+    server = require('/build/index.js')({
+      globals:{ 
+        https: http, 
+        fns, 
+        get $() {
+          return global.$
+        }
+      },
+      blob: env.blob
+    }); 
+  } catch (e) {
+    // sometimes the browsersify build doesn't run after webpack is done.  In that case just keep the existing server
+  }
+
+  server.serve({ body: requestBody, headers: env.headers, path: env.path, method: env.method }, stats);
 };
