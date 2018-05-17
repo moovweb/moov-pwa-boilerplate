@@ -1,8 +1,9 @@
 import globalState from '../globalState'
+import { withGlobalState } from 'moov-pwa/router'
 
-export default function homeHandler() {
-  return Promise.resolve({ 
-    ...globalState,
-    title: "Moov PWA"
+export default function homeHandler(params, state, request) {
+  return withGlobalState(request, globalState, { 
+    title: "Moov PWA",
+    welcomeMessage: "Welcome to the Moov PWA starter kit.  Here you'll find mock home, category, subcategory, product, and cart pages that you can use as a starting point to build your PWA.<br/><br/>Happy coding!"
   })
 } 

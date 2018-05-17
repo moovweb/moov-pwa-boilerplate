@@ -8,5 +8,8 @@ function removeCacheHeadersForVarnish() {
 }
 
 module.exports = function() {
-
+  if (env.MOOV_PWA_CACHE_CONTROL) {
+    removeCacheHeadersForVarnish()
+    headers.header("Cache-Control", env.MOOV_PWA_CACHE_CONTROL);
+  }
 };

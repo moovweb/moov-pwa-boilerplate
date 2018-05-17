@@ -6,6 +6,12 @@ import NavTabs from 'moov-pwa/NavTabs'
 import universal from 'react-universal-component'
 import Pages from 'moov-pwa/Pages'
 
+const Loading = () => <div style={{ padding: '20px' }}>Loading...</div>
+
+const universalOptions = {
+  loading: Loading
+}
+
 @withStyles(theme => ({
   '@global': {
     body: {
@@ -28,11 +34,14 @@ export default class App extends Component {
         <Menu useExpanders/>
         <NavTabs/>
         <Pages
+          loading={Loading}
           components={{
-            Home: universal(() => import('./home/Home')),
-            Category: universal(() => import('./category/Category')),
-            Subcategory: universal(() => import('./subcategory/Subcategory')),
-            Product: universal(() => import('./product/Product'))
+            Home: universal(() => import('./home/Home'), universalOptions),
+            Category: universal(() => import('./category/Category'), universalOptions),
+            Subcategory: universal(() => import('./subcategory/Subcategory'), universalOptions),
+            Product: universal(() => import('./product/Product'), universalOptions),
+            Cart: universal(() => import('./cart/Cart'), universalOptions),
+            Checkout: universal(() => import('./checkout/Checkout'), universalOptions)
           }}
         />
       </div>

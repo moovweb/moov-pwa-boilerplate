@@ -14,6 +14,12 @@ const url = 'http://' + moovConfig.host_map[0]
   .split(' => ')[0]
   .replace(/\$/, 'mlocal')
 
+const alias = {
+  mobx: path.join(__dirname, '..', '..', 'node_modules', 'mobx'),
+  "material-ui": path.join(__dirname, '..', '..', 'node_modules', 'material-ui'),
+  "moov-pwa": path.join(__dirname, '..', '..', 'node_modules', 'moov-pwa', 'src')
+}
+
 module.exports = {
   url,
   context,
@@ -28,11 +34,9 @@ module.exports = {
       ...entries
     ],
     resolve: {
-      alias: {
-        mobx: path.join(__dirname, '..', '..', 'node_modules', 'mobx'),
-        fetch: 'isomorphic-unfetch',
-        "moov-pwa": path.join(__dirname, '..', '..', 'node_modules', 'moov-pwa', 'src')
-      }
+      alias: Object.assign({}, alias, {
+        fetch: 'isomorphic-unfetch'
+      })
     },
     devtool: 'inline-cheap-module-source-map',
     output: {
@@ -48,11 +52,9 @@ module.exports = {
     context,
     entry: './server.js',  
     resolve: {
-      alias: {
-        mobx: path.join(__dirname, '..', '..', 'node_modules', 'mobx'),
-        fetch: path.join(__dirname, '..', '..', 'node_modules', 'moov-pwa', 'src', 'fetch'),
-        "moov-pwa": path.join(__dirname, '..', '..', 'node_modules', 'moov-pwa', 'src')
-      }
+      alias: Object.assign({}, alias, {
+        fetch: path.join(__dirname, '..', '..', 'node_modules', 'moov-pwa', 'src', 'fetch')
+      })
     },
     output: {
       path: path.join(__dirname, '..', '..', 'scripts', 'build'),

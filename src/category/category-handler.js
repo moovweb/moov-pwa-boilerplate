@@ -1,13 +1,13 @@
 import globalState from '../globalState'
+import { withGlobalState } from 'moov-pwa/router'
 
-export default function categoryHandler({ id, template }) {
-  return Promise.resolve({ 
-    ...globalState,
+export default function categoryHandler({ id, template }, state, request) {
+  return withGlobalState(request, globalState, { 
     title: `Moov PWA - Category #${id}`,
     category: {
       id, 
       name: `Category ${id}`,
-      tagline: `Tagline for category ${id}`,
+      description: `Description for category ${id}`,
       subcategories: [
         { id: '1', name: 'Subcategory 1' },
         { id: '2', name: 'Subcategory 2' },
