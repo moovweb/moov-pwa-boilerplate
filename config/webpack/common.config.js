@@ -9,7 +9,6 @@ const dest = path.join(__dirname, '..', '..', 'build', 'assets', 'pwa')
 const packages = path.join(__dirname, '..', '..', 'packages')
 const { readFileSync } = require('fs')
 const moovConfig = JSON.parse(readFileSync(path.join(__dirname, '..', '..', 'moov_config-local.json'), 'utf8'))
-const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
 
 const url = 'http://' + moovConfig.host_map[0]
   .split(' => ')[0]
@@ -131,8 +130,7 @@ module.exports = {
       names: ['bootstrap'], // needed to put webpack bootstrap code before chunks
       filename: '[name].[hash].js',
       minChunks: Infinity
-    }),
-    new HardSourceWebpackPlugin()
+    })
   ]
 }
 

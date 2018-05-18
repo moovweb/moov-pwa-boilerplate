@@ -4,6 +4,7 @@ const path = require('path')
 const OpenBrowserPlugin = require('open-browser-webpack-plugin')
 const WriteFilePlugin = require('write-file-webpack-plugin')
 const eslintFormatter = require('react-dev-utils/eslintFormatter')
+const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
 
 module.exports = Object.assign(
   commonClient(['webpack-hot-middleware/client?path=http://localhost:9000/__webpack_hmr']), 
@@ -28,8 +29,9 @@ module.exports = Object.assign(
       ]
     },
     plugins: [
-      new webpack.HotModuleReplacementPlugin(),
+      new HardSourceWebpackPlugin(),
       ...commonPlugins,
+      new webpack.HotModuleReplacementPlugin(),
       new OpenBrowserPlugin({ url }),
       new WriteFilePlugin()
     ]

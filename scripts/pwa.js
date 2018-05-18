@@ -3,6 +3,21 @@
 
 console.error = console.warn = console.log;
 
+function waitForWebpack() {
+  sendResponse({
+    htmlparsed: true,
+    body: `
+      <!DOCTYPE html>
+      <html>
+        <body>
+          Waiting for webpack build to finish...
+          <script>setTimeout(function() { location.reload() }, 2000)</script>
+        </body>
+      </html>
+    `
+  });
+}
+
 module.exports = function() {
   let stats, init;
   
@@ -10,18 +25,7 @@ module.exports = function() {
     init = require('/build/index.js');
   } catch(e) {
     // will get here if browserify hasn't consumed the webpack build yet
-    return sendResponse({
-      htmlparsed: true,
-      body: `
-        <!DOCTYPE html>
-        <html>
-          <body>
-            Waiting for webpack build to finish...
-            <script>setTimeout(function() { location.reload() }, 2000)</script>
-          </body>
-        </html>
-      `
-    });
+    return waitForWebpack();
   }
 
   const server = init({ 
