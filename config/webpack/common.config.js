@@ -1,11 +1,11 @@
-const path = require('path');
+const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const StatsWriterPlugin = require("webpack-stats-plugin").StatsWriterPlugin;
-const webpack = require('webpack');
-const context = path.join(__dirname, '..', '..', 'src');
-const workboxConfig = require('./workbox.config.js');
-const WorkboxPlugin = require('workbox-webpack-plugin');
-const dest = path.join(__dirname, '..', '..', 'build', 'assets', 'pwa');
+const StatsWriterPlugin = require("webpack-stats-plugin").StatsWriterPlugin
+const webpack = require('webpack')
+const context = path.join(__dirname, '..', '..', 'src')
+const workboxConfig = require('./workbox.config.js')
+const WorkboxPlugin = require('workbox-webpack-plugin')
+const dest = path.join(__dirname, '..', '..', 'build', 'assets', 'pwa')
 const packages = path.join(__dirname, '..', '..', 'packages')
 const { readFileSync } = require('fs')
 const moovConfig = JSON.parse(readFileSync(path.join(__dirname, '..', '..', 'moov_config-local.json'), 'utf8'))
@@ -15,9 +15,10 @@ const url = 'http://' + moovConfig.host_map[0]
   .replace(/\$/, 'mlocal')
 
 const alias = {
-  mobx: path.join(__dirname, '..', '..', 'node_modules', 'mobx'),
+  "mobx": path.join(__dirname, '..', '..', 'node_modules', 'mobx'),
   "material-ui": path.join(__dirname, '..', '..', 'node_modules', 'material-ui'),
-  "moov-pwa": path.join(__dirname, '..', '..', 'node_modules', 'moov-pwa', 'src')
+  "moov-pwa": path.join(__dirname, '..', '..', 'node_modules', 'moov-pwa', 'src'),
+  "react-universal-component": path.join(__dirname, '..', '..', 'node_modules', 'react-universal-component')
 }
 
 module.exports = {
@@ -131,5 +132,5 @@ module.exports = {
       minChunks: Infinity
     })
   ]
-};
+}
 

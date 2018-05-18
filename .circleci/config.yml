@@ -18,9 +18,6 @@ jobs:
 
     steps:
       - checkout
-      - run:
-          command: |
-            git submodule update --init --recursive --remote
 
       # Download and cache dependencies
       - restore_cache:
