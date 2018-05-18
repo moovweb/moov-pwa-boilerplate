@@ -1,18 +1,20 @@
-# Setup
+# Moov PWA Boilerplate
 
-First, checkout this repo with submodules:
+For detailed documentation, see the [Moov PWA Docs](https://pwa.moovweb.com).
 
-```
-git clone --recurse-submodules -j8 git@github.com:moovweb/moov-pwa.git
-```
+Username: "moovweb"
 
-Then install dependencies using yarn 1.6 or later:
+Password: "velocity.is.a.vector"
+
+## Setup
+
+First, install dependencies using yarn 1.6 or later:
 
 ```
 yarn install
 ```
 
-# Running
+## Running
 
 ```
 yarn start
@@ -28,16 +30,3 @@ Browserified ...
 
 Go to http://mlocal.www.moovweb.com/
 
-# Updating
-
-Since this project uses submodules, we recommend creating an alias "get" that fetches all submodules
-
-```
-git config --global alias.get '!f(){ git pull --rebase "$@" && git submodule update --init --recursive; }; f'
-```
-
-This, instead of running `git pull` to fetch the latest, run `git get`.  Any additional arguments you provide will be passed to git pull.
-
-```
-git get
-```

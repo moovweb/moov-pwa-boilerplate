@@ -8,6 +8,7 @@ const CartModel = types.compose(CartModelBase, types
   })
   .actions(self => ({
     afterCreate() {
+      // persist cart to local storage
       persist('cart', self)
     }
   }))
