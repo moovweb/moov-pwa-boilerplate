@@ -44,6 +44,7 @@
     "fs-copy-file-sync": "^1.0.1",
     "gulp": "^3.9.1",
     "gulp-watch": "^5.0.0",
+    "hard-source-webpack-plugin": "^0.6.9",
     "history": "^4.7.2",
     "html-webpack-plugin": "^3.0.6",
     "isomorphic-unfetch": "^2.0.0",

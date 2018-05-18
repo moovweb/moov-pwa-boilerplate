@@ -1,19 +1,39 @@
 /* global requestBody */
+/* global sendResponse */
+
 console.error = console.warn = console.log;
 
-const server = require('/build/index.js')({ 
-  globals:{ 
-    https: http,
-    fns, 
-    get $() {
-      return global.$;
-    }
-  },
-  blob: env.blob
-});   
-
 module.exports = function() {
-  let stats;
+  let stats, init;
+  
+  try {
+    init = require('/build/index.js');
+  } catch(e) {
+    // will get here if browserify hasn't consumed the webpack build yet
+    return sendResponse({
+      htmlparsed: true,
+      body: `
+        <!DOCTYPE html>
+        <html>
+          <body>
+            Waiting for webpack build to finish...
+            <script>setTimeout(function() { location.reload() }, 2000)</script>
+          </body>
+        </html>
+      `
+    });
+  }
+
+  const server = init({ 
+    globals:{ 
+      https: http,
+      fns, 
+      get $() {
+        return global.$;
+      }
+    },
+    blob: env.blob
+  });   
 
   try {
     stats = require('/build/stats.json');

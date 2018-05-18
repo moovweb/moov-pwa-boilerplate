@@ -1,4 +1,3 @@
-import { createMuiTheme } from 'material-ui/styles'
 import createTheme from 'moov-pwa/createTheme'
 
 const theme = createTheme({
