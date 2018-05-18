@@ -1,6 +1,6 @@
 {
   "name": "moov-pwa-boilerplate",
-  "version": "0.3.0",
+  "version": "0.1.0",
   "main": "scripts/moov_main.js",
   "dependencies": {
     "lodash": "^4.17.5",
