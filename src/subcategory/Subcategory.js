@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import { inject, observer } from 'mobx-react'
-import Typography from 'material-ui/Typography'
+import Typography from '@material-ui/core/Typography'
 import Container from 'moov-pwa/Container'
 import { Hbox } from 'moov-pwa/Box'
-import { withStyles } from 'material-ui'
+import { withStyles } from '@material-ui/core'
 import ProductItem from './ProductItem'
 import FilterButton from 'moov-pwa/FilterButton'
 import SortButton from 'moov-pwa/SortButton'
-import Button from 'material-ui/Button'
+import Button from '@material-ui/core/Button'
 
 @withStyles(theme => ({
   header: {
@@ -31,6 +31,11 @@ import Button from 'material-ui/Button'
 @inject(({ app }) => ({ subcategory: app.subcategory }))
 @observer
 export default class Subcategory extends Component { 
+
+  constructor() {
+    super()
+    console.log('created Subcategory', new Date().getTime())
+  }
 
   render() {
     const { classes, subcategory } = this.props

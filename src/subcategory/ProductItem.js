@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { withStyles } from 'material-ui';
-import Typography from 'material-ui/Typography'
+import { withStyles } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography'
 import Link from 'moov-pwa/Link'
 import { Hbox } from 'moov-pwa/Box'
 import Rating from 'moov-pwa/Rating'

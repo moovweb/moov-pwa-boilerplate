@@ -7,7 +7,6 @@ export default new Router()
   )
   .get('/s/:id',
     fromClient(({ id, filters, sort }) => ({ 
-      _overwrite: true,
       page: 'Subcategory', 
       subcategory: {
         id,

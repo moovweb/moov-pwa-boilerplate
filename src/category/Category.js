@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import { inject, observer } from 'mobx-react'
 import Link from 'moov-pwa/Link'
-import Typography from 'material-ui/Typography'
+import Typography from '@material-ui/core/Typography'
 import Container from 'moov-pwa/Container'
 import Row from 'moov-pwa/Row'
 import CategoryShimmer from './CategoryShimmer' 
-import { withStyles } from 'material-ui';
+import { withStyles } from '@material-ui/core';
 
 @withStyles(theme => ({
   categoryList: {

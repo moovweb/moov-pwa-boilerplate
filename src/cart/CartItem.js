@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-import { withStyles } from 'material-ui'
-import Typography from 'material-ui/Typography'
+import { withStyles } from '@material-ui/core'
+import Typography from '@material-ui/core/Typography'
 import Row from 'moov-pwa/Row'
 import QuantitySelector from 'moov-pwa/QuantitySelector'
 import { price } from 'moov-pwa/format'
 import { Hbox } from 'moov-pwa/Box'
 import { observer, inject } from 'mobx-react'
-import Button from 'material-ui/Button'
+import Button from '@material-ui/core/Button'
 
 @withStyles(theme => ({
   thumb: {

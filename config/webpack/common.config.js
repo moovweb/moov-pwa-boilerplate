@@ -16,7 +16,9 @@ const url = 'http://' + moovConfig.host_map[0]
 
 const alias = {
   "mobx": path.join(__dirname, '..', '..', 'node_modules', 'mobx'),
-  "material-ui": path.join(__dirname, '..', '..', 'node_modules', 'material-ui'),
+  "mobx-state-tree": path.join(__dirname, '..', '..', 'node_modules', 'mobx-state-tree'),
+  "mobx-react": path.join(__dirname, '..', '..', 'node_modules', 'mobx-react'),
+  "@material-ui/core": path.join(__dirname, '..', '..', 'node_modules', '@material-ui/core'),
   "moov-pwa": path.join(__dirname, '..', '..', 'node_modules', 'moov-pwa', 'src'),
   "react-universal-component": path.join(__dirname, '..', '..', 'node_modules', 'react-universal-component')
 }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Typography from 'material-ui/Typography'
+import Typography from '@material-ui/core/Typography'
 import Container from 'moov-pwa/Container'
 import Row from 'moov-pwa/Row'
 import CheckoutButton from 'moov-pwa/CheckoutButton'

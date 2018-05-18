@@ -1,16 +1,13 @@
 import React, { Component } from 'react'
-import withStyles from 'material-ui/styles/withStyles'
+import withStyles from '@material-ui/core/styles/withStyles'
 import Header from './header/Header'
 import Menu from 'moov-pwa/Menu'
 import NavTabs from 'moov-pwa/NavTabs'
 import universal from 'react-universal-component'
 import Pages from 'moov-pwa/Pages'
+import LoadMask from 'moov-pwa/LoadMask'
 
-const Loading = () => <div style={{ padding: '20px' }}>Loading...</div>
-
-const universalOptions = {
-  loading: Loading
-}
+const universalOptions = { loading: LoadMask }
 
 @withStyles(theme => ({
   '@global': {
@@ -34,14 +31,14 @@ export default class App extends Component {
         <Menu useExpanders/>
         <NavTabs/>
         <Pages
-          loading={Loading}
+          loading={() => <LoadMask/>}
           components={{
-            Home: universal(() => import('./home/Home'), universalOptions),
-            Category: universal(() => import('./category/Category'), universalOptions),
-            Subcategory: universal(() => import('./subcategory/Subcategory'), universalOptions),
-            Product: universal(() => import('./product/Product'), universalOptions),
-            Cart: universal(() => import('./cart/Cart'), universalOptions),
-            Checkout: universal(() => import('./checkout/Checkout'), universalOptions)
+            Home: universal(import('./home/Home'), universalOptions),
+            Category: universal(import('./category/Category'), universalOptions),
+            Subcategory: universal(import('./subcategory/Subcategory'), universalOptions),
+            Product: universal(import('./product/Product'), universalOptions),
+            Cart: universal(import('./cart/Cart'), universalOptions),
+            Checkout: universal(import('./checkout/Checkout'), universalOptions)
           }}
         />
       </div>
