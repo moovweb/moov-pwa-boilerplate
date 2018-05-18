@@ -1,5 +1,5 @@
 /* global sendResponse, useMoovAsyncTransformer */
-console.error = console.warn = console.log
+console.error = console.warn = console.log;
 
 useMoovAsyncTransformer();
 
@@ -20,6 +20,6 @@ module.exports = function() {
     return sendResponse({ htmlparsed: false });  
   } else {
     // display the PWA
-    return require('/pwa.js')() 
+    return require('/pwa.js')();
   } 
 };

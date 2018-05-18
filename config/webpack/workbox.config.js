@@ -6,7 +6,7 @@ module.exports = {
   // See configuration options here:
   // https://developers.google.com/web/tools/workbox/reference-docs/prerelease/workbox.strategies#methods
   runtimeCaching: [{
-    urlPattern: new RegExp('/api/'),
+    urlPattern: new RegExp('/\.json/'),
     handler: 'cacheFirst',
     options: {
       cacheName: 'api',

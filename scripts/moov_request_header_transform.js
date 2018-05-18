@@ -3,10 +3,10 @@ console.error = console.warn = console.log;
 const server = require('/build/index.js')();
 
 module.exports = function() {
-  const requestHeaders = {}
+  const requestHeaders = {};
 
   for (let key of headers.headerKeys()) {
-    requestHeaders[key] = headers.header(key)
+    requestHeaders[key] = headers.header(key);
   }
 
   fns.export('headers', JSON.stringify(requestHeaders)); 
