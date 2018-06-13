@@ -1,17 +1,4 @@
-const { publicPath, assetsPath, commonLoaders, commonServer } = require('./common.config');
-const path = require('path');
-const webpack = require('webpack');
+const { prod } = require('moov-pwa/webpack/server')
+const path = require('path')
 
-module.exports = Object.assign(commonServer, {
-  module: {
-    rules: commonLoaders('commonjs', [ 'moov' ])
-  },
-  plugins: [
-    new webpack.optimize.LimitChunkCountPlugin({
-      maxChunks: 1
-    }),
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('production')
-    })
-  ] 
-});
+module.exports = prod(path.join(__dirname, '..', '..'))

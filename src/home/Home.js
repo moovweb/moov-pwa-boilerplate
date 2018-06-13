@@ -4,7 +4,9 @@ import Container from 'moov-pwa/Container'
 import Typography from '@material-ui/core/Typography'
 import Row from 'moov-pwa/Row'
 import CmsSlot from 'moov-pwa/CmsSlot'
+import withAmp from 'moov-pwa/amp/withAmp'
 
+@withAmp
 @inject('app')
 export default class Home extends Component { 
 

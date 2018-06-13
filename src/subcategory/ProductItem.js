@@ -6,6 +6,7 @@ import Link from 'moov-pwa/Link'
 import { Hbox } from 'moov-pwa/Box'
 import Rating from 'moov-pwa/Rating'
 import { price } from 'moov-pwa/format'
+import Image from 'moov-pwa/Image'
 
 @withStyles(theme => ({
   root: {
@@ -47,14 +48,14 @@ export default class ProductItem extends Component {
   }
 
   render() {
-    const { product, classes } = this.props
+    const { index, product, classes } = this.props
 
     return (
-      <li className={classes.root}>
+      <li id={`item-${index}`} className={classes.root}>
         <Link to={`/p/${product.id}`} className={classes.link}>
           <Hbox alignItems="flex-start">
             <div className={classes.thumb}>
-              <img alt="product" src={product.thumbnail}/>
+              <Image aspectRatio={100} alt="product" src={product.thumbnail}/>
             </div>
             <div className={classes.info}>
               <Typography variant="subheading" className={classes.name}>

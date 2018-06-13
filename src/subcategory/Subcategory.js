@@ -7,7 +7,8 @@ import { withStyles } from '@material-ui/core'
 import ProductItem from './ProductItem'
 import FilterButton from 'moov-pwa/FilterButton'
 import SortButton from 'moov-pwa/SortButton'
-import Button from '@material-ui/core/Button'
+import withAmp from 'moov-pwa/amp/withAmp'
+import ShowMoreButton from 'moov-pwa/ShowMoreButton'
 
 @withStyles(theme => ({
   header: {
@@ -22,20 +23,12 @@ import Button from '@material-ui/core/Button'
   total: {
     margin: '10px 0',
     textAlign: 'right'
-  },
-  showMore: {
-    margin: '15px 0',
-    width: '100%'
   }
 }), { name: 'MoovSubcategory' })
+@withAmp
 @inject(({ app }) => ({ subcategory: app.subcategory }))
 @observer
 export default class Subcategory extends Component { 
-
-  constructor() {
-    super()
-    console.log('created Subcategory', new Date().getTime())
-  }
 
   render() {
     const { classes, subcategory } = this.props
@@ -56,20 +49,10 @@ export default class Subcategory extends Component {
         <Typography variant="caption" className={classes.total}>{ subcategory.total } total items</Typography>
 
         { subcategory.items.map((product, i) => (
-          <ProductItem key={i} product={product}/> 
+          <ProductItem index={i} key={i} product={product}/> 
         ))}
 
-        { subcategory.items.length < subcategory.total && (
-          <Button 
-            variant="raised" 
-            color="primary" 
-            onClick={subcategory.showMore}
-            className={classes.showMore}
-            disabled={subcategory.loadingMore}
-          >
-            { subcategory.loadingMore ? 'Loading...' : 'Show More' }
-          </Button>
-        )}
+        <ShowMoreButton model={subcategory}/>
       </Container>
     )
   
