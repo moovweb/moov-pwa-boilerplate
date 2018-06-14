@@ -9,13 +9,13 @@ export default new Router()
     cache
   )
   .get('/s/:id',
-    fromClient(({ id, filters, sort }) => ({ 
-      page: 'Subcategory', 
+    fromClient(({ id, filters, sort }) => ({
+      page: 'Subcategory',
       subcategory: {
         id,
         filters,
         sort
-      } 
+      }
     })),
     fromServer('./subcategory/subcategory-handler'),
     cache
@@ -32,13 +32,16 @@ export default new Router()
   .get('/cart/add-from-amp.json',
     fromServer('./cart/add-from-amp-handler')
   )
-  .get('/checkout', 
+  .get('/checkout',
     fromClient({ page: 'Checkout' }),
     fromServer('./checkout/checkout-handler')
+  )
+  .get('/about',
+    fromClient({ page: 'About', about: {} }),
+    fromServer('./about/about-handler')
   )
   .fallback(
     fromClient({ page: 'Home' }),
     fromServer('./home/home-handler'),
     cache
   )
-    
