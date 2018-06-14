@@ -19,7 +19,7 @@ import AmpForm from 'moov-pwa/amp/AmpForm'
   },
   imageSwitcher: {
     height: 'calc(100vh - 280px)',
-    width: '100vw',
+    width:  `calc(100% + ${theme.margins.container*2}px)`,
     margin: `0 -${theme.margins.container}px`
   }
 }))
