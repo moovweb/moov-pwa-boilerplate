@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import Typography from '@material-ui/core/Typography'
 import Container from 'moov-pwa/Container'
 import { observer, inject } from 'mobx-react'
-import ProductShimmer from './ProductShimmer'
 import { withStyles } from '@material-ui/core'
 import ImageSwitcher from 'moov-pwa/ImageSwitcher'
 import { price } from 'moov-pwa/format'
@@ -30,9 +29,7 @@ import AmpForm from 'moov-pwa/amp/AmpForm'
 export default class Product extends Component { 
 
   render() {
-    const { product, loading, classes } = this.props
-
-    if (loading) return <ProductShimmer/>
+    const { product, classes } = this.props
 
     return (
       <AmpState initialState={product}>

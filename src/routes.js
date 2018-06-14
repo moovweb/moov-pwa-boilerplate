@@ -36,6 +36,10 @@ export default new Router()
     fromClient({ page: 'Checkout' }),
     fromServer('./checkout/checkout-handler')
   )
+  .get('/about', 
+    fromClient({ page: 'About', about: {} }),
+    fromServer('./about/about-handler')
+  )
   .fallback(
     fromClient({ page: 'Home' }),
     fromServer('./home/home-handler'),

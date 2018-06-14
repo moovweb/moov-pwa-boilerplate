@@ -9,6 +9,7 @@ import FilterButton from 'moov-pwa/FilterButton'
 import SortButton from 'moov-pwa/SortButton'
 import withAmp from 'moov-pwa/amp/withAmp'
 import ShowMoreButton from 'moov-pwa/ShowMoreButton'
+import ResponsiveTiles from 'moov-pwa/ResponsiveTiles'
 
 @withStyles(theme => ({
   header: {
@@ -48,9 +49,11 @@ export default class Subcategory extends Component {
         
         <Typography variant="caption" className={classes.total}>{ subcategory.total } total items</Typography>
 
-        { subcategory.items.map((product, i) => (
-          <ProductItem index={i} key={i} product={product}/> 
-        ))}
+        <ResponsiveTiles>
+          { subcategory.items.map((product, i) => (
+            <ProductItem index={i} key={i} product={product}/> 
+          ))}
+        </ResponsiveTiles>
 
         <ShowMoreButton model={subcategory}/>
       </Container>

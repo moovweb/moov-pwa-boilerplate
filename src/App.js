@@ -33,7 +33,8 @@ export default class App extends Component {
             Subcategory: universal(import('./subcategory/Subcategory')),
             Product: universal(import('./product/Product')),
             Cart: universal(import('./cart/Cart')),
-            Checkout: universal(import('./checkout/Checkout'))
+            Checkout: universal(import('./checkout/Checkout')),
+            About: universal(import('./about/About'))
           })}
         />
       </div>

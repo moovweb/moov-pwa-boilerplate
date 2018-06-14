@@ -7,10 +7,11 @@ import Row from 'moov-pwa/Row'
 import { withStyles } from '@material-ui/core'
 import withAmp from 'moov-pwa/amp/withAmp'
 import Image from 'moov-pwa/Image'
+import ResponsiveTiles from 'moov-pwa/ResponsiveTiles'
 
 @withAmp
 @withStyles(theme => ({
-  categoryList: {
+  subcategories: {
     listStyle: 'none',
     margin: 0,
     padding: 0,
@@ -25,8 +26,8 @@ import Image from 'moov-pwa/Image'
     }
   },
   subcategoryName: {
-    marginTop: `${theme.margins.container}px`,
-    marginBottom: `${2*theme.margins.container}px`
+    textAlign: 'center',
+    margin: `${theme.margins.container}px 0`,
   },
   link: {
     position: 'absolute',
@@ -38,14 +39,14 @@ import Image from 'moov-pwa/Image'
   image: {
     width: '100%'
   }
-}))
-@inject(({ app }) => ({ app, category: app.category }))
+}), { name: 'MoovDemoCategory' })
+@inject(({ app }) => ({ app, category: app.category, loading: app.loading }))
 @observer
 export default class App extends Component {
   render() {
     const { category, classes } = this.props
 
-    if (!category) return null
+    if (!category) return null    
 
     return (
       <Container>
@@ -54,17 +55,17 @@ export default class App extends Component {
         </Row>
         <Row>
           <Typography variant="subheading" component="h2">{category.description}</Typography>
-        </Row>
+        </Row> 
         <Row>
-          <ul className={classes.categoryList}>
-            { category && category.subcategories && category.subcategories.map((subcategory, i) => (
-              <li key={i}>
+          <ResponsiveTiles cols={{ xs: 1, sm: 2, md: 3, lg: 4, xl: 4 }}>
+            { category.subcategories.map((subcategory, i) => (
+              <div key={subcategory.id}>
                 <Image className={classes.image} aspectRatio={50} src={subcategory.image}/>
-                <Link className={classes.link} to={`/s/${subcategory.id}`}></Link>
-                <Typography className={classes.subcategoryName} variant="title">{subcategory.name}</Typography>
-              </li>
-            ))} 
-          </ul>
+                <Link className={classes.link} to={`/s/${subcategory.id}}`}></Link>
+                <Typography className={classes.subcategoryName} variant="subheading">{subcategory.name}</Typography>
+              </div>
+            ))}
+          </ResponsiveTiles>
         </Row>
       </Container>
     )

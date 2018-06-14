@@ -3,27 +3,23 @@ import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography'
 import Link from 'moov-pwa/Link'
-import { Hbox } from 'moov-pwa/Box'
+import { Vbox } from 'moov-pwa/Box'
 import Rating from 'moov-pwa/Rating'
-import { price } from 'moov-pwa/format'
 import Image from 'moov-pwa/Image'
+import { price } from 'moov-pwa/format'
 
 @withStyles(theme => ({
   root: {
     listStyle: 'none',
-    padding: '20px 0',
-    borderBottom: `1px solid ${theme.palette.divider}` 
+    padding: '20px 0'
   },
   thumb: {
     flex: 2,
     display: 'block',
+    marginBottom: '10px',
     '& img': {
       width: '100%'
-    },
-    marginRight: `${theme.margins.container}px`
-  },
-  info: {
-    flex: 3
+    }
   },
   link: {
     textDecoration: 'none',
@@ -51,27 +47,22 @@ export default class ProductItem extends Component {
     const { index, product, classes } = this.props
 
     return (
-      <li id={`item-${index}`} className={classes.root}>
+      <div id={`item-${index}`} className={classes.root}>
         <Link to={`/p/${product.id}`} className={classes.link}>
-          <Hbox alignItems="flex-start">
+          <Vbox alignItems="stretch">
             <div className={classes.thumb}>
               <Image aspectRatio={100} alt="product" src={product.thumbnail}/>
             </div>
-            <div className={classes.info}>
+            <div>
               <Typography variant="subheading" className={classes.name}>
                 {product.name}
               </Typography>
-              <Hbox className={classes.reviews}>
-                <Rating value={product.rating} className={classes.rating}/>
-                { product.reviewCount != null && product.reviewCount > 0 && (
-                  <Typography variant="caption" className={classes.reviewCount}>({ product.reviewCount})</Typography>
-                )}
-              </Hbox>
+              <Rating product={product} className={classes.rating}/>
               <Typography className={classes.price}>{ price(product.price) }</Typography>
             </div>
-          </Hbox>
+          </Vbox>
         </Link>
-      </li>
+      </div>
     )
   }
 
