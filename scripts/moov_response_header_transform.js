@@ -37,7 +37,7 @@ module.exports = function() {
   // This allows us to forward set-cookie headers received in MUR requests back to the client
   // This is request in order to transfer the cart over to checkout
   if (env.SET_COOKIE) {
-    if (env.pwa !== 'true' || env.pathname.split(/\?/)[0].endsWith('cart.json')) {
+    if (env.pwa !== 'true' || env.path.split(/\?/)[0].endsWith('cart.json')) {
       headers.addHeader("set-cookie", env.SET_COOKIE);
     }
   }
