@@ -61,7 +61,7 @@ export default class App extends Component {
             { category.subcategories.map((subcategory, i) => (
               <div key={subcategory.id}>
                 <Image className={classes.image} aspectRatio={50} src={subcategory.image}/>
-                <Link className={classes.link} to={`/s/${subcategory.id}}`}></Link>
+                <Link className={classes.link} to={`/s/${subcategory.id}`}></Link>
                 <Typography className={classes.subcategoryName} variant="subheading">{subcategory.name}</Typography>
               </div>
             ))}

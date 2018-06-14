@@ -31,6 +31,8 @@ export default class Product extends Component {
   render() {
     const { product, classes } = this.props
 
+    if (!product) return null
+
     return (
       <AmpState initialState={product}>
         <AmpForm id="form" action="/cart/add-from-amp.json">
