@@ -17,6 +17,7 @@
     "/pwa/*": "/pwa/*",
     "/service-worker.js": "/service-worker.js",
     "/workbox-*": "/workbox-*",
-    "/favicon.ico": "/favicon.ico"
+    "/favicon.ico": "/favicon.ico",
+    "/icons/*": "/icons/*"
   }
 }
