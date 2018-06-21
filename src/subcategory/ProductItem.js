@@ -51,7 +51,7 @@ export default class ProductItem extends Component {
         <Link to={`/p/${product.id}`} className={classes.link}>
           <Vbox alignItems="stretch">
             <div className={classes.thumb}>
-              <Image aspectRatio={100} alt="product" src={product.thumbnail}/>
+              <Image lazy={index >= 4 && index < 10} aspectRatio={100} alt="product" src={product.thumbnail}/>
             </div>
             <div>
               <Typography variant="subheading" className={classes.name}>

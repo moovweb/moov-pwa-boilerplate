@@ -24,7 +24,7 @@ import AmpForm from 'moov-pwa/amp/AmpForm'
   }
 }))
 @withAmp
-@inject(({ app }) => ({ product: app.product, loading: app.loading }))
+@inject(({ app }) => ({ product: app.product }))
 @observer
 export default class Product extends Component { 
 

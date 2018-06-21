@@ -16,7 +16,7 @@ export default class Home extends Component {
     return (
       <Container> 
         <Row>
-          <Typography variant="display1">{ app.title }</Typography>
+          <Typography variant="display1">Moov PWA</Typography>
         </Row>
         <Row>
           <Typography variant="subheading">

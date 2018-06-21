@@ -9,6 +9,7 @@ import { withStyles } from '@material-ui/core/styles'
 import Logo from '../assets/moovweb-logo.svg'
 import CartButton from 'moov-pwa/CartButton'
 import HeaderLogo from 'moov-pwa/HeaderLogo'
+import Hidden from '@material-ui/core/Hidden'
 
 @withStyles(theme => ({
   root: {
@@ -43,17 +44,22 @@ export default class Header extends Component {
   render() {
     const { classes } = this.props
 
+    const storeFinder = (
+      <Link to="/store-finder">
+        <IconButton aria-label="Store Locator"color="inherit" classes={{label: classes.large }}>
+          <FindStore className={classes.icon}/>
+        </IconButton>
+      </Link>
+    )
+
     return (
       <AppBar classes={{ root: classes.root }}>
-        <Link to="/store-finder">
-          <IconButton aria-label="Store Locator"color="inherit" classes={{label: classes.large }}>
-            <FindStore className={classes.icon}/>
-          </IconButton>
-        </Link>
+        <Hidden mdUp implementation="css">{ storeFinder }</Hidden>
         <HeaderLogo>
           <Logo/>
         </HeaderLogo>
         <div style={{ flex: 1 }}/>
+        <Hidden smDown implementation="css">{ storeFinder }</Hidden>
         <IconButton aria-label="Search" color="inherit"  classes={{label: classes.large }}>
           <Search className={classes.icon}/>
         </IconButton>

@@ -4,24 +4,17 @@ const cache = cacheFor({ duration: 300 }) // cache responses in varnish for 5 mi
 
 export default new Router()
   .get('/c/:id',
-    fromClient({ page: 'Category', category: null }),
+    fromClient({ page: 'Category' }),
     fromServer('./category/category-handler'),
     cache
   )
   .get('/s/:id',
-    fromClient(({ id, filters, sort }) => ({ 
-      page: 'Subcategory', 
-      subcategory: {
-        id,
-        filters,
-        sort
-      } 
-    })),
+    fromClient({ page: 'Subcategory' }),
     fromServer('./subcategory/subcategory-handler'),
     cache
   )
   .get('/p/:id',
-    fromClient({ page: 'Product', product: null }),
+    fromClient({ page: 'Product' }),
     fromServer('./product/product-handler'),
     cache
   )

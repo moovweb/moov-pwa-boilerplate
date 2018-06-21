@@ -4,6 +4,7 @@ import { withGlobalState } from 'moov-pwa/router'
 export default function productHandler({ id }, state, request) {
   return withGlobalState(request, globalState, { 
     title: `Product ${id}`,
+    page: 'Product',
     product: {
       id,
       name: `Product ${id}`,

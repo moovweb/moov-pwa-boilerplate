@@ -40,7 +40,7 @@ import ResponsiveTiles from 'moov-pwa/ResponsiveTiles'
     width: '100%'
   }
 }), { name: 'MoovDemoCategory' })
-@inject(({ app }) => ({ app, category: app.category, loading: app.loading }))
+@inject(({ app }) => ({ category: app.category }))
 @observer
 export default class App extends Component {
   render() {
@@ -60,7 +60,7 @@ export default class App extends Component {
           <ResponsiveTiles cols={{ xs: 1, sm: 2, md: 3, lg: 4, xl: 4 }}>
             { category.subcategories.map((subcategory, i) => (
               <div key={subcategory.id}>
-                <Image className={classes.image} aspectRatio={50} src={subcategory.image}/>
+                <Image lazy={i > 3} className={classes.image} aspectRatio={50} src={subcategory.image}/>
                 <Link className={classes.link} to={`/s/${subcategory.id}`}></Link>
                 <Typography className={classes.subcategoryName} variant="subheading">{subcategory.name}</Typography>
               </div>
