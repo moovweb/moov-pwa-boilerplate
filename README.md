@@ -2,10 +2,6 @@
 
 For detailed documentation, see the [Moov PWA Docs](https://pwa.moovweb.com).
 
-Username: "moovweb"
-
-Password: "velocity.is.a.vector"
-
 ## Setup
 
 First, install dependencies using yarn 1.6 or later:
@@ -29,4 +25,17 @@ Browserified ...
 ```
 
 Go to http://mlocal.www.moovweb.com/
+
+## Windows
+
+To run this project on Windows:
+
+1. Add the following to C:\Windows\System32\drivers\etc:
+
+```
+127.0.0.1 mlocal.www.moovweb.com
+```
+
+2. Start Command Prompt as administrator
+3. run `yarn start:windows`
 
