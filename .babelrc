@@ -1,0 +1,32 @@
+{
+  "presets": [
+    ["@babel/preset-env", {
+      "targets": {
+        "browsers": "> 1%",
+        "uglify": true
+      },
+      "useBuiltIns": "entry"
+    }],
+    ["@babel/preset-stage-0", {
+      "decoratorsLegacy": true
+    }],
+    "@babel/preset-react"
+  ],
+  "plugins": [
+    ["@babel/plugin-transform-runtime", { "polyfill": false, "regenerator": true }],
+    "@babel/plugin-transform-async-to-generator",
+    ["@babel/plugin-proposal-decorators", { "legacy": true }],
+    "@babel/plugin-syntax-dynamic-import",
+    "@babel/plugin-proposal-object-rest-spread",
+    "@babel/plugin-syntax-class-properties",
+    "universal-import",
+    "@babel/plugin-transform-react-constant-elements"
+  ],
+  "env": {
+    "server": {
+      "plugins": [
+        "moov"
+      ]
+    }
+  }
+}
