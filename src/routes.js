@@ -1,7 +1,15 @@
 import { Router, fromClient, fromServer, cacheFor, track } from 'moov-pwa/router'
 import analytics from 'moov-pwa/analytics'
 
-const cache = cacheFor({ duration: 300 }) // cache responses in varnish for 5 minutes
+const cache = cacheFor({ 
+  server: {
+    duration: 300, // cache responses in varnish for 5 minutes,
+  },
+  client: {
+    cacheName: 'api',
+    duration: 60 * 60
+  }
+}) 
 
 export default new Router()
   .get('/c/:id',
