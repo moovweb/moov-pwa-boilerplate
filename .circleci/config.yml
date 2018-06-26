@@ -43,8 +43,8 @@ jobs:
           command: |
             yarn build
             if [ $CIRCLE_BRANCH = 'master' ]; then
-              yarn run link -- prod
-              moov deploy moovweb/moov-pwa-prod -user-email=${MOOV_EMAIL} -user-password=${MOOV_PASSWORD} -ignore-live -deploy-id $(git rev-parse HEAD) -notes "$(git rev-parse --abbrev-ref HEAD) - $(git log -1 --pretty=%B)"
+              yarn run link -- dev
+              moov deploy moovweb/moov-pwa-boilerplate-dev -user-email=${MOOV_EMAIL} -user-password=${MOOV_PASSWORD} -ignore-live -deploy-id $(git rev-parse HEAD) -notes "$(git rev-parse --abbrev-ref HEAD) - $(git log -1 --pretty=%B)"
             fi
 
       - save_cache:
