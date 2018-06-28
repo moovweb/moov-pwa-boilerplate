@@ -48,7 +48,7 @@ export default class ProductItem extends Component {
 
     return (
       <div id={`item-${index}`} className={classes.root}>
-        <Link to={`/p/${product.id}`} className={classes.link}>
+        <Link prefetch="visible" to={`/p/${product.id}`} className={classes.link}>
           <Vbox alignItems="stretch">
             <div className={classes.thumb}>
               <Image lazy={index >= 4 && index < 10} aspectRatio={100} alt="product" src={product.thumbnail}/>

@@ -50,7 +50,7 @@ function createProducts(count, start=0) {
   const items = []
 
   for (let i=1; i<=count; i++) {
-    items.push({ id: `${start + i}`, name: `Product ${start + i}`, price: 99.99, rating: i%5, thumbnail: `http://via.placeholder.com/128x128?index=${i}` })
+    items.push({ id: `${start + i}`, name: `Product ${start + i}`, price: 99.99, rating: i%5, thumbnail: `https://via.placeholder.com/128x128?index=${i}` })
   }
 
   return items

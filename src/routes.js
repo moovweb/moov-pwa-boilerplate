@@ -2,16 +2,16 @@ import { Router, fromClient, fromServer, cacheFor, track } from 'moov-pwa/router
 import analytics from 'moov-pwa/analytics'
 
 const cache = cacheFor({ 
-  server: {
-    duration: 300, // cache responses in varnish for 5 minutes,
-  },
-  client: {
-    cacheName: 'api',
-    duration: 60 * 60
-  }
-}) 
+  server: 300, // cache responses in varnish for 5 minutes,
+  client: true
+})
 
 export default new Router()
+  .configureClientCache({
+    name: 'runtimeCache',
+    maxEntries: 5,
+    maxAgeSeconds: 10
+  })
   .get('/c/:id',
     fromClient({ page: 'Category' }),
     fromServer('./category/category-handler'),
