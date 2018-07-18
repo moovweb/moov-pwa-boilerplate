@@ -5,7 +5,7 @@ console.error = console.warn = console.log;
 module.exports = function() {
   fns.export('pwa', 'true')
 
-  let stats, init = require('/build/index.js');
+  let stats, init = require('../src/server.js');
   
   const server = init({ 
     globals:{ 
