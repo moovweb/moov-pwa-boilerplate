@@ -6760,9 +6760,9 @@ moment@^2.22.1:
   version "2.22.2"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.22.2.tgz#3c257f9839fc0e93ff53149632239eb90783ff66"
 
-moov-pwa@^1.0.0:
-  version "1.0.0"
-  resolved "https://npm-proxy.fury.io/moovweb/~/d/moov-pwa/moov-pwa-1.0.0#4829647b28aab77c5942ffb2155ec2148c915666"
+moov-pwa@^1.1.2:
+  version "1.1.2"
+  resolved "https://npm-proxy.fury.io/moovweb/~/d/moov-pwa/moov-pwa-1.1.2#803bf21bb1cfca2fc05ed161706de100daef4620"
   dependencies:
     babel-eslint "^8.2.3"
     babel-minify-webpack-plugin "^0.3.1"
@@ -6782,12 +6782,14 @@ moov-pwa@^1.0.0:
     open-browser-webpack-plugin "^0.0.5"
     qs "^6.5.1"
     react-dev-utils "^5.0.1"
+    react-dom "^16.4.1"
     react-highlighter "^0.4.2"
     react-lazyload "^2.3.0"
     react-pinch-zoom-pan "^1.4.5"
     react-swipeable-views "^0.12.13"
     react-visibility-sensor "^3.11.0"
     remotedev "^0.2.7"
+    resize-observer-polyfill "^1.5.0"
     route-parser "^0.0.5"
     sha1 "^1.1.1"
     store2 "2.7.0"
@@ -8780,6 +8782,10 @@ require-uncached@^1.0.3:
 requires-port@1.0.x, requires-port@1.x.x, requires-port@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/requires-port/-/requires-port-1.0.0.tgz#925d2601d39ac485e091cf0da5c6e694dc3dcaff"
+
+resize-observer-polyfill@^1.5.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/resize-observer-polyfill/-/resize-observer-polyfill-1.5.0.tgz#660ff1d9712a2382baa2cad450a4716209f9ca69"
 
 resolve-dir@^1.0.0, resolve-dir@^1.0.1:
   version "1.0.1"
