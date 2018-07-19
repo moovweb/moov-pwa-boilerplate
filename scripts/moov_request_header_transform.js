@@ -1,13 +1,9 @@
 console.error = console.warn = console.log;
 
+const getHeaders = require('/get_headers.js');
+
 module.exports = function() {
-  const requestHeaders = {};
-
-  for (let key of headers.headerKeys()) {
-    requestHeaders[key] = headers.header(key);
-  }
-
-  fns.export('headers', JSON.stringify(requestHeaders)); 
+  fns.export('headers', JSON.stringify(getHeaders())); 
 
   // Uncomment the following code to display content from the upstream site whenever
   // a route in src/routes.js isn't matched.  This is useful when you plan to launch with
