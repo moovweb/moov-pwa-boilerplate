@@ -1,13 +1,15 @@
 /* global requestBody */
 
+import createServer from '../src/server.js'
+
 console.error = console.warn = console.log;
 
 module.exports = function() {
   fns.export('pwa', 'true')
 
-  let stats, init = require('/build/index.js');
+  let stats;
   
-  const server = init({ 
+  const server = createServer({ 
     globals:{ 
       https: http,
       fns, 
