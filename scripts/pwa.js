@@ -2,8 +2,6 @@
 
 import createServer from '../src/server.js'
 
-console.error = console.warn = console.log;
-
 export default function() {
   fns.export('pwa', 'true')
 
