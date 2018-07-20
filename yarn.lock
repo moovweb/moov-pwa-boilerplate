@@ -4122,6 +4122,13 @@ file-entry-cache@^2.0.0:
     flat-cache "^1.2.1"
     object-assign "^4.0.1"
 
+file-loader@^1.1.11:
+  version "1.1.11"
+  resolved "https://registry.yarnpkg.com/file-loader/-/file-loader-1.1.11.tgz#6fe886449b0f2a936e43cabaac0cdbfb369506f8"
+  dependencies:
+    loader-utils "^1.0.2"
+    schema-utils "^0.4.5"
+
 filename-regex@^2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/filename-regex/-/filename-regex-2.0.1.tgz#c1c4b9bee3e09725ddb106b75c1e301fe2f18b26"
@@ -6760,9 +6767,9 @@ moment@^2.22.1:
   version "2.22.2"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.22.2.tgz#3c257f9839fc0e93ff53149632239eb90783ff66"
 
-moov-pwa@^1.1.2:
-  version "1.1.2"
-  resolved "https://npm-proxy.fury.io/moovweb/~/d/moov-pwa/moov-pwa-1.1.2#803bf21bb1cfca2fc05ed161706de100daef4620"
+moov-pwa@^1.2.5:
+  version "1.2.5"
+  resolved "https://npm-proxy.fury.io/moovweb/~/d/moov-pwa/moov-pwa-1.2.5#f5a07c59cd394ff7b90e1ddb139255f54fe89609"
   dependencies:
     babel-eslint "^8.2.3"
     babel-minify-webpack-plugin "^0.3.1"
