@@ -4,7 +4,7 @@ import createServer from '../src/server.js'
 
 console.error = console.warn = console.log;
 
-module.exports = function() {
+export default function() {
   fns.export('pwa', 'true')
 
   let stats;
