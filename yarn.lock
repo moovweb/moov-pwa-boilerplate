@@ -2868,7 +2868,7 @@ debug@2.6.8:
   dependencies:
     ms "2.0.0"
 
-debug@2.6.9, debug@^2.2.0, debug@^2.3.3, debug@^2.6.0, debug@^2.6.6, debug@^2.6.8, debug@^2.6.9, debug@~2.6.4, debug@~2.6.6:
+debug@2.6.9, debug@^2.1.2, debug@^2.2.0, debug@^2.3.3, debug@^2.6.0, debug@^2.6.6, debug@^2.6.8, debug@^2.6.9, debug@~2.6.4, debug@~2.6.6:
   version "2.6.9"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.9.tgz#5d128515df134ff327e90a4c93f4e077a536341f"
   dependencies:
@@ -5084,6 +5084,12 @@ iconv-lite@0.4.19, iconv-lite@^0.4.17, iconv-lite@~0.4.13:
   version "0.4.19"
   resolved "https://registry.yarnpkg.com/iconv-lite/-/iconv-lite-0.4.19.tgz#f7468f60135f5e5dad3399c0a81be9a1603a082b"
 
+iconv-lite@^0.4.4:
+  version "0.4.23"
+  resolved "https://registry.yarnpkg.com/iconv-lite/-/iconv-lite-0.4.23.tgz#297871f63be507adcfbfca715d0cd0eed84e9a63"
+  dependencies:
+    safer-buffer ">= 2.1.2 < 3"
+
 icss-replace-symbols@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/icss-replace-symbols/-/icss-replace-symbols-1.1.0.tgz#06ea6f83679a7749e386cfe1fe812ae5db223ded"
@@ -6557,9 +6563,9 @@ moov-react-dev-server@^1.0.0:
     webpack-hot-middleware "^2.22.2"
     ws "^5.1.0"
 
-moov_builder@^3.0.0-alpha.11:
-  version "3.0.0-alpha.11"
-  resolved "https://npm-proxy.fury.io/moovweb/~/d/moov_builder/moov_builder-3.0.0-alpha.11#89fb8cbfe784fb1e1c9ea452ae2237b96b131e82"
+moov_builder@^3.0.0-alpha.12:
+  version "3.0.0-alpha.12"
+  resolved "https://npm-proxy.fury.io/moovweb/~/d/moov_builder/moov_builder-3.0.0-alpha.12#f11a8035adc9c87ef3787b6b70edfb862d863da4"
   dependencies:
     browser-sync "^2.12.8"
     graceful-fs "^4.1.2"
@@ -6576,21 +6582,22 @@ moov_builder@^3.0.0-alpha.11:
     harmonize "^1.4.4"
     jshint "^2.9.1"
     jshint-stylish "^2.1.0"
-    moov_bundler "3.0.0-alpha.11"
+    moov_bundler "3.0.0-alpha.12"
     node-sass-asset-functions "0.0.9"
     npm-check "git+https://github.com/moovweb/npm-check.git#v5.4.5-moovweb.0"
     q "^1.4.1"
 
-moov_bundler@3.0.0-alpha.11:
-  version "3.0.0-alpha.11"
-  resolved "https://npm-proxy.fury.io/moovweb/~/d/moov_bundler/moov_bundler-3.0.0-alpha.11#4d5f2d6402955ac41a94eaaad7da91b79092848d"
+moov_bundler@3.0.0-alpha.12:
+  version "3.0.0-alpha.12"
+  resolved "https://npm-proxy.fury.io/moovweb/~/d/moov_bundler/moov_bundler-3.0.0-alpha.12#98b1508b54b7a2ba77ad964f7d96a2864c1135cc"
   dependencies:
     alias-regex-webpack-plugin "^0.1.2"
     graceful-fs "4.1.2"
     harmonize "1.4.4"
-    lodash "^4.17.4"
+    lodash "^4.17.10"
     moov_rewriter "^3.2.2"
     moov_stdlib "^2.6.31"
+    needle "^2.2.1"
     process "0.11.3"
     stringify "5.2.0"
     webpack "^3.0.0"
@@ -6700,6 +6707,14 @@ ncname@1.0.x:
   resolved "https://registry.yarnpkg.com/ncname/-/ncname-1.0.0.tgz#5b57ad18b1ca092864ef62b0b1ed8194f383b71c"
   dependencies:
     xml-char-classes "^1.0.0"
+
+needle@^2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/needle/-/needle-2.2.1.tgz#b5e325bd3aae8c2678902fa296f729455d1d3a7d"
+  dependencies:
+    debug "^2.1.2"
+    iconv-lite "^0.4.4"
+    sax "^1.2.4"
 
 negotiator@0.6.1:
   version "0.6.1"
@@ -8644,6 +8659,10 @@ safe-regex@^1.1.0:
   dependencies:
     ret "~0.1.10"
 
+"safer-buffer@>= 2.1.2 < 3":
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
+
 sass-graph@^2.1.1:
   version "2.2.4"
   resolved "https://registry.yarnpkg.com/sass-graph/-/sass-graph-2.2.4.tgz#13fbd63cd1caf0908b9fd93476ad43a51d1e0b49"
@@ -8653,7 +8672,7 @@ sass-graph@^2.1.1:
     scss-tokenizer "^0.2.3"
     yargs "^7.0.0"
 
-sax@~1.2.1:
+sax@^1.2.4, sax@~1.2.1:
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9"
 

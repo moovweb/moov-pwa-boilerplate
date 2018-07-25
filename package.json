@@ -60,7 +60,7 @@
     "moment": "^2.21.0",
     "moov-pwa": "^1.1.2",
     "moov-react-dev-server": "^1.0.0",
-    "moov_builder": "^3.0.0-alpha.11",
+    "moov_builder": "^3.0.0-alpha.12",
     "mst-middlewares": "^2.0.1",
     "node-fetch": "^2.1.1",
     "open-browser-webpack-plugin": "^0.0.5",
