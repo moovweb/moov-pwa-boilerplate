@@ -6767,9 +6767,9 @@ moment@^2.22.1:
   version "2.22.2"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.22.2.tgz#3c257f9839fc0e93ff53149632239eb90783ff66"
 
-moov-pwa@^1.2.5:
-  version "1.2.5"
-  resolved "https://npm-proxy.fury.io/moovweb/~/d/moov-pwa/moov-pwa-1.2.5#f5a07c59cd394ff7b90e1ddb139255f54fe89609"
+moov-pwa@^1.3.1:
+  version "1.3.1"
+  resolved "https://npm-proxy.fury.io/moovweb/~/d/moov-pwa/moov-pwa-1.3.1#b15b5bb229c557314357abfbea63d5ec5c85f481"
   dependencies:
     babel-eslint "^8.2.3"
     babel-minify-webpack-plugin "^0.3.1"
@@ -6805,9 +6805,9 @@ moov-pwa@^1.2.5:
     workbox-webpack-plugin "^3.2.0"
     write-file-webpack-plugin "^4.3.2"
 
-moov-react-dev-server@^1.0.0:
-  version "1.0.0"
-  resolved "https://npm-proxy.fury.io/moovweb/~/d/moov-react-dev-server/moov-react-dev-server-1.0.0#9c1a5d0a4d2d9f9331ef6503429cbd837e3ff877"
+moov-react-dev-server@^1.3.1:
+  version "1.3.1"
+  resolved "https://npm-proxy.fury.io/moovweb/~/d/moov-react-dev-server/moov-react-dev-server-1.3.1#3d4ce433a393954c5a927e4b8c5870246aa09d3d"
   dependencies:
     axios "^0.18.0"
     body-parser "^1.18.2"
@@ -6859,9 +6859,11 @@ moov_perf@1.2.5:
   version "1.2.5"
   resolved "https://npm-proxy.fury.io/moovweb/~/d/moov_perf/moov_perf-1.2.5#3954966f85bff094a6962f06df76d3748ef8670d"
 
-moov_rewriter@3.0.9:
-  version "3.0.9"
-  resolved "https://npm-proxy.fury.io/moovweb/~/d/moov_rewriter/moov_rewriter-3.0.9#466ca3e6d18a7be9e4df02c3ef16450743e17eb8"
+moov_rewriter@^3.2.2:
+  version "3.2.2"
+  resolved "https://npm-proxy.fury.io/moovweb/~/d/moov_rewriter/moov_rewriter-3.2.2#d1f4ee444d67f2f4148ae800a5a96622f2fb4570"
+  dependencies:
+    fast-json-stable-stringify "^2.0.0"
 
 moov_stdlib@2.6.31:
   version "2.6.31"

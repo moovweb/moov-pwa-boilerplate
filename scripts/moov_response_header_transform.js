@@ -10,7 +10,10 @@ function cache(header) {
   headers.header("X-Moov-Cache", "true");
 }
 
-function redirectTo(url, amp) {
+function redirectTo(url) {
+  const referer = JSON.parse(env.headers).referer
+  const amp = referer && referer.split('?')[0].endsWith('.amp')
+
   if (amp) {
     headers.addHeader("amp-redirect-to", "https://" + env.host + url);
     headers.addHeader("access-control-expose-headers", "AMP-Access-Control-Allow-Source-Origin,AMP-Redirect-To");
@@ -45,9 +48,6 @@ module.exports = function() {
   if (env.MOOV_PWA_REDIRECT) {
     // regular redirects
     redirectTo(env.MOOV_PWA_REDIRECT);
-  } else if (env.MOOV_PWA_AMP_REDIRECT) {
-    // amp redirects
-    redirectTo(env.MOOV_PWA_AMP_REDIRECT, true);
   } else if (env.path.startsWith('/service-worker.js')) {
     // service-worker.js
     cache('no-cache, s-maxage=290304000');

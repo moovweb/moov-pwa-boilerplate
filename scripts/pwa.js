@@ -9,7 +9,8 @@ module.exports = function() {
   
   const server = init({ 
     globals:{ 
-      https: http,
+      https,
+      http,
       fns, 
       get $() {
         return global.$;

@@ -5,7 +5,7 @@
   "dependencies": {
     "lodash": "^4.17.5",
     "moov_perf": "1.2.5",
-    "moov_rewriter": "3.0.9",
+    "moov_rewriter": "^3.2.2",
     "moov_stdlib": "2.6.31"
   },
   "devDependencies": {
@@ -59,8 +59,8 @@
     "mobx-react": "^5.0.0",
     "mobx-state-tree": "^2.0.5",
     "moment": "^2.21.0",
-    "moov-pwa": "^1.2.5",
-    "moov-react-dev-server": "^1.0.0",
+    "moov-pwa": "^1.3.1",
+    "moov-react-dev-server": "^1.3.1",
     "moov_builder": "^2.4.16",
     "mst-middlewares": "^2.0.1",
     "node-fetch": "^2.1.1",
