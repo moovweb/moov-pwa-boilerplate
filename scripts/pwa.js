@@ -9,7 +9,8 @@ export default function() {
   
   const server = createServer({ 
     globals:{ 
-      https: http,
+      https,
+      http,
       fns, 
       get $() {
         return global.$;
