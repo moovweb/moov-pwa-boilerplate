@@ -25,7 +25,7 @@ export default class App extends Component {
     return (
       <div>
         <Helmet>
-          <link rel="shortcut icon" href="icons/favicon.ico"/>
+          <link rel="shortcut icon" href="/icons/favicon.ico"/>
         </Helmet>
         <Header/> 
         <Menu useExpanders/>
