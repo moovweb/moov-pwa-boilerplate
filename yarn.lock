@@ -6767,9 +6767,9 @@ moment@^2.22.1:
   version "2.22.2"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.22.2.tgz#3c257f9839fc0e93ff53149632239eb90783ff66"
 
-moov-pwa@^1.3.1:
-  version "1.3.1"
-  resolved "https://npm-proxy.fury.io/moovweb/~/d/moov-pwa/moov-pwa-1.3.1#b15b5bb229c557314357abfbea63d5ec5c85f481"
+moov-pwa@^1.3.2:
+  version "1.3.2"
+  resolved "https://npm-proxy.fury.io/moovweb/~/d/moov-pwa/moov-pwa-1.3.2#8170cb858702d686acc48506eaabe3841dc671a2"
   dependencies:
     babel-eslint "^8.2.3"
     babel-minify-webpack-plugin "^0.3.1"
