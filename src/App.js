@@ -4,6 +4,7 @@ import Header from './header/Header'
 import Menu from 'moov-pwa/Menu'
 import NavTabs from 'moov-pwa/NavTabs'
 import Pages from 'moov-pwa/Pages'
+import Helmet from 'react-helmet'
 
 @withStyles(theme => ({
   '@global': {
@@ -23,6 +24,9 @@ export default class App extends Component {
   render() {
     return (
       <div>
+        <Helmet>
+          <link rel="shortcut icon" href="icons/favicon.ico"/>
+        </Helmet>
         <Header/> 
         <Menu useExpanders/>
         <NavTabs/>
