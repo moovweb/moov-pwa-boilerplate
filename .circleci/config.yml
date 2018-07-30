@@ -46,6 +46,10 @@ jobs:
               yarn run link -- dev
               moov deploy moovweb/moov-pwa-boilerplate-dev -user-email=${MOOV_EMAIL} -user-password=${MOOV_PASSWORD} -ignore-live -deploy-id $(git rev-parse HEAD) -notes "$(git rev-parse --abbrev-ref HEAD) - $(git log -1 --pretty=%B)"
             fi
+            if [ $CIRCLE_BRANCH = 'new-sdk' ]; then
+              yarn run link -- dev
+              moov deploy moovweb/moov-pwa-boilerplate-dev new-sdk -user-email=${MOOV_EMAIL} -user-password=${MOOV_PASSWORD} -ignore-live -deploy-id $(git rev-parse HEAD) -notes "$(git rev-parse --abbrev-ref HEAD) - $(git log -1 --pretty=%B)"
+            fi
 
       - save_cache:
           paths:
