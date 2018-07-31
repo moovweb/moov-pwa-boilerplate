@@ -31,6 +31,7 @@ export default function() {
     headers: env.headers, 
     path: env.path, 
     method: env.method, 
-    hostname: env.host_no_port 
+    hostname: env.host_no_port,
+    protocol: env.secure ? 'https:' : 'http:'
   }, stats);
 }
