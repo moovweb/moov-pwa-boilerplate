@@ -12,6 +12,7 @@ module.exports = function() {
       https,
       http,
       fns, 
+      headers,
       get $() {
         return global.$;
       }
