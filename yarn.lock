@@ -6570,9 +6570,9 @@ moov-react-dev-server@^1.3.1:
     webpack-hot-middleware "^2.22.2"
     ws "^5.1.0"
 
-moov_builder@^3.0.0-alpha.12:
-  version "3.0.0-alpha.12"
-  resolved "https://npm-proxy.fury.io/moovweb/~/d/moov_builder/moov_builder-3.0.0-alpha.12#f11a8035adc9c87ef3787b6b70edfb862d863da4"
+moov_builder@^3.0.0-alpha.14:
+  version "3.0.0-alpha.14"
+  resolved "https://npm-proxy.fury.io/moovweb/~/d/moov_builder/moov_builder-3.0.0-alpha.14#55f5b8456d5736cd6a92723f6fef19dc15f83a69"
   dependencies:
     browser-sync "^2.12.8"
     graceful-fs "^4.1.2"
@@ -6589,14 +6589,14 @@ moov_builder@^3.0.0-alpha.12:
     harmonize "^1.4.4"
     jshint "^2.9.1"
     jshint-stylish "^2.1.0"
-    moov_bundler "3.0.0-alpha.12"
+    moov_bundler "3.0.0-alpha.14"
     node-sass-asset-functions "0.0.9"
     npm-check "git+https://github.com/moovweb/npm-check.git#v5.4.5-moovweb.0"
     q "^1.4.1"
 
-moov_bundler@3.0.0-alpha.12:
-  version "3.0.0-alpha.12"
-  resolved "https://npm-proxy.fury.io/moovweb/~/d/moov_bundler/moov_bundler-3.0.0-alpha.12#98b1508b54b7a2ba77ad964f7d96a2864c1135cc"
+moov_bundler@3.0.0-alpha.14:
+  version "3.0.0-alpha.14"
+  resolved "https://npm-proxy.fury.io/moovweb/~/d/moov_bundler/moov_bundler-3.0.0-alpha.14#e37731cd41a784b0f6362646aa91f0ceb7371f25"
   dependencies:
     alias-regex-webpack-plugin "^0.1.2"
     graceful-fs "4.1.2"
@@ -6606,6 +6606,7 @@ moov_bundler@3.0.0-alpha.12:
     moov_stdlib "^2.6.31"
     needle "^2.2.1"
     process "0.11.3"
+    semver "^5.5.0"
     stringify "5.2.0"
     webpack "^3.0.0"
 
@@ -6613,7 +6614,7 @@ moov_perf@1.2.5:
   version "1.2.5"
   resolved "https://npm-proxy.fury.io/moovweb/~/d/moov_perf/moov_perf-1.2.5#3954966f85bff094a6962f06df76d3748ef8670d"
 
-moov_rewriter@^3.2.2:
+moov_rewriter@3.2.2, moov_rewriter@^3.2.2:
   version "3.2.2"
   resolved "https://npm-proxy.fury.io/moovweb/~/d/moov_rewriter/moov_rewriter-3.2.2#d1f4ee444d67f2f4148ae800a5a96622f2fb4570"
   dependencies:
@@ -8735,7 +8736,7 @@ semver-diff@^2.0.0:
   dependencies:
     semver "^5.0.3"
 
-"semver@2 || 3 || 4 || 5", semver@^5.0.1, semver@^5.0.3, semver@^5.1.0, semver@^5.3.0:
+"semver@2 || 3 || 4 || 5", semver@^5.0.1, semver@^5.0.3, semver@^5.1.0, semver@^5.3.0, semver@^5.5.0:
   version "5.5.0"
   resolved "https://registry.yarnpkg.com/semver/-/semver-5.5.0.tgz#dc4bbc7a6ca9d916dee5d43516f0092b58f7b8ab"
 
