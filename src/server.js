@@ -1,4 +1,3 @@
-import React from 'react'
 import theme from './theme'
 import model from './AppModel'
 import App from './App'
