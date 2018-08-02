@@ -9,8 +9,8 @@ module.exports = function() {
   // a route in src/routes.js isn't matched.  This is useful when you plan to launch with
   // part of the site implemented as a PWA and part of the site transformed or left unchanged
   // 
-  // const server = require('/build/index.js')();
-  // const { match } = server.router.findMatchingRoute(env.path, env.method);
+  // const router = require('../src/routes').default;
+  // const { match } = router.findMatchingRoute(env.path, env.method);
   // 
   // if (match && !env.__static_origin_path__) {
   //   // display the PWA
