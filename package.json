@@ -90,18 +90,20 @@
   "scripts": {
     "link": "f() { ln -sf moov_config-$@.json moov_config.json; }; f",
     "start": "yarn run link -- local && yarn run clean && npm run moov",
-    "start:windows": "concurrently \"yarn react-dev-server\" \"npm run moov:windows\"",
     "deploy": "yarn build && f() { yarn run link -- $@ && moov deploy --ignore-live --deploy-id=\"`git rev-parse HEAD`\" --notes=\"`git log -1 --pretty=format:%s`\" moovweb/moov-pwa-$@ && yarn run link -- local; }; f",
     "moov": "node node_modules/moov-sdk/sdk.js start --path .",
     "sdk": "f() { rm -rf node_modules/moov-sdk && mkdir node_modules/moov-sdk && ln -sf $@ node_modules/moov-sdk/sdk.js; }; f",
-    "moov:windows": "moov server -p 80 --ssl-port 443 --verify-ssl-cert=false",
     "bundle": "node --harmony ./node_modules/.bin/moov_builder",
+    "clean": "rm -rf pwa/build pwa/dist build/assets/* scripts/build/* && mkdir -p build/assets/pwa",
+    "chrome": "open -a \"Google Chrome\" --args --ignore-certificate-errors",
+
+    "start:windows": "concurrently \"yarn react-dev-server\" \"npm run moov:windows\"",
+    "moov:windows": "moov server -p 80 --ssl-port 443 --verify-ssl-cert=false",
+
     "build:server": "webpack --config config/webpack/webpack.config.prod.server.js",
     "build:server:dev": "pushd pwa && webpack --config config/webpack/webpack.config.dev.server.js && popd",
     "build:client": "webpack --config config/webpack/webpack.config.prod.client.js",
-    "build": "yarn run clean && yarn build:client && yarn build:server",
-    "clean": "rm -rf pwa/build pwa/dist build/assets/* scripts/build/* && mkdir -p build/assets/pwa",
-    "chrome": "open -a \"Google Chrome\" --args --ignore-certificate-errors",
+    "build": "yarn run clean && yarn build:client && yarn build:server"
   },
   "author": "Moovweb",
   "license": "MIT",
