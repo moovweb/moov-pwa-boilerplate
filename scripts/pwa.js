@@ -5,26 +5,17 @@ import createServer from '../src/server.js'
 export default function() {
   fns.export('pwa', 'true')
 
-  let stats;
-  
   const server = createServer({ 
     globals:{ 
       https,
       http,
       fns, 
-      headers,
       get $() {
         return global.$;
       }
     },
     blob: env.blob
   });   
-
-  try {
-    stats = require('/build/stats.json');
-  } catch (e) {
-    stats = null; // will get here in development
-  }
 
   server.serve({ 
     sendResponse, 
@@ -34,5 +25,5 @@ export default function() {
     method: env.method, 
     hostname: env.host_no_port,
     protocol: env.secure ? 'https:' : 'http:'
-  }, stats);
+  });
 }
