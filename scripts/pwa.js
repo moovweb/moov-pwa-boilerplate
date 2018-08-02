@@ -12,6 +12,7 @@ export default function() {
       https,
       http,
       fns, 
+      headers,
       get $() {
         return global.$;
       }
