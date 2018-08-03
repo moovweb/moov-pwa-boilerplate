@@ -4316,7 +4316,7 @@ glob@^4.3.1:
     minimatch "^2.0.1"
     once "^1.3.0"
 
-glob@^6.0.1:
+glob@^6.0.1, glob@^6.0.4:
   version "6.0.4"
   resolved "https://registry.yarnpkg.com/glob/-/glob-6.0.4.tgz#0f08860f6a155127b2fadd4f9ce24b1aab6e4d22"
   dependencies:
@@ -4562,13 +4562,13 @@ gulp-rename@^1.2.2:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/gulp-rename/-/gulp-rename-1.2.2.tgz#3ad4428763f05e2764dec1c67d868db275687817"
 
-gulp-sass@^2.0.4:
-  version "2.3.2"
-  resolved "https://registry.yarnpkg.com/gulp-sass/-/gulp-sass-2.3.2.tgz#82b7ab90fe902cdc34c04f180d92f2c34902dd52"
+gulp-sass@^3.2.1:
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/gulp-sass/-/gulp-sass-3.2.1.tgz#2e3688a96fd8be1c0c01340750c191b2e79fab94"
   dependencies:
     gulp-util "^3.0"
     lodash.clonedeep "^4.3.2"
-    node-sass "^3.4.2"
+    node-sass "^4.8.3"
     through2 "^2.0.0"
     vinyl-sourcemaps-apply "^0.2.0"
 
@@ -6050,6 +6050,10 @@ lodash.merge@^4.6.0:
   version "4.6.1"
   resolved "https://registry.yarnpkg.com/lodash.merge/-/lodash.merge-4.6.1.tgz#adc25d9cb99b9391c59624f379fbba60d7111d54"
 
+lodash.mergewith@^4.6.0:
+  version "4.6.1"
+  resolved "https://registry.yarnpkg.com/lodash.mergewith/-/lodash.mergewith-4.6.1.tgz#639057e726c3afbdb3e7d42741caa8d6e4335927"
+
 lodash.restparam@^3.0.0:
   version "3.6.1"
   resolved "https://registry.yarnpkg.com/lodash.restparam/-/lodash.restparam-3.6.1.tgz#936a4e309ef330a7645ed4145986c85ae5b20805"
@@ -6444,9 +6448,9 @@ moment@^2.22.1:
   version "2.22.2"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.22.2.tgz#3c257f9839fc0e93ff53149632239eb90783ff66"
 
-moov-pwa@^2.0.0-1:
-  version "2.0.0-1"
-  resolved "https://npm-proxy.fury.io/moovweb/~/d/moov-pwa/moov-pwa-2.0.0-1#faa032a19018ee061e24116ec9c7f70fe3a0da3a"
+moov-pwa@2.0.0-3:
+  version "2.0.0-3"
+  resolved "https://npm-proxy.fury.io/moovweb/~/d/moov-pwa/moov-pwa-2.0.0-3#91b0de7d8af4d99ccd256f2bca52a8edcfff7ad9"
   dependencies:
     babel-eslint "^8.2.3"
     babel-minify-webpack-plugin "^0.3.1"
@@ -6481,9 +6485,9 @@ moov-pwa@^2.0.0-1:
     workbox-webpack-plugin "^3.2.0"
     write-file-webpack-plugin "^4.3.2"
 
-moov_builder@^3.0.0-alpha.14:
-  version "3.0.0-alpha.14"
-  resolved "https://npm-proxy.fury.io/moovweb/~/d/moov_builder/moov_builder-3.0.0-alpha.14#55f5b8456d5736cd6a92723f6fef19dc15f83a69"
+moov_builder@3.0.0-alpha.18:
+  version "3.0.0-alpha.18"
+  resolved "https://npm-proxy.fury.io/moovweb/~/d/moov_builder/moov_builder-3.0.0-alpha.18#065df469ab2bf9334db7885ba1d815a83d88f95d"
   dependencies:
     browser-sync "^2.12.8"
     graceful-fs "^4.1.2"
@@ -6494,27 +6498,25 @@ moov_builder@^3.0.0-alpha.14:
     gulp-minify-css "^1.2.1"
     gulp-plumber "^1.0.1"
     gulp-rename "^1.2.2"
-    gulp-sass "^2.0.4"
+    gulp-sass "^3.2.1"
     gulp-uglify "1.4.0"
     gulp-watch "^4.3.5"
     harmonize "^1.4.4"
     jshint "^2.9.1"
     jshint-stylish "^2.1.0"
-    moov_bundler "3.0.0-alpha.14"
+    moov_bundler "3.0.0-alpha.17"
     node-sass-asset-functions "0.0.9"
     npm-check "git+https://github.com/moovweb/npm-check.git#v5.4.5-moovweb.0"
     q "^1.4.1"
 
-moov_bundler@3.0.0-alpha.14:
-  version "3.0.0-alpha.14"
-  resolved "https://npm-proxy.fury.io/moovweb/~/d/moov_bundler/moov_bundler-3.0.0-alpha.14#e37731cd41a784b0f6362646aa91f0ceb7371f25"
+moov_bundler@3.0.0-alpha.17:
+  version "3.0.0-alpha.17"
+  resolved "https://npm-proxy.fury.io/moovweb/~/d/moov_bundler/moov_bundler-3.0.0-alpha.17#42503effc2d09627001983e6e0642a3eefe54b8e"
   dependencies:
     alias-regex-webpack-plugin "^0.1.2"
     graceful-fs "4.1.2"
     harmonize "1.4.4"
     lodash "^4.17.10"
-    moov_rewriter "^3.2.2"
-    moov_stdlib "^2.6.31"
     needle "^2.2.1"
     process "0.11.3"
     semver "^5.5.0"
@@ -6531,7 +6533,7 @@ moov_rewriter@^3.2.2:
   dependencies:
     fast-json-stable-stringify "^2.0.0"
 
-moov_stdlib@2.6.31, moov_stdlib@^2.6.31:
+moov_stdlib@2.6.31:
   version "2.6.31"
   resolved "https://npm-proxy.fury.io/moovweb/~/d/moov_stdlib/moov_stdlib-2.6.31#54fc501dbbf2af55e7b557af2a158930f79d356e"
 
@@ -6591,6 +6593,10 @@ mute-stream@0.0.5:
 mute-stream@0.0.7:
   version "0.0.7"
   resolved "https://registry.yarnpkg.com/mute-stream/-/mute-stream-0.0.7.tgz#3075ce93bc21b8fab43e1bc4da7e8115ed1e7bab"
+
+nan@^2.10.0:
+  version "2.10.0"
+  resolved "https://registry.yarnpkg.com/nan/-/nan-2.10.0.tgz#96d0cd610ebd58d4b4de9cc0c6828cda99c7548f"
 
 nan@^2.3.0, nan@^2.3.2:
   version "2.8.0"
@@ -6736,7 +6742,7 @@ node-sass-asset-functions@0.0.9:
     mime "^1.3.4"
     node-sass "^3.2.0"
 
-node-sass@^3.2.0, node-sass@^3.4.2:
+node-sass@^3.2.0:
   version "3.13.1"
   resolved "https://registry.yarnpkg.com/node-sass/-/node-sass-3.13.1.tgz#7240fbbff2396304b4223527ed3020589c004fc2"
   dependencies:
@@ -6756,6 +6762,30 @@ node-sass@^3.2.0, node-sass@^3.4.2:
     npmlog "^4.0.0"
     request "^2.61.0"
     sass-graph "^2.1.1"
+
+node-sass@^4.8.3:
+  version "4.9.2"
+  resolved "https://registry.yarnpkg.com/node-sass/-/node-sass-4.9.2.tgz#5e63fe6bd0f2ae3ac9d6c14ede8620e2b8bdb437"
+  dependencies:
+    async-foreach "^0.1.3"
+    chalk "^1.1.1"
+    cross-spawn "^3.0.0"
+    gaze "^1.0.0"
+    get-stdin "^4.0.1"
+    glob "^7.0.3"
+    in-publish "^2.0.0"
+    lodash.assign "^4.2.0"
+    lodash.clonedeep "^4.3.2"
+    lodash.mergewith "^4.6.0"
+    meow "^3.7.0"
+    mkdirp "^0.5.1"
+    nan "^2.10.0"
+    node-gyp "^3.3.1"
+    npmlog "^4.0.0"
+    request "2.87.0"
+    sass-graph "^2.2.4"
+    stdout-stream "^1.4.0"
+    "true-case-path" "^1.0.2"
 
 "nopt@2 || 3":
   version "3.0.6"
@@ -8389,6 +8419,31 @@ request@2.81.0:
     tunnel-agent "^0.6.0"
     uuid "^3.0.0"
 
+request@2.87.0:
+  version "2.87.0"
+  resolved "https://registry.yarnpkg.com/request/-/request-2.87.0.tgz#32f00235cd08d482b4d0d68db93a829c0ed5756e"
+  dependencies:
+    aws-sign2 "~0.7.0"
+    aws4 "^1.6.0"
+    caseless "~0.12.0"
+    combined-stream "~1.0.5"
+    extend "~3.0.1"
+    forever-agent "~0.6.1"
+    form-data "~2.3.1"
+    har-validator "~5.0.3"
+    http-signature "~1.2.0"
+    is-typedarray "~1.0.0"
+    isstream "~0.1.2"
+    json-stringify-safe "~5.0.1"
+    mime-types "~2.1.17"
+    oauth-sign "~0.8.2"
+    performance-now "^2.1.0"
+    qs "~6.5.1"
+    safe-buffer "^5.1.1"
+    tough-cookie "~2.3.3"
+    tunnel-agent "^0.6.0"
+    uuid "^3.1.0"
+
 require-directory@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/require-directory/-/require-directory-2.1.1.tgz#8c64ad5fd30dab1c976e2344ffe7f792a6a6df42"
@@ -8563,7 +8618,7 @@ safe-regex@^1.1.0:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
 
-sass-graph@^2.1.1:
+sass-graph@^2.1.1, sass-graph@^2.2.4:
   version "2.2.4"
   resolved "https://registry.yarnpkg.com/sass-graph/-/sass-graph-2.2.4.tgz#13fbd63cd1caf0908b9fd93476ad43a51d1e0b49"
   dependencies:
@@ -9085,6 +9140,12 @@ statuses@~1.3.0, statuses@~1.3.1:
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/statuses/-/statuses-1.3.1.tgz#faf51b9eb74aaef3b3acf4ad5f61abf24cb7b93e"
 
+stdout-stream@^1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/stdout-stream/-/stdout-stream-1.4.0.tgz#a2c7c8587e54d9427ea9edb3ac3f2cd522df378b"
+  dependencies:
+    readable-stream "^2.0.1"
+
 stifle@^1.0.2:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/stifle/-/stifle-1.0.4.tgz#8b3bcdf52419b0a9c79e35adadce50123c1d8e99"
@@ -9511,6 +9572,12 @@ trim-newlines@^1.0.0:
 trim-right@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/trim-right/-/trim-right-1.0.1.tgz#cb2e1203067e0c8de1f614094b9fe45704ea6003"
+
+"true-case-path@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/true-case-path/-/true-case-path-1.0.2.tgz#7ec91130924766c7f573be3020c34f8fdfd00d62"
+  dependencies:
+    glob "^6.0.4"
 
 tty-browserify@0.0.0:
   version "0.0.0"
