@@ -6485,9 +6485,9 @@ moov-pwa@^2.0.0-4:
     workbox-webpack-plugin "^3.2.0"
     write-file-webpack-plugin "^4.3.2"
 
-moov_builder@3.0.0-alpha.18:
-  version "3.0.0-alpha.18"
-  resolved "https://npm-proxy.fury.io/moovweb/~/d/moov_builder/moov_builder-3.0.0-alpha.18#065df469ab2bf9334db7885ba1d815a83d88f95d"
+moov_builder@^3.0.0-alpha.21:
+  version "3.0.0-alpha.21"
+  resolved "https://npm-proxy.fury.io/moovweb/~/d/moov_builder/moov_builder-3.0.0-alpha.21#a1e2c457d42f6e6cfe5abf83e61e8693ef61166f"
   dependencies:
     browser-sync "^2.12.8"
     graceful-fs "^4.1.2"
@@ -6536,6 +6536,10 @@ moov_rewriter@^3.2.2:
 moov_stdlib@2.6.31:
   version "2.6.31"
   resolved "https://npm-proxy.fury.io/moovweb/~/d/moov_stdlib/moov_stdlib-2.6.31#54fc501dbbf2af55e7b557af2a158930f79d356e"
+
+moovsdk@^7.0.4:
+  version "7.0.4"
+  resolved "https://registry.yarnpkg.com/moovsdk/-/moovsdk-7.0.4.tgz#a89017914c054ee5c85f64f7f057717b0b745c0c"
 
 move-concurrently@^1.0.1:
   version "1.0.1"
