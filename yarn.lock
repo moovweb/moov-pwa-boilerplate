@@ -2946,6 +2946,10 @@ delayed-stream@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/delayed-stream/-/delayed-stream-1.0.0.tgz#df3ae199acadfb7d440aaae0b29e2272b24ec619"
 
+delegate@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/delegate/-/delegate-3.2.0.tgz#b66b71c3158522e8ab5744f720d8ca0c2af59166"
+
 delegates@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/delegates/-/delegates-1.0.0.tgz#84c6e159b81904fdca59a0ef44cd870d31250f9a"
@@ -6448,12 +6452,13 @@ moment@^2.22.1:
   version "2.22.2"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.22.2.tgz#3c257f9839fc0e93ff53149632239eb90783ff66"
 
-moov-pwa@^2.0.0-4:
-  version "2.0.0-4"
-  resolved "https://npm-proxy.fury.io/moovweb/~/d/moov-pwa/moov-pwa-2.0.0-4#701dbc60e23dfa05c8e8aab8a8a380e1cf57e4e4"
+moov-pwa@^2.0.0-7:
+  version "2.0.0-7"
+  resolved "https://npm-proxy.fury.io/moovweb/~/d/moov-pwa/moov-pwa-2.0.0-7#8c15fc9a9ea03a7f921a1c0fb86b8ff5280593cf"
   dependencies:
     babel-eslint "^8.2.3"
     babel-minify-webpack-plugin "^0.3.1"
+    delegate "^3.2.0"
     eslint "^4.19.1"
     eslint-config-react-app "^2.1.0"
     eslint-loader "^2.0.0"
@@ -6527,9 +6532,9 @@ moov_perf@1.2.5:
   version "1.2.5"
   resolved "https://npm-proxy.fury.io/moovweb/~/d/moov_perf/moov_perf-1.2.5#3954966f85bff094a6962f06df76d3748ef8670d"
 
-moov_rewriter@^3.2.2:
-  version "3.2.2"
-  resolved "https://npm-proxy.fury.io/moovweb/~/d/moov_rewriter/moov_rewriter-3.2.2#d1f4ee444d67f2f4148ae800a5a96622f2fb4570"
+moov_rewriter@^3.2.3:
+  version "3.2.3"
+  resolved "https://npm-proxy.fury.io/moovweb/~/d/moov_rewriter/moov_rewriter-3.2.3#b892ac24281b5bced95efa1d0f4c8a0567c77181"
   dependencies:
     fast-json-stable-stringify "^2.0.0"
 
@@ -6537,9 +6542,9 @@ moov_stdlib@2.6.31:
   version "2.6.31"
   resolved "https://npm-proxy.fury.io/moovweb/~/d/moov_stdlib/moov_stdlib-2.6.31#54fc501dbbf2af55e7b557af2a158930f79d356e"
 
-moovsdk@^7.0.4:
-  version "7.0.4"
-  resolved "https://registry.yarnpkg.com/moovsdk/-/moovsdk-7.0.4.tgz#a89017914c054ee5c85f64f7f057717b0b745c0c"
+moovsdk@^7.0.5:
+  version "7.0.5"
+  resolved "https://registry.yarnpkg.com/moovsdk/-/moovsdk-7.0.5.tgz#5ded0523e459b7b58e26cfd6a020c9ccae13b31f"
 
 move-concurrently@^1.0.1:
   version "1.0.1"
