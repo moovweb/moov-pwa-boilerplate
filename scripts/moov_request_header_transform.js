@@ -20,7 +20,7 @@ module.exports = function() {
   //   return fns.export('IS_ADAPT', 'true')
   // }
 
-  if (!env.__static_origin_path__) {
+  if (env.secure !== "true" || !env.__static_origin_path__) {
     return moovSkipUpstream();
   }
 };
