@@ -1,6 +1,4 @@
-
-const getHeaders = require('./get_headers')
-const router = require('../src/routes').default
+const edgeRequestTransform = require('moov-pwa/platform/edgeRequestTransform').default
 
 /**
  * This function runs at the edge before the cache.
@@ -9,14 +7,8 @@ const router = require('../src/routes').default
  * @param {Function} options.setCacheKey A function to register a callback to set a cache key for the current request.
  */
 module.exports = ({ setCacheKey }) => {
-  setCacheKey(defaults => {
-    const request = {
-      headers: getHeaders(),
-      path: env.path, 
-      method: env.method,
-      hostname: env.host_no_port
-    }
-    
-    return router.getCacheKey(request, defaults)
+  edgeRequestTransform({
+    setCacheKey,
+    router: require('../src/routes').default
   })
 };

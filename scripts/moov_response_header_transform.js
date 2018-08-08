@@ -1,7 +1,5 @@
-const { transformResponseHeaders } = require('moov-pwa/router')
+const responseHeaderTransform = require('moov-pwa/platform/responseHeaderTransform').default
 
 module.exports = function() {
-  if (!env.__static_origin_path__) {
-    transformResponseHeaders({ env, headers })
-  }
+  responseHeaderTransform()
 }
