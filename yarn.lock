@@ -2946,6 +2946,10 @@ delayed-stream@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/delayed-stream/-/delayed-stream-1.0.0.tgz#df3ae199acadfb7d440aaae0b29e2272b24ec619"
 
+delegate@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/delegate/-/delegate-3.2.0.tgz#b66b71c3158522e8ab5744f720d8ca0c2af59166"
+
 delegates@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/delegates/-/delegates-1.0.0.tgz#84c6e159b81904fdca59a0ef44cd870d31250f9a"
@@ -6448,12 +6452,13 @@ moment@^2.22.1:
   version "2.22.2"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.22.2.tgz#3c257f9839fc0e93ff53149632239eb90783ff66"
 
-moov-pwa@^2.0.0-4:
-  version "2.0.0-4"
-  resolved "https://npm-proxy.fury.io/moovweb/~/d/moov-pwa/moov-pwa-2.0.0-4#701dbc60e23dfa05c8e8aab8a8a380e1cf57e4e4"
+moov-pwa@^2.0.0-7:
+  version "2.0.0-7"
+  resolved "https://npm-proxy.fury.io/moovweb/~/d/moov-pwa/moov-pwa-2.0.0-7#8c15fc9a9ea03a7f921a1c0fb86b8ff5280593cf"
   dependencies:
     babel-eslint "^8.2.3"
     babel-minify-webpack-plugin "^0.3.1"
+    delegate "^3.2.0"
     eslint "^4.19.1"
     eslint-config-react-app "^2.1.0"
     eslint-loader "^2.0.0"
@@ -6485,9 +6490,9 @@ moov-pwa@^2.0.0-4:
     workbox-webpack-plugin "^3.2.0"
     write-file-webpack-plugin "^4.3.2"
 
-moov_builder@3.0.0-alpha.18:
-  version "3.0.0-alpha.18"
-  resolved "https://npm-proxy.fury.io/moovweb/~/d/moov_builder/moov_builder-3.0.0-alpha.18#065df469ab2bf9334db7885ba1d815a83d88f95d"
+moov_builder@^3.0.0-alpha.27:
+  version "3.0.0-alpha.27"
+  resolved "https://npm-proxy.fury.io/moovweb/~/d/moov_builder/moov_builder-3.0.0-alpha.27#b8ce35258deb4d3a58cb4d2a9ae3c2127c943fd2"
   dependencies:
     browser-sync "^2.12.8"
     graceful-fs "^4.1.2"
@@ -6504,14 +6509,14 @@ moov_builder@3.0.0-alpha.18:
     harmonize "^1.4.4"
     jshint "^2.9.1"
     jshint-stylish "^2.1.0"
-    moov_bundler "3.0.0-alpha.17"
+    moov_bundler "3.0.0-alpha.23"
     node-sass-asset-functions "0.0.9"
     npm-check "git+https://github.com/moovweb/npm-check.git#v5.4.5-moovweb.0"
     q "^1.4.1"
 
-moov_bundler@3.0.0-alpha.17:
-  version "3.0.0-alpha.17"
-  resolved "https://npm-proxy.fury.io/moovweb/~/d/moov_bundler/moov_bundler-3.0.0-alpha.17#42503effc2d09627001983e6e0642a3eefe54b8e"
+moov_bundler@3.0.0-alpha.23:
+  version "3.0.0-alpha.23"
+  resolved "https://npm-proxy.fury.io/moovweb/~/d/moov_bundler/moov_bundler-3.0.0-alpha.23#e45a0ef60096e7ccb761880930ca6233f8a07e91"
   dependencies:
     alias-regex-webpack-plugin "^0.1.2"
     graceful-fs "4.1.2"
@@ -6527,15 +6532,19 @@ moov_perf@1.2.5:
   version "1.2.5"
   resolved "https://npm-proxy.fury.io/moovweb/~/d/moov_perf/moov_perf-1.2.5#3954966f85bff094a6962f06df76d3748ef8670d"
 
-moov_rewriter@^3.2.2:
-  version "3.2.2"
-  resolved "https://npm-proxy.fury.io/moovweb/~/d/moov_rewriter/moov_rewriter-3.2.2#d1f4ee444d67f2f4148ae800a5a96622f2fb4570"
+moov_rewriter@^3.2.3:
+  version "3.2.3"
+  resolved "https://npm-proxy.fury.io/moovweb/~/d/moov_rewriter/moov_rewriter-3.2.3#b892ac24281b5bced95efa1d0f4c8a0567c77181"
   dependencies:
     fast-json-stable-stringify "^2.0.0"
 
 moov_stdlib@2.6.31:
   version "2.6.31"
   resolved "https://npm-proxy.fury.io/moovweb/~/d/moov_stdlib/moov_stdlib-2.6.31#54fc501dbbf2af55e7b557af2a158930f79d356e"
+
+moovsdk@^7.0.6:
+  version "7.0.6"
+  resolved "https://registry.yarnpkg.com/moovsdk/-/moovsdk-7.0.6.tgz#02bb96a88ec021c442ea60e4b53919eb981b44b6"
 
 move-concurrently@^1.0.1:
   version "1.0.1"
