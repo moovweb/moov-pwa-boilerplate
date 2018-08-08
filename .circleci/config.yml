@@ -35,7 +35,7 @@ jobs:
           command: |
             if [ $CIRCLE_BRANCH = 'master' ]; then
               yarn run link -- dev
-              ./node_modules/.bin/moovsdk deploy moovweb moov-pwa-boilerplate-dev --mode default --user-email=${MOOV_EMAIL} --user-password=${MOOV_PASSWORD} --ignore-live --deploy-id $(git rev-parse HEAD) --notes "$(git rev-parse --abbrev-ref HEAD) - $(git log -1 --pretty=%B)"
+              moovsdk deploy stagestores stagestores-dev --mode default --user-email=${MOOV_EMAIL} --user-password=${MOOV_PASSWORD} --ignore-live --deploy-id $(git rev-parse HEAD) --notes "$(git rev-parse --abbrev-ref HEAD) - $(git log -1 --pretty=%B)"
             fi
 
       - save_cache:
