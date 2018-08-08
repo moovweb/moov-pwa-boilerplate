@@ -33,7 +33,8 @@ function redirectToHttps() {
 }
 
 module.exports = function() {
-  if (env.secure === "false") {
+  // Always redirect on non-secure requests.
+  if (env.secure !== 'true') {
     return redirectToHttps();   
   }
 

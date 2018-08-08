@@ -5,6 +5,11 @@ const getHeaders = require('/get_headers.js');
 module.exports = function() {
   fns.export('headers', JSON.stringify(getHeaders())); 
 
+  // Always redirect on non-secure requests.
+  if (env.secure !== "true") {
+    return moovSkipUpstream();
+  }
+
   // Uncomment the following code to display content from the upstream site whenever
   // a route in src/routes.js isn't matched.  This is useful when you plan to launch with
   // part of the site implemented as a PWA and part of the site transformed or left unchanged
