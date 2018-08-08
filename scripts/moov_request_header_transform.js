@@ -1,6 +1,6 @@
 console.error = console.warn = console.log;
 
-const requestHeaderTransform = require('moov-pwa/platform/requestheaderTransform').default;
+const requestHeaderTransform = require('moov-pwa/platform/requestHeaderTransform').default;
 
 module.exports = function() {
   requestHeaderTransform({
