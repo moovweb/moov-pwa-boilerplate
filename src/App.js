@@ -5,6 +5,7 @@ import Menu from 'moov-pwa/Menu'
 import NavTabs from 'moov-pwa/NavTabs'
 import Pages from 'moov-pwa/Pages'
 import Helmet from 'react-helmet'
+import SubcategorySkeleton from './subcategory/SubcategorySkeleton'
 
 @withStyles(theme => ({
   '@global': {
@@ -31,6 +32,9 @@ export default class App extends Component {
         <Menu useExpanders/>
         <NavTabs/>
         <Pages
+          loadMasks={{
+            Subcategory: SubcategorySkeleton
+          }}
           components={universal => ({
             Home: universal(import('./home/Home')),
             Category: universal(import('./category/Category')),
