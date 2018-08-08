@@ -27,14 +27,6 @@ jobs:
           - v2-dependencies-
 
       - run:
-          name: install moov
-          command: |
-            sudo apt-get -y install openssl wget curl lsof gawk
-            wget -O moov.deb http://downloads.moovweb.com/dist/deb/moovweb-6.3.63_amd64.deb
-            sudo dpkg -i moov.deb || true
-            sudo apt-get -f install
-
-      - run:
           command: |
             yarn install
 
@@ -45,9 +37,9 @@ jobs:
               yarn run link -- dev
               moov deploy moovweb/moov-pwa-boilerplate-dev -user-email=${MOOV_EMAIL} -user-password=${MOOV_PASSWORD} -ignore-live -deploy-id $(git rev-parse HEAD) -notes "$(git rev-parse --abbrev-ref HEAD) - $(git log -1 --pretty=%B)"
             fi
-            if [ $CIRCLE_BRANCH = 'new-sdk' ]; then
+            if [ $CIRCLE_BRANCH = 'v2' ]; then
               yarn run link -- dev
-              moov deploy moovweb/moov-pwa-boilerplate-dev new-sdk -user-email=${MOOV_EMAIL} -user-password=${MOOV_PASSWORD} -ignore-live -deploy-id $(git rev-parse HEAD) -notes "$(git rev-parse --abbrev-ref HEAD) - $(git log -1 --pretty=%B)"
+              ./node_modules/.bin/moovsdk deploy moovweb moov-pwa-boilerplate-dev new-sdk -user-email=${MOOV_EMAIL} -user-password=${MOOV_PASSWORD} -ignore-live -deploy-id $(git rev-parse HEAD) -notes "$(git rev-parse --abbrev-ref HEAD) - $(git log -1 --pretty=%B)"
             fi
 
       - save_cache:
