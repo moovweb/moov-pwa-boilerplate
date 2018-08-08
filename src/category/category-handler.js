@@ -1,7 +1,7 @@
 import globalState from '../globalState'
 import { withGlobalState } from 'moov-pwa/router'
 
-export default function categoryHandler({ id, template }, state, request) {
+export default function categoryHandler({ id }, request, response) {
   return withGlobalState(request, globalState, { 
     title: `Moov PWA - Category #${id}`,
     page: 'Category',

@@ -1,9 +1,17 @@
+
 /* global sendResponse, useMoovAsyncTransformer */
 console.error = console.warn = console.log;
+
+const pwa = require('./pwa').default
 
 useMoovAsyncTransformer();
 
 module.exports = function() {
+  // Always redirect on non-secure requests.
+  if (env.secure !== 'true') {
+    return sendResponse({ htmlparsed: false });  
+  }
+
   if (env.__static_origin_path__) {
     fns.export('Cache', 'true');
     fns.export('Cache-Time', '2903040000'); // static paths use hash-based cache-busting, so we far-future cache them in varnish and the browser
@@ -20,6 +28,6 @@ module.exports = function() {
     return sendResponse({ htmlparsed: false });  
   } else {
     // display the PWA
-    return require('/pwa.js')();
+    pwa();
   } 
 };
