@@ -4,7 +4,7 @@ const requestHeaderTransform = require('moov-pwa/platform/requestHeaderTransform
 
 module.exports = function() {
   requestHeaderTransform({
-    router: require('../src/routes'),
-    fallbackToAdapt: false
+    router: require('../src/routes').default,
+    fallbackToAdapt: true
   })
 };
