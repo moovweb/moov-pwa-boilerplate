@@ -4,6 +4,12 @@ import analytics from 'moov-pwa/analytics'
 const cacheHandler = cache({ server: { maxAgeSeconds: 300 }, client: true }) // cache responses in varnish for 5 minutes
 
 export default new Router()
+  .get('/', 
+    cacheHandler,
+    fromClient({ page: 'Home' }),
+    fromServer('./home/home-handler'),
+    track(analytics.homePageView)
+  )
   .get('/c/:id',
     cacheHandler,
     fromClient({ page: 'Category' }),
@@ -36,8 +42,10 @@ export default new Router()
     track(analytics.checkoutPageView)
   )
   .fallback(
-    cacheHandler,
-    fromClient({ page: 'Home' }),
-    fromServer('./home/home-handler'),
-    track(analytics.homePageView)
+    // when no route matches, reload so that adapt can handle it
+    fromClient(() => {
+      if (typeof window !== 'undefined') {
+        window.location.reload()
+      }
+    })
   )
