@@ -1,1 +1,0 @@
-exports = module.exports = require("moov_builder")({browserSync: {port: 9099}});
