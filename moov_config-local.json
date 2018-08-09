@@ -9,8 +9,7 @@
   "EdgeResponseChangeAllowed": true,
   "taskrunner": {
     "on_project_start_command": "node ./tasks/start",
-    "on_deploy_command": "node ./tasks/deploy",
-    "on_request_command": "node ./tasks/request"
+    "on_deploy_command": "node ./tasks/deploy"
   },
   "layers": ["minify-js", "minify-css", "live-reload"],
   "host_map": [

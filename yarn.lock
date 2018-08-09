@@ -6490,7 +6490,7 @@ moov-pwa@^2.0.0-11:
     workbox-webpack-plugin "^3.2.0"
     write-file-webpack-plugin "^4.3.2"
 
-moov_builder@^3.0.0-alpha.27:
+moov_builder@3.0.0-alpha.27:
   version "3.0.0-alpha.27"
   resolved "https://npm-proxy.fury.io/moovweb/~/d/moov_builder/moov_builder-3.0.0-alpha.27#b8ce35258deb4d3a58cb4d2a9ae3c2127c943fd2"
   dependencies:
