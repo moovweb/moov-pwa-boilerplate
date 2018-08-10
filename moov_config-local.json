@@ -21,6 +21,8 @@
     "/service-worker.js": "/service-worker.js",
     "/workbox-*": "/workbox-*",
     "/icons/*": "/icons/*",
-    "/robots.txt": "/robots.txt"
+    "/robots.txt": "/robots.txt",
+    "/moov_main.js": "/moov_main.js",
+    "/moov_main.js.map": "/moov_main.js.map"
   }
 }

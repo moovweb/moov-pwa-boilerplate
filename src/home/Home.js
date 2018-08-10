@@ -11,6 +11,7 @@ import withAmp from 'moov-pwa/amp/withAmp'
 export default class Home extends Component { 
 
   render() {
+    throw new Error('Render error')
     const { app } = this.props
 
     return (
