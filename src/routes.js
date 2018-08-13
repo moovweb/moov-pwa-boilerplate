@@ -6,12 +6,7 @@ const cacheHandler = cache({ server: { maxAgeSeconds: 300 }, client: true }) // 
 export default new Router()
   .get('/', 
     cacheHandler,
-    fromClient(() => { 
-      // if (typeof window !== 'undefined') {
-      //   throw new Error("client side nav error.")
-      // }
-      return { page: 'Home' }
-    }),
+    fromClient({ page: 'Home' }),
     fromServer('./home/home-handler'),
     track(analytics.homePageView)
   )
