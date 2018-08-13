@@ -8,7 +8,7 @@ import ProductItem from './ProductItem'
 import FilterButton from 'moov-pwa/FilterButton'
 import SortButton from 'moov-pwa/SortButton'
 import withAmp from 'moov-pwa/amp/withAmp'
-import ShowMoreButton from 'moov-pwa/ShowMoreButton'
+import ShowMore from 'moov-pwa/ShowMore'
 import ResponsiveTiles from 'moov-pwa/ResponsiveTiles'
 
 @withStyles(theme => ({
@@ -55,7 +55,7 @@ export default class Subcategory extends Component {
           ))}
         </ResponsiveTiles>
 
-        <ShowMoreButton model={subcategory}/>
+        <ShowMore model={subcategory} infiniteScroll/>
       </Container>
     )
   

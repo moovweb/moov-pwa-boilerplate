@@ -6,7 +6,12 @@ const cacheHandler = cache({ server: { maxAgeSeconds: 300 }, client: true }) // 
 export default new Router()
   .get('/', 
     cacheHandler,
-    fromClient({ page: 'Home' }),
+    fromClient(() => { 
+      // if (typeof window !== 'undefined') {
+      //   throw new Error("client side nav error.")
+      // }
+      return { page: 'Home' }
+    }),
     fromServer('./home/home-handler'),
     track(analytics.homePageView)
   )
@@ -41,6 +46,16 @@ export default new Router()
     fromServer('./checkout/checkout-handler'),
     track(analytics.checkoutPageView)
   )
+  .error((e, params, request, response) => {
+    response.status(500)
+
+    return {
+      page: 'Error',
+      error: e.message,
+      loading: false,
+      stack: e.stack
+    }
+  })
   .fallback(
     // when no route matches, reload so that adapt can handle it
     fromClient(() => {

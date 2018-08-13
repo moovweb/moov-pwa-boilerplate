@@ -6490,9 +6490,9 @@ moov-pwa@^2.0.0-11:
     workbox-webpack-plugin "^3.2.0"
     write-file-webpack-plugin "^4.3.2"
 
-moov_builder@^3.0.0-alpha.31:
-  version "3.0.0-alpha.31"
-  resolved "https://npm-proxy.fury.io/moovweb/~/d/moov_builder/moov_builder-3.0.0-alpha.31#80b1296e623533441307ef492c96664b9e859ef5"
+moov_builder@^3.0.0-alpha.35:
+  version "3.0.0-alpha.35"
+  resolved "https://npm-proxy.fury.io/moovweb/~/d/moov_builder/moov_builder-3.0.0-alpha.35#7f79268b37d37a7dbb9548d6a8f0561877451685"
   dependencies:
     browser-sync "^2.12.8"
     graceful-fs "^4.1.2"
@@ -6509,14 +6509,14 @@ moov_builder@^3.0.0-alpha.31:
     harmonize "^1.4.4"
     jshint "^2.9.1"
     jshint-stylish "^2.1.0"
-    moov_bundler "3.0.0-alpha.26"
+    moov_bundler "3.0.0-alpha.30"
     node-sass-asset-functions "0.0.9"
     npm-check "git+https://github.com/moovweb/npm-check.git#v5.4.5-moovweb.0"
     q "^1.4.1"
 
-moov_bundler@3.0.0-alpha.26:
-  version "3.0.0-alpha.26"
-  resolved "https://npm-proxy.fury.io/moovweb/~/d/moov_bundler/moov_bundler-3.0.0-alpha.26#ba476e48665731478ade1a36a01510fbbf090c63"
+moov_bundler@3.0.0-alpha.30:
+  version "3.0.0-alpha.30"
+  resolved "https://npm-proxy.fury.io/moovweb/~/d/moov_bundler/moov_bundler-3.0.0-alpha.30#4761ffd00d82779cc7bc36c13bdec7279e41dd93"
   dependencies:
     alias-regex-webpack-plugin "^0.1.2"
     graceful-fs "4.1.2"

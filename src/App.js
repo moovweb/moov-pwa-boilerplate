@@ -5,7 +5,6 @@ import Menu from 'moov-pwa/Menu'
 import NavTabs from 'moov-pwa/NavTabs'
 import Pages from 'moov-pwa/Pages'
 import Helmet from 'react-helmet'
-import PWA from 'moov-pwa/PWA'
 
 @withStyles(theme => ({
   '@global': {
@@ -24,7 +23,7 @@ export default class App extends Component {
 
   render() {
     return (
-      <PWA renderErrorInProduction={e => <div>Error</div>}>
+      <div>
         <Helmet>
           <link rel="shortcut icon" href="/icons/favicon.ico"/>
         </Helmet>
@@ -38,10 +37,11 @@ export default class App extends Component {
             Subcategory: universal(import('./subcategory/Subcategory')),
             Product: universal(import('./product/Product')),
             Cart: universal(import('./cart/Cart')),
-            Checkout: universal(import('./checkout/Checkout'))
+            Checkout: universal(import('./checkout/Checkout')),
+            Error: universal(import('./ErrorPage'))
           })}
         />
-      </PWA>
+      </div>
     )
   }
 
