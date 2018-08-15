@@ -59,7 +59,7 @@
     "mobx-react": "^5.0.0",
     "mobx-state-tree": "^2.0.5",
     "moment": "^2.21.0",
-    "moov-pwa": "^2.0.0-11",
+    "moov-pwa": "^2.0.4",
     "moov_builder": "^3.0.0-alpha.31",
     "moovsdk": "^7.0.8",
     "mst-middlewares": "^2.0.1",
