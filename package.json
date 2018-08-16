@@ -98,7 +98,8 @@
     "clean": "rm -rf pwa/build pwa/dist build/assets/* scripts/build/* && mkdir -p build/assets/pwa",
     "chrome": "open -a \"Google Chrome\" --args --ignore-certificate-errors",
     "start:windows": "concurrently \"yarn react-dev-server\" \"npm run moov:windows\"",
-    "moov:windows": "moov server -p 80 --ssl-port 443 --verify-ssl-cert=false"
+    "moov:windows": "moov server -p 80 --ssl-port 443 --verify-ssl-cert=false",
+    "analyze": "node ./tasks/on_analyze"
   },
   "author": "Moovweb",
   "license": "MIT",

@@ -8,3 +8,4 @@ moov_main.js.map
 host_map.js
 yarn-error.log
 .cache
+scripts/dependency_analysis.html
