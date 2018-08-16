@@ -41,6 +41,16 @@ export default new Router()
     fromServer('./checkout/checkout-handler'),
     track(analytics.checkoutPageView)
   )
+  .error((e, params, request, response) => {
+    response.status(500)
+
+    return {
+      page: 'Error',
+      error: e.message,
+      loading: false,
+      stack: e.stack
+    }
+  })
   .fallback(
     // when no route matches, reload so that adapt can handle it
     fromClient(() => {
