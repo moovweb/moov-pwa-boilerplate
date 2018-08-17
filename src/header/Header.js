@@ -10,6 +10,7 @@ import Logo from '../assets/moovweb-logo.svg'
 import CartButton from 'moov-pwa/CartButton'
 import HeaderLogo from 'moov-pwa/HeaderLogo'
 import Hidden from '@material-ui/core/Hidden'
+import Menu from 'moov-pwa/Menu'
 
 @withStyles(theme => ({
   root: {
@@ -54,6 +55,7 @@ export default class Header extends Component {
 
     return (
       <AppBar classes={{ root: classes.root }}>
+        <Menu useExpanders/>
         <Hidden mdUp implementation="css">{ storeFinder }</Hidden>
         <HeaderLogo>
           <Logo/>

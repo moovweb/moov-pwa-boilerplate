@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import withStyles from '@material-ui/core/styles/withStyles'
 import Header from './header/Header'
-import Menu from 'moov-pwa/Menu'
 import NavTabs from 'moov-pwa/NavTabs'
 import Pages from 'moov-pwa/Pages'
 import Helmet from 'react-helmet'
@@ -28,7 +27,6 @@ export default class App extends Component {
           <link rel="shortcut icon" href="/icons/favicon.ico"/>
         </Helmet>
         <Header/> 
-        <Menu useExpanders/>
         <NavTabs/>
         <Pages
           components={universal => ({
