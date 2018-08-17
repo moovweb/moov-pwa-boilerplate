@@ -4,6 +4,6 @@ const path = require('path')
 module.exports = dev(path.join(__dirname, '..', '..'), {
   workboxConfig: require('./workbox.config'),
   entries: {
-    header: './header/hydrateHeader'
+    header: './adapt/hydrateHeader'
   }
 })
