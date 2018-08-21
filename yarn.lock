@@ -6469,9 +6469,9 @@ moov-pwa@^2.1.2:
     workbox-webpack-plugin "^3.2.0"
     write-file-webpack-plugin "^4.3.2"
 
-moov_builder@^3.0.0:
-  version "3.0.0"
-  resolved "https://npm-proxy.fury.io/moovweb/~/d/moov_builder/moov_builder-3.0.0#110b9c2642c40f569969bfa9f040487a9f5737d9"
+moov_builder@^3.0.1:
+  version "3.0.1"
+  resolved "https://npm-proxy.fury.io/moovweb/~/d/moov_builder/moov_builder-3.0.1#db9909392db060151c8952fd75999d2455c3df4f"
   dependencies:
     alias-regex-webpack-plugin "^0.1.2"
     browser-sync "^2.12.8"
