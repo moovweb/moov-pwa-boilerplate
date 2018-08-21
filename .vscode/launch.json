@@ -7,6 +7,17 @@
     {
       "type": "node",
       "request": "launch",
+      "name": "Debug PWA Project",
+      "program": "${workspaceFolder}/node_modules/moovsdk/bin/moovsdk",
+      "args": [
+        "start",
+        "--path",
+        "${workspaceFolder}",
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
       "name": "Mocha Tests",
       "program": "${workspaceFolder}/node_modules/mocha/bin/_mocha",
       "args": [
@@ -18,12 +29,6 @@
         "${workspaceFolder}/test"
       ],
       "internalConsoleOptions": "openOnSessionStart"
-    },
-    {
-      "type": "node",
-      "request": "launch",
-      "name": "Launch Program",
-      "program": "${workspaceFolder}/scripts/moov_main.js"
     }
   ]
 }
