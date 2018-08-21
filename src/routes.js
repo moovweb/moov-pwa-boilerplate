@@ -1,4 +1,4 @@
-import { Router, fromClient, fromServer, cache, track } from 'moov-pwa/router'
+import { Router, fromClient, fromServer, cache, track, adapt } from 'moov-pwa/router'
 import analytics from 'moov-pwa/analytics'
 
 const cacheHandler = cache({ server: { maxAgeSeconds: 300 }, client: true }) // cache responses in varnish for 5 minutes
@@ -53,9 +53,5 @@ export default new Router()
   })
   .fallback(
     // when no route matches, reload so that adapt can handle it
-    fromClient(() => {
-      if (typeof window !== 'undefined') {
-        window.location.reload()
-      }
-    })
+    adapt('./adapt/handler')
   )

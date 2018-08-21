@@ -919,9 +919,9 @@ babel-plugin-minify-type-constructors@^0.3.0:
   dependencies:
     babel-helper-is-void-0 "^0.3.0"
 
-babel-plugin-moov@^1.0.0:
-  version "1.0.0"
-  resolved "https://npm-proxy.fury.io/moovweb/~/d/babel-plugin-moov/babel-plugin-moov-1.0.0#7fc97caad316d272d160a42fbd580af4b18c23dc"
+babel-plugin-moov@2.2.0-0:
+  version "2.2.0-0"
+  resolved "https://npm-proxy.fury.io/moovweb/~/d/babel-plugin-moov/babel-plugin-moov-2.2.0-0#ea3c9b7e43241f802d0f51923d2e127c7d88b0f3"
   dependencies:
     babel-core "^6.26.0"
 
