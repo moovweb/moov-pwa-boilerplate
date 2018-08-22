@@ -60,7 +60,7 @@
     "mobx-state-tree": "^2.0.5",
     "moment": "^2.21.0",
     "moov-pwa": "^2.1.2",
-    "moov_builder": "^3.0.1",
+    "moov_builder": "^3.0.2",
     "moovsdk": "^7.0.14",
     "mst-middlewares": "^2.0.1",
     "node-fetch": "^2.1.1",
