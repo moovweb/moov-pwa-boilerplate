@@ -60,7 +60,7 @@
     "mobx-state-tree": "^2.0.5",
     "moment": "^2.21.0",
     "moov-pwa": "^2.1.2",
-    "moov_builder": "^3.0.1",
+    "moov_builder": "^3.0.2",
     "moovsdk": "^7.0.14",
     "mst-middlewares": "^2.0.1",
     "node-fetch": "^2.1.1",
@@ -98,7 +98,8 @@
     "debug": "node --inspect node_modules/moovsdk/sdk.js start",
     "clean": "rm -rf pwa/build pwa/dist build/assets/* scripts/build/* && mkdir -p build/assets/pwa",
     "chrome": "open -a \"Google Chrome\" --args --ignore-certificate-errors",
-    "start:windows": "moovsdk start"
+    "start:windows": "moovsdk start",
+    "analyze": "node ./tasks/on_analyze"
   },
   "author": "Moovweb",
   "license": "MIT",
