@@ -18,7 +18,7 @@
   "static_paths": {
     "/manifest.json": "/manifest.json",
     "/pwa/*": "/pwa/*",
-    "/service-worker.js": "/service-worker.js",
+    "/service-worker.js*": "/service-worker.js",
     "/workbox-*": "/workbox-*",
     "/icons/*": "/icons/*",
     "/robots.txt": "/robots.txt"
