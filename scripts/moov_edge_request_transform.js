@@ -1,4 +1,5 @@
 const edgeRequestTransform = require('moov-pwa/platform/edgeRequestTransform').default
+global.setTimeout = global.clearTimeout = Function.prototype
 
 /**
  * This function runs at the edge before the cache.
