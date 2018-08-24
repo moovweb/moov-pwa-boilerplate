@@ -14,8 +14,7 @@ export default function renderHeader(stats) {
     state: createState(),
     theme,
     stats,
-    clientChunk: 'header', // the name of the entry injected into config/web.dev.*.js
-    adapt: true
+    clientChunk: 'header' // the name of the entry injected into config/web.dev.*.js
   })
 
   // remove the existing header
