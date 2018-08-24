@@ -52,6 +52,6 @@ export default new Router()
     }
   })
   .fallback(
-    // when no route matches, reload so that adapt can handle it
+    // when no route matches, pull in content from the upstream site
     proxyUpstream('./proxy/proxy-handler')
   )

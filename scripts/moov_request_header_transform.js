@@ -1,5 +1,4 @@
 console.error = console.warn = console.log;
-global.setTimeout = global.clearTimeout = Function.prototype
 
 const requestHeaderTransform = require('moov-pwa/platform/requestHeaderTransform').default;
 
