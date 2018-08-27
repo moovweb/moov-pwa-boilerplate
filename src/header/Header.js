@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { observer } from 'mobx-react'
+import { observer, inject } from 'mobx-react'
 import AppBar from 'moov-pwa/AppBar'
 import IconButton from '@material-ui/core/IconButton'
 import FindStore from '@material-ui/icons/LocationOn'
@@ -11,6 +11,7 @@ import CartButton from 'moov-pwa/CartButton'
 import HeaderLogo from 'moov-pwa/HeaderLogo'
 import Hidden from '@material-ui/core/Hidden'
 import Menu from 'moov-pwa/Menu'
+import AddIcon from '@material-ui/icons/Add'
 
 @withStyles(theme => ({
   root: {
@@ -39,6 +40,7 @@ import Menu from 'moov-pwa/Menu'
     fontSize: '28px'
   }
 }))
+@inject('app')
 @observer
 export default class Header extends Component {
 
@@ -62,12 +64,16 @@ export default class Header extends Component {
         </HeaderLogo>
         <div style={{ flex: 1 }}/>
         <Hidden smDown implementation="css">{ storeFinder }</Hidden>
-        <IconButton aria-label="Search" color="inherit"  classes={{label: classes.large }}>
+        <IconButton aria-label="Search" color="inherit"  classes={{label: classes.large }} onClick={this.onSearchClick}>
           <Search className={classes.icon}/>
         </IconButton>
-        <CartButton classes={{ icon: classes.icon }}/>
+        <CartButton classes={{ icon: classes.icon }} icon={<AddIcon/>}/>
       </AppBar>
     )
+  }
+
+  onSearchClick = () => {
+    this.props.app.search.toggle(true)
   }
  
 }

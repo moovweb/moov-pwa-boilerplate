@@ -32,7 +32,7 @@ export default new Router()
     fromClient({ page: 'Cart' }),
     fromServer('./cart/cart-handler'),
     track(analytics.cartPageView),
-)
+  )
   .get('/cart/add-from-amp.json',
     fromServer('./cart/add-from-amp-handler')
   )
@@ -40,6 +40,9 @@ export default new Router()
     fromClient({ page: 'Checkout' }),
     fromServer('./checkout/checkout-handler'),
     track(analytics.checkoutPageView)
+  )
+  .get('/search/suggest',
+    fromServer('./search/suggest-handler'),
   )
   .error((e, params, request, response) => {
     response.status(500)
