@@ -44,6 +44,13 @@ export default new Router()
   .get('/search/suggest',
     fromServer('./search/suggest-handler'),
   )
+  .get('/search',
+    // Note: Search results and subcategory views are often the same.  In practice you may need to implement 
+    // a different handler or view for search results.  For simplicity we just reuse the subcategory view and 
+    // handler here.
+    fromClient({ page: 'Subcategory' }),
+    fromServer('./subcategory/subcategory-handler'),
+  )
   .error((e, params, request, response) => {
     response.status(500)
 

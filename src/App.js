@@ -3,7 +3,7 @@ import withStyles from '@material-ui/core/styles/withStyles'
 import Header from './header/Header'
 import NavTabs from 'moov-pwa/NavTabs'
 import Pages from 'moov-pwa/Pages'
-import SearchPopup from 'moov-pwa/SearchPopup'
+import SearchDrawer from 'moov-pwa/SearchDrawer'
 import Helmet from 'react-helmet'
 
 @withStyles(theme => ({
@@ -40,7 +40,7 @@ export default class App extends Component {
             Error: universal(import('./ErrorPage'))
           })}
         />
-        <SearchPopup/>
+        <SearchDrawer/>
       </div>
     )
   }

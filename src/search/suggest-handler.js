@@ -1,7 +1,13 @@
-export default function suggestHandler({ q }) {
+/**
+ * An example implementation of the API for the SearchPopup component using placeholder data.
+ * @param {Object} params
+ * @param {String} params.q The search text
+ * @return {Object} An object whose shape matches AppModelBase
+ */
+export default async function suggestHandler({ q }) {
   return {
     search: {
-      keyword: q,
+      text: q,
       groups: [{
         caption: 'Suggested Searches',
         results: [`Small ${q}`, `Large ${q}`, `${q} with red stripes`].map(text => ({
@@ -17,11 +23,10 @@ export default function suggestHandler({ q }) {
         ]
       }, {
         caption: 'Suggested Products',
-        thumbnails: true,
         results: [
-          { text: 'Product 1', url: '/p/1', image: "https://via.placeholder.com/120x120" },
-          { text: 'Product 2', url: '/p/2', image: "https://via.placeholder.com/120x120" },
-          { text: 'Product 3', url: '/p/3', image: "https://via.placeholder.com/120x120" }
+          { text: 'Product 1', url: '/p/1', thumbnail: "https://via.placeholder.com/120x120" },
+          { text: 'Product 2', url: '/p/2', thumbnail: "https://via.placeholder.com/120x120" },
+          { text: 'Product 3', url: '/p/3', thumbnail: "https://via.placeholder.com/120x120" }
         ]
       }]
     }
