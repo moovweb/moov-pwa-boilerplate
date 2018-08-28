@@ -11,7 +11,6 @@ import CartButton from 'moov-pwa/CartButton'
 import HeaderLogo from 'moov-pwa/HeaderLogo'
 import Hidden from '@material-ui/core/Hidden'
 import Menu from 'moov-pwa/Menu'
-import AddIcon from '@material-ui/icons/Add'
 
 @withStyles(theme => ({
   root: {
@@ -67,7 +66,7 @@ export default class Header extends Component {
         <IconButton aria-label="Search" color="inherit"  classes={{label: classes.large }} onClick={this.onSearchClick}>
           <Search className={classes.icon}/>
         </IconButton>
-        <CartButton classes={{ icon: classes.icon }} icon={<AddIcon/>}/>
+        <CartButton classes={{ icon: classes.icon }}/>
       </AppBar>
     )
   }
