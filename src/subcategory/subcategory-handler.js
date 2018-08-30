@@ -3,7 +3,7 @@ import { withGlobalState } from 'moov-pwa/router'
 
 const pageSize = 10
 
-export default function subcategoryHandler({ id, filters, sort, page=0, format }, request, response) {
+export default function subcategoryHandler({ id='0', filters, sort, page=0, format }, request, response) {
   page = parseInt(page)
   
   if (page && format === 'json') {
