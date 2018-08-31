@@ -6594,9 +6594,9 @@ moment@^2.22.1:
   version "2.22.2"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.22.2.tgz#3c257f9839fc0e93ff53149632239eb90783ff66"
 
-moov-pwa@^2.3.0:
-  version "2.3.0"
-  resolved "https://npm-proxy.fury.io/moovweb/~/d/moov-pwa/moov-pwa-2.3.0#7ed1d03eb8b53fb8d009c98ef4410b796455d684"
+moov-pwa@2.3.6:
+  version "2.3.6"
+  resolved "https://npm-proxy.fury.io/moovweb/~/d/moov-pwa/moov-pwa-2.3.6#a8362c3cb5a72ec7e0da24771303ef9ddee4749b"
   dependencies:
     babel-eslint "^8.2.3"
     babel-minify-webpack-plugin "^0.3.1"
@@ -6633,7 +6633,7 @@ moov-pwa@^2.3.0:
     workbox-webpack-plugin "^3.2.0"
     write-file-webpack-plugin "^4.3.2"
 
-moov_builder@^3.0.6:
+moov_builder@3.0.6:
   version "3.0.6"
   resolved "https://npm-proxy.fury.io/moovweb/~/d/moov_builder/moov_builder-3.0.6#c7288f28284ef2244480a2efe2bae5ba9505a0f4"
   dependencies:
@@ -6676,7 +6676,7 @@ moov_stdlib@2.6.31:
   version "2.6.31"
   resolved "https://npm-proxy.fury.io/moovweb/~/d/moov_stdlib/moov_stdlib-2.6.31#54fc501dbbf2af55e7b557af2a158930f79d356e"
 
-moovsdk@^7.0.20:
+moovsdk@7.0.20:
   version "7.0.20"
   resolved "https://registry.yarnpkg.com/moovsdk/-/moovsdk-7.0.20.tgz#bcf07d9dd8b66cc74f7655705d429b38964abcf8"
 
@@ -8121,6 +8121,10 @@ raw-body@2.3.2:
     http-errors "1.6.2"
     iconv-lite "0.4.19"
     unpipe "1.0.0"
+
+raw-loader@^0.5.1:
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/raw-loader/-/raw-loader-0.5.1.tgz#0c3d0beaed8a01c966d9787bf778281252a979aa"
 
 rc@^1.0.1, rc@^1.1.6, rc@^1.1.7:
   version "1.2.5"
