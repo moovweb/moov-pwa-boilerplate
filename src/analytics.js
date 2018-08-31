@@ -1,5 +1,4 @@
 import { configureAnalytics } from 'moov-pwa/analytics'
-import GoogleAnalyticsTarget from 'moov-pwa/analytics/GoogleAnalyticsTarget'
 import CommerceAnalyticsTarget from 'moov-pwa/analytics/CommerceAnalyticsTarget'
 
 class TestAnalyticsTarget extends CommerceAnalyticsTarget {
@@ -8,10 +7,14 @@ class TestAnalyticsTarget extends CommerceAnalyticsTarget {
   }
 }
 
-configureAnalytics(
-  new TestAnalyticsTarget()
-    .sendForAllEvents()
-    .setTrackBackClick(true),
-  new GoogleAnalyticsTarget({ trackingID: 'abc123' })
-    .sendForAllEvents()
-)
+const globalData = {
+  site: 'moov_pwa',
+  host: window.location.hostname
+}
+
+const target = new TestAnalyticsTarget()
+  .sendForAllEvents(globalData)
+  .configureExperiments({ cookieName: 'moov_experience' })
+  .setTrackBackClick(true)
+  
+configureAnalytics(target)

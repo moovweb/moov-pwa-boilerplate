@@ -25,13 +25,14 @@ export default new Router()
   .get('/p/:id',
     cacheHandler,
     fromClient({ page: 'Product' }),
-    fromServer('./product/product-handler')
+    fromServer('./product/product-handler'),
+    track(analytics.productPageView)
   )
   .get('/cart',
     fromClient({ page: 'Cart' }),
     fromServer('./cart/cart-handler'),
     track(analytics.cartPageView),
-  )
+)
   .get('/cart/add-from-amp.json',
     fromServer('./cart/add-from-amp-handler')
   )
