@@ -2,6 +2,8 @@ console.error = console.warn = console.log;
 
 const index = require('moov-pwa/platform').default
 
+require('../src/analytics')
+
 module.exports = function() {
   index({
     theme: require('../src/theme').default,

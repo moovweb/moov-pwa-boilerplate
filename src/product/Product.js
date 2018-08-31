@@ -12,6 +12,7 @@ import { Hbox } from 'moov-pwa/Box'
 import withAmp from 'moov-pwa/amp/withAmp'
 import AmpState from 'moov-pwa/amp/AmpState'
 import AmpForm from 'moov-pwa/amp/AmpForm'
+import Track from 'moov-pwa/analytics/Track'
 
 @withStyles(theme => ({
   root: {
@@ -34,36 +35,38 @@ export default class Product extends Component {
     if (!product) return null
 
     return (
-      <AmpState initialState={product}>
-        <AmpForm id="form" action="/cart/add-from-amp.json">
+      <Track event="productPageView" trigger="pageLoad">
+        <AmpState initialState={product}>
+          <AmpForm id="form" action="/cart/add-from-amp.json">
 
-          {/* These hidden fields are needed for AMP */}
-          <input type="hidden" name="id" value={product.id}/>
-          <input type="hidden" name="name" value={product.name}/>
+            {/* These hidden fields are needed for AMP */}
+            <input type="hidden" name="id" value={product.id}/>
+            <input type="hidden" name="name" value={product.name}/>
 
-          <Container className={classes.root}>
-            <Row>
-              <Typography variant="title" component="h1">{product.name}</Typography>
-            </Row>
-            <Row>
-              <Typography variant="body2">{product.description}</Typography>
-            </Row>
-            <Row>
-              <ImageSwitcher classes={{ root: classes.imageSwitcher }} product={product} indicators/>
-            </Row>
-            <Row>
-              <Typography variant="subheading">{price(product.price)}</Typography>
-            </Row>
-            <Row>
-              <Hbox>
-                <div style={{ marginRight: '15px' }}>Quantity:</div>
-                <QuantitySelector product={product}/>
-              </Hbox>
-            </Row>
-            <AddToCartButton product={product} docked confirmation="This item has been added to your cart."/>
-          </Container>
-        </AmpForm>
-      </AmpState>
+            <Container className={classes.root}>
+              <Row>
+                <Typography variant="title" component="h1">{product.name}</Typography>
+              </Row>
+              <Row>
+                <Typography variant="body2">{product.description}</Typography>
+              </Row>
+              <Row>
+                <ImageSwitcher classes={{ root: classes.imageSwitcher }} product={product} indicators/>
+              </Row>
+              <Row>
+                <Typography variant="subheading">{price(product.price)}</Typography>
+              </Row>
+              <Row>
+                <Hbox>
+                  <div style={{ marginRight: '15px' }}>Quantity:</div>
+                  <QuantitySelector product={product}/>
+                </Hbox>
+              </Row>
+              <AddToCartButton product={product} docked confirmation="This item has been added to your cart."/>
+            </Container>
+          </AmpForm>
+        </AmpState>
+      </Track>
     )
   }
 
