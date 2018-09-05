@@ -46,9 +46,13 @@ export default class ProductItem extends Component {
   render() {
     const { index, product, classes } = this.props
 
+    const nextState = {
+      product: {...product.toJSON(), images: ['http://via.placeholder.com/400x350']}
+    }
+
     return (
       <div id={`item-${index}`} className={classes.root}>
-        <Link prefetch="visible" to={`/p/${product.id}`} className={classes.link}>
+        <Link prefetch="visible" to={`/p/${product.id}`} className={classes.link} state={nextState}>
           <Vbox alignItems="stretch">
             <div className={classes.thumb}>
               <Image lazy={index >= 4 && index < 10} aspectRatio={100} alt="product" src={product.thumbnail}/>
