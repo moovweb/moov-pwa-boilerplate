@@ -101,7 +101,7 @@
     "start:windows": "moovsdk start",
     "analyze": "node ./tasks/on_analyze",
     "start:production": "yarn build && yarn start --no-build",
-    "start:windows": "yarn build; moovsdk start --no-build"
+    "start:windows:production": "yarn build; moovsdk start --no-build"
   },
   "author": "Moovweb",
   "license": "MIT",
