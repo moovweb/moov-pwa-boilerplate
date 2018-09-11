@@ -103,8 +103,5 @@
     "analyze": "node ./tasks/on_analyze"
   },
   "author": "Moovweb",
-  "license": "MIT",
-  "eslintConfig": {
-    "extends": "react-app"
-  }
+  "license": "MIT"
 }
