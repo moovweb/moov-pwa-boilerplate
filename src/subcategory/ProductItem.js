@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography'
-import Link from 'moov-pwa/Link'
+import ProductLink from 'moov-pwa/ProductLink'
 import { Vbox } from 'moov-pwa/Box'
 import Rating from 'moov-pwa/Rating'
 import Image from 'moov-pwa/Image'
@@ -46,13 +46,9 @@ export default class ProductItem extends Component {
   render() {
     const { index, product, classes } = this.props
 
-    const nextState = {
-      product: {...product.toJSON(), images: [product.thumbnail]}
-    }
-
     return (
       <div id={`item-${index}`} className={classes.root}>
-        <Link prefetch="visible" to={`/p/${product.id}`} className={classes.link} state={nextState}>
+        <ProductLink prefetch="visible" className={classes.link} product={product}>
           <Vbox alignItems="stretch">
             <div className={classes.thumb}>
               <Image lazy={index >= 4 && index < 10} aspectRatio={100} alt="product" src={product.thumbnail}/>
@@ -65,7 +61,7 @@ export default class ProductItem extends Component {
               <Typography className={classes.price}>{ price(product.price) }</Typography>
             </div>
           </Vbox>
-        </Link>
+        </ProductLink>
       </div>
     )
   }
