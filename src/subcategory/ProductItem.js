@@ -47,7 +47,7 @@ export default class ProductItem extends Component {
     const { index, product, classes } = this.props
 
     const nextState = {
-      product: {...product.toJSON(), images: ['http://via.placeholder.com/400x350']}
+      product: {...product.toJSON(), images: [product.thumbnail]}
     }
 
     return (

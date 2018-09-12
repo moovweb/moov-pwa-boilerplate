@@ -1,9 +1,16 @@
 import React, { Component } from 'react'
 import { inject, observer } from 'mobx-react'
+import { withStyles } from '@material-ui/core';
 import { Skeleton, BlankRow, Row, Space, Content } from 'moov-pwa/Skeleton'
 import Typography from '@material-ui/core/Typography'
 
 @inject(({ app }) => ({ product: app.product }))
+@withStyles(() => ({
+  filledContent: {
+    flex: 1,
+    padding: '0 20px'
+  }
+}))
 @observer
 export default class ProductSkeleton extends Component {
   render() {
@@ -28,7 +35,7 @@ export default class ProductSkeleton extends Component {
         <BlankRow/>
         <Row height="314px">
           <Space/>
-          <Content flex="1">
+          <Content flex="1" classes={this.props.classes}>
             {product.images && <img style={{ width: '100%' }} src={product.images[0]} alt="product" />}
           </Content>
           <Space/>
