@@ -5,6 +5,7 @@ import NavTabs from 'moov-pwa/NavTabs'
 import Pages from 'moov-pwa/Pages'
 import SearchDrawer from 'moov-pwa/SearchDrawer'
 import Helmet from 'react-helmet'
+import ProductSkeleton from './product/ProductSkeleton'
 
 @withStyles(theme => ({
   '@global': {
@@ -30,6 +31,9 @@ export default class App extends Component {
         <Header/> 
         <NavTabs/>
         <Pages
+          loadMasks={{
+            Product: ProductSkeleton
+          }}
           components={universal => ({
             Home: universal(import('./home/Home')),
             Category: universal(import('./category/Category')),
