@@ -5,13 +5,9 @@ import router from './routes'
 import launchClient from 'moov-pwa/launchClient'
 import './analytics'
 
-const render = launchClient({
+launchClient({
   App,
   router,
   theme,
   model
-});
-
-if (module.hot) {
-  module.hot.accept('./App', () => render(App));
-}
+})
