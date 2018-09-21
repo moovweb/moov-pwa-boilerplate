@@ -100,7 +100,9 @@
     "clean": "rm -rf pwa/build pwa/dist build/assets/* scripts/build/* && mkdir -p build/assets/pwa",
     "chrome": "open -a \"Google Chrome\" --args --ignore-certificate-errors",
     "start:windows": "moovsdk start",
-    "analyze": "node ./tasks/on_analyze"
+    "analyze": "node ./tasks/on_analyze",
+    "start:prod": "yarn build && yarn start --no-build",
+    "start:windows:prod": "yarn build && moovsdk start --no-build"
   },
   "author": "Moovweb",
   "license": "MIT"
