@@ -59,7 +59,8 @@ export default class Header extends Component {
         <Menu useExpanders/>
         <Hidden mdUp implementation="css">{ storeFinder }</Hidden>
         <HeaderLogo>
-          <Logo/>
+          <Logo>
+          </Logo>
         </HeaderLogo>
         <div style={{ flex: 1 }}/>
         <Hidden smDown implementation="css">{ storeFinder }</Hidden>
