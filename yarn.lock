@@ -949,9 +949,9 @@ babel-plugin-minify-type-constructors@^0.3.0:
   dependencies:
     babel-helper-is-void-0 "^0.3.0"
 
-babel-plugin-moov@2.2.0:
-  version "2.2.0"
-  resolved "https://npm-proxy.fury.io/moovweb/~/d/babel-plugin-moov/babel-plugin-moov-2.2.0#2408b79e524d998679e270044f0a31cd461bf12d"
+babel-plugin-moov@^2.5.1:
+  version "2.5.1"
+  resolved "https://npm-proxy.fury.io/moovweb/~/d/babel-plugin-moov/babel-plugin-moov-2.5.1#1e774a005a6adce53d0fab1f2d01ccdc15d2d317"
   dependencies:
     babel-core "^6.26.0"
 
@@ -6594,9 +6594,9 @@ moment@^2.22.1:
   version "2.22.2"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.22.2.tgz#3c257f9839fc0e93ff53149632239eb90783ff66"
 
-moov-pwa@^2.3.0:
-  version "2.3.0"
-  resolved "https://npm-proxy.fury.io/moovweb/~/d/moov-pwa/moov-pwa-2.3.0#7ed1d03eb8b53fb8d009c98ef4410b796455d684"
+moov-pwa@^2.5.1:
+  version "2.5.1"
+  resolved "https://npm-proxy.fury.io/moovweb/~/d/moov-pwa/moov-pwa-2.5.1#959dfa6452f05f049f734b37b53da314f227980e"
   dependencies:
     babel-eslint "^8.2.3"
     babel-minify-webpack-plugin "^0.3.1"
@@ -8122,6 +8122,10 @@ raw-body@2.3.2:
     iconv-lite "0.4.19"
     unpipe "1.0.0"
 
+raw-loader@^0.5.1:
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/raw-loader/-/raw-loader-0.5.1.tgz#0c3d0beaed8a01c966d9787bf778281252a979aa"
+
 rc@^1.0.1, rc@^1.1.6, rc@^1.1.7:
   version "1.2.5"
   resolved "https://registry.yarnpkg.com/rc/-/rc-1.2.5.tgz#275cd687f6e3b36cc756baa26dfee80a790301fd"
@@ -8440,7 +8444,7 @@ readable-stream@^2.0.0, readable-stream@^2.0.1, readable-stream@^2.0.2, readable
 
 readable-stream@~2.0.0:
   version "2.0.6"
-  resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-2.0.6.tgz#8f90341e68a53ccc928788dacfcd11b36eb9b78e"
+  resolved "http://registry.npmjs.org/readable-stream/-/readable-stream-2.0.6.tgz#8f90341e68a53ccc928788dacfcd11b36eb9b78e"
   dependencies:
     core-util-is "~1.0.0"
     inherits "~2.0.1"

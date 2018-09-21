@@ -32,7 +32,7 @@ export default new Router()
     fromClient({ page: 'Cart' }),
     fromServer('./cart/cart-handler'),
     track(analytics.cartPageView),
-  )
+)
   .get('/cart/add-from-amp.json',
     fromServer('./cart/add-from-amp-handler')
   )

@@ -6,7 +6,7 @@ import Server from 'moov-pwa/Server'
 import Config from 'moov-pwa/Config'
 
 export default function createServer({ globals, blob } = {}) {
-  Config.load(blob || require('./blob.dev'))
+  Config.load(blob || require('./blob.dev').default)
 
   return new Server({ 
     theme, 

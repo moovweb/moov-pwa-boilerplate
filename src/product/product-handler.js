@@ -7,20 +7,20 @@ export default function productHandler({ id }, request, response) {
     page: 'Product',
     product: {
       id,
+      url: `/p/${id}`,
       name: `Product ${id}`,
       price: 199.99,
       rating: 4.5,
       description: 'This is the product description.',
-      thumbnail: 'http://via.placeholder.com/128x128',
       images: [
+        "http://via.placeholder.com/400x400",
         "http://via.placeholder.com/400x350",
         "http://via.placeholder.com/350x400",
-        "http://via.placeholder.com/400x400"
       ],
       thumbnails: [
+        "http://via.placeholder.com/40x40",
         "http://via.placeholder.com/40x35",
-        "http://via.placeholder.com/35x40",
-        "http://via.placeholder.com/40x35"
+        "http://via.placeholder.com/35x40"
       ]
     }
   })
