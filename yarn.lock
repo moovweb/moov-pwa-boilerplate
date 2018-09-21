@@ -6676,9 +6676,9 @@ moov_stdlib@2.6.31:
   version "2.6.31"
   resolved "https://npm-proxy.fury.io/moovweb/~/d/moov_stdlib/moov_stdlib-2.6.31#54fc501dbbf2af55e7b557af2a158930f79d356e"
 
-moovsdk@^7.0.20:
-  version "7.0.20"
-  resolved "https://registry.yarnpkg.com/moovsdk/-/moovsdk-7.0.20.tgz#bcf07d9dd8b66cc74f7655705d429b38964abcf8"
+moovsdk@^7.1.0-alpha.0:
+  version "7.1.0-alpha.0"
+  resolved "https://registry.yarnpkg.com/moovsdk/-/moovsdk-7.1.0-alpha.0.tgz#fccd77959d079cb8c11c2b39b75799fd350489c3"
 
 move-concurrently@^1.0.1:
   version "1.0.1"
