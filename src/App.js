@@ -6,6 +6,7 @@ import Pages from 'moov-pwa/Pages'
 import SearchDrawer from 'moov-pwa/SearchDrawer'
 import Helmet from 'react-helmet'
 import ProductSkeleton from './product/ProductSkeleton'
+import UpdateNotification from 'moov-pwa/UpdateNotification'
 
 @withStyles(theme => ({
   '@global': {
@@ -45,6 +46,7 @@ export default class App extends Component {
           })}
         />
         <SearchDrawer/>
+        <UpdateNotification/>
       </div>
     )
   }

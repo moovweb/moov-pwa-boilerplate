@@ -949,9 +949,9 @@ babel-plugin-minify-type-constructors@^0.3.0:
   dependencies:
     babel-helper-is-void-0 "^0.3.0"
 
-babel-plugin-moov@2.2.0:
-  version "2.2.0"
-  resolved "https://npm-proxy.fury.io/moovweb/~/d/babel-plugin-moov/babel-plugin-moov-2.2.0#2408b79e524d998679e270044f0a31cd461bf12d"
+babel-plugin-moov@^2.5.1:
+  version "2.5.1"
+  resolved "https://npm-proxy.fury.io/moovweb/~/d/babel-plugin-moov/babel-plugin-moov-2.5.1#1e774a005a6adce53d0fab1f2d01ccdc15d2d317"
   dependencies:
     babel-core "^6.26.0"
 
@@ -6594,9 +6594,9 @@ moment@^2.22.1:
   version "2.22.2"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.22.2.tgz#3c257f9839fc0e93ff53149632239eb90783ff66"
 
-moov-pwa@2.4.0:
-  version "2.4.0"
-  resolved "https://npm-proxy.fury.io/moovweb/~/d/moov-pwa/moov-pwa-2.4.0#ba967083cc1d64baa91c0c2177fbf2a4637c4f03"
+moov-pwa@^2.5.1:
+  version "2.5.1"
+  resolved "https://npm-proxy.fury.io/moovweb/~/d/moov-pwa/moov-pwa-2.5.1#959dfa6452f05f049f734b37b53da314f227980e"
   dependencies:
     babel-eslint "^8.2.3"
     babel-minify-webpack-plugin "^0.3.1"
