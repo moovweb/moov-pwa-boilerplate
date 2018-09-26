@@ -39,7 +39,12 @@ export default class ProductSkeleton extends Component {
           <Space/>
         </Row>
         <BlankRow/>
-        <BlankRow/>
+        <Row height="24px">
+          <Space/>
+          <Content flex="1"/>
+          <Space/>
+        </Row>
+        <BlankRow height="100px"/>
       </Skeleton>
     )
   }

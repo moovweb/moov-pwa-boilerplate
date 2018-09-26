@@ -27,12 +27,12 @@ import ResponsiveTiles from 'moov-pwa/ResponsiveTiles'
   }
 }), { name: 'MoovSubcategory' })
 @withAmp
-@inject(({ app }) => ({ subcategory: app.subcategory }))
+@inject(({ app }) => ({ subcategory: app.subcategory, app }))
 @observer
 export default class Subcategory extends Component { 
 
   render() {
-    const { classes, subcategory } = this.props
+    const { classes, subcategory, app } = this.props
 
     if (!subcategory) return null
 
@@ -55,7 +55,7 @@ export default class Subcategory extends Component {
           ))}
         </ResponsiveTiles>
 
-        <ShowMore model={subcategory} infiniteScroll/>
+        <ShowMore model={subcategory} infiniteScroll={app.page === 'Subcategory'}/>
       </Container>
     )
   

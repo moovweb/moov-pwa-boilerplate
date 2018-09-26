@@ -6578,13 +6578,13 @@ mobx-react@^5.0.0:
   dependencies:
     hoist-non-react-statics "^2.3.1"
 
-mobx-state-tree@^2.0.5:
-  version "2.0.5"
-  resolved "https://registry.yarnpkg.com/mobx-state-tree/-/mobx-state-tree-2.0.5.tgz#99131b2a729c6eaf9de16a12d52bf19e0ee5ba1f"
+mobx-state-tree@^3.4.0:
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/mobx-state-tree/-/mobx-state-tree-3.4.0.tgz#1feb2de5b82434f21289bc58aa6eaea8e7d69cce"
 
-mobx@^4.1.0:
-  version "4.2.0"
-  resolved "https://registry.yarnpkg.com/mobx/-/mobx-4.2.0.tgz#ee0b0a4f3da2f4776225046ab208ac329a4841d4"
+mobx@^5.1.2:
+  version "5.1.2"
+  resolved "https://registry.yarnpkg.com/mobx/-/mobx-5.1.2.tgz#5a3a0bc381ba155901e33eabe492c3c7482e8b35"
 
 moment@^2.11.2, moment@^2.21.0:
   version "2.22.1"
@@ -6594,9 +6594,9 @@ moment@^2.22.1:
   version "2.22.2"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.22.2.tgz#3c257f9839fc0e93ff53149632239eb90783ff66"
 
-moov-pwa@^2.5.1:
-  version "2.5.1"
-  resolved "https://npm-proxy.fury.io/moovweb/~/d/moov-pwa/moov-pwa-2.5.1#959dfa6452f05f049f734b37b53da314f227980e"
+moov-pwa@^2.5.4:
+  version "2.5.4"
+  resolved "https://npm-proxy.fury.io/moovweb/~/d/moov-pwa/moov-pwa-2.5.4#cc83ddd16144f1446239fb7b5886d183ac5c6826"
   dependencies:
     babel-eslint "^8.2.3"
     babel-minify-webpack-plugin "^0.3.1"
@@ -6676,9 +6676,9 @@ moov_stdlib@2.6.31:
   version "2.6.31"
   resolved "https://npm-proxy.fury.io/moovweb/~/d/moov_stdlib/moov_stdlib-2.6.31#54fc501dbbf2af55e7b557af2a158930f79d356e"
 
-moovsdk@^7.1.0-alpha.0:
-  version "7.1.0-alpha.0"
-  resolved "https://registry.yarnpkg.com/moovsdk/-/moovsdk-7.1.0-alpha.0.tgz#fccd77959d079cb8c11c2b39b75799fd350489c3"
+moovsdk@^7.0.0:
+  version "7.0.20"
+  resolved "https://registry.yarnpkg.com/moovsdk/-/moovsdk-7.0.20.tgz#bcf07d9dd8b66cc74f7655705d429b38964abcf8"
 
 move-concurrently@^1.0.1:
   version "1.0.1"
