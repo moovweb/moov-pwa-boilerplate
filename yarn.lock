@@ -949,9 +949,9 @@ babel-plugin-minify-type-constructors@^0.3.0:
   dependencies:
     babel-helper-is-void-0 "^0.3.0"
 
-babel-plugin-moov@^2.5.1:
-  version "2.5.1"
-  resolved "https://npm-proxy.fury.io/moovweb/~/d/babel-plugin-moov/babel-plugin-moov-2.5.1#1e774a005a6adce53d0fab1f2d01ccdc15d2d317"
+babel-plugin-moov@^3.3.1:
+  version "3.3.1"
+  resolved "https://npm-proxy.fury.io/moovweb/~/d/babel-plugin-moov/babel-plugin-moov-3.3.1#8067fcff076fa8b9858aa2d84f10ba731ead5feb"
   dependencies:
     babel-core "^6.26.0"
 
@@ -6578,13 +6578,13 @@ mobx-react@^5.0.0:
   dependencies:
     hoist-non-react-statics "^2.3.1"
 
-mobx-state-tree@^3.4.0:
-  version "3.4.0"
-  resolved "https://registry.yarnpkg.com/mobx-state-tree/-/mobx-state-tree-3.4.0.tgz#1feb2de5b82434f21289bc58aa6eaea8e7d69cce"
+mobx-state-tree@^2.0.5:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/mobx-state-tree/-/mobx-state-tree-2.2.0.tgz#10bb84e090ed7700333ac52d05b304579fc78dc4"
 
-mobx@^5.1.2:
-  version "5.1.2"
-  resolved "https://registry.yarnpkg.com/mobx/-/mobx-5.1.2.tgz#5a3a0bc381ba155901e33eabe492c3c7482e8b35"
+mobx@^4.1.0:
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/mobx/-/mobx-4.5.0.tgz#91a4ae60d7ae492926b6c7cf417f48e177527d7b"
 
 moment@^2.11.2, moment@^2.21.0:
   version "2.22.1"
@@ -6594,9 +6594,9 @@ moment@^2.22.1:
   version "2.22.2"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.22.2.tgz#3c257f9839fc0e93ff53149632239eb90783ff66"
 
-moov-pwa@^2.5.4:
-  version "2.5.4"
-  resolved "https://npm-proxy.fury.io/moovweb/~/d/moov-pwa/moov-pwa-2.5.4#cc83ddd16144f1446239fb7b5886d183ac5c6826"
+moov-pwa@^3.3.1:
+  version "3.3.1"
+  resolved "https://npm-proxy.fury.io/moovweb/~/d/moov-pwa/moov-pwa-3.3.1#a4458099848babf3c2463f389b1ebb311a8d31f9"
   dependencies:
     babel-eslint "^8.2.3"
     babel-minify-webpack-plugin "^0.3.1"
@@ -6633,9 +6633,9 @@ moov-pwa@^2.5.4:
     workbox-webpack-plugin "^3.2.0"
     write-file-webpack-plugin "^4.3.2"
 
-moov_builder@^3.0.6:
-  version "3.0.6"
-  resolved "https://npm-proxy.fury.io/moovweb/~/d/moov_builder/moov_builder-3.0.6#c7288f28284ef2244480a2efe2bae5ba9505a0f4"
+moov_builder@^3.0.7:
+  version "3.0.7"
+  resolved "https://npm-proxy.fury.io/moovweb/~/d/moov_builder/moov_builder-3.0.7#d0dbbfa2c87b74136ae0241641e5152d1ab4216a"
   dependencies:
     alias-regex-webpack-plugin "^0.1.2"
     browser-sync "^2.12.8"

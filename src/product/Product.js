@@ -12,6 +12,7 @@ import { Hbox } from 'moov-pwa/Box'
 import withAmp from 'moov-pwa/amp/withAmp'
 import AmpState from 'moov-pwa/amp/AmpState'
 import AmpForm from 'moov-pwa/amp/AmpForm'
+import Rating from 'moov-pwa/Rating'
 
 @withStyles(theme => ({
   root: {
@@ -21,6 +22,9 @@ import AmpForm from 'moov-pwa/amp/AmpForm'
     height: 'calc(100vh - 280px)',
     width:  `calc(100% + ${theme.margins.container*2}px)`,
     margin: `0 -${theme.margins.container}px`
+  },
+  rating: {
+    marginLeft: '10px'
   }
 }))
 @withAmp
@@ -46,13 +50,13 @@ export default class Product extends Component {
               <Typography variant="title" component="h1">{product.name}</Typography>
             </Row>
             <Row>
-              <Typography variant="body2">{product.description}</Typography>
+              <Hbox>
+                <Typography variant="subheading">{price(product.price)}</Typography>
+                <Rating product={product} className={classes.rating}/>
+              </Hbox>
             </Row>
             <Row>
               <ImageSwitcher classes={{ root: classes.imageSwitcher }} product={product} indicators/>
-            </Row>
-            <Row>
-              <Typography variant="subheading">{price(product.price)}</Typography>
             </Row>
             <Row>
               <Hbox>
@@ -61,6 +65,9 @@ export default class Product extends Component {
               </Hbox>
             </Row>
             <AddToCartButton product={product} docked confirmation="This item has been added to your cart."/>
+            <Row>
+              <Typography variant="body2">{product.description}</Typography>
+            </Row>
           </Container>
         </AmpForm>
       </AmpState>

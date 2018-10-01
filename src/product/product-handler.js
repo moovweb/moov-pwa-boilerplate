@@ -9,8 +9,9 @@ export default function productHandler({ id }, request, response) {
       id,
       url: `/p/${id}`,
       name: `Product ${id}`,
-      price: 199.99,
-      rating: 4.5,
+      price: 99.99,
+      rating: id % 5,
+      reviewCount: id * 10,
       description: 'This is the product description.',
       images: [
         "http://via.placeholder.com/400x400",
