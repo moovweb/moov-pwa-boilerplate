@@ -1,5 +1,4 @@
-import { Router, fromClient, fromServer, cache, track, proxyUpstream } from 'moov-pwa/router'
-import analytics from 'moov-pwa/analytics'
+import { Router, fromClient, fromServer, cache, proxyUpstream } from 'moov-pwa/router'
 
 const cacheHandler = cache({ server: { maxAgeSeconds: 300 }, client: true }) // cache responses in varnish for 5 minutes
 
@@ -7,20 +6,17 @@ export default new Router()
   .get('/', 
     cacheHandler,
     fromClient({ page: 'Home' }),
-    fromServer('./home/home-handler'),
-    track(analytics.homePageView)
+    fromServer('./home/home-handler')
   )
   .get('/c/:id',
     cacheHandler,
     fromClient({ page: 'Category' }),
-    fromServer('./category/category-handler'),
-    track(analytics.categoryPageView)
+    fromServer('./category/category-handler')
   )
   .get('/s/:id',
     cacheHandler,
     fromClient({ page: 'Subcategory' }),
-    fromServer('./subcategory/subcategory-handler'),
-    track(analytics.subcategoryPageView)
+    fromServer('./subcategory/subcategory-handler')
   )
   .get('/p/:id',
     cacheHandler,
@@ -29,16 +25,14 @@ export default new Router()
   )
   .get('/cart',
     fromClient({ page: 'Cart' }),
-    fromServer('./cart/cart-handler'),
-    track(analytics.cartPageView),
+    fromServer('./cart/cart-handler')
   )
   .get('/cart/add-from-amp.json',
     fromServer('./cart/add-from-amp-handler')
   )
   .get('/checkout',
     fromClient({ page: 'Checkout' }),
-    fromServer('./checkout/checkout-handler'),
-    track(analytics.checkoutPageView)
+    fromServer('./checkout/checkout-handler')
   )
   .error((e, params, request, response) => {
     response.status(500)

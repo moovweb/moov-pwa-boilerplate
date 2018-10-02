@@ -12,7 +12,7 @@ import { Hbox } from 'moov-pwa/Box'
 import withAmp from 'moov-pwa/amp/withAmp'
 import AmpState from 'moov-pwa/amp/AmpState'
 import AmpForm from 'moov-pwa/amp/AmpForm'
-import Track from 'moov-pwa/analytics/Track'
+import Page from 'moov-pwa/Page'
 
 @withStyles(theme => ({
   root: {
@@ -35,7 +35,7 @@ export default class Product extends Component {
     if (!product) return null
 
     return (
-      <Track event="productPageView" trigger="pageLoad">
+      <Page type="Product">
         <AmpState initialState={product}>
           <AmpForm id="form" action="/cart/add-from-amp.json">
 
@@ -66,7 +66,7 @@ export default class Product extends Component {
             </Container>
           </AmpForm>
         </AmpState>
-      </Track>
+      </Page>
     )
   }
 

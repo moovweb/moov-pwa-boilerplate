@@ -5,6 +5,7 @@ import Row from 'moov-pwa/Row'
 import CheckoutButton from 'moov-pwa/CheckoutButton'
 import CartItem from './CartItem'
 import { observer, inject } from 'mobx-react'
+import Page from 'moov-pwa/Page'
 
 @inject(({ app, history }) => ({ cart: app.cart, history }))
 @observer
@@ -14,21 +15,23 @@ export default class Cart extends Component {
     const { cart } = this.props
 
     return (
-      <Container>
-        <Row>
-          <Typography variant="title">Cart</Typography>
-        </Row>
-        <Row>
-          { cart.items.length ? (
-            cart.items.map((product, i) => (
-              <CartItem key={i} product={product}/>
-            ))
-          ) : (
-            <Typography variant="body2">There are no items in your cart.</Typography>
-          )}
-        </Row>
-        <CheckoutButton docked/>
-      </Container>
+      <Page type="Cart">
+        <Container>
+          <Row>
+            <Typography variant="title">Cart</Typography>
+          </Row>
+          <Row>
+            { cart.items.length ? (
+              cart.items.map((product, i) => (
+                <CartItem key={i} product={product}/>
+              ))
+            ) : (
+              <Typography variant="body2">There are no items in your cart.</Typography>
+            )}
+          </Row>
+          <CheckoutButton docked/>
+        </Container>
+      </Page>
     )
   }
 

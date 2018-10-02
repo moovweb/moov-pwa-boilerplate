@@ -10,6 +10,7 @@ import SortButton from 'moov-pwa/SortButton'
 import withAmp from 'moov-pwa/amp/withAmp'
 import ShowMore from 'moov-pwa/ShowMore'
 import ResponsiveTiles from 'moov-pwa/ResponsiveTiles'
+import Page from 'moov-pwa/Page'
 
 @withStyles(theme => ({
   header: {
@@ -37,26 +38,28 @@ export default class Subcategory extends Component {
     if (!subcategory) return null
 
     return (
-      <Container className={classes.root} key={subcategory.id}>
-        <Typography variant="title" component="h1" className={classes.header}>{subcategory.name}</Typography>
-        <Typography variant="body1" className={classes.description}>{subcategory.description}</Typography>
+      <Page type="Subcategory">
+        <Container className={classes.root} key={subcategory.id}>
+          <Typography variant="title" component="h1" className={classes.header}>{subcategory.name}</Typography>
+          <Typography variant="body1" className={classes.description}>{subcategory.description}</Typography>
 
-        <Hbox className={classes.actions} split>
-          <FilterButton model={subcategory} className={classes.headerButton}/>
-          <div style={{ width: '15px' }}></div>
-          <SortButton model={subcategory} className={classes.headerButton}/>
-        </Hbox>
-        
-        <Typography variant="caption" className={classes.total}>{ subcategory.total } total items</Typography>
+          <Hbox className={classes.actions} split>
+            <FilterButton model={subcategory} className={classes.headerButton}/>
+            <div style={{ width: '15px' }}></div>
+            <SortButton model={subcategory} className={classes.headerButton}/>
+          </Hbox>
+          
+          <Typography variant="caption" className={classes.total}>{ subcategory.total } total items</Typography>
 
-        <ResponsiveTiles>
-          { subcategory.items.map((product, i) => (
-            <ProductItem index={i} key={i} product={product}/> 
-          ))}
-        </ResponsiveTiles>
+          <ResponsiveTiles>
+            { subcategory.items.map((product, i) => (
+              <ProductItem index={i} key={i} product={product}/> 
+            ))}
+          </ResponsiveTiles>
 
-        <ShowMore model={subcategory} infiniteScroll/>
-      </Container>
+          <ShowMore model={subcategory} infiniteScroll/>
+        </Container>
+      </Page>
     )
   
   }

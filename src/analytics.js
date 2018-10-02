@@ -1,6 +1,6 @@
 import { configureAnalytics } from 'moov-pwa/analytics'
-import GoogleAnalyticsTarget from 'moov-pwa/analytics/GoogleAnalyticsTarget'
-import CommerceAnalyticsTarget from 'moov-pwa/analytics/CommerceAnalyticsTarget'
+import GoogleAnalyticsTarget from 'moov-pwa-analytics/GoogleAnalyticsTarget'
+import CommerceAnalyticsTarget from 'moov-pwa-analytics/CommerceAnalyticsTarget'
 
 class TestAnalyticsTarget extends CommerceAnalyticsTarget {
   send(data) {

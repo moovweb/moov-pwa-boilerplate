@@ -8,6 +8,7 @@ import { withStyles } from '@material-ui/core'
 import withAmp from 'moov-pwa/amp/withAmp'
 import Image from 'moov-pwa/Image'
 import ResponsiveTiles from 'moov-pwa/ResponsiveTiles'
+import Page from 'moov-pwa/Page'
 
 @withAmp
 @withStyles(theme => ({
@@ -49,25 +50,27 @@ export default class App extends Component {
     if (!category) return null    
 
     return (
-      <Container>
-        <Row>
-          <Typography variant="title" component="h1">{category.name}</Typography>
-        </Row>
-        <Row>
-          <Typography variant="subheading" component="h2">{category.description}</Typography>
-        </Row> 
-        <Row>
-          <ResponsiveTiles cols={{ xs: 1, sm: 2, md: 3, lg: 4, xl: 4 }}>
-            { category.subcategories.map((subcategory, i) => (
-              <div key={subcategory.id}>
-                <Image lazy={i > 3} className={classes.image} aspectRatio={50} src={subcategory.image}/>
-                <Link prefetch="visible" className={classes.link} to={`/s/${subcategory.id}`}></Link>
-                <Typography className={classes.subcategoryName} variant="subheading">{subcategory.name}</Typography>
-              </div>
-            ))}
-          </ResponsiveTiles>
-        </Row>
-      </Container>
+      <Page type="category">
+        <Container>
+          <Row>
+            <Typography variant="title" component="h1">{category.name}</Typography>
+          </Row>
+          <Row>
+            <Typography variant="subheading" component="h2">{category.description}</Typography>
+          </Row> 
+          <Row>
+            <ResponsiveTiles cols={{ xs: 1, sm: 2, md: 3, lg: 4, xl: 4 }}>
+              { category.subcategories.map((subcategory, i) => (
+                <div key={subcategory.id}>
+                  <Image lazy={i > 3} className={classes.image} aspectRatio={50} src={subcategory.image}/>
+                  <Link prefetch="visible" className={classes.link} to={`/s/${subcategory.id}`}></Link>
+                  <Typography className={classes.subcategoryName} variant="subheading">{subcategory.name}</Typography>
+                </div>
+              ))}
+            </ResponsiveTiles>
+          </Row>
+        </Container>
+      </Page>
     )
   }
 }
