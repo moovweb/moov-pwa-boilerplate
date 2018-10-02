@@ -31,11 +31,7 @@ import Page from 'moov-pwa/Page'
     margin: `${theme.margins.container}px 0`,
   },
   link: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0
+    textDecoration: 'none'
   },
   image: {
     width: '100%'
@@ -62,9 +58,10 @@ export default class App extends Component {
             <ResponsiveTiles cols={{ xs: 1, sm: 2, md: 3, lg: 4, xl: 4 }}>
               { category.subcategories.map((subcategory, i) => (
                 <div key={subcategory.id}>
-                  <Image lazy={i > 3} className={classes.image} aspectRatio={50} src={subcategory.image}/>
-                  <Link prefetch="visible" className={classes.link} to={`/s/${subcategory.id}`}></Link>
-                  <Typography className={classes.subcategoryName} variant="subheading">{subcategory.name}</Typography>
+                  <Link prefetch="visible" className={classes.link} to={`/s/${subcategory.id}`}>
+                    <Image lazy={i > 3} className={classes.image} aspectRatio={50} src={subcategory.image} alt={category.name}/>
+                    <Typography className={classes.subcategoryName} variant="subheading">{subcategory.name}</Typography>
+                  </Link>
                 </div>
               ))}
             </ResponsiveTiles>

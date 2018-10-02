@@ -16,7 +16,7 @@
     "babel-eslint": "^8.2.3",
     "babel-loader": "^7.1.4",
     "babel-minify-webpack-plugin": "^0.3.1",
-    "babel-plugin-moov": "2.2.0",
+    "babel-plugin-moov": "^3.3.1",
     "babel-plugin-transform-async-to-generator": "^6.24.1",
     "babel-plugin-transform-decorators": "^6.24.1",
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
@@ -59,14 +59,15 @@
     "mobx-react": "^5.0.0",
     "mobx-state-tree": "^2.0.5",
     "moment": "^2.21.0",
-    "moov-pwa": "2.3.2",
-    "moov_builder": "3.0.2",
-    "moovsdk": "^7.0.18",
+    "moov-pwa": "^3.3.1",
+    "moov_builder": "^3.0.7",
+    "moovsdk": "^7.0.0",
     "mst-middlewares": "^2.0.1",
     "node-fetch": "^2.1.1",
     "open-browser-webpack-plugin": "^0.0.5",
     "prop-types": "^15.6.1",
     "qs": "^6.5.1",
+    "raw-loader": "^0.5.1",
     "react": "^16.4.2",
     "react-dev-utils": "^5.0.1",
     "react-dom": "^16.4.2",
@@ -89,21 +90,22 @@
     "write-file-webpack-plugin": "^4.2.0"
   },
   "scripts": {
-    "link": "f() { ln -sf moov_config-$@.json moov_config.json; }; f",
-    "start": "yarn run link local && yarn run clean && yarn moov",
-    "start:sw": "yarn run link local && yarn run clean && MOOV_SW=true yarn moov",
-    "deploy": "yarn run clean && f() { yarn run link $@ && moovsdk deploy moovweb moov-pwa-boilerplate-$@ --ignore-live --deploy-id=\"`git rev-parse HEAD`\" --notes=\"`git log -1 --pretty=format:%s`\" && yarn run link -- local; }; f",
-    "moov": "moovsdk start",
+    "analyze": "node ./tasks/on_analyze",
     "build": "node ./tasks/on_deploy",
-    "debug": "node --inspect node_modules/moovsdk/sdk.js start",
+    "cache:clear": "node ./tasks/on_cache_clear",
     "clean": "rm -rf pwa/build pwa/dist build/assets/* scripts/build/* && mkdir -p build/assets/pwa",
     "chrome": "open -a \"Google Chrome\" --args --ignore-certificate-errors",
+    "debug": "node --inspect node_modules/moovsdk/sdk.js start",
+    "deploy": "yarn run clean && f() { yarn run link $@ && moovsdk deploy moovweb moov-pwa-boilerplate-$@ --ignore-live --deploy-id=\"`git rev-parse HEAD`\" --notes=\"`git log -1 --pretty=format:%s`\" && yarn run link -- local; }; f",
+    "link": "f() { ln -sf moov_config-$@.json moov_config.json; }; f",
+    "moov": "moovsdk start",
+    "start": "yarn run link local && yarn run clean && yarn moov",
+    "start:playback": "yarn start --replay-upstream-requests",
+    "start:prod": "yarn run link local && yarn run clean && yarn build && yarn moov --no-build",
+    "start:sw": "yarn run link local && yarn run clean && MOOV_SW=true yarn moov",
     "start:windows": "moovsdk start",
-    "analyze": "node ./tasks/on_analyze"
+    "start:windows:prod": "yarn build && moovsdk start --no-build"
   },
   "author": "Moovweb",
-  "license": "MIT",
-  "eslintConfig": {
-    "extends": "react-app"
-  }
+  "license": "MIT"
 }

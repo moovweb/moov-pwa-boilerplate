@@ -3,7 +3,7 @@ import { withGlobalState } from 'moov-pwa/router'
 
 const pageSize = 10
 
-export default function subcategoryHandler({ id, filters, sort, page=0, format }, request, response) {
+export default function subcategoryHandler({ id='0', filters, sort, page=0, format }, request, response) {
   page = parseInt(page)
   
   if (page && format === 'json') {
@@ -50,7 +50,15 @@ function createProducts(count, start=0) {
   const items = []
 
   for (let i=1; i<=count; i++) {
-    items.push({ id: `${start + i}`, name: `Product ${start + i}`, price: 99.99, rating: i%5, thumbnail: `http://via.placeholder.com/128x128?index=${i}` })
+    const id = start + i
+    items.push({ 
+      id: id.toString(), 
+      url: `/p/${id}`,
+      name: `Product ${id}`, 
+      price: 99.99, 
+      rating: i%5, 
+      thumbnail: `http://via.placeholder.com/128x128?index=${id}` 
+    })
   }
 
   return items

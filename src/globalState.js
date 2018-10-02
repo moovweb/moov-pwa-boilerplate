@@ -1,4 +1,4 @@
-export default {
+export default () => ({
   menu: {
     levels: [{
       root: true,
@@ -37,4 +37,4 @@ export default {
       { text: 'Category 10', url: '/c/10', prefetch: 'visible' }
     ]
   }
-}
+})
