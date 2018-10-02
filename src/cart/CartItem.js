@@ -7,6 +7,7 @@ import { price } from 'moov-pwa/format'
 import { Hbox } from 'moov-pwa/Box'
 import { observer, inject } from 'mobx-react'
 import Button from '@material-ui/core/Button'
+import Track from 'moov-pwa/Track'
 
 @withStyles(theme => ({
   thumb: {
@@ -24,7 +25,7 @@ export default class CartItem extends Component {
       <div>
         <Hbox alignItems="flex-start">
           <div className={classes.thumb}>
-            <img alt="product" src={product.thumbnail}/>
+            <img alt="product" src={product.thumbnails[0]}/>
           </div>
           <div className={classes.info}>
             <Typography variant="subheading">{product.name}</Typography>
@@ -35,7 +36,9 @@ export default class CartItem extends Component {
           </div>
         </Hbox>
         <Row>
-          <Button size="small" variant="raised" onClick={this.remove}>Remove from Cart</Button>
+          <Track event="removedFromCart" product={product}>
+            <Button size="small" variant="raised" onClick={this.remove}>Remove from Cart</Button>
+          </Track>
         </Row>
       </div>
     )

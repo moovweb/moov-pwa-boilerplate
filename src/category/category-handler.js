@@ -5,6 +5,10 @@ export default function categoryHandler({ id }, request, response) {
   return withGlobalState(request, globalState, { 
     title: `Moov PWA - Category #${id}`,
     page: 'Category',
+    breadcrumbs: [
+      { text: 'Home', url: '/' },
+      { text: `Category ${id}` }
+    ],
     category: {
       id, 
       name: `Category ${id}`,
