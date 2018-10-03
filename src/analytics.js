@@ -12,6 +12,6 @@ configureAnalytics(
   new TestAnalyticsTarget()
     .sendForAllEvents()
     .setTrackBackClick(true),
-  // new GoogleAnalyticsTarget({ trackingID: 'abc123' })
-  //   .sendForAllEvents()
+  new GoogleAnalyticsTarget({ trackingID: 'abc123' })
+    .sendForAllEvents()
 )
