@@ -1,5 +1,5 @@
 import { types } from "mobx-state-tree"
-import CategoryModelBase from 'moov-pwa/model/CategoryModelBase'
+import CategoryModelBase from 'react-storefront/model/CategoryModelBase'
 import SubcategoryModel from '../subcategory/SubcategoryModel'
 
 const CategoryModel = types.compose(CategoryModelBase, 

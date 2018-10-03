@@ -1,4 +1,4 @@
-import createTheme from 'moov-pwa/createTheme'
+import createTheme from 'react-storefront/createTheme'
 
 const theme = createTheme({
   palette: {

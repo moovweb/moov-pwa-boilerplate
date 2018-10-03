@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
 import { inject, observer } from 'mobx-react'
 import Typography from '@material-ui/core/Typography'
-import Container from 'moov-pwa/Container'
-import { Hbox } from 'moov-pwa/Box'
+import Container from 'react-storefront/Container'
+import { Hbox } from 'react-storefront/Box'
 import { withStyles } from '@material-ui/core'
 import ProductItem from './ProductItem'
-import FilterButton from 'moov-pwa/FilterButton'
-import SortButton from 'moov-pwa/SortButton'
-import withAmp from 'moov-pwa/amp/withAmp'
-import ShowMore from 'moov-pwa/ShowMore'
-import ResponsiveTiles from 'moov-pwa/ResponsiveTiles'
+import FilterButton from 'react-storefront/FilterButton'
+import SortButton from 'react-storefront/SortButton'
+import withAmp from 'react-storefront/amp/withAmp'
+import ShowMore from 'react-storefront/ShowMore'
+import ResponsiveTiles from 'react-storefront/ResponsiveTiles'
 
 @withStyles(theme => ({
   header: {

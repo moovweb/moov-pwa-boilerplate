@@ -1,5 +1,5 @@
 import globalState from '../globalState'
-import { withGlobalState } from 'moov-pwa/router'
+import { withGlobalState } from 'react-storefront/router'
 
 export default function productHandler({ id }, request, response) {
   return withGlobalState(request, globalState, { 

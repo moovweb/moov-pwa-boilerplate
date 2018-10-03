@@ -2,11 +2,11 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography'
-import ProductLink from 'moov-pwa/ProductLink'
-import { Vbox } from 'moov-pwa/Box'
-import Rating from 'moov-pwa/Rating'
-import Image from 'moov-pwa/Image'
-import { price } from 'moov-pwa/format'
+import ProductLink from 'react-storefront/ProductLink'
+import { Vbox } from 'react-storefront/Box'
+import Rating from 'react-storefront/Rating'
+import Image from 'react-storefront/Image'
+import { price } from 'react-storefront/format'
 
 @withStyles(theme => ({
   root: {

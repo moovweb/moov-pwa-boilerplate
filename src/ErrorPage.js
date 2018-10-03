@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import Typography from '@material-ui/core/Typography'
-import Container from 'moov-pwa/Container'
-import Row from 'moov-pwa/Row'
-import Redbox from 'moov-pwa/Redbox'
+import Container from 'react-storefront/Container'
+import Row from 'react-storefront/Row'
+import Redbox from 'react-storefront/Redbox'
 
 export default class ErrorPage extends Component {
 
@@ -20,7 +20,7 @@ export default class ErrorPage extends Component {
         </Container>
       )
     } else {
-      // In development, we display moov-pwa/Redbox to help with debugging
+      // In development, we display react-storefront/Redbox to help with debugging
       return <Redbox/>
     }
   }

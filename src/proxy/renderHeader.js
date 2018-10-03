@@ -1,6 +1,6 @@
 import React from 'react'
 import Header from '../header/Header'
-import { render } from 'moov-pwa/renderers'
+import { render } from 'react-storefront/renderers'
 import AppModel from '../AppModel'
 import theme from '../theme'
 

@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import { inject, observer } from 'mobx-react'
 import { withStyles } from '@material-ui/core';
-import { Skeleton, BlankRow, Row, Space, Content, ImageSwitcher } from 'moov-pwa/Skeleton'
+import { Skeleton, BlankRow, Row, Space, Content, ImageSwitcher } from 'react-storefront/Skeleton'
 import Typography from '@material-ui/core/Typography'
-import Rating from 'moov-pwa/Rating'
-import { price } from 'moov-pwa/format'
-import { Hbox } from 'moov-pwa/Box'
+import Rating from 'react-storefront/Rating'
+import { price } from 'react-storefront/format'
+import { Hbox } from 'react-storefront/Box'
 
 @withStyles(() => ({
   image: {

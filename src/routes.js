@@ -1,4 +1,4 @@
-import { Router, fromClient, fromServer, cache, proxyUpstream } from 'moov-pwa/router'
+import { Router, fromClient, fromServer, cache, proxyUpstream } from 'react-storefront/router'
 
 const cacheHandler = cache({ server: { maxAgeSeconds: 300 }, client: true }) // cache responses in varnish for 5 minutes
 

@@ -1,6 +1,6 @@
 console.error = console.warn = console.log;
 
-const index = require('moov-pwa/platform').default
+const index = require('react-storefront/platform').default
 
 require('../src/analytics')
 

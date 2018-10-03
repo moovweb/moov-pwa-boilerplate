@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import { inject } from 'mobx-react'
-import Container from 'moov-pwa/Container'
+import Container from 'react-storefront/Container'
 import Typography from '@material-ui/core/Typography'
-import Row from 'moov-pwa/Row'
-import CmsSlot from 'moov-pwa/CmsSlot'
-import withAmp from 'moov-pwa/amp/withAmp'
-import Link from 'moov-pwa/Link'
+import Row from 'react-storefront/Row'
+import CmsSlot from 'react-storefront/CmsSlot'
+import withAmp from 'react-storefront/amp/withAmp'
+import Link from 'react-storefront/Link'
 
 @withAmp
 @inject('app')
@@ -17,7 +17,7 @@ export default class Home extends Component {
     return (
       <Container> 
         <Row>
-          <Typography variant="display1">Moov PWA</Typography>
+          <Typography variant="display1">React Storefront</Typography>
         </Row>
         <Row>
           <Typography variant="subheading">

@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import Typography from '@material-ui/core/Typography'
-import Container from 'moov-pwa/Container'
-import Row from 'moov-pwa/Row'
-import CheckoutButton from 'moov-pwa/CheckoutButton'
+import Container from 'react-storefront/Container'
+import Row from 'react-storefront/Row'
+import CheckoutButton from 'react-storefront/CheckoutButton'
 import CartItem from './CartItem'
 import { observer, inject } from 'mobx-react'
 

@@ -1,5 +1,5 @@
 import { types } from "mobx-state-tree"
-import ProductModelBase from 'moov-pwa/model/ProductModelBase'
+import ProductModelBase from 'react-storefront/model/ProductModelBase'
 
 const ProductModel = types.compose(ProductModelBase, 
   types.model("ProductModel", {

@@ -1,4 +1,4 @@
-const { prod } = require('moov-pwa/webpack/client')
+const { prod } = require('react-storefront/webpack/client')
 const path = require('path')
 
 module.exports = prod(path.join(__dirname, '..', '..'), {

@@ -1,5 +1,5 @@
 import renderHeader from './renderHeader'
-import getStats from 'moov-pwa-stats'
+import getStats from 'react-storefront-stats'
 
 export default async function proxyHandler(params, request, response) {
   try {

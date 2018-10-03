@@ -1,14 +1,14 @@
 import React, { Component, Fragment } from 'react'
 import { inject, observer } from 'mobx-react'
-import Link from 'moov-pwa/Link'
+import Link from 'react-storefront/Link'
 import Typography from '@material-ui/core/Typography'
-import Container from 'moov-pwa/Container'
-import Row from 'moov-pwa/Row'
+import Container from 'react-storefront/Container'
+import Row from 'react-storefront/Row'
 import { withStyles } from '@material-ui/core'
-import withAmp from 'moov-pwa/amp/withAmp'
-import Image from 'moov-pwa/Image'
-import ResponsiveTiles from 'moov-pwa/ResponsiveTiles'
-import Breadcrumbs from 'moov-pwa/Breadcrumbs'
+import withAmp from 'react-storefront/amp/withAmp'
+import Image from 'react-storefront/Image'
+import ResponsiveTiles from 'react-storefront/ResponsiveTiles'
+import Breadcrumbs from 'react-storefront/Breadcrumbs'
 
 @withAmp
 @withStyles(theme => ({

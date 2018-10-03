@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import withStyles from '@material-ui/core/styles/withStyles'
 import Header from './header/Header'
-import NavTabs from 'moov-pwa/NavTabs'
-import Pages from 'moov-pwa/Pages'
-import SearchDrawer from 'moov-pwa/SearchDrawer'
+import NavTabs from 'react-storefront/NavTabs'
+import Pages from 'react-storefront/Pages'
+import SearchDrawer from 'react-storefront/SearchDrawer'
 import Helmet from 'react-helmet'
 import ProductSkeleton from './product/ProductSkeleton'
-import UpdateNotification from 'moov-pwa/UpdateNotification'
+import UpdateNotification from 'react-storefront/UpdateNotification'
 
 @withStyles(theme => ({
   '@global': {

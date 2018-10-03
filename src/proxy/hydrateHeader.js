@@ -4,7 +4,7 @@ See config/webpack/webpack.*.client.js
 */
 
 import React from 'react'
-import { hydrate } from 'moov-pwa/renderers'
+import { hydrate } from 'react-storefront/renderers'
 import Header from '../header/Header'
 import model from '../AppModel'
 import theme from '../theme'

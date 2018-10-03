@@ -1,6 +1,6 @@
 import React  from 'react'
-import Container from 'moov-pwa/Container'
-import Row from 'moov-pwa/Row'
+import Container from 'react-storefront/Container'
+import Row from 'react-storefront/Row'
 
 export default function Checkout() {
   return (

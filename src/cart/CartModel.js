@@ -1,7 +1,7 @@
 import { types } from "mobx-state-tree"
-import CartModelBase from 'moov-pwa/model/CartModelBase'
+import CartModelBase from 'react-storefront/model/CartModelBase'
 import ProductModel from '../product/ProductModel'
-import persist from 'moov-pwa/persist'
+import persist from 'react-storefront/persist'
 
 const CartModel = types.compose(CartModelBase, types
   .model("CartModel", {
