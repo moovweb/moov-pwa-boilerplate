@@ -7,6 +7,7 @@ import { Vbox } from 'react-storefront/Box'
 import Rating from 'react-storefront/Rating'
 import Image from 'react-storefront/Image'
 import { price } from 'react-storefront/format'
+import Track from 'react-storefront/Track'
 
 @withStyles(theme => ({
   root: {
@@ -35,7 +36,7 @@ import { price } from 'react-storefront/format'
   reviewCount: {
     marginLeft: '2px'    
   }
-}), { name: 'MoovProductItem' })
+}), { name: 'RSFProductItem' })
 export default class ProductItem extends Component {
 
   static propTypes = {
@@ -48,20 +49,22 @@ export default class ProductItem extends Component {
 
     return (
       <div id={`item-${index}`} className={classes.root}>
-        <ProductLink prefetch="visible" className={classes.link} product={product}>
-          <Vbox alignItems="stretch">
-            <div className={classes.thumb}>
-              <Image lazy={index >= 4 && index < 10} aspectRatio={100} alt="product" src={product.thumbnail}/>
-            </div>
-            <div>
-              <Typography variant="subheading" className={classes.name}>
-                {product.name}
-              </Typography>
-              <Rating product={product} className={classes.rating}/>
-              <Typography className={classes.price}>{ price(product.price) }</Typography>
-            </div>
-          </Vbox>
-        </ProductLink>
+        <Track event="productClicked" product={product}>
+          <ProductLink prefetch="visible" className={classes.link} product={product}>
+            <Vbox alignItems="stretch">
+              <div className={classes.thumb}>
+                <Image lazy={index >= 4 && index < 10} aspectRatio={100} alt="product" src={product.thumbnail}/>
+              </div>
+              <div>
+                <Typography variant="subheading" className={classes.name}>
+                  {product.name}
+                </Typography>
+                <Rating product={product} className={classes.rating}/>
+                <Typography className={classes.price}>{ price(product.price) }</Typography>
+              </div>
+            </Vbox>
+          </ProductLink>
+        </Track>
       </div>
     )
   }

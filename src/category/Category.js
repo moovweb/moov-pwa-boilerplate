@@ -36,7 +36,7 @@ import Breadcrumbs from 'react-storefront/Breadcrumbs'
   image: {
     width: '100%'
   }
-}), { name: 'MoovDemoCategory' })
+}), { name: 'RSFDemoCategory' })
 @inject(({ app }) => ({ category: app.category }))
 @observer
 export default class App extends Component {

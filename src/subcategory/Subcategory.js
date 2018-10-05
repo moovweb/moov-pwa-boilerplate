@@ -25,7 +25,7 @@ import ResponsiveTiles from 'react-storefront/ResponsiveTiles'
     margin: '10px 0',
     textAlign: 'right'
   }
-}), { name: 'MoovSubcategory' })
+}), { name: 'RSFSubcategory' })
 @withAmp
 @inject(({ app }) => ({ subcategory: app.subcategory, app }))
 @observer

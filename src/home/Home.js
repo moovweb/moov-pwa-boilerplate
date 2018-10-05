@@ -6,6 +6,7 @@ import Row from 'react-storefront/Row'
 import CmsSlot from 'react-storefront/CmsSlot'
 import withAmp from 'react-storefront/amp/withAmp'
 import Link from 'react-storefront/Link'
+import PromoBanner from 'react-storefront/PromoBanner'
 
 @withAmp
 @inject('app')
@@ -16,6 +17,7 @@ export default class Home extends Component {
 
     return (
       <Container> 
+        <PromoBanner src="http://via.placeholder.com/350x100?i=1" href="/c/1" name="main promo" imgProps={{ aspectRatio: 35 }}/>
         <Row>
           <Typography variant="display1">React Storefront</Typography>
         </Row>
