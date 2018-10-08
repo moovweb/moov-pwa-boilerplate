@@ -28,6 +28,12 @@ export default new Router()
     fromServer('./product/product-handler'),
     track(analytics.productPageView)
   )
+  // This API method is automatically called and state is updated when the product model's color
+  // is changed. Refer to `product/images-handler.js` to see an example implementation of the handler.
+  .get('/p/:id/images/:color',
+    cacheHandler,
+    fromServer('./product/images-handler')
+  )
   .get('/cart',
     fromClient({ page: 'Cart' }),
     fromServer('./cart/cart-handler'),

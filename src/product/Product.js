@@ -13,6 +13,8 @@ import withAmp from 'moov-pwa/amp/withAmp'
 import AmpState from 'moov-pwa/amp/AmpState'
 import AmpForm from 'moov-pwa/amp/AmpForm'
 import Rating from 'moov-pwa/Rating'
+import ButtonSelector from 'moov-pwa/ButtonSelector'
+import classnames from 'classnames'
 
 @withStyles(theme => ({
   root: {
@@ -25,7 +27,10 @@ import Rating from 'moov-pwa/Rating'
   },
   rating: {
     marginLeft: '10px'
-  }
+  },
+  label: {
+    marginBottom: '10px'
+  },
 }))
 @withAmp
 @inject(({ app }) => ({ product: app.product }))
@@ -63,6 +68,10 @@ export default class Product extends Component {
                 <div style={{ marginRight: '15px' }}>Quantity:</div>
                 <QuantitySelector product={product}/>
               </Hbox>
+            </Row>
+            <Row>
+              <Typography variant="body1" className={classnames(classes.label)}>Color</Typography>
+              <ButtonSelector name="color" model={product.color} showSelectedText/>
             </Row>
             <AddToCartButton product={product} docked confirmation="This item has been added to your cart."/>
             <Row>
