@@ -69,6 +69,10 @@ export default class Product extends Component {
                 <QuantitySelector product={product}/>
               </Hbox>
             </Row>
+            <Row className={classes.size}>
+              <Typography variant="body1" className={classnames(classes.label)}>Size</Typography>
+              <ButtonSelector name="size" model={product.size}/>
+            </Row>
             <Row>
               <Typography variant="body1" className={classnames(classes.label)}>Color</Typography>
               <ButtonSelector name="color" model={product.color} showSelectedText/>
