@@ -4,7 +4,6 @@ import AppBar from 'moov-pwa/AppBar'
 import IconButton from '@material-ui/core/IconButton'
 import FindStore from '@material-ui/icons/LocationOn'
 import Search from '@material-ui/icons/Search'
-import withWidth, { isWidthUp } from '@material-ui/core/withWidth';
 import Link from 'moov-pwa/Link'
 import { withStyles } from '@material-ui/core/styles'
 import Logo from '../assets/moovweb-logo.svg'
@@ -14,7 +13,6 @@ import Hidden from '@material-ui/core/Hidden'
 import Menu from 'moov-pwa/Menu'
 import PromoBanner from 'moov-pwa/PromoBanner'
 
-@withWidth()
 @withStyles(theme => ({
   root: {
     height: '64px',
@@ -57,8 +55,7 @@ export default class Header extends Component {
       </Link>
     )
 
-    const promoWidth = isWidthUp('sm', this.props.width) ? 1400 : 400;
-    const promo = `https://placehold.it/${promoWidth}x64/81d4fa/fff?text=${encodeURIComponent('25% OFF all products in XYZ category')}`
+    const promo = `https://placehold.it/375x46/81d4fa/fff?text=${encodeURIComponent('25% OFF EVERYTHING')}`
 
     return (
       <div>
@@ -75,7 +72,7 @@ export default class Header extends Component {
           </IconButton>
           <CartButton classes={{ icon: classes.icon }}/>
         </AppBar>
-        <PromoBanner src={promo}/>
+        <PromoBanner src={promo} />
       </div>
     )
   }
