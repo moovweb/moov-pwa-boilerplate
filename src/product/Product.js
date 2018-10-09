@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Typography from '@material-ui/core/Typography'
+import Paper from '@material-ui/core/Paper'
 import Container from 'moov-pwa/Container'
 import { observer, inject } from 'mobx-react'
 import { withStyles } from '@material-ui/core'
@@ -14,6 +15,8 @@ import AmpState from 'moov-pwa/amp/AmpState'
 import AmpForm from 'moov-pwa/amp/AmpForm'
 import Rating from 'moov-pwa/Rating'
 import ButtonSelector from 'moov-pwa/ButtonSelector'
+import TabPanel from 'moov-pwa/TabPanel'
+import CmsSlot from 'moov-pwa/CmsSlot'
 import classnames from 'classnames'
 
 @withStyles(theme => ({
@@ -31,11 +34,19 @@ import classnames from 'classnames'
   label: {
     marginBottom: '10px'
   },
+  review: {
+    padding: '10px',
+    marginBottom: '10px'
+  }
 }))
 @withAmp
 @inject(({ app }) => ({ product: app.product }))
 @observer
 export default class Product extends Component { 
+
+  renderReview(review) {
+    return <Paper className={this.props.classes.review}>{review}</Paper>;
+  }
 
   render() {
     const { product, classes } = this.props
@@ -78,9 +89,13 @@ export default class Product extends Component {
               <ButtonSelector name="color" model={product.color} showSelectedText/>
             </Row>
             <AddToCartButton product={product} docked confirmation="This item has been added to your cart."/>
-            <Row>
-              <Typography variant="body2">{product.description}</Typography>
-            </Row>
+            
+            <TabPanel>
+              <CmsSlot key="description" label="Description">{product.description}</CmsSlot>
+              <CmsSlot key="specs" label="Specs">{product.specs}</CmsSlot>
+              <div key="reviews" label="Reviews">{product.reviews.map(review => this.renderReview(review))}</div>
+            </TabPanel>
+
           </Container>
         </AmpForm>
       </AmpState>
