@@ -13,6 +13,9 @@ export default function productHandler({ id }, request, response) {
       rating: id % 5,
       reviewCount: id * 10,
       description: 'This is the product description.',
+      size: {
+        options: ['XS', 'S', 'M', 'L', 'XL'].map(option => ({ id: option, text: option })),
+      },
       color: {
         options: [
           { text: 'Candy Apple Red', id: 'd32f2f', image: 'http://via.placeholder.com/350/d32f2f/d32f2f' },
