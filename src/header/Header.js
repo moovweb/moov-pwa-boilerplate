@@ -58,12 +58,10 @@ export default class Header extends Component {
     )
 
     const promoWidth = isWidthUp('sm', this.props.width) ? 1400 : 400;
-    const promo = `https://placehold.it/${promoWidth}x50?text=` +
-      encodeURIComponent('25% OFF all products in XYZ category');
+    const promo = `https://placehold.it/${promoWidth}x64/81d4fa/fff?text=${encodeURIComponent('25% OFF all products in XYZ category')}`
 
     return (
       <div>
-        <PromoBanner src={promo} />
         <AppBar classes={{ root: classes.root }}>
           <Menu useExpanders/>
           <Hidden mdUp implementation="css">{ storeFinder }</Hidden>
@@ -77,6 +75,7 @@ export default class Header extends Component {
           </IconButton>
           <CartButton classes={{ icon: classes.icon }}/>
         </AppBar>
+        <PromoBanner src={promo}/>
       </div>
     )
   }
