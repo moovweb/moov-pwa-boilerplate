@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Typography from '@material-ui/core/Typography'
+import Paper from '@material-ui/core/Paper'
 import Container from 'moov-pwa/Container'
 import { observer, inject } from 'mobx-react'
 import { withStyles } from '@material-ui/core'
@@ -14,6 +15,8 @@ import AmpState from 'moov-pwa/amp/AmpState'
 import AmpForm from 'moov-pwa/amp/AmpForm'
 import Rating from 'moov-pwa/Rating'
 import ButtonSelector from 'moov-pwa/ButtonSelector'
+import TabPanel from 'moov-pwa/TabPanel'
+import CmsSlot from 'moov-pwa/CmsSlot'
 import classnames from 'classnames'
 
 @withStyles(theme => ({
@@ -31,11 +34,19 @@ import classnames from 'classnames'
   label: {
     marginBottom: '10px'
   },
+  review: {
+    padding: '10px',
+    marginBottom: '10px'
+  }
 }))
 @withAmp
 @inject(({ app }) => ({ product: app.product }))
 @observer
 export default class Product extends Component { 
+
+  renderReview(review) {
+    return ;
+  }
 
   render() {
     const { product, classes } = this.props
@@ -64,23 +75,29 @@ export default class Product extends Component {
               <ImageSwitcher classes={{ root: classes.imageSwitcher }} product={product} indicators/>
             </Row>
             <Row>
-              <Hbox>
-                <div style={{ marginRight: '15px' }}>Quantity:</div>
-                <QuantitySelector product={product}/>
-              </Hbox>
+              <Typography variant="body1" className={classnames(classes.label)}>Color</Typography>
+              <ButtonSelector name="color" model={product.color} showSelectedText/>
             </Row>
             <Row className={classes.size}>
               <Typography variant="body1" className={classnames(classes.label)}>Size</Typography>
               <ButtonSelector name="size" model={product.size}/>
             </Row>
             <Row>
-              <Typography variant="body1" className={classnames(classes.label)}>Color</Typography>
-              <ButtonSelector name="color" model={product.color} showSelectedText/>
+              <Hbox>
+                <div style={{ marginRight: '15px' }}>Quantity:</div>
+                <QuantitySelector product={product}/>
+              </Hbox>
             </Row>
             <AddToCartButton product={product} docked confirmation="This item has been added to your cart."/>
-            <Row>
-              <Typography variant="body2">{product.description}</Typography>
-            </Row>
+            <TabPanel>
+              <CmsSlot label="Description">{product.description}</CmsSlot>
+              <CmsSlot label="Specs">{product.specs}</CmsSlot>
+              <div label="Reviews">
+                {product.reviews.map((review, i) => (
+                  <Paper key={i} className={this.props.classes.review}>{review}</Paper>
+                ))}
+              </div>
+            </TabPanel>
           </Container>
         </AmpForm>
       </AmpState>
