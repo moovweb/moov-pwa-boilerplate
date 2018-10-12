@@ -40,14 +40,14 @@ export default function productHandler({ id }, request, response) {
         selected: { text: 'Candy Apple Red', id: 'd32f2f', image: 'http://via.placeholder.com/350/d32f2f/d32f2f' }
       },
       images: [
-        "http://via.placeholder.com/400x400",
-        "http://via.placeholder.com/400x350",
-        "http://via.placeholder.com/350x400",
+        "http://via.placeholder.com/400x400/d32f2f/ffffff",
+        "http://via.placeholder.com/400x350/d32f2f/ffffff",
+        "http://via.placeholder.com/350x400/d32f2f/ffffff",
       ],
       thumbnails: [
-        "http://via.placeholder.com/40x40",
-        "http://via.placeholder.com/40x35",
-        "http://via.placeholder.com/35x40"
+        "http://via.placeholder.com/40x40/d32f2f/ffffff",
+        "http://via.placeholder.com/40x35/d32f2f/ffffff",
+        "http://via.placeholder.com/35x40/d32f2f/ffffff"
       ]
     }
   })

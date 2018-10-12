@@ -45,7 +45,7 @@ import classnames from 'classnames'
 export default class Product extends Component { 
 
   renderReview(review) {
-    return <Paper className={this.props.classes.review}>{review}</Paper>;
+    return ;
   }
 
   render() {
@@ -75,27 +75,29 @@ export default class Product extends Component {
               <ImageSwitcher classes={{ root: classes.imageSwitcher }} product={product} indicators/>
             </Row>
             <Row>
-              <Hbox>
-                <div style={{ marginRight: '15px' }}>Quantity:</div>
-                <QuantitySelector product={product}/>
-              </Hbox>
+              <Typography variant="body1" className={classnames(classes.label)}>Color</Typography>
+              <ButtonSelector name="color" model={product.color} showSelectedText/>
             </Row>
             <Row className={classes.size}>
               <Typography variant="body1" className={classnames(classes.label)}>Size</Typography>
               <ButtonSelector name="size" model={product.size}/>
             </Row>
             <Row>
-              <Typography variant="body1" className={classnames(classes.label)}>Color</Typography>
-              <ButtonSelector name="color" model={product.color} showSelectedText/>
+              <Hbox>
+                <div style={{ marginRight: '15px' }}>Quantity:</div>
+                <QuantitySelector product={product}/>
+              </Hbox>
             </Row>
             <AddToCartButton product={product} docked confirmation="This item has been added to your cart."/>
-            
             <TabPanel>
-              <CmsSlot key="description" label="Description">{product.description}</CmsSlot>
-              <CmsSlot key="specs" label="Specs">{product.specs}</CmsSlot>
-              <div key="reviews" label="Reviews">{product.reviews.map(review => this.renderReview(review))}</div>
+              <CmsSlot label="Description">{product.description}</CmsSlot>
+              <CmsSlot label="Specs">{product.specs}</CmsSlot>
+              <div label="Reviews">
+                {product.reviews.map((review, i) => (
+                  <Paper key={i} className={this.props.classes.review}>{review}</Paper>
+                ))}
+              </div>
             </TabPanel>
-
           </Container>
         </AmpForm>
       </AmpState>
