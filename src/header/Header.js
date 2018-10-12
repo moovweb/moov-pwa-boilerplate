@@ -11,6 +11,7 @@ import CartButton from 'moov-pwa/CartButton'
 import HeaderLogo from 'moov-pwa/HeaderLogo'
 import Hidden from '@material-ui/core/Hidden'
 import Menu from 'moov-pwa/Menu'
+import PromoBanner from 'moov-pwa/PromoBanner'
 
 @withStyles(theme => ({
   root: {
@@ -54,21 +55,25 @@ export default class Header extends Component {
       </Link>
     )
 
+    const promo = `https://placehold.it/375x46/81d4fa/fff?text=${encodeURIComponent('25% OFF EVERYTHING')}`
+
     return (
-      <AppBar classes={{ root: classes.root }}>
-        <Menu useExpanders/>
-        <Hidden mdUp implementation="css">{ storeFinder }</Hidden>
-        <HeaderLogo>
-          <Logo>
-          </Logo>
-        </HeaderLogo>
-        <div style={{ flex: 1 }}/>
-        <Hidden smDown implementation="css">{ storeFinder }</Hidden>
-        <IconButton aria-label="Search" color="inherit"  classes={{label: classes.large }} onClick={this.onSearchClick}>
-          <Search className={classes.icon}/>
-        </IconButton>
-        <CartButton classes={{ icon: classes.icon }}/>
-      </AppBar>
+      <div>
+        <AppBar classes={{ root: classes.root }}>
+          <Menu useExpanders/>
+          <Hidden mdUp implementation="css">{ storeFinder }</Hidden>
+          <HeaderLogo>
+            <Logo />
+          </HeaderLogo>
+          <div style={{ flex: 1 }}/>
+          <Hidden smDown implementation="css">{ storeFinder }</Hidden>
+          <IconButton aria-label="Search" color="inherit"  classes={{label: classes.large }} onClick={this.onSearchClick}>
+            <Search className={classes.icon}/>
+          </IconButton>
+          <CartButton classes={{ icon: classes.icon }}/>
+        </AppBar>
+        <PromoBanner src={promo} />
+      </div>
     )
   }
 
