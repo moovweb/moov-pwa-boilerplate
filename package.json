@@ -3,6 +3,8 @@
   "version": "0.2.0",
   "main": "scripts/moov_main.js",
   "dependencies": {
+    "react-storefront": "^4.0.0-0",
+    "babel-plugin-react-storefront": "^4.0.0-0",
     "lodash": "^4.17.5",
     "moov_perf": "1.2.5",
     "moov_rewriter": "^3.2.3",
@@ -59,7 +61,6 @@
     "mobx-react": "^5.0.0",
     "mobx-state-tree": "^2.0.5",
     "moment": "^2.21.0",
-    "react-storefront": "^3.3.1",
     "moov_builder": "^3.0.7",
     "moovsdk": "^7.0.0",
     "mst-middlewares": "^2.0.1",
