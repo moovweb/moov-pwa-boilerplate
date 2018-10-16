@@ -29,7 +29,7 @@ yarn start:windows
 ### Clone the repo into a directory
 
 ```
-git clone git@github.com:moovweb/moov-pwa-boilerplate.git <project-name>
+git clone git@github.com:moovweb/react-storefront-boilerplate.git <project-name>
 cd <project-name>
 ```
 

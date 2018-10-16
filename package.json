@@ -1,5 +1,5 @@
 {
-  "name": "moov-pwa-boilerplate",
+  "name": "react-storefront-boilerplate",
   "version": "0.2.0",
   "main": "scripts/moov_main.js",
   "dependencies": {
