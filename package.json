@@ -3,7 +3,7 @@
   "version": "0.2.0",
   "main": "scripts/moov_main.js",
   "dependencies": {
-    "lodash": "^4.17.5",
+    "lodash": "^4.17.19",
     "moov_perf": "1.2.5",
     "moov_rewriter": "^3.2.3",
     "moov_stdlib": "2.6.31"
